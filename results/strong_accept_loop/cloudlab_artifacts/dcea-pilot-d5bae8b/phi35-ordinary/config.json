@@ -1,0 +1,10 @@
+{
+  "contrastive": false,
+  "dtype": "float16",
+  "license": "MIT",
+  "max_new_tokens": 48,
+  "model_id": "microsoft/Phi-3.5-mini-instruct",
+  "revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216",
+  "seed": 1701,
+  "template_count": 20
+}

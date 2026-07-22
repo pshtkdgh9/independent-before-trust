@@ -1,0 +1,9 @@
+{
+  "redundancy_interaction": 0.09999999999999998,
+  "redundant_counterfactual_following_rate": 0.95,
+  "redundant_directional_rate": 0.95,
+  "redundant_pair_flip_rate": 1.0,
+  "singleton_counterfactual_following_rate": 0.85,
+  "singleton_directional_rate": 0.85,
+  "singleton_pair_flip_rate": 1.0
+}

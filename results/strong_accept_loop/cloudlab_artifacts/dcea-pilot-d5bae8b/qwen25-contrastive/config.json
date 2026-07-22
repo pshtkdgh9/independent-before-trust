@@ -1,0 +1,10 @@
+{
+  "contrastive": true,
+  "dtype": "float16",
+  "license": "Apache-2.0",
+  "max_new_tokens": 48,
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "seed": 1701,
+  "template_count": 20
+}

@@ -183,7 +183,10 @@ def validate_run(output_dir: Path) -> dict[str, object]:
             errors.append("parse_failures")
     stored_metrics = json.loads((output_dir / "metrics.json").read_text(encoding="utf-8"))
     reproduced_metrics = summarize_cells(reproduced)
-    if stored_metrics != reproduced_metrics:
+    reproduced_stored_keys = {
+        key: reproduced_metrics.get(key) for key in stored_metrics
+    }
+    if stored_metrics != reproduced_stored_keys:
         errors.append("metrics_mismatch")
     return {
         "status": "pass" if not errors else "fail",
@@ -211,6 +214,9 @@ def summarize_cells(scores: Iterable[GenerationScore]) -> dict[str, float]:
         rows = [row for row in groups[redundancy] if row.condition.endswith("counterfactual")]
         return rate(rows)
 
+    singleton_counterfactual = counterfactual_rate(False)
+    redundant_counterfactual = counterfactual_rate(True)
+
     def flip_rate(redundancy: bool) -> float:
         pairs = [
             pair
@@ -231,8 +237,9 @@ def summarize_cells(scores: Iterable[GenerationScore]) -> dict[str, float]:
         "singleton_directional_rate": singleton,
         "redundant_directional_rate": redundant,
         "redundancy_interaction": redundant - singleton,
-        "singleton_counterfactual_following_rate": counterfactual_rate(False),
-        "redundant_counterfactual_following_rate": counterfactual_rate(True),
+        "singleton_counterfactual_following_rate": singleton_counterfactual,
+        "redundant_counterfactual_following_rate": redundant_counterfactual,
+        "counterfactual_redundancy_interaction": redundant_counterfactual - singleton_counterfactual,
         "singleton_pair_flip_rate": flip_rate(False),
         "redundant_pair_flip_rate": flip_rate(True),
     }

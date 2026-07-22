@@ -104,6 +104,7 @@ class DCEATest(unittest.TestCase):
         self.assertEqual(summary["redundancy_interaction"], 0.5)
         self.assertEqual(summary["singleton_counterfactual_following_rate"], 0.0)
         self.assertEqual(summary["redundant_counterfactual_following_rate"], 1.0)
+        self.assertEqual(summary["counterfactual_redundancy_interaction"], 1.0)
         self.assertEqual(summary["singleton_pair_flip_rate"], 0.0)
         self.assertEqual(summary["redundant_pair_flip_rate"], 1.0)
 
@@ -157,6 +158,22 @@ class DCEATest(unittest.TestCase):
             report = validate_run(output_dir)
             self.assertEqual(report["status"], "fail")
             self.assertIn("metrics_mismatch", report["errors"])
+
+    def test_validator_accepts_legacy_metric_subset(self) -> None:
+        class EvidenceFollowingBackend:
+            def generate(self, prompt: str) -> str:
+                answer = "2017" if "2017" in prompt else "2012"
+                return f"ANSWER: {answer}\nCITATION: K7"
+
+        with TemporaryDirectory() as temp_dir:
+            output_dir = Path(temp_dir)
+            run_pilot([self.template], EvidenceFollowingBackend(), output_dir, contrastive=False)
+            metrics_path = output_dir / "metrics.json"
+            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+            del metrics["counterfactual_redundancy_interaction"]
+            metrics_path.write_text(json.dumps(metrics), encoding="utf-8")
+
+            self.assertEqual(validate_run(output_dir)["status"], "pass")
 
     def test_pilot_fixture_has_distinct_balanced_values(self) -> None:
         templates = pilot_templates()

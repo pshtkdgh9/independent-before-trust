@@ -1,0 +1,13 @@
+{
+  "command": "python scripts/build_esp_pilot.py --input data/raw/biolaysumm-elife/144e9c78/validation-00000-of-00001.parquet --output data/processed/esp-pilot-v0/items.jsonl --limit 40 --source-revision 144e9c785e3a309da804eb6786feb38e6596f390",
+  "limit": 40,
+  "output_bytes": 188002,
+  "output_path": "data/processed/esp-pilot-v0/items.jsonl",
+  "output_sha256": "8d77925b026492a3a81b411beaf7281a9cda65dbe01752b12dd5eea52cc06da9",
+  "selection": "source order; abstract section only; first fixed-lexicon frames",
+  "source_bytes": 6921124,
+  "source_path": "data/raw/biolaysumm-elife/144e9c78/validation-00000-of-00001.parquet",
+  "source_records": 241,
+  "source_revision": "144e9c785e3a309da804eb6786feb38e6596f390",
+  "source_sha256": "6a64c7cd2b93fd74601f93cd620bd063c7acd5a7e5daf12c4a4eda22d20390f4"
+}

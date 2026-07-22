@@ -34,6 +34,8 @@ def record_downloaded_file(
     terms_url: str,
     access_timestamp: str,
     download_command: str,
+    privacy_or_consent: str,
+    redistribution: str,
 ) -> dict[str, Any]:
     """Append provenance for one immutable downloaded source file."""
     if not file_path.is_file():
@@ -50,8 +52,8 @@ def record_downloaded_file(
         "bytes": file_path.stat().st_size,
         "sha256": sha256_file(file_path),
         "download_command": download_command,
-        "privacy_or_consent": "public synthetic reasoning task; no personal data expected",
-        "redistribution": "permitted subject to upstream Apache-2.0 attribution terms",
+        "privacy_or_consent": privacy_or_consent,
+        "redistribution": redistribution,
     }
     _append_record(manifest_path, record)
     return record

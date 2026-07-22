@@ -39,6 +39,7 @@ Date: 2026-07-22
 - CLEP protocol v1 completed 72 CloudLab generations at `bbf75d1` across two models and three methods. All six integrity reports are `fail`; the exact proposition field was underspecified and output-format compliance was incomplete. The raw artifacts are retained as diagnostic only and will not be rescored.
 - CLEP closed-label protocol v2 completed 144 new generations at `fa3102a`; all six integrity reports pass. Language effects were not directionally consistent across English, Korean, and Spanish, and typed generation improved Qwen but not Phi relative to translate-then-classify.
 - A third-pivot search compared six public-data method candidates. Question-guided simplification repair and ToTTo input repair were rejected after direct 2024--2025 collisions; epistemic-scope-preserving lay summarization is provisional pending full-text and data gates.
+- Pinned BioLaySumm eLife revision `144e9c785e3a309da804eb6786feb38e6596f390`; checksum-verified validation and blind-test splits were acquired, and a deterministic 40-frame/31-document development manifest was built from abstract sections.
 
 ## Blocking evidence
 
@@ -52,6 +53,7 @@ Date: 2026-07-22
 - The first `d7525` allocation failed because zero nodes were available; the failure is recorded in `cloudlab_attempts.md`.
 - The first real invocation exposed and preserved a `transformers==5.14.1` incompatibility; official model-card versions were pinned and a one-item paired smoke test passed before the full rerun.
 - No main experiments, ablations, robustness tests, or error analysis.
+- The ESP cue extractor supplies candidates only; no human-reviewed scope gold labels or ESP model generations exist yet.
 - No manuscript/PDF, supplement, cold-review pass, or meta-review pass.
 - Topic-stage overlap clearance does not replace the mandatory final manuscript/supplement lexical, semantic, and evidence-lineage audit.
 

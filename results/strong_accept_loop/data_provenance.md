@@ -1,5 +1,29 @@
 # Data Provenance Register
 
+## ESP provisional corpus
+
+| Item | Value |
+|---|---|
+| Name | BioLaySumm 2025 eLife validation and blind-test Parquet splits |
+| Canonical repository | <https://huggingface.co/datasets/BioLaySumm/BioLaySumm2025-eLife> |
+| Immutable revision | `144e9c785e3a309da804eb6786feb38e6596f390` |
+| Upstream corpus paper | Goldsack et al., EMNLP 2022, <https://aclanthology.org/2022.emnlp-main.724/> |
+| License/terms | Underlying eLife articles and summaries are CC BY 4.0 according to the corpus paper; the Hugging Face dataset card does not expose a separate license field, so that packaging ambiguity is retained rather than silently normalized |
+| Access date | 2026-07-22 |
+| Validation raw path | `data/raw/biolaysumm-elife/144e9c78/validation-00000-of-00001.parquet` |
+| Validation bytes / SHA-256 | `6,921,124` / `6a64c7cd2b93fd74601f93cd620bd063c7acd5a7e5daf12c4a4eda22d20390f4` |
+| Blind-test raw path | `data/raw/biolaysumm-elife/144e9c78/test-00000-of-00001.parquet` |
+| Blind-test bytes / SHA-256 | `3,274,608` / `00b9fe32d05d013d21d4796986ef030b72f8f9302827a97c94303a130c7ee0e3` |
+| Raw storage policy | Git-ignored; recoverable from immutable URLs and commands recorded in `data_provenance/manifest.jsonl` |
+| Preprocessing command | `python scripts/build_esp_pilot.py --input data/raw/biolaysumm-elife/144e9c78/validation-00000-of-00001.parquet --output data/processed/esp-pilot-v0/items.jsonl --limit 40 --source-revision 144e9c785e3a309da804eb6786feb38e6596f390` |
+| Processed result | 40 fixed-lexicon frames from 31 validation documents; `188,002` bytes; SHA-256 `8d77925b026492a3a81b411beaf7281a9cda65dbe01752b12dd5eea52cc06da9` |
+| Selection | Source order; abstract section only; first occurrences of a frozen conservative cue lexicon; no outcome-dependent filtering |
+| Privacy/consent | Public scholarly articles and editor/author lay summaries; no private clinical notes or patient records |
+| Redistribution | Do not redistribute the HF Parquet packaging until its card-level terms are clarified; release scripts, hashes, IDs, and derived annotations where attribution and source terms permit |
+| Known risks | Cue matching is candidate retrieval, not gold scope annotation; the validation split is used only for method development; the blind-test summaries are empty and cannot be used for reference-based claims |
+
+The two downloads were checksum-verified against their Git-LFS object hashes. The blind test was inspected only to establish its schema and absence of reference summaries; it will not be used to tune or score the method. Human-reviewed scope labels and a document-disjoint evaluation split remain mandatory before any ESP finding is promoted.
+
 ## CLEP provisional data boundary
 
 No external CLEP dataset has been acquired yet. The first controlled pilot will use newly authored minimal propositions and independently checked English/Korean/Spanish parallel realizations. These are method-development fixtures, not a released benchmark and not sufficient for a headline generalization claim. Before any public corpus is downloaded, this file must record source URL, revision/version, visible license or terms, acquisition time, compressed and extracted sizes, SHA-256 checksums, exact preprocessing command, output location, and redistribution boundary.

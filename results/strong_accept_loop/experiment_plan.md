@@ -107,3 +107,18 @@ The first pilot uses the already pinned Phi-3.5 and Qwen2.5-1.5B snapshots, dete
 Protocol v1 ran but is invalid for claims. Its free-form `proposition` field did not operationalize lemma-equivalent outputs, and every model/method cell contained at least one fixed-format parse failure. The 72 generations remain under `cloudlab_artifacts/clep-pilot-bbf75d1` and will never be rescored with relaxed rules. Protocol v2 must replace free text with closed-set speaker, action, polarity, and certainty labels; freeze those labels and the parser before generating new outputs; and store results in a distinct artifact directory.
 
 Protocol v2 then generated 144 new outputs under the closed labels. All six integrity reports pass. Exact accuracy by English/Korean/Spanish was: Phi direct 0.625/0.500/0.750, Phi translate 0.750/0.625/0.875, Phi typed 0.875/0.625/0.750; Qwen direct 0.250/0.250/0.500, Qwen translate 0.250/0.375/0.375, and Qwen typed 0.625/0.500/0.375. The language direction is inconsistent and typed generation is not a cross-family winner. The predeclared kill condition therefore fires; no larger CLEP run is planned.
+
+## ESP feasibility plan
+
+ESP begins with 40 naturally occurring uncertainty-cue candidates extracted in fixed source order from abstracts in the pinned BioLaySumm eLife validation split. The lexicon is candidate retrieval only. Before scoring, two annotators must independently label cue validity, semantic scope, strength class, attribution, and whether a faithful lay rewrite should retain the qualification; disagreements are adjudicated and agreement is reported. No regex match is treated as gold.
+
+The first generation pilot compares the already pinned Phi-3.5 and Qwen2.5 families under deterministic decoding:
+
+1. direct lay rewriting of the source abstract;
+2. a generic instruction to preserve uncertainty;
+3. an explicit uncertainty-frame condition containing cue, strength, scoped proposition, and attribution;
+4. an oracle-frame condition using human-reviewed frames, separated from automatic extraction.
+
+Primary outcomes are frame-strength preservation and scope attachment on retained propositions. Secondary outcomes are readability, source copying, content coverage, unsupported additions, output length, and parse/validation failures. Automatic cue overlap is diagnostic only; headline evidence requires blinded human judgments of meaning and scope. A counterfactual robustness cell changes only the source uncertainty strength and tests whether the output changes in the same direction while unrelated content remains stable.
+
+Kill ESP if full-text review finds the same frame-conditioned lay-generation method; if scope annotation agreement is inadequate after guideline revision; if both model families show no improvement over the generic preservation instruction; or if gains arise from copying the source or degrading readability/coverage. The clinical 2026 benchmark's numerical values are context only and will never be presented as same-regime comparison.

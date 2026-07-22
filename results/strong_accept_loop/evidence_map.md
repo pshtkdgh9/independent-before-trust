@@ -1,6 +1,16 @@
 # Evidence Map
 
-## Current CLEP claims (all unearned)
+## Current ESP claims (all unearned)
+
+| Claim | Required artifact | Current status |
+|---|---|---|
+| ESP-C1: open models alter uncertainty strength or scope during natural scientific lay rewriting | human-reviewed frame annotations; two-family raw outputs; blinded preservation judgments | Candidate manifest exists locally; no finding evidence |
+| ESP-C2: explicit frame conditioning improves strength-and-scope preservation over direct and generic-preservation prompts | fixed prompts; paired outputs; integrity validation; paired intervals; adjudicated human labels | No model output; hypothesis only |
+| ESP-C3: preservation gains do not come from copying or reduced accessibility/coverage | copying, readability, coverage, unsupported-addition, and human quality analyses | No model output; hypothesis only |
+
+The pinned BioLaySumm validation split and extracted 40-item manifest establish feasibility and provenance only. Regex cue matches are not gold labels and cannot support ESP-C1--C3. No LAD, DCEA, or CLEP artifact may be mapped to an ESP claim.
+
+## Retired CLEP claims
 
 | Claim | Required artifact | Current status |
 |---|---|---|

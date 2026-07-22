@@ -24,10 +24,19 @@ class ProvenanceTests(unittest.TestCase):
                 terms_url="https://example.test/LICENSE",
                 access_timestamp="2026-07-22T00:00:00Z",
                 download_command="download command",
+                privacy_or_consent="public articles; no private records",
+                redistribution="scripts and hashes only pending package terms",
             )
 
             self.assertEqual(record["bytes"], source.stat().st_size)
             self.assertEqual(len(record["sha256"]), 64)
+            self.assertEqual(
+                record["privacy_or_consent"], "public articles; no private records"
+            )
+            self.assertEqual(
+                record["redistribution"],
+                "scripts and hashes only pending package terms",
+            )
             self.assertEqual(json.loads(manifest.read_text()), record)
 
     def test_records_every_file_size_and_checksum(self):

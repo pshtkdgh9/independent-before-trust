@@ -25,6 +25,8 @@ def main() -> None:
     parser.add_argument("--revision", required=True)
     parser.add_argument("--license", required=True)
     parser.add_argument("--terms-url", required=True)
+    parser.add_argument("--privacy-or-consent", required=True)
+    parser.add_argument("--redistribution", required=True)
     parser.add_argument("--expected-sha256")
     parser.add_argument(
         "--manifest",
@@ -60,6 +62,8 @@ def main() -> None:
         "--destination", str(args.destination), "--artifact-type", args.artifact_type,
         "--name", args.name, "--revision", args.revision, "--license", args.license,
         "--terms-url", args.terms_url, "--manifest", str(args.manifest),
+        "--privacy-or-consent", args.privacy_or_consent,
+        "--redistribution", args.redistribution,
     ]
     if args.expected_sha256:
         command_parts.extend(["--expected-sha256", args.expected_sha256])
@@ -74,6 +78,8 @@ def main() -> None:
         terms_url=args.terms_url,
         access_timestamp=datetime.now(timezone.utc).isoformat(),
         download_command=" ".join(shlex.quote(part) for part in command_parts),
+        privacy_or_consent=args.privacy_or_consent,
+        redistribution=args.redistribution,
     )
 
 

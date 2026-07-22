@@ -5,7 +5,12 @@ from typing import Mapping, Tuple
 
 
 ALLOWED_EVIDENCE_STATES = ("sufficient", "insufficient", "conflict")
-ALLOWED_ROUTER_ACTIONS = ("clarify", "retrieve", "abstain")
+ALLOWED_ROUTER_ACTIONS = ("proceed", "retrieve", "abstain")
+DEFAULT_ROUTER_ACTION_BY_STATE = {
+    "sufficient": "proceed",
+    "insufficient": "retrieve",
+    "conflict": "abstain",
+}
 ALLOWED_INTERVENTION_KINDS = (
     "add_conflicting_sentence",
     "remove_conflicting_sentence",
@@ -44,6 +49,12 @@ class EvidenceItem:
         _require_allowed(
             "expected_action", self.expected_action, ALLOWED_ROUTER_ACTIONS
         )
+        required_action = DEFAULT_ROUTER_ACTION_BY_STATE[self.evidence_state]
+        if self.expected_action != required_action:
+            raise EvidenceStateValidationError(
+                f"expected_action for {self.evidence_state} evidence_state "
+                f"must be {required_action}"
+            )
         _validate_intervention(self.intervention)
 
 

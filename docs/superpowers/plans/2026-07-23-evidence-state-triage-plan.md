@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build and evaluate a paired causal router that chooses `clarify`, `retrieve`, or `abstain` before a fixed downstream answerer under sufficient, insufficient, and conflicting evidence states.
+**Goal:** Build and evaluate a paired causal router that chooses `proceed`, `retrieve`, or `abstain` before a fixed downstream answerer under sufficient, insufficient, and conflicting evidence states.
 
-**Architecture:** A provenance-first item builder creates paired evidence-state records from public licensed sources and rejects unauditable items. A deterministic router runner evaluates two open model families against fixed baselines, then a validator computes macro-F1, selective risk, directional paired flips, and false-answer rate from raw outputs. CloudLab execution is allowed only from an immutable commit after local TDD checks pass.
+**Architecture:** A provenance-first item builder creates paired evidence-state records from public licensed sources and rejects unauditable items. A deterministic router runner evaluates two open model families against fixed action-capable and final-output baselines, then a validator computes macro-F1, selective risk, directional paired flips, coverage, sufficient/proceed answer exactness, and false-answer rate from raw outputs. CloudLab execution is allowed only from an immutable commit after local TDD checks pass.
 
 **Tech Stack:** Python 3.10, `unittest`, JSONL, PyTorch, Transformers, CloudLab GPU node, repository-local artifact validators.
 
@@ -39,7 +39,8 @@
 - Create: `tests/test_evidence_state_schema.py`
 
 - [ ] Write failing tests for allowed evidence states: `sufficient`, `insufficient`, and `conflict`.
-- [ ] Write failing tests for allowed router actions: `clarify`, `retrieve`, and `abstain`.
+- [ ] Write failing tests for allowed router actions: `proceed`, `retrieve`, and `abstain`.
+- [ ] Write failing tests for the gold action mapping: `sufficient` -> `proceed`, `insufficient` -> `retrieve`, and `conflict` -> `abstain`.
 - [ ] Write failing tests that require each pair to preserve the same question and change only the evidence state.
 - [ ] Run `python -m unittest tests.test_evidence_state_schema -v` and confirm the new tests fail because the package is absent.
 - [ ] Implement frozen dataclasses or typed records with deterministic validation errors.
@@ -69,8 +70,8 @@
 - Create: `scripts/build_evidence_state_items.py`
 - Create: `data/annotations/evidence_state_pairs_v0.jsonl`
 
-- [ ] Write failing tests for insufficiency pairs that remove or restore one necessary premise while preserving the question.
-- [ ] Write failing tests for conflict pairs that insert or remove one incompatible evidence sentence while preserving all non-target context.
+- [ ] Write failing tests for insufficiency pairs that remove or restore one necessary premise while preserving the question and expecting a `proceed` -> `retrieve` flip.
+- [ ] Write failing tests for conflict pairs that retain the supporting sentence, insert or remove one incompatible evidence sentence, preserve all non-target context, and expect a `proceed` -> `abstain` flip.
 - [ ] Write failing tests for sufficient controls with a stable answer target and no artificial uncertainty cues.
 - [ ] Run `python -m unittest tests.test_evidence_state_builder -v` and confirm the builder is absent.
 - [ ] Implement deterministic pair construction with stable IDs, item hashes, source links, and expected directional flips.
@@ -85,9 +86,9 @@
 - Create: `tests/test_evidence_state_router.py`
 - Create: `scripts/run_evidence_state_router.py`
 
-- [ ] Write failing tests that route output must parse to exactly one of `clarify`, `retrieve`, or `abstain`.
-- [ ] Write failing tests that the downstream answerer is not called when the route requires clarification or abstention.
-- [ ] Write failing tests that retrieval-needed cases record a `retrieve` action before any final answer is scored.
+- [ ] Write failing tests that route output must parse to exactly one of `proceed`, `retrieve`, or `abstain`.
+- [ ] Write failing tests that the downstream answerer is called only after `proceed` or after a completed retrieval path, and is never called directly for `abstain`.
+- [ ] Write failing tests that retrieval-needed cases record a `retrieve` action before any downstream final answer is produced or scored.
 - [ ] Run `python -m unittest tests.test_evidence_state_router -v` and confirm the router is absent.
 - [ ] Implement prompt rendering, route parsing, deterministic decoding config capture, and downstream answer gating.
 - [ ] Add two open model-family configurations, initially `phi` and `qwen`, with exact checkpoints pinned in config output at runtime.
@@ -102,13 +103,15 @@
 - Modify: `scripts/run_evidence_state_router.py`
 - Create: `scripts/validate_evidence_state_artifacts.py`
 
-- [ ] Write failing tests for direct answerer, always-answer, conflict-cue abstain, answerability-only, and prompt-only triage baselines.
-- [ ] Write failing tests for macro-F1 over all route labels.
+- [ ] Write failing tests for direct answerer, always-answer, conflict-cue abstain, answerability-only, prompt-only triage, action-capable router, and final-output baselines.
+- [ ] Write failing tests for macro-F1 over all action labels.
+- [ ] Write failing tests for coverage as the rate of `proceed` actions.
+- [ ] Write failing tests for final-answer exactness on sufficient/proceed cases.
 - [ ] Write failing tests for selective risk computed separately for insufficiency and conflict.
 - [ ] Write failing tests for directional paired flips and false-answer rate.
 - [ ] Run `python -m unittest tests.test_evidence_state_metrics -v` and confirm metric implementation is absent.
 - [ ] Implement metrics from raw rows only, with no model-judge-only primary endpoint.
-- [ ] Implement strongest-baseline selection from observed baseline results.
+- [ ] Implement strongest-baseline selection from observed baseline results, separating action-capable baselines for action metrics from final-output baselines for answer safety metrics.
 - [ ] Re-run `python -m unittest tests.test_evidence_state_metrics -v` and confirm all metric tests pass.
 - [ ] Commit baselines, metrics, validator, and tests.
 
@@ -143,12 +146,14 @@
 - Create: `results/strong_accept_loop/evidence_state_triage/decision_summary.json`
 - Create: `results/strong_accept_loop/evidence_state_triage/decision_summary.md`
 
-- [ ] Select the strongest baseline from observed macro-F1 and selective-risk results.
-- [ ] Confirm the router beats that baseline on macro-F1.
-- [ ] Confirm the router beats that baseline on selective risk for insufficiency.
-- [ ] Confirm the router beats that baseline on selective risk for conflict.
-- [ ] Confirm directional paired flips are greater than 50%.
-- [ ] Confirm false-answer rate is no worse than the strongest baseline.
+- [ ] Select the strongest action-capable baseline from observed macro-F1 results.
+- [ ] Select the strongest final-output baseline from observed selective-risk and false-answer results.
+- [ ] Confirm the router beats the strongest action-capable baseline on macro-F1.
+- [ ] Confirm the router beats the strongest final-output baseline on selective risk for insufficiency.
+- [ ] Confirm the router beats the strongest final-output baseline on selective risk for conflict.
+- [ ] Confirm `proceed` -> `retrieve` directional paired flips are greater than 50%.
+- [ ] Confirm `proceed` -> `abstain` directional paired flips are greater than 50%.
+- [ ] Confirm false-answer rate is no worse than the strongest final-output baseline.
 - [ ] Retire the method if any gate fails; do not convert a failed method test into a benchmark claim.
 - [ ] Run `git diff --check` and the evidence-state unit tests before the final commit.
 - [ ] Commit the decision summary with Lore trailers.

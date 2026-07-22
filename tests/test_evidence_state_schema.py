@@ -3,6 +3,7 @@ import unittest
 from src.evidence_state.schema import (
     ALLOWED_EVIDENCE_STATES,
     ALLOWED_ROUTER_ACTIONS,
+    DEFAULT_ROUTER_ACTION_BY_STATE,
     EvidenceItem,
     EvidencePair,
     EvidenceStateValidationError,
@@ -25,22 +26,54 @@ class EvidenceStateSchemaTests(unittest.TestCase):
             _item(evidence_state="ambiguous")
 
     def test_allows_only_declared_router_actions(self):
-        self.assertEqual(ALLOWED_ROUTER_ACTIONS, ("clarify", "retrieve", "abstain"))
+        self.assertEqual(ALLOWED_ROUTER_ACTIONS, ("proceed", "retrieve", "abstain"))
 
-        item = _item(expected_action="retrieve")
-        self.assertEqual(item.expected_action, "retrieve")
+        item = _item(expected_action="proceed")
+        self.assertEqual(item.expected_action, "proceed")
 
-        with self.assertRaisesRegex(
-            EvidenceStateValidationError,
-            "expected_action must be one of abstain, clarify, retrieve",
-        ):
-            _item(expected_action="answer")
+        for rejected_action in ("clarify", "answer"):
+            with self.subTest(rejected_action=rejected_action):
+                with self.assertRaisesRegex(
+                    EvidenceStateValidationError,
+                    "expected_action must be one of abstain, proceed, retrieve",
+                ):
+                    _item(expected_action=rejected_action)
+
+    def test_requires_default_action_for_each_evidence_state(self):
+        expected_actions = {
+            "sufficient": "proceed",
+            "insufficient": "retrieve",
+            "conflict": "abstain",
+        }
+        self.assertEqual(DEFAULT_ROUTER_ACTION_BY_STATE, expected_actions)
+
+        for evidence_state, expected_action in expected_actions.items():
+            with self.subTest(evidence_state=evidence_state):
+                item = _item(
+                    evidence_state=evidence_state,
+                    expected_action=expected_action,
+                )
+                self.assertEqual(item.expected_action, expected_action)
+
+                incompatible_action = {
+                    "proceed": "retrieve",
+                    "retrieve": "abstain",
+                    "abstain": "proceed",
+                }[expected_action]
+                with self.assertRaisesRegex(
+                    EvidenceStateValidationError,
+                    f"expected_action for {evidence_state} evidence_state must be {expected_action}",
+                ):
+                    _item(
+                        evidence_state=evidence_state,
+                        expected_action=incompatible_action,
+                    )
 
     def test_pair_preserves_question_and_differs_only_in_evidence_state(self):
         sufficient = _item(
             item_id="pair-1:sufficient",
             evidence_state="sufficient",
-            expected_action="abstain",
+            expected_action="proceed",
             evidence=["The report states that Ada won the award."],
         )
         conflict = _item(
@@ -134,7 +167,7 @@ def _item(
     evidence_state="sufficient",
     evidence=None,
     answer="Ada",
-    expected_action="clarify",
+    expected_action=None,
     intervention=None,
 ):
     if evidence is None:
@@ -145,6 +178,12 @@ def _item(
             "evidence_index": 0,
             "field": "evidence",
         }
+    if expected_action is None:
+        expected_action = {
+            "sufficient": "proceed",
+            "insufficient": "retrieve",
+            "conflict": "abstain",
+        }.get(evidence_state, "proceed")
     return EvidenceItem(
         item_id=item_id,
         pair_id=pair_id,

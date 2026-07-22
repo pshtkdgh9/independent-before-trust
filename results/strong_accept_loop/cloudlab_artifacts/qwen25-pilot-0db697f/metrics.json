@@ -1,0 +1,60 @@
+{
+  "artifact_class": "empirical-candidate-unverified",
+  "baseline": {
+    "accuracy": 0.2553191489361702,
+    "n": 50,
+    "parse_failure_rate": 0.06,
+    "parsed_n": 47
+  },
+  "conditions": {
+    "COMMON": {
+      "beneficial_revision_rate": 0.0,
+      "final_accuracy": 0.24444444444444444,
+      "harmful_revision_rate": 0.0,
+      "initially_correct_n": 11,
+      "initially_incorrect_n": 34,
+      "n": 45,
+      "parse_failure_rate": 0.0425531914893617
+    },
+    "INDEPENDENT": {
+      "beneficial_revision_rate": 0.0,
+      "final_accuracy": 0.2553191489361702,
+      "harmful_revision_rate": 0.0,
+      "initially_correct_n": 12,
+      "initially_incorrect_n": 35,
+      "n": 47,
+      "parse_failure_rate": 0.0
+    }
+  },
+  "paired_effects": {
+    "beneficial_revision": {
+      "bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "common_rate": 0.0,
+      "independent_rate": 0.0,
+      "paired_difference": 0.0,
+      "paired_n": 34
+    },
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 1701,
+    "complete_parsed_pair_count": 45,
+    "effect_direction": "COMMON-minus-INDEPENDENT",
+    "harmful_revision": {
+      "bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "common_rate": 0.0,
+      "independent_rate": 0.0,
+      "paired_difference": 0.0,
+      "paired_n": 11
+    },
+    "incomplete_or_failed_pair_count": 2,
+    "pair_count": 47
+  },
+  "paired_item_count": 47,
+  "protocol": "adaptive-private-first-v1",
+  "warning": "Candidate experimental artifact; requires provenance, integrity, and analysis validation before supporting a manuscript claim."
+}

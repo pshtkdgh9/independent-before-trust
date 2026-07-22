@@ -54,9 +54,11 @@ The imported snapshot record reports `7,644,702,568` total bytes. The two weight
 | Visible license | Apache-2.0 |
 | License source | <https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/blob/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/LICENSE> |
 | Selection reason | Independently developed family; permissive license; float16 weights fit the allocated P100 |
-| Status | Selected before download; bytes/checksums pending CloudLab snapshot preparation |
+| Status | Downloaded and file-hashed on CloudLab; imported manifest at `cloudlab_artifacts/cloudlab-manifest-qwen.jsonl` |
 
 The second-family experiment repeats the identical 50-item intervention, seed, decoding, and parser. It is a model-family replication for the predeclared kill/pivot decision, not an opportunistic search for a positive result.
+
+The imported snapshot record reports `3,098,974,477` total bytes. The weight file `model.safetensors` is `3,087,467,144` bytes with SHA-256 `dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee`; the upstream license file is `11,343` bytes with SHA-256 `832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e`. The manifest enumerates every snapshot and Hugging Face metadata file. Model weights are not redistributed.
 
 ## CloudLab pilot hardware allocation
 

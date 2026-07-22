@@ -1,0 +1,24 @@
+{
+  "counts": {
+    "baseline": 50,
+    "generations": 94,
+    "paired_items": 47,
+    "pairs": 94,
+    "parse_failures": 5
+  },
+  "errors": [
+    "baseline item has no paired record: bigbench-logical-deduction-0025",
+    "baseline item has no paired record: bigbench-logical-deduction-0044",
+    "baseline item has no paired record: bigbench-logical-deduction-0046",
+    "parse failures present: 5"
+  ],
+  "run_dir": "results/runs/qwen25-pilot-0db697f",
+  "sha256": {
+    "baseline_generations.jsonl": "1db1a0f62d710f32abbf49c94261a16355ba94a9a658e89a27fbfe2f6cd5ad33",
+    "config.json": "bf8305c645ebc3c215bf0d9caced97b6501967f7b97c3947044adcb9746f2ce3",
+    "generations.jsonl": "199811a1ee505cfdc6ca7b38f59302073dca028d2a2c643c48d94d5c8a79772b",
+    "metrics.json": "9dbbb926da0932ae6a1711c06e1832ce923906bb7c8257a8ed9928ce6a92abf7",
+    "pairs.jsonl": "27fc1fee854b279e4c0465509ab87b73dafbdb541064e25a5a2f555d8582a224"
+  },
+  "status": "fail"
+}

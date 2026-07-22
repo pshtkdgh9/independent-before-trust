@@ -2,10 +2,10 @@
 
 Date: 2026-07-22
 
-- Phase: bounded-parser Phi-3.5 pilot validated; second-family decision gate next
+- Phase: LAD empirical kill criterion fired; CBCG topic pivot and fresh novelty gate
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
-- Selected direction: Lineage-Aware Deliberation
+- Selected direction: Contradiction-Budgeted Common Ground (provisional until fresh closest-work scan)
 - Terminal gate: not satisfied
 
 ## Completed
@@ -31,10 +31,13 @@ Date: 2026-07-22
 - CloudLab experiment `cbnu-ai-lab/lad-phi35-p100` remains ready on Wisconsin node `c240g5-110121` with verified P100/CUDA access.
 - First compatibility-fixed 50-item run completed at exact execution commit `0462b68`; its strict parser failure is preserved as diagnostic evidence.
 - Bounded-parser rerun completed at exact execution commit `e53721e`: 50 baseline and 100 paired generations, zero parse failures, and validator status `pass`.
+- Fixed-protocol Qwen2.5-1.5B replication completed at exact execution commit `0db697f`: 50 baseline outputs, 47 paired items, 94 revision generations, and 45 complete parsed pairs.
+- The Qwen artifact validator reproduces all stored metrics and hashes; it correctly reports three unpaired baseline failures and five total parse failures rather than promoting the run.
+- The predeclared LAD two-family kill criterion fired: Qwen made zero revisions in either condition across all 45 complete pairs, while the validated Phi result was negative/mixed. LAD is retired rather than selectively scaled.
 
 ## Blocking evidence
 
-- All headline claims remain hypotheses: the validated Phi-3.5 pilot did not support the anticipated effect direction.
+- All CBCG headline claims remain hypotheses; no CBCG result exists yet.
 - The first full run had a `0.48` strict-format baseline parse-failure rate and only 26 paired items; it remains diagnostic evidence, not a headline result.
 - The validated rerun's harmful difference was `-0.04545` (CI `[-0.13636, 0]`) and beneficial difference was `+0.07143` (CI `[0, 0.17857]`), both COMMON-minus-INDEPENDENT and both contrary to the anticipated direction.
 - The first pilot dataset is recorded, but additional main-experiment task families remain unselected.
@@ -46,4 +49,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Run the same fixed intervention on a second independently developed open model family, as required by the predeclared kill/pivot rule. If the second family also lacks the anticipated source-multiplicity sensitivity, pivot rather than scaling LAD. Do not strengthen the LAD claim from the current negative/mixed Phi-3.5 pilot.
+Run a fresh closest-work/novelty audit for Contradiction-Budgeted Common Ground, then specify the smallest direct pilot with fixed evidence and matched immediate-consensus, confidence-only deferral, and contradiction-budgeted policies. Do not reuse LAD results as CBCG evidence.

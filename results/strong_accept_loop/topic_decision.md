@@ -2,7 +2,21 @@
 
 Date: 2026-07-22
 
-## Selected direction after the first novelty gate
+## Current selected direction after the empirical pivot
+
+**Contradiction-Budgeted Common Ground: Deferring Premature Commitment in Language-Agent Deliberation**
+
+Research question: *When language agents receive mutually inconsistent but individually plausible claims, can an explicit budget over unresolved contradictions improve when they commit, defer, or request more evidence?*
+
+This is a mechanism paper, not a benchmark paper. The controlled intervention holds messages and evidence fixed while changing the common-ground update policy. The proposed policy exposes unresolved proposition pairs, spends a bounded verification budget, and permits a calibrated `DEFER` action instead of forcing consensus. Public tasks are experimental instruments only.
+
+The direction is selected provisionally pending a fresh closest-work scan and a direct pilot. Its claims start unearned:
+
+- CBCG-C1: contradiction-budgeted updating reduces harmful premature commitments relative to immediate consensus and confidence-only deferral in tested regimes;
+- CBCG-C2: the benefit persists when contradiction count, evidence order, confidence, and surface form are controlled;
+- CBCG-C3: explicit unresolved-conflict state predicts failures that final confidence and nominal agreement do not expose.
+
+## Retired direction after the first novelty gate
 
 **Lineage-Aware Deliberation: When Repeated Evidence Masquerades as Independent Corroboration in Language-Agent Collaboration**
 
@@ -36,7 +50,7 @@ These remain hypotheses until the evidence map points to completed artifacts.
 - **Cross-Lingual Deliberation:** important extension, but translation competence would confound the primary causal factor.
 - **Benchmark construction:** explicitly excluded.
 
-## Kill/pivot criteria
+## LAD kill/pivot criteria and decision
 
 Pivot to Contradiction-Budgeted Common Ground if:
 
@@ -45,6 +59,8 @@ Pivot to Contradiction-Budgeted Common Ground if:
 3. source lineage cannot be constructed deterministically and would require an unvalidated proprietary judge; or
 4. LAD gives neither benefit nor diagnostic insight beyond citation validation or simple exact deduplication.
 
+Criterion 2 fired on 2026-07-22. The integrity-validated Phi-3.5 run did not show the anticipated direction. The exact-protocol Qwen2.5-1.5B replication produced 45 complete parsed pairs and zero answer revisions in either condition; five outputs failed the fixed parser and are retained. The second artifact is diagnostic rather than claim-grade because its validator correctly rejects those failures, but scaling LAD would amount to searching for a responsive model after two independently developed families failed to support the mechanism. LAD is therefore retired as the submission topic. Its negative artifacts remain part of the audit trail and cannot support CBCG claims.
+
 ## Ethics boundary
 
-LAD uses no trust/reputation score, signed edge, or prior graph algorithm. All code, datasets, transformations, prompts, results, prose, and figures will be new. Negative results trigger weaker claims or pivot, never suppression.
+CBCG will use no trust/reputation score, signed edge, or prior graph algorithm. LAD code and negative artifacts remain background tooling/audit evidence only; they will not be relabeled as CBCG evidence. All CBCG prompts, transformations, results, claims, prose, and figures must be newly generated. Negative results trigger weaker claims or another documented pivot, never suppression.

@@ -72,6 +72,16 @@ Long runs stop only for documented infrastructure failure, invalid configuration
 
 The integrity-validated 50-item logical-deduction pilot produced 100 complete paired revisions with no parse failures. It did not support the anticipated LAD direction: COMMON-minus-INDEPENDENT harmful revision was `-0.04545` with paired bootstrap interval `[-0.13636, 0]`, while beneficial revision was `+0.07143` with interval `[0, 0.17857]`. The result is bounded to one model, one task, and one prompt protocol. Per the predeclared kill rule, the next experiment is a same-protocol replication on a second independently developed open model family; a second non-supporting result triggers a topic pivot rather than selective scaling.
 
+## Qwen2.5 replication and LAD stop decision
+
+At exact execution commit `0db697f`, `Qwen/Qwen2.5-1.5B-Instruct` revision `989aa7980e4cf806f80c7fef2b1adb7bc71aa306` ran the same 50-item input, seed, decoding, prompt, parser, and COMMON/INDEPENDENT construction. Three private outputs were not parseable under the fixed 64-token protocol, leaving 47 paired items; two COMMON outputs also failed, leaving 45 complete parsed pairs. Across those pairs the model made no harmful or beneficial revision in either condition, so both paired differences were exactly zero. The integrity report remains `fail` because all five parse failures and three missing pairs are intentionally disqualifying for claim-grade promotion.
+
+This second independently developed family does not support source-multiplicity sensitivity. The predeclared LAD kill criterion therefore fires. No larger LAD run, parser expansion, or favorable-model search is planned. The artifacts support only the decision to stop LAD.
+
+## CBCG replacement plan (design gate)
+
+The replacement topic is Contradiction-Budgeted Common Ground. Before any result claim, a fresh closest-work scan must clear novelty and a new protocol must hold messages/evidence fixed while comparing: (1) immediate forced commitment, (2) confidence-only defer/query, and (3) explicit unresolved-contradiction budgeting. Primary outcomes must jointly report harmful commitment, correct commitment, deferral coverage, verification cost, and selective risk. LAD runs are excluded from CBCG effect estimates.
+
 ## Claim limits
 
 The study cannot establish human-like cognition, universal resistance to social influence, production security, or RAG reliability. Claims remain bounded to measured regimes. External paper values are contextual only.

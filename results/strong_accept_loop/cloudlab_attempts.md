@@ -61,6 +61,23 @@ The official Phi-3.5 model card specifies `transformers==4.43.0` and `accelerate
 
 Raw-output inspection showed that most strict-format failures contained an unambiguous candidate label either immediately after an opening `<answer>` tag whose closing tag was truncated, or at the first response position without tags. A candidate-bounded parser change accepts only those leading labels; it does not search later reasoning text. Two regression tests lock those cases. Because the omitted private answers never received paired revisions, metrics cannot be repaired by post-hoc re-parsing alone: a distinct full rerun is required and will retain Attempt 2b unchanged.
 
+### Attempt 2d: fixed-protocol Qwen2.5 family replication
+
+This later attempt is recorded before the detailed Attempt 2c block below solely to preserve the existing imported text encoding.
+
+- Exact execution commit: `0db697f`
+- Output path: `results/runs/qwen25-pilot-0db697f/`
+- Model: `Qwen/Qwen2.5-1.5B-Instruct`, revision `989aa7980e4cf806f80c7fef2b1adb7bc71aa306`, Apache-2.0
+- Dtype / seed: `float16` / `1701`
+- Completed records: 50 private outputs; 47 parseable private answers yielded 94 paired generations
+- Complete parsed intervention pairs: 45
+- Fixed-parser failures: 3 private and 2 COMMON revision outputs; 5 total
+- Harmful and beneficial revision: `0.0` in both COMMON and INDEPENDENT among eligible complete pairs; paired differences `0.0`
+- Integrity status: `fail`, specifically because the fixed parser failures and missing pairs are retained
+- Decision use: diagnostic evidence for the predeclared two-family LAD kill/pivot rule, not a headline finding
+
+No parser was expanded after observing these outputs. Two malformed outputs (`<B>` and `<B>...</B>`) and three truncated reasoning outputs remain visible. Together with the validated negative/mixed Phi result, the absence of any revision across 45 complete Qwen pairs triggered the planned topic pivot rather than a search for a more responsive model.
+
 ### Attempt 2c: bounded-parser full rerun
 
 - Git commit: `e53721e`

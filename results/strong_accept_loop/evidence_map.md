@@ -4,9 +4,13 @@ Only `SUPPORTED` claims may be stated as findings.
 
 | ID | Headline claim | Status | Required comparison | Required artifacts | Current evidence | Known weakness |
 |---|---|---|---|---|---|---|
-| C1 | Source dependence changes harmful and beneficial revision when nominal agreement is fixed. | HYPOTHESIS | Paired COMMON vs INDEPENDENT with content/correctness/confidence/order/agent count controlled | pair manifest, generations, metrics, bootstrap CI | Validated Phi-3.5 one-task pilot: harmful difference `-0.04545` CI `[-0.13636, 0]`; beneficial `+0.07143` CI `[0, 0.17857]`; anticipated direction not supported | One model/task; intervals touch zero; point estimates weakly favor COMMON. |
-| C2 | LAD reduces duplicated-evidence amplification relative to majority, confidence-, and evidence-weighted baselines. | HYPOTHESIS | LAD vs debate, vote, confidence, evidence contract, exact/semantic deduplication | configs, outputs, effect sizes, ablations | None | Exact deduplication may match LAD. |
-| C3 | Effective independent support exposes failures hidden by nominal consensus and citation validity. | HYPOTHESIS | Stratified analysis with citation validity fixed | diagnostic figure, statistical model, examples | None | Association is not causal without the paired intervention. |
+| CBCG-C1 | Contradiction-budgeted updating reduces harmful premature commitments. | HYPOTHESIS | Fixed-message comparison against immediate consensus and confidence-only deferral | intervention manifest, raw decisions, utility/error metrics, paired CI | None | A deferral policy can appear safer by refusing too often; coverage must be reported. |
+| CBCG-C2 | The effect persists under controlled contradiction count, evidence order, confidence, and surface form. | HYPOTHESIS | Predeclared factorial stress tests with matched semantic content | configs, strata, interaction estimates, failure counts | None | Surface matching may not eliminate all pragmatic cues. |
+| CBCG-C3 | Explicit unresolved-conflict state exposes failures hidden by confidence and agreement. | HYPOTHESIS | Held-out diagnostic model and concrete error analysis | diagnostic table/figure, calibration analysis, examples | None | Predictive association alone is not a causal effect. |
+
+## Retired LAD evidence (audit only)
+
+The validated Phi-3.5 run and diagnostic Qwen2.5 run directly tested the LAD hypothesis and did not justify continuing it. Phi harmful COMMON-minus-INDEPENDENT was `-0.04545` (CI `[-0.13636, 0]`) and beneficial was `+0.07143` (CI `[0, 0.17857]`). Qwen had 45 complete parsed pairs, zero harmful revisions, zero beneficial revisions, and five fixed-parser failures. These artifacts justify the documented topic pivot; they are not evidence for CBCG-C1--C3.
 
 ## Artifact contracts
 
@@ -26,7 +30,7 @@ Only `SUPPORTED` claims may be stated as findings.
 - `src/lad/provenance.py`: records per-file bytes and SHA-256 for pinned model snapshots.
 - `scripts/prepare_hf_model.py` and `scripts/run_cloudlab_pilot.py`: executable download/provenance and inference paths.
 - `src/lad/validation.py` and `scripts/validate_pilot_artifacts.py`: independently reviewed integrity path that reconstructs parsing, correctness, prompt hashes, support, condition summaries, and paired effects from raw artifacts.
-- `tests/`: 34 passing tests as of 2026-07-22, including private-first elicitation, paired invariants, condition-label leakage, bounded parsing, tamper rejection, output schemas, and provenance checksums.
+- `tests/`: 35 passing tests as of 2026-07-22, including private-first elicitation, paired invariants, condition-label leakage, bounded parsing, runner/validator normalization parity, tamper rejection, output schemas, and provenance checksums.
 
 These artifacts establish implementation readiness only. They do not change C1--C3 from `HYPOTHESIS` to `SUPPORTED`.
 

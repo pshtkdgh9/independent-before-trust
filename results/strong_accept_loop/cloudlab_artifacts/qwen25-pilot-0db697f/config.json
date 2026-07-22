@@ -1,0 +1,16 @@
+{
+  "artifact_class": "empirical-candidate-unverified",
+  "dtype": "float16",
+  "max_new_tokens": 64,
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_license": "Apache-2.0",
+  "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "platform": "Linux-5.15.0-177-generic-x86_64-with-glibc2.35",
+  "prompt_version": "lad-pilot-v1",
+  "python_version": "3.10.12",
+  "quantization": "none",
+  "record_count": 94,
+  "seed": 1701,
+  "temperature": 0.0,
+  "tokenizer_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+}

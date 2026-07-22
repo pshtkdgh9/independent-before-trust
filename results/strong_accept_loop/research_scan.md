@@ -20,6 +20,8 @@ This is only a search-limited absence-of-exact-combination inference. Full-text 
 
 ## Retired LAD synthesis
 
+Current topic status: no headline topic is selected. LAD, DCEA, CLEP, ESP, and evidence-state triage are retired.
+
 Recent work establishes that language-agent groups can conform, amplify errors, and become less reliable as interaction structure changes. Closely adjacent 2026 work also studies debate failure, conformity measurement, confidence, identity, consensus, and graph-based collaboration. Those results make a broad "multi-agent debate is unreliable" paper insufficiently novel.
 
 LAD instead isolates a narrower causal variable: whether nominally distinct supporting messages descend from one source or from independent sources. Its paired intervention holds message content, correctness, confidence, ordering, and nominal peer count fixed while changing only source lineage. The target outcome is belief revision, especially harmful revision from an initially correct answer. This is a mechanism study, not a new benchmark and not a generic trust-scoring method.
@@ -111,3 +113,11 @@ The provisional CLEP direction is bounded against:
 7. Huang et al. (EACL 2026), multilingual calibration effects of instruction tuning: https://aclanthology.org/2026.eacl-short.1/
 
 The remaining proposed gap is not general multilingual QA, calibration, or translation quality. It is the controlled preservation of linguistically realized epistemic operators and attributed speakers when the same evidence is consumed through different language channels, together with a typed intermediate representation whose fields can be validated without an opaque judge. This remains provisional until full-text review and a two-family pilot.
+
+## Evidence-state triage retirement
+
+Evidence-state triage is retired before GPU. The candidate audit is model-agent development evidence only, with `human=false`. Each audit lane has 24 balanced rows, but the overlap exposes invalid conflict construction: label, sufficiency, ambiguity, and self-contained evidence agree across all 13 shared rows, while conflict usability agrees on only 7/13 and natural incompatible sentence existence agrees on only 6/13.
+
+The topic also collides with novelty/action aggregation framing. The retained artifacts document why the direction stopped; they do not support a new research claim.
+
+Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.

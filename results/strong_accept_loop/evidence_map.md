@@ -1,18 +1,18 @@
 # Evidence Map
 
-## Current evidence-state triage claims (all unearned)
+## Retired evidence-state triage claims
+
+Evidence-state triage is retired before GPU and has no supported headline claim.
 
 | Claim | Required artifact | Current status |
 |---|---|---|
-| EST-C1: open models and prompt/router baselines confuse insufficiency, ambiguity, and conflict in ways that create avoidable false answers or wrong non-answer actions | licensed paired item manifest; frozen prompts; two-family raw outputs; parser and integrity reports; action confusion matrices | HYPOTHESIS; no licensed pilot source, model run, or validation artifact exists |
-| EST-C2: paired causal evidence-state interventions reveal directional action failures hidden by aggregate answer accuracy or generic abstention metrics | intervention validator; paired `sufficient -> insufficient`, `sufficient -> conflict`, and `insufficient -> conflict` variants; directional flip analysis | HYPOTHESIS; design specified only |
-| EST-C3: a state-aware triage method improves action macro-F1 and selective risk over the strongest baseline separately for insufficiency and conflict without increasing false-answer rate | baseline suite; state-aware router; macro-F1 table; selective-risk table by evidence state; false-answer audit; two-family gate decision | HYPOTHESIS; no empirical evidence |
+| EST-C1: public evidence items can support a clean sufficiency/conflict triage task for a new headline method | validated natural conflict pack; independent human review; two-family pilot | Unsupported; model-agent audit only |
+| EST-C2: the candidate supplies a novel action/evidence aggregation contribution rather than rephrasing existing triage or aggregation work | full novelty boundary; method contrast; pilot outcome | Unsupported; retired for novelty/action aggregation collision |
+| EST-C3: conflict examples are naturally present and usable without synthetic invalid construction | agreed natural incompatible sentence audit; source provenance; conflict validator | Unsupported; overlap agreement is only 7/13 for conflict usability and 6/13 for natural incompatible sentence existence |
 
-The primary output is an action label: `clarify`, `retrieve`, or `abstain`. The downstream answer remains outside the primary claim. Any answer attempt in an insufficient, ambiguous, or conflicting state is tracked as false-answer leakage rather than promoted as partial success.
+The summary at `evidence_state_triage/candidate_audit_summary.json` records two 24-row model-agent audit lanes balanced 12/12, an intersection of 13, and overlap agreement of label 13/13, sufficiency 13/13, conflict usability 7/13, ambiguity 13/13, self-contained evidence 13/13, and natural incompatible sentence 6/13. It records `evidence_class=model_agent_development_only`, `human=false`, and `human_evidence=false`.
 
-Advance requires the exact gate in `experiment_plan.md`: macro-F1 improvement over the strongest baseline; selective-risk improvement over the strongest baseline separately for insufficiency and conflict; more than 50% predicted directional action flips; two independently developed open model families; and no worse false-answer rate. Failure of any condition maps to retirement, not claim weakening after the fact.
-
-Closest-work screening makes the novelty boundary narrow. The absence of an exact prior combination is only a search-limited inference, not proof of novelty.
+`src/evidence_state/schema.py`, `src/evidence_state/builder.py`, `src/evidence_state/provenance.py`, `data/evidence_state/fever_candidate_source_pack.jsonl`, `data/evidence_state/source_manifest.jsonl`, and `scripts/build_evidence_state_items.py` are preserved as negative auditable artifacts only. They do not map to any supported claim.
 
 ## Retired ESP claims (all unsupported)
 

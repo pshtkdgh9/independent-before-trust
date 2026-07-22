@@ -1,5 +1,44 @@
 # Data Provenance Register
 
+## FEVER evidence-state source acquisition
+
+| Item | Value |
+|---|---|
+| Name | FEVER wiki pages archive |
+| Source URL | <https://fever.ai/download/fever/wiki-pages.zip> |
+| Dataset card / revision | <https://huggingface.co/datasets/EleutherAI/fever/tree/85ebc1eaacc6b6bf0d54719c942b7aad097a1abd> |
+| CloudLab archive path | `/users/SangSong/evidence-state-data/raw/fever/wiki-pages.zip` |
+| Downloaded | 2026-07-23 |
+| Archive bytes / SHA-256 | `1,713,485,474` / `4b06d95da6adf7fe02d2796176c670dacccb21348da89cba4c50676ab99665f2` |
+| Download command | `curl -L --fail --retry 5 -C - https://fever.ai/download/fever/wiki-pages.zip -o /users/SangSong/evidence-state-data/raw/fever/wiki-pages.zip` |
+| Extraction command | `unzip -q .../wiki-pages.zip -d .../wiki-pages` |
+| Extracted path | `/users/SangSong/evidence-state-data/raw/fever/wiki-pages` |
+| Extracted size | Approximately `7.2G`; this is not an exact byte count |
+| Extracted file count | 221 files |
+| File checksum manifest / file count path | `/users/SangSong/evidence-state-data/raw/fever/wiki-pages.files.sha256` |
+| Extracted aggregate checksum | Not recorded; no extracted aggregate checksum is asserted |
+| License/terms | FEVER Hugging Face pinned revision `85ebc1eaacc6b6bf0d54719c942b7aad097a1abd` tags `cc-by-sa-3.0` and `gpl-3.0`; underlying Wikipedia text is CC BY-SA 3.0 |
+| Redistribution boundary | Attribution and share-alike obligations apply. Derived Wikipedia text must not be redistributed unless the CC BY-SA 3.0 boundary is satisfied |
+| Experimental claim status | Source acquisition only; no benchmark claim is made |
+
+### FEVER candidate source pack
+
+| Item | Value |
+|---|---|
+| Name | FEVER candidate source pack |
+| Status | Candidate material only; not a benchmark result, evidence result, or headline result, and not yet paired with gold data |
+| Generated on | CloudLab |
+| Source Git commit | `d3750f87a9b1628b5a529dc4b369d9a816e09a58` |
+| Exact command | `python scripts/extract_fever_source_pack.py --claims data/raw/fever/paper_dev.jsonl --wiki-dir /users/SangSong/evidence-state-data/raw/fever/wiki-pages/wiki-pages --output /users/SangSong/evidence-state-data/fever_candidate_source_pack.jsonl --limit 120 --seed 0` |
+| Source rows read | 9,999 |
+| Duplicate claims skipped | 256 |
+| Candidate references retained | 4,186 |
+| Candidate rows available | 4,151 |
+| Rows written | 120 |
+| Local path | `data/evidence_state/fever_candidate_source_pack.jsonl` |
+| Bytes / SHA-256 | `101,910` / `967c9996bf3a871d96d4a6d66376461404dfbb890d8fb4ff68eec5d81f7290e8` |
+| Redistribution boundary | Exact source text retains the CC BY-SA attribution/share-alike boundary |
+
 ## ESP retired corpus and artifact provenance
 
 | Item | Value |

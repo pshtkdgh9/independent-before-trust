@@ -8,6 +8,27 @@ LAD instead isolates a narrower causal variable: whether nominally distinct supp
 
 The novelty claim remains conservative. The 28-work matrix is an abstract/metadata-level collision screen; the closest papers still require full-text protocol comparison before manuscript novelty language is finalized.
 
+## Coverage of the brief's optional direction examples
+
+The execution brief says acceptable directions “include, but are not limited to” the examples below. They are search prompts, not requirements to adopt or independently develop every area. The actual topic-search gate is the comparison of at least five viable non-benchmark candidates; `topic_search.md` compares eight.
+
+| Direction example | Search disposition |
+|---|---|
+| Trustworthy or reliable NLP evaluation | Adopted at mechanism level: LAD causally tests a reliability failure in language-agent revision. |
+| Factuality, citation, attribution, or retrieval evaluation | Covered through evidence-grounding controls and the rejected conflict-aware RAG candidate. |
+| Retrieval-augmented generation | Explicitly rejected as crowded; no RAG claim is allowed without a real retriever and end-to-end evaluation. |
+| Multilingual or low-resource NLP | Cross-lingual deliberation was compared and rejected because translation would confound source dependence. |
+| Computational social science with language data | Not retained as a separate candidate: the present controlled synthetic mechanism study offers a cleaner causal test and avoids claims about human collective behavior. |
+| Information retrieval and text mining | Covered only through the rejected conflict-aware RAG candidate; it is not the selected contribution. |
+| Resources and evaluation | Public tasks are experimental instruments, not a resource or benchmark contribution. |
+| Model analysis and interpretability | Covered through the diagnostic effective-support claim, not as a standalone interpretability method. |
+| Human-centered NLP or human–AI interaction | Pragmatic clarification was compared; LAD also connects evidentiality, common ground, and the EACL theme without claiming human equivalence. |
+| Ethics, bias, and fairness | Not retained as a standalone topic; the project instead applies a concrete publication-ethics and defensive-release boundary. |
+| LLM agents, tool use, or grounded reasoning | Adopted: the selected intervention studies language-agent collaboration and evidence-conditioned revision. |
+| Efficient methods for NLP | Selective communication was compared and rejected because efficiency alone would make the contribution engineering-led. |
+
+This coverage record prevents the generated Ultragoal stories from being misread as twelve simultaneous topic commitments.
+
 ## Verified anchors
 
 1. GAVEL (Findings of ACL 2026): evaluates and improves multi-agent debate. https://aclanthology.org/2026.findings-acl.225/

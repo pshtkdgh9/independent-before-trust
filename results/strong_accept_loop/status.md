@@ -13,14 +13,15 @@ Date: 2026-07-22
 - Official EACL 2027 and current ARR policy check.
 - Eight non-benchmark topic candidates compared.
 - Initial Evidence-First Deliberation and parallel conflict-aware RAG choices explicitly reconsidered.
-- Twenty-eight-work novelty matrix and conservative overlap audit.
+- Twenty-eight-work novelty matrix and direct topic-stage overlap audit against the located CaliTrust manuscript.
 - Publication-ethics boundary, initial provenance register, evidence map, and LAD experiment plan.
 - Independent Git repository boundary and target remote established.
 - Deterministic lineage roots, effective-support metrics, paired intervention generator, and mock-pilot serialization tests.
 - Pinned Hugging Face snapshot downloader, file-level provenance hashing, condition-blind pilot prompt, raw-output retention, and CloudLab inference CLI.
 - Pinned Apache-2.0 BIG-bench logical-deduction source, raw checksum, preprocessing record, and 50 private-first pilot items.
 - Adaptive protocol that elicits the model's private answer before constructing its matched lineage intervention.
-- Reproducible checkpoint `be28f14` pushed to `origin/codex/lad-private-first-pilot`; 24 unit tests and Python bytecode compilation pass.
+- Reproducible checkpoint `e0d6956` pushed to `origin/codex/lad-private-first-pilot`; 24 unit tests and Python bytecode compilation pass.
+- Direct comparison separates the prior and new research questions, contributions, task framings, datasets/evaluation packages, claim sets, writing, and experimental evidence; the current 13 LAD research documents share zero normalized contiguous 8-token sequences with the prior source.
 
 ## In progress
 
@@ -36,6 +37,7 @@ Date: 2026-07-22
 - CloudLab Wisconsin currently advertises one free `d7525`, but the portal's nested physical-node selector has not yet produced a verified `phystype=d7525` value; no experiment was submitted with an unverified node type.
 - No main experiments, ablations, robustness tests, or error analysis.
 - No manuscript/PDF, supplement, cold-review pass, or meta-review pass.
+- Topic-stage overlap clearance does not replace the mandatory final manuscript/supplement lexical, semantic, and evidence-lineage audit.
 
 ## Highest-ROI next step
 

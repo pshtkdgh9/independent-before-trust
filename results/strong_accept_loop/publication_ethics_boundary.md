@@ -2,7 +2,7 @@
 
 ## Existing submission
 
-The existing manuscript associated with prior trust/reputation work has already been submitted to another journal. It is outside the contribution set of the EACL/ACL project. Until bibliographic and submission metadata are documented by the authors, it is treated as confidential concurrent work and not assumed available to reviewers.
+The existing manuscript associated with prior trust/reputation work has already been submitted to another journal. The author-local artifact inspected in this audit is *CaliTrust: Distribution-Free Uncertainty Quantification for Dynamic Trust Prediction in Signed Networks* (source SHA-256 `c415c1e997bd46f05448ccd5eec2df184876c7d6066eed576c8d0fbd43678d0f`). It is outside the contribution set of the EACL/ACL project and is treated as confidential concurrent work, not as reviewer-visible prior art. Venue, submission identifier, and submission date remain author-controlled metadata to add to the final disclosure record if policy requires them.
 
 ## Prohibited reuse
 

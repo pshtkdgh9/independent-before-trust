@@ -1,0 +1,31 @@
+{
+  "audit_type": "two_model_agent_development_audit_not_human_evidence",
+  "candidate_pairs": 16,
+  "exact_agreement": {
+    "grammatical": 1.0,
+    "material_arguments_preserved": 1.0,
+    "polarity_preserved": 1.0,
+    "proposition_invariant": 1.0,
+    "single_strength_edit": 1.0,
+    "valid": 1.0
+  },
+  "retained_pair_ids": [
+    "esp-cf-v0-0001",
+    "esp-cf-v0-0002",
+    "esp-cf-v0-0003",
+    "esp-cf-v0-0004",
+    "esp-cf-v0-0005",
+    "esp-cf-v0-0006",
+    "esp-cf-v0-0007",
+    "esp-cf-v0-0008",
+    "esp-cf-v0-0009",
+    "esp-cf-v0-0010",
+    "esp-cf-v0-0011",
+    "esp-cf-v0-0012",
+    "esp-cf-v0-0013",
+    "esp-cf-v0-0014",
+    "esp-cf-v0-0015",
+    "esp-cf-v0-0016"
+  ],
+  "retained_pairs": 16
+}

@@ -1,5 +1,9 @@
 # Publication Ethics and Non-Overlap Boundary
 
+## CLEP boundary after the second pivot
+
+CLEP is a new manuscript direction. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, or DCEA. LAD and DCEA are failed internal research branches retained for transparency. Their code may contribute only generic experiment plumbing such as checksums, immutable directories, and validators; any reused utility must be identified in the repository history and cannot be presented as a CLEP scientific contribution. Their data and negative outcomes cannot be pooled with CLEP results.
+
 ## Existing submission
 
 The existing manuscript associated with prior trust/reputation work has already been submitted to another journal. The author-local artifact inspected in this audit is *CaliTrust: Distribution-Free Uncertainty Quantification for Dynamic Trust Prediction in Signed Networks* (source SHA-256 `c415c1e997bd46f05448ccd5eec2df184876c7d6066eed576c8d0fbd43678d0f`). It is outside the contribution set of the EACL/ACL project and is treated as confidential concurrent work, not as reviewer-visible prior art. Venue, submission identifier, and submission date remain author-controlled metadata to add to the final disclosure record if policy requires them.

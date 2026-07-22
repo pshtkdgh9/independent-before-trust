@@ -91,3 +91,15 @@ The first pilot must include the already pinned Phi-3.5 and Qwen2.5 families bef
 ## Claim limits
 
 The study cannot establish human-like cognition, universal resistance to social influence, production security, or RAG reliability. Claims remain bounded to measured regimes. External paper values are contextual only.
+
+## DCEA outcome and stop decision
+
+The DCEA pilot crossed two model families, singleton/redundant support, and ordinary/contrastive instructions for 320 raw generations. All four fixed-parser integrity reports failed because the required citation format was not recovered reliably. Within the interpretable Phi outputs, singleton and redundant pair-flip rates were both 1.0, so the decisive redundancy interaction was absent; contrastive prompting did not improve directional following. Qwen generations were frequently free-form and cannot rescue the claim. DCEA is retired without post-hoc parser changes.
+
+## CLEP replacement plan
+
+The replacement pilot uses matched propositions with four typed fields: speaker, proposition, polarity, and certainty. Each item has independently checked English, Korean, and Spanish realizations. The query and requested English report remain fixed while evidence language changes. Operator classes include negated, possible, probable, and certain claims; unattributed controls test whether speaker errors are separable from proposition errors.
+
+Conditions are: direct answer from source-language evidence; translate-then-answer using an open translation model or the evaluated model under a frozen translation prompt; and typed epistemic-slot generation, which emits a constrained JSON tuple before producing the report. Primary outcomes are exact proposition recovery, polarity preservation, ordinal certainty preservation, speaker-attribution preservation, all-fields exact match, parse failure, and latency/tokens. The decisive estimand is a within-item language-channel difference, not a leaderboard score.
+
+The first pilot uses the already pinned Phi-3.5 and Qwen2.5-1.5B snapshots, deterministic decoding, counterbalanced item and language order, raw-output retention, and an independently reproducible validator. Kill CLEP if two model families show no non-English preservation gap, if errors are explained entirely by proposition mistranslation, or if typed generation does not improve all-fields exact match over translate-then-answer. Scaling requires public parallel or uncertainty-annotated data with license, checksum, preprocessing, and storage records.

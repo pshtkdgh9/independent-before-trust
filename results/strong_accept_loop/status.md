@@ -2,10 +2,10 @@
 
 Date: 2026-07-22
 
-- Phase: LAD retired; directional counterfactual evidence audit under provisional novelty gate
+- Phase: LAD and DCEA retired; cross-lingual epistemic preservation under provisional novelty gate
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
-- Selected direction: Beyond Leave-One-Out: Directional Counterfactual Audits of Evidence Use (DCEA), provisional
+- Selected direction: Lost in Translation, Overstated in Generation: Cross-Lingual Epistemic Preservation (CLEP), provisional
 - Terminal gate: not satisfied
 
 ## Completed
@@ -34,10 +34,13 @@ Date: 2026-07-22
 - Fixed-protocol Qwen2.5-1.5B replication completed at exact execution commit `0db697f`: 50 baseline outputs, 47 paired items, 94 revision generations, and 45 complete parsed pairs.
 - The Qwen artifact validator reproduces all stored metrics and hashes; it correctly reports three unpaired baseline failures and five total parse failures rather than promoting the run.
 - The predeclared LAD two-family kill criterion fired: Qwen made zero revisions in either condition across all 45 complete pairs, while the validated Phi result was negative/mixed. LAD is retired rather than selectively scaled.
+- DCEA's four CloudLab cells completed at execution commit `d5bae8b`: 320 raw generations are preserved with configs, manifests, timestamps, hashes, and validator reports.
+- DCEA was retired without parser repair or favorable reruns: every fixed-parser integrity report is `fail`, the interpretable Phi pair-flip rates did not distinguish singleton from redundant support, and the contrastive condition did not improve Phi directional following.
 
 ## Blocking evidence
 
-- All DCEA headline claims remain hypotheses; no DCEA result exists yet.
+- No CLEP headline claim has evidence yet.
+- DCEA cannot be promoted: its required citation format failed in all four cells, its predicted redundancy separation was absent in the interpretable Phi outputs, and a 2025 Shapley source-attribution paper directly covers redundancy/complementarity/synergy.
 - CPR was rejected after the initial post-LAD shortlist because RARR (ACL 2023) already performs attribution-assisted minimal repair of unsupported LM output.
 - Generic causal context attribution is also prior work: ContextCite (NeurIPS 2024) and AttriBoT (ICLR 2025) require the new topic to focus narrowly on directional replacement interventions and redundancy, not source removal alone.
 - The first full run had a `0.48` strict-format baseline parse-failure rate and only 26 paired items; it remains diagnostic evidence, not a headline result.
@@ -51,4 +54,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Implement a minimal DCEA task artifact with matched factual-source replacements, redundant-support controls, and exact expected answer changes. Run two open-model pilots against semantic citation support, leave-one-out likelihood attribution, and source-removal regeneration. Kill the topic if directional replacement adds no diagnostic information beyond these baselines. Do not reuse LAD results as DCEA evidence.
+Implement a minimal CLEP paired artifact covering negation, possibility, probability, certainty, and speaker attribution in at least three languages. Validate every parallel item independently, then run the pinned Phi and Qwen models on direct generation, translate-then-generate, and typed epistemic-slot generation. Kill the topic if two families show no paired language effect or if the typed method does not beat the translation baseline. Do not reuse LAD or DCEA results as CLEP evidence.

@@ -71,3 +71,19 @@ The provisional DCEA direction is bounded against these primary works:
 The remaining provisional gap is narrower than causal attribution in general. Removal and likelihood-drop methods estimate source necessity for a fixed response; semantic citation checks estimate support. DCEA instead intervenes on the answer-bearing value and scores whether the generated answer changes in the intervention's signed direction. Its redundancy cell tests the specific case in which removing either of two equivalent sources yields little change even though their shared content directs the answer. This boundary is a hypothesis, not yet a novelty finding; the pilot and further full-text scan can still kill it.
 
 No novelty claim is yet verified. The immediate falsification test is whether directional replacement supplies information beyond semantic support and removal-based attribution specifically in the redundant-support cell. If it does not, DCEA is retired rather than reframed after observing results.
+
+## DCEA retirement and next novelty gate
+
+DCEA failed its direct falsification test. The fixed parser rejected all four model/prompt artifacts. The interpretable Phi outputs did not separate singleton and redundant pair flips, and contrastive prompting did not improve directional following. A further primary-source search found *Source Attribution in Retrieval-Augmented Generation* (2025), which explicitly frames Shapley source attribution around redundancy, complementarity, and synergy: https://arxiv.org/abs/2507.04480. DCEA is therefore retired rather than repaired after outcome inspection.
+
+The provisional CLEP direction is bounded against:
+
+1. Muller et al. (EMNLP 2023), cross-lingual QA attribution: https://aclanthology.org/2023.emnlp-main.10/
+2. Krause et al. (MMNLG 2023), multilingual expression and calibration of uncertainty: https://aclanthology.org/2023.mmnlg-1.1/
+3. Mehrparvar and Pezzelle (MRL 2024), ambiguity preservation through translation: https://aclanthology.org/2024.mrl-1.26/
+4. Fadeeva et al. (Findings ACL 2024), claim-conditioned uncertainty for hallucination detection across four languages: https://aclanthology.org/2024.findings-acl.558/
+5. XRAG (2025), cross-lingual retrieval-augmented generation: https://arxiv.org/abs/2505.10089
+6. PsiloQA (Findings EMNLP 2025), multilingual span-level hallucination detection: https://aclanthology.org/2025.findings-emnlp.626/
+7. Huang et al. (EACL 2026), multilingual calibration effects of instruction tuning: https://aclanthology.org/2026.eacl-short.1/
+
+The remaining proposed gap is not general multilingual QA, calibration, or translation quality. It is the controlled preservation of linguistically realized epistemic operators and attributed speakers when the same evidence is consumed through different language channels, together with a typed intermediate representation whose fields can be validated without an opaque judge. This remains provisional until full-text review and a two-family pilot.

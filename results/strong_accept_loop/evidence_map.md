@@ -1,5 +1,15 @@
 # Evidence Map
 
+## Current CLEP claims (all unearned)
+
+| Claim | Required artifact | Current status |
+|---|---|---|
+| CLEP-C1: language-channel changes cause operator-preservation errors | paired item manifest; two-family raw generations; integrity-pass metrics with paired intervals | No artifact; hypothesis only |
+| CLEP-C2: errors vary by epistemic operator beyond proposition accuracy | per-operator confusion matrices; stratified paired analysis; error examples fixed before interpretation | No artifact; hypothesis only |
+| CLEP-C3: typed epistemic-slot generation improves all-fields exact match over translate-then-answer | frozen baseline/method prompts; paired outputs; validator; latency/token table; robustness analysis | No artifact; hypothesis only |
+
+No LAD or DCEA artifact may be mapped to a CLEP claim. DCEA's 320 generations map only to the decision to retire DCEA.
+
 Only `SUPPORTED` claims may be stated as findings.
 
 | ID | Headline claim | Status | Required comparison | Required artifacts | Current evidence | Known weakness |

@@ -1,5 +1,11 @@
 # Data Provenance Register
 
+## CLEP provisional data boundary
+
+No external CLEP dataset has been acquired yet. The first controlled pilot will use newly authored minimal propositions and independently checked English/Korean/Spanish parallel realizations. These are method-development fixtures, not a released benchmark and not sufficient for a headline generalization claim. Before any public corpus is downloaded, this file must record source URL, revision/version, visible license or terms, acquisition time, compressed and extracted sizes, SHA-256 checksums, exact preprocessing command, output location, and redistribution boundary.
+
+The LAD BIG-bench data and all DCEA synthetic templates are excluded from CLEP effect estimates. Generic immutable-run, hashing, and validation utilities may be reused as tooling only.
+
 The retired LAD pilot source and both pinned model snapshots are recorded below. The new DCEA falsification pilot uses newly authored synthetic controlled facts and reuses only the already recorded model snapshots; no result has yet been promoted to evidence. The local reference inventory remains checksummed in `reference_inventory.tsv`.
 
 ## DCEA controlled pilot material

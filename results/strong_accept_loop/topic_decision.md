@@ -2,21 +2,25 @@
 
 Date: 2026-07-22
 
-## Current selected direction after the empirical pivot
+## Current provisional direction after the second empirical pivot
 
-**Beyond Leave-One-Out: Directional Counterfactual Audits of Evidence Use**
+**Lost in Translation, Overstated in Generation: Cross-Lingual Epistemic Preservation**
 
-Research question: *Does a cited and semantically supportive source causally direct a model's answer, and can matched value-replacement interventions identify evidence use that source-removal attribution misses under redundancy?*
+Research question: *When propositional content is held fixed, does changing the language channel alter whether an open language model preserves negation, uncertainty, and source attribution, and can an explicit epistemic-slot representation reduce those meaning-changing errors?*
 
-This is a causal model-analysis paper, not a benchmark paper and not an end-to-end RAG claim. Retrieval is outside the first controlled regime. A paired intervention replaces only an answer-bearing value in a supplied source while holding query, source identifiers, distractors, order, and surface envelope fixed. Unlike semantic support metrics, it asks whether the answer moves in the predicted direction; unlike single-source removal, it can remain identifiable when equivalent evidence is redundant.
+This is a multilingual generation and model-analysis paper, not a benchmark release. The controlled unit is a proposition with an epistemic operator and an attributed speaker. Parallel realizations preserve the proposition while changing only the evidence language. The primary comparison measures whether the generated English report preserves the operator and attribution. A lightweight method first extracts a typed tuple (speaker, proposition, polarity, certainty) and then realizes the answer, making the intervention and error analysis auditable.
 
 Its claims start unearned:
 
-- DCEA-C1: semantic citation support does not imply directional causal evidence use in the tested regimes;
-- DCEA-C2: matched value replacement detects evidence use that single-source removal misses under redundant support;
-- DCEA-C3: a contrastive evidence-use instruction improves directional grounding without reducing answer validity.
+- CLEP-C1: language-channel changes cause measurable operator-preservation errors even when proposition content is matched;
+- CLEP-C2: errors differ by operator class rather than being explained only by general answer accuracy or translation fluency;
+- CLEP-C3: typed epistemic-slot generation reduces meaning-changing errors without materially degrading proposition recovery.
 
-Closest-work boundary: ContextCite (NeurIPS 2024) introduces context attribution with learned subset masking; AttriBoT (ICLR 2025) efficiently approximates leave-one-out likelihood attribution; Ye et al. (EMNLP 2021) evaluate explanation methods on counterfactual reading-comprehension examples; DisentQA (ACL 2023) separates parametric and contextual answers; and evidence-attribution work evaluates citation recovery. DCEA does not claim to invent causal context attribution. Its provisional contribution is a signed, answer-level value-replacement estimand and a redundancy test showing where support and removal-based necessity can fail to identify directional use. A direct two-family pilot and full-text audit remain mandatory.
+Closest-work boundary: Muller et al. (EMNLP 2023) study attribution in cross-lingual QA; Krause et al. (MMNLG 2023) study multilingual uncertainty expression; XRAG studies cross-lingual retrieval and response-language failures; Mehrparvar and Pezzelle (MRL 2024) study ambiguity preservation in translation; and 2025--2026 work studies multilingual calibration and hallucination detection. CLEP does not claim to introduce cross-lingual attribution, calibration, or uncertainty evaluation. Its provisional contribution is a matched causal decomposition of operator preservation plus an auditable typed-generation intervention. A full-text collision audit and direct two-family pilot remain mandatory.
+
+## Retired second direction
+
+**Beyond Leave-One-Out: Directional Counterfactual Audits of Evidence Use (DCEA)** is retired. All four fixed-protocol CloudLab cells failed the artifact integrity gate because the predeclared parser did not recover the required citation structure. Among the interpretable Phi generations, singleton and redundant pair-flip rates were both 1.0 and the contrastive instruction did not improve directional following. Qwen outputs were frequently free-form and likewise did not establish the predicted redundancy interaction. A later literature check also found *Source Attribution in Retrieval-Augmented Generation* (2025), which explicitly applies Shapley attribution to redundancy, complementarity, and synergy. The 320 raw generations remain diagnostic artifacts; none supports a manuscript claim.
 
 ## Retired direction after the first novelty gate
 
@@ -52,10 +56,10 @@ These remain hypotheses until the evidence map points to completed artifacts.
 - **Argument-Role Coverage Repair:** rejected because Arg-LLaDA (ACL 2026) already performs sufficiency-aware iterative repair of unsupported, redundant, and incomplete spans.
 - **Provenance-Gated Agent Memory:** ACL 2026 already establishes experience-following and error propagation, making simple filtering incremental.
 - **Selective Communication:** feasible but crowded by sparse debate and debate-on-demand; token savings alone are engineering-led.
-- **Cross-Lingual Deliberation:** important extension, but translation competence would confound the primary causal factor.
+- **Cross-Lingual Deliberation:** rejected as a multi-agent topic. The new provisional direction instead makes language-channel effects the manipulated variable and measures operator preservation directly.
 - **Benchmark construction:** explicitly excluded.
 
-## LAD kill/pivot criteria and decision
+## LAD and DCEA kill/pivot decisions
 
 Pivot to Contradiction-Budgeted Common Ground if:
 
@@ -69,3 +73,5 @@ Criterion 2 fired on 2026-07-22. The integrity-validated Phi-3.5 run did not sho
 ## Ethics boundary
 
 DCEA will use no trust/reputation score, signed edge, or prior graph algorithm. LAD code and negative artifacts remain background tooling/audit evidence only; they will not be relabeled as DCEA evidence. All DCEA data transformations, prompts, results, claims, prose, and figures must be newly generated. Negative results trigger weaker claims or another documented pivot, never suppression.
+
+CLEP must use newly authored prompts, paired items, analysis, prose, figures, and result artifacts. LAD and DCEA code may be reused only for generic hashing, immutable-run layout, and validator patterns, with that boundary recorded. Their data and outcomes cannot be relabeled as CLEP evidence. Kill CLEP if the full-text audit finds a direct matched operator-preservation study, if paired language effects are absent in two independent open-model families, or if the typed representation provides no improvement beyond a translate-then-answer baseline.

@@ -2,6 +2,12 @@
 
 Date: 2026-07-22. Candidate selection excludes benchmark-only work and requires a reusable NLP insight, public/open evidence path, A30 24 GB feasibility, EACL/ACL fit, and separation from the already-submitted journal manuscript.
 
+## Second-pivot addendum
+
+The initial ranking is retained as an audit record rather than rewritten after results. LAD was retired after two model families failed its predeclared mechanism gate. DCEA was then implemented and retired after its fixed-parser artifacts failed integrity, its interpretable outputs lacked the decisive redundancy separation, and a later closest-work search found explicit Shapley treatment of source redundancy and synergy.
+
+The current provisional candidate is **Cross-Lingual Epistemic Preservation (CLEP)**: a matched study of whether models preserve speaker attribution, propositional polarity, and certainty when evidence language changes, plus a typed intermediate representation as a lightweight mitigation. It is not a benchmark proposal; the contribution must be a causal language-channel analysis and an auditable generation method. Provisional score: F=5, N=4, E=4, A=5, O=5, total=23. It remains behind a full-text collision gate and a two-family pilot.
+
 Scores use 1--5 for venue fit (F), plausible novelty (N), experimental feasibility (E), analysis depth (A), and non-overlap (O). They are planning judgments, not acceptance predictions.
 
 | Rank | Candidate | F | N | E | A | O | Total | Decision |

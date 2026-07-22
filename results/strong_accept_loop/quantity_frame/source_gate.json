@@ -2,49 +2,49 @@
   "advance": false,
   "agreement_by_field": {
     "comparator": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9307228915662651,
+      "agreements": 309,
+      "comparable": 332
     },
     "counterfactual_candidate": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.6897590361445783,
+      "agreements": 229,
+      "comparable": 332
     },
     "denominator_or_base": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9759036144578314,
+      "agreements": 324,
+      "comparable": 332
     },
     "frame_validity": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9186746987951807,
+      "agreements": 305,
+      "comparable": 332
     },
     "subgroup": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9548192771084337,
+      "agreements": 317,
+      "comparable": 332
     },
     "time_window": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9668674698795181,
+      "agreements": 321,
+      "comparable": 332
     },
     "unit": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9849397590361446,
+      "agreements": 327,
+      "comparable": 332
     },
     "value": {
-      "agreement": null,
-      "agreements": 0,
-      "comparable": 0
+      "agreement": 0.9397590361445783,
+      "agreements": 312,
+      "comparable": 332
     }
   },
-  "build_time_utc": "2026-07-22T18:43:27Z",
+  "build_time_utc": "2026-07-22T18:56:19Z",
   "candidate_development_only": true,
-  "command": "python scripts/summarize_quantity_frame_audit.py",
+  "command": "python scripts/summarize_quantity_frame_audit.py --packet results/strong_accept_loop/quantity_frame/model_audit_packet.jsonl --output results/strong_accept_loop/quantity_frame/source_gate.json",
   "document_identity": {
     "basis": "source_text_hash_document_proxy",
     "document_proxy_reuse_count": 0,
@@ -52,1359 +52,1723 @@
     "overlap_document_proxy_disjoint": true
   },
   "human_evidence": false,
-  "integrity_failures": [
-    "annotation_status:qf-audit-00636e864684f36e:reviewer_a:pending",
-    "annotation_status:qf-audit-00636e864684f36e:reviewer_b:pending",
-    "annotation_status:qf-audit-0132beb0aa3740bd:reviewer_a:pending",
-    "annotation_status:qf-audit-0132beb0aa3740bd:reviewer_b:pending",
-    "annotation_status:qf-audit-01f338315f3ed9dd:reviewer_a:pending",
-    "annotation_status:qf-audit-01f338315f3ed9dd:reviewer_b:pending",
-    "annotation_status:qf-audit-0204666e8c9db94d:reviewer_a:pending",
-    "annotation_status:qf-audit-0204666e8c9db94d:reviewer_b:pending",
-    "annotation_status:qf-audit-021ae82fd14ea8a0:reviewer_a:pending",
-    "annotation_status:qf-audit-021ae82fd14ea8a0:reviewer_b:pending",
-    "annotation_status:qf-audit-037593ec5c73d236:reviewer_a:pending",
-    "annotation_status:qf-audit-037593ec5c73d236:reviewer_b:pending",
-    "annotation_status:qf-audit-03ae82e8a58be2e0:reviewer_a:pending",
-    "annotation_status:qf-audit-03ae82e8a58be2e0:reviewer_b:pending",
-    "annotation_status:qf-audit-044da9f55e15d76c:reviewer_a:pending",
-    "annotation_status:qf-audit-044da9f55e15d76c:reviewer_b:pending",
-    "annotation_status:qf-audit-05a6182bea4841da:reviewer_a:pending",
-    "annotation_status:qf-audit-05a6182bea4841da:reviewer_b:pending",
-    "annotation_status:qf-audit-0669bae0243c2e13:reviewer_a:pending",
-    "annotation_status:qf-audit-0669bae0243c2e13:reviewer_b:pending",
-    "annotation_status:qf-audit-073fcc75255809cd:reviewer_a:pending",
-    "annotation_status:qf-audit-073fcc75255809cd:reviewer_b:pending",
-    "annotation_status:qf-audit-0b44aff52c6b0e5e:reviewer_a:pending",
-    "annotation_status:qf-audit-0b44aff52c6b0e5e:reviewer_b:pending",
-    "annotation_status:qf-audit-0b4cbdde766526a8:reviewer_a:pending",
-    "annotation_status:qf-audit-0b4cbdde766526a8:reviewer_b:pending",
-    "annotation_status:qf-audit-0b73d8af14a0eb47:reviewer_a:pending",
-    "annotation_status:qf-audit-0b73d8af14a0eb47:reviewer_b:pending",
-    "annotation_status:qf-audit-0c51af4119412250:reviewer_a:pending",
-    "annotation_status:qf-audit-0c51af4119412250:reviewer_b:pending",
-    "annotation_status:qf-audit-0cc20a4bf07eaf7c:reviewer_a:pending",
-    "annotation_status:qf-audit-0cc20a4bf07eaf7c:reviewer_b:pending",
-    "annotation_status:qf-audit-0e038ea9df79ccd1:reviewer_a:pending",
-    "annotation_status:qf-audit-0e038ea9df79ccd1:reviewer_b:pending",
-    "annotation_status:qf-audit-0e46e237ab6f8e8e:reviewer_a:pending",
-    "annotation_status:qf-audit-0e46e237ab6f8e8e:reviewer_b:pending",
-    "annotation_status:qf-audit-0ed7c887b7818af2:reviewer_a:pending",
-    "annotation_status:qf-audit-0ed7c887b7818af2:reviewer_b:pending",
-    "annotation_status:qf-audit-0f5a73d737d3fe43:reviewer_a:pending",
-    "annotation_status:qf-audit-0f5a73d737d3fe43:reviewer_b:pending",
-    "annotation_status:qf-audit-143361976035da58:reviewer_a:pending",
-    "annotation_status:qf-audit-143361976035da58:reviewer_b:pending",
-    "annotation_status:qf-audit-1477c88e9f8e9f65:reviewer_a:pending",
-    "annotation_status:qf-audit-1477c88e9f8e9f65:reviewer_b:pending",
-    "annotation_status:qf-audit-15a59ce729607702:reviewer_a:pending",
-    "annotation_status:qf-audit-15a59ce729607702:reviewer_b:pending",
-    "annotation_status:qf-audit-1617baa057a5166b:reviewer_a:pending",
-    "annotation_status:qf-audit-1617baa057a5166b:reviewer_b:pending",
-    "annotation_status:qf-audit-165bc03707217cdf:reviewer_a:pending",
-    "annotation_status:qf-audit-165bc03707217cdf:reviewer_b:pending",
-    "annotation_status:qf-audit-16ed9d69eb5e3730:reviewer_a:pending",
-    "annotation_status:qf-audit-16ed9d69eb5e3730:reviewer_b:pending",
-    "annotation_status:qf-audit-17b8362990dbbf6e:reviewer_a:pending",
-    "annotation_status:qf-audit-17b8362990dbbf6e:reviewer_b:pending",
-    "annotation_status:qf-audit-1812fd947fc1b095:reviewer_a:pending",
-    "annotation_status:qf-audit-1812fd947fc1b095:reviewer_b:pending",
-    "annotation_status:qf-audit-18c3baf74fce7ed8:reviewer_a:pending",
-    "annotation_status:qf-audit-18c3baf74fce7ed8:reviewer_b:pending",
-    "annotation_status:qf-audit-19846a3447449d5d:reviewer_a:pending",
-    "annotation_status:qf-audit-19846a3447449d5d:reviewer_b:pending",
-    "annotation_status:qf-audit-19a88207e01e88c3:reviewer_a:pending",
-    "annotation_status:qf-audit-19a88207e01e88c3:reviewer_b:pending",
-    "annotation_status:qf-audit-1b5630aa91336db4:reviewer_a:pending",
-    "annotation_status:qf-audit-1b5630aa91336db4:reviewer_b:pending",
-    "annotation_status:qf-audit-1c6d44da3cf93e43:reviewer_a:pending",
-    "annotation_status:qf-audit-1c6d44da3cf93e43:reviewer_b:pending",
-    "annotation_status:qf-audit-1dfcc3cb36ec6d8f:reviewer_a:pending",
-    "annotation_status:qf-audit-1dfcc3cb36ec6d8f:reviewer_b:pending",
-    "annotation_status:qf-audit-1e223e8632f6b354:reviewer_a:pending",
-    "annotation_status:qf-audit-1e223e8632f6b354:reviewer_b:pending",
-    "annotation_status:qf-audit-1f361618ece2df8e:reviewer_a:pending",
-    "annotation_status:qf-audit-1f361618ece2df8e:reviewer_b:pending",
-    "annotation_status:qf-audit-1fc17be2fd8a83d0:reviewer_a:pending",
-    "annotation_status:qf-audit-1fc17be2fd8a83d0:reviewer_b:pending",
-    "annotation_status:qf-audit-209043ec5b75a546:reviewer_a:pending",
-    "annotation_status:qf-audit-209043ec5b75a546:reviewer_b:pending",
-    "annotation_status:qf-audit-20a57c64f11f6b78:reviewer_a:pending",
-    "annotation_status:qf-audit-20a57c64f11f6b78:reviewer_b:pending",
-    "annotation_status:qf-audit-20c961162dc71c8a:reviewer_a:pending",
-    "annotation_status:qf-audit-20c961162dc71c8a:reviewer_b:pending",
-    "annotation_status:qf-audit-215ba16e43129ffc:reviewer_a:pending",
-    "annotation_status:qf-audit-215ba16e43129ffc:reviewer_b:pending",
-    "annotation_status:qf-audit-2187b8f37d47de15:reviewer_a:pending",
-    "annotation_status:qf-audit-2187b8f37d47de15:reviewer_b:pending",
-    "annotation_status:qf-audit-21b6ec4c5da05ceb:reviewer_a:pending",
-    "annotation_status:qf-audit-21b6ec4c5da05ceb:reviewer_b:pending",
-    "annotation_status:qf-audit-2202b6a230231f53:reviewer_a:pending",
-    "annotation_status:qf-audit-2202b6a230231f53:reviewer_b:pending",
-    "annotation_status:qf-audit-22e59823f1000e77:reviewer_a:pending",
-    "annotation_status:qf-audit-22e59823f1000e77:reviewer_b:pending",
-    "annotation_status:qf-audit-250a1ba4d4e4295c:reviewer_a:pending",
-    "annotation_status:qf-audit-250a1ba4d4e4295c:reviewer_b:pending",
-    "annotation_status:qf-audit-25b8ee53cc844962:reviewer_a:pending",
-    "annotation_status:qf-audit-25b8ee53cc844962:reviewer_b:pending",
-    "annotation_status:qf-audit-2722791f7e142f4a:reviewer_a:pending",
-    "annotation_status:qf-audit-2722791f7e142f4a:reviewer_b:pending",
-    "annotation_status:qf-audit-27f89a018debd2fd:reviewer_a:pending",
-    "annotation_status:qf-audit-27f89a018debd2fd:reviewer_b:pending",
-    "annotation_status:qf-audit-2823ceb23f90cc3b:reviewer_a:pending",
-    "annotation_status:qf-audit-2823ceb23f90cc3b:reviewer_b:pending",
-    "annotation_status:qf-audit-28903d474d297e16:reviewer_a:pending",
-    "annotation_status:qf-audit-28903d474d297e16:reviewer_b:pending",
-    "annotation_status:qf-audit-2b3d2a4a3c50dcbc:reviewer_a:pending",
-    "annotation_status:qf-audit-2b3d2a4a3c50dcbc:reviewer_b:pending",
-    "annotation_status:qf-audit-2b9c5b5988b03c02:reviewer_a:pending",
-    "annotation_status:qf-audit-2b9c5b5988b03c02:reviewer_b:pending",
-    "annotation_status:qf-audit-2f024cdb014f1d24:reviewer_a:pending",
-    "annotation_status:qf-audit-2f024cdb014f1d24:reviewer_b:pending",
-    "annotation_status:qf-audit-2f2b7c5b2ec94e2e:reviewer_a:pending",
-    "annotation_status:qf-audit-2f2b7c5b2ec94e2e:reviewer_b:pending",
-    "annotation_status:qf-audit-2f525ef58304d839:reviewer_a:pending",
-    "annotation_status:qf-audit-2f525ef58304d839:reviewer_b:pending",
-    "annotation_status:qf-audit-30df735a549b3055:reviewer_a:pending",
-    "annotation_status:qf-audit-30df735a549b3055:reviewer_b:pending",
-    "annotation_status:qf-audit-32c5cff3ff8d7d85:reviewer_a:pending",
-    "annotation_status:qf-audit-32c5cff3ff8d7d85:reviewer_b:pending",
-    "annotation_status:qf-audit-337f38a47ba7e015:reviewer_a:pending",
-    "annotation_status:qf-audit-337f38a47ba7e015:reviewer_b:pending",
-    "annotation_status:qf-audit-3395fd0cb3eefb4b:reviewer_a:pending",
-    "annotation_status:qf-audit-3395fd0cb3eefb4b:reviewer_b:pending",
-    "annotation_status:qf-audit-353588d44946a4d0:reviewer_a:pending",
-    "annotation_status:qf-audit-353588d44946a4d0:reviewer_b:pending",
-    "annotation_status:qf-audit-355714227ede129b:reviewer_a:pending",
-    "annotation_status:qf-audit-355714227ede129b:reviewer_b:pending",
-    "annotation_status:qf-audit-3666f83fced14648:reviewer_a:pending",
-    "annotation_status:qf-audit-3666f83fced14648:reviewer_b:pending",
-    "annotation_status:qf-audit-36990e4bfa95e93d:reviewer_a:pending",
-    "annotation_status:qf-audit-36990e4bfa95e93d:reviewer_b:pending",
-    "annotation_status:qf-audit-36f8a8cc29ea2ef5:reviewer_a:pending",
-    "annotation_status:qf-audit-36f8a8cc29ea2ef5:reviewer_b:pending",
-    "annotation_status:qf-audit-37360ca29edef0b1:reviewer_a:pending",
-    "annotation_status:qf-audit-37360ca29edef0b1:reviewer_b:pending",
-    "annotation_status:qf-audit-373bafde771eecba:reviewer_a:pending",
-    "annotation_status:qf-audit-373bafde771eecba:reviewer_b:pending",
-    "annotation_status:qf-audit-37686fc9ad1fdcff:reviewer_a:pending",
-    "annotation_status:qf-audit-37686fc9ad1fdcff:reviewer_b:pending",
-    "annotation_status:qf-audit-3771eec8c9269c40:reviewer_a:pending",
-    "annotation_status:qf-audit-3771eec8c9269c40:reviewer_b:pending",
-    "annotation_status:qf-audit-3776788334a67833:reviewer_a:pending",
-    "annotation_status:qf-audit-3776788334a67833:reviewer_b:pending",
-    "annotation_status:qf-audit-3819b84938c582ab:reviewer_a:pending",
-    "annotation_status:qf-audit-3819b84938c582ab:reviewer_b:pending",
-    "annotation_status:qf-audit-38bedde90d763b46:reviewer_a:pending",
-    "annotation_status:qf-audit-38bedde90d763b46:reviewer_b:pending",
-    "annotation_status:qf-audit-38c04fe2d3a40818:reviewer_a:pending",
-    "annotation_status:qf-audit-38c04fe2d3a40818:reviewer_b:pending",
-    "annotation_status:qf-audit-3930005c562a93e5:reviewer_a:pending",
-    "annotation_status:qf-audit-3930005c562a93e5:reviewer_b:pending",
-    "annotation_status:qf-audit-3a49f4906d064bb1:reviewer_a:pending",
-    "annotation_status:qf-audit-3a49f4906d064bb1:reviewer_b:pending",
-    "annotation_status:qf-audit-3a5c8d500f5e354b:reviewer_a:pending",
-    "annotation_status:qf-audit-3a5c8d500f5e354b:reviewer_b:pending",
-    "annotation_status:qf-audit-3ac9222ef79ffbd6:reviewer_a:pending",
-    "annotation_status:qf-audit-3ac9222ef79ffbd6:reviewer_b:pending",
-    "annotation_status:qf-audit-3b01066554f6f431:reviewer_a:pending",
-    "annotation_status:qf-audit-3b01066554f6f431:reviewer_b:pending",
-    "annotation_status:qf-audit-3bf3b5e1e8df3630:reviewer_a:pending",
-    "annotation_status:qf-audit-3bf3b5e1e8df3630:reviewer_b:pending",
-    "annotation_status:qf-audit-3bf3bd267c409668:reviewer_a:pending",
-    "annotation_status:qf-audit-3bf3bd267c409668:reviewer_b:pending",
-    "annotation_status:qf-audit-3c62fc763a9da7a4:reviewer_a:pending",
-    "annotation_status:qf-audit-3c62fc763a9da7a4:reviewer_b:pending",
-    "annotation_status:qf-audit-3d74a5b5e348f5b0:reviewer_a:pending",
-    "annotation_status:qf-audit-3d74a5b5e348f5b0:reviewer_b:pending",
-    "annotation_status:qf-audit-3d942923775fa58a:reviewer_a:pending",
-    "annotation_status:qf-audit-3d942923775fa58a:reviewer_b:pending",
-    "annotation_status:qf-audit-3da7abc463522b46:reviewer_a:pending",
-    "annotation_status:qf-audit-3da7abc463522b46:reviewer_b:pending",
-    "annotation_status:qf-audit-3f8de54732fe4f6e:reviewer_a:pending",
-    "annotation_status:qf-audit-3f8de54732fe4f6e:reviewer_b:pending",
-    "annotation_status:qf-audit-3fa1f1eee31cbec9:reviewer_a:pending",
-    "annotation_status:qf-audit-3fa1f1eee31cbec9:reviewer_b:pending",
-    "annotation_status:qf-audit-40485033e8de680b:reviewer_a:pending",
-    "annotation_status:qf-audit-40485033e8de680b:reviewer_b:pending",
-    "annotation_status:qf-audit-40e324431b8dcf76:reviewer_a:pending",
-    "annotation_status:qf-audit-40e324431b8dcf76:reviewer_b:pending",
-    "annotation_status:qf-audit-449db3b3dadeca28:reviewer_a:pending",
-    "annotation_status:qf-audit-449db3b3dadeca28:reviewer_b:pending",
-    "annotation_status:qf-audit-455c608f8b882f94:reviewer_a:pending",
-    "annotation_status:qf-audit-455c608f8b882f94:reviewer_b:pending",
-    "annotation_status:qf-audit-455d923633253aa2:reviewer_a:pending",
-    "annotation_status:qf-audit-455d923633253aa2:reviewer_b:pending",
-    "annotation_status:qf-audit-45bd9776bcb177c2:reviewer_a:pending",
-    "annotation_status:qf-audit-45bd9776bcb177c2:reviewer_b:pending",
-    "annotation_status:qf-audit-460c50d272019b0e:reviewer_a:pending",
-    "annotation_status:qf-audit-460c50d272019b0e:reviewer_b:pending",
-    "annotation_status:qf-audit-473ce688bb8ec285:reviewer_a:pending",
-    "annotation_status:qf-audit-473ce688bb8ec285:reviewer_b:pending",
-    "annotation_status:qf-audit-47b6e8656e85d796:reviewer_a:pending",
-    "annotation_status:qf-audit-47b6e8656e85d796:reviewer_b:pending",
-    "annotation_status:qf-audit-4801e6aad192bcfe:reviewer_a:pending",
-    "annotation_status:qf-audit-4801e6aad192bcfe:reviewer_b:pending",
-    "annotation_status:qf-audit-48293f198d258ee5:reviewer_a:pending",
-    "annotation_status:qf-audit-48293f198d258ee5:reviewer_b:pending",
-    "annotation_status:qf-audit-4848005a75c2c57c:reviewer_a:pending",
-    "annotation_status:qf-audit-4848005a75c2c57c:reviewer_b:pending",
-    "annotation_status:qf-audit-48751f157d9523ac:reviewer_a:pending",
-    "annotation_status:qf-audit-48751f157d9523ac:reviewer_b:pending",
-    "annotation_status:qf-audit-4a0082e5d6e0f186:reviewer_a:pending",
-    "annotation_status:qf-audit-4a0082e5d6e0f186:reviewer_b:pending",
-    "annotation_status:qf-audit-4aacf83f877431ff:reviewer_a:pending",
-    "annotation_status:qf-audit-4aacf83f877431ff:reviewer_b:pending",
-    "annotation_status:qf-audit-4b93b11e3b391065:reviewer_a:pending",
-    "annotation_status:qf-audit-4b93b11e3b391065:reviewer_b:pending",
-    "annotation_status:qf-audit-4d1e3c04dcf613ac:reviewer_a:pending",
-    "annotation_status:qf-audit-4d1e3c04dcf613ac:reviewer_b:pending",
-    "annotation_status:qf-audit-4d57797816cbf501:reviewer_a:pending",
-    "annotation_status:qf-audit-4d57797816cbf501:reviewer_b:pending",
-    "annotation_status:qf-audit-4e0badc99a737024:reviewer_a:pending",
-    "annotation_status:qf-audit-4e0badc99a737024:reviewer_b:pending",
-    "annotation_status:qf-audit-4e2384a999a82739:reviewer_a:pending",
-    "annotation_status:qf-audit-4e2384a999a82739:reviewer_b:pending",
-    "annotation_status:qf-audit-4e47613c63728b6b:reviewer_a:pending",
-    "annotation_status:qf-audit-4e47613c63728b6b:reviewer_b:pending",
-    "annotation_status:qf-audit-518b64a7c2ef9df8:reviewer_a:pending",
-    "annotation_status:qf-audit-518b64a7c2ef9df8:reviewer_b:pending",
-    "annotation_status:qf-audit-51c71d48b8c621aa:reviewer_a:pending",
-    "annotation_status:qf-audit-51c71d48b8c621aa:reviewer_b:pending",
-    "annotation_status:qf-audit-545d2d46379dff22:reviewer_a:pending",
-    "annotation_status:qf-audit-545d2d46379dff22:reviewer_b:pending",
-    "annotation_status:qf-audit-5629bc7818c60b18:reviewer_a:pending",
-    "annotation_status:qf-audit-5629bc7818c60b18:reviewer_b:pending",
-    "annotation_status:qf-audit-563e80d1e4390b0a:reviewer_a:pending",
-    "annotation_status:qf-audit-563e80d1e4390b0a:reviewer_b:pending",
-    "annotation_status:qf-audit-578b398ded55bfb2:reviewer_a:pending",
-    "annotation_status:qf-audit-578b398ded55bfb2:reviewer_b:pending",
-    "annotation_status:qf-audit-58d83f2cbbfa32b2:reviewer_a:pending",
-    "annotation_status:qf-audit-58d83f2cbbfa32b2:reviewer_b:pending",
-    "annotation_status:qf-audit-5bd32bc8b4c00b06:reviewer_a:pending",
-    "annotation_status:qf-audit-5bd32bc8b4c00b06:reviewer_b:pending",
-    "annotation_status:qf-audit-5c500efd8d61e1b8:reviewer_a:pending",
-    "annotation_status:qf-audit-5c500efd8d61e1b8:reviewer_b:pending",
-    "annotation_status:qf-audit-5d2c784600d65b48:reviewer_a:pending",
-    "annotation_status:qf-audit-5d2c784600d65b48:reviewer_b:pending",
-    "annotation_status:qf-audit-5da5119b9d96b9a9:reviewer_a:pending",
-    "annotation_status:qf-audit-5da5119b9d96b9a9:reviewer_b:pending",
-    "annotation_status:qf-audit-5e35b7dc5fe36998:reviewer_a:pending",
-    "annotation_status:qf-audit-5e35b7dc5fe36998:reviewer_b:pending",
-    "annotation_status:qf-audit-5e4598235fd54b22:reviewer_a:pending",
-    "annotation_status:qf-audit-5e4598235fd54b22:reviewer_b:pending",
-    "annotation_status:qf-audit-5e737523ce876275:reviewer_a:pending",
-    "annotation_status:qf-audit-5e737523ce876275:reviewer_b:pending",
-    "annotation_status:qf-audit-63a6b3a47fcba9d2:reviewer_a:pending",
-    "annotation_status:qf-audit-63a6b3a47fcba9d2:reviewer_b:pending",
-    "annotation_status:qf-audit-649a41f6a77a33f3:reviewer_a:pending",
-    "annotation_status:qf-audit-649a41f6a77a33f3:reviewer_b:pending",
-    "annotation_status:qf-audit-6628a39f4265c71e:reviewer_a:pending",
-    "annotation_status:qf-audit-6628a39f4265c71e:reviewer_b:pending",
-    "annotation_status:qf-audit-6680a3157781cc8a:reviewer_a:pending",
-    "annotation_status:qf-audit-6680a3157781cc8a:reviewer_b:pending",
-    "annotation_status:qf-audit-69e752f81b950e2b:reviewer_a:pending",
-    "annotation_status:qf-audit-69e752f81b950e2b:reviewer_b:pending",
-    "annotation_status:qf-audit-6affd71abef9a43d:reviewer_a:pending",
-    "annotation_status:qf-audit-6affd71abef9a43d:reviewer_b:pending",
-    "annotation_status:qf-audit-6c06395611736fdc:reviewer_a:pending",
-    "annotation_status:qf-audit-6c06395611736fdc:reviewer_b:pending",
-    "annotation_status:qf-audit-6c44a5c7b855bbea:reviewer_a:pending",
-    "annotation_status:qf-audit-6c44a5c7b855bbea:reviewer_b:pending",
-    "annotation_status:qf-audit-6d3114cee69624e0:reviewer_a:pending",
-    "annotation_status:qf-audit-6d3114cee69624e0:reviewer_b:pending",
-    "annotation_status:qf-audit-6e89ce0d1c50892d:reviewer_a:pending",
-    "annotation_status:qf-audit-6e89ce0d1c50892d:reviewer_b:pending",
-    "annotation_status:qf-audit-6f1bffd6c795af88:reviewer_a:pending",
-    "annotation_status:qf-audit-6f1bffd6c795af88:reviewer_b:pending",
-    "annotation_status:qf-audit-6f9812ec92b25909:reviewer_a:pending",
-    "annotation_status:qf-audit-6f9812ec92b25909:reviewer_b:pending",
-    "annotation_status:qf-audit-6f9df322ca6426f1:reviewer_a:pending",
-    "annotation_status:qf-audit-6f9df322ca6426f1:reviewer_b:pending",
-    "annotation_status:qf-audit-6fbad2bec81e79fb:reviewer_a:pending",
-    "annotation_status:qf-audit-6fbad2bec81e79fb:reviewer_b:pending",
-    "annotation_status:qf-audit-704d6ad6337fbaad:reviewer_a:pending",
-    "annotation_status:qf-audit-704d6ad6337fbaad:reviewer_b:pending",
-    "annotation_status:qf-audit-714c3eefaf98d0bd:reviewer_a:pending",
-    "annotation_status:qf-audit-714c3eefaf98d0bd:reviewer_b:pending",
-    "annotation_status:qf-audit-7183d250c1fabb93:reviewer_a:pending",
-    "annotation_status:qf-audit-7183d250c1fabb93:reviewer_b:pending",
-    "annotation_status:qf-audit-71942039e5f93b0e:reviewer_a:pending",
-    "annotation_status:qf-audit-71942039e5f93b0e:reviewer_b:pending",
-    "annotation_status:qf-audit-7252a044acf30b36:reviewer_a:pending",
-    "annotation_status:qf-audit-7252a044acf30b36:reviewer_b:pending",
-    "annotation_status:qf-audit-72d99efcc7df18dc:reviewer_a:pending",
-    "annotation_status:qf-audit-72d99efcc7df18dc:reviewer_b:pending",
-    "annotation_status:qf-audit-732e8753d93a40e5:reviewer_a:pending",
-    "annotation_status:qf-audit-732e8753d93a40e5:reviewer_b:pending",
-    "annotation_status:qf-audit-74bb704b35abbb75:reviewer_a:pending",
-    "annotation_status:qf-audit-74bb704b35abbb75:reviewer_b:pending",
-    "annotation_status:qf-audit-75b050f95d65c9aa:reviewer_a:pending",
-    "annotation_status:qf-audit-75b050f95d65c9aa:reviewer_b:pending",
-    "annotation_status:qf-audit-7603d110c87f5379:reviewer_a:pending",
-    "annotation_status:qf-audit-7603d110c87f5379:reviewer_b:pending",
-    "annotation_status:qf-audit-760f8e0e1891ba54:reviewer_a:pending",
-    "annotation_status:qf-audit-760f8e0e1891ba54:reviewer_b:pending",
-    "annotation_status:qf-audit-761245af7ec278e1:reviewer_a:pending",
-    "annotation_status:qf-audit-761245af7ec278e1:reviewer_b:pending",
-    "annotation_status:qf-audit-769a273cc762b5da:reviewer_a:pending",
-    "annotation_status:qf-audit-769a273cc762b5da:reviewer_b:pending",
-    "annotation_status:qf-audit-77682fa4ec2fa0bd:reviewer_a:pending",
-    "annotation_status:qf-audit-77682fa4ec2fa0bd:reviewer_b:pending",
-    "annotation_status:qf-audit-78d577437f356aff:reviewer_a:pending",
-    "annotation_status:qf-audit-78d577437f356aff:reviewer_b:pending",
-    "annotation_status:qf-audit-7990abacb3c0bd1a:reviewer_a:pending",
-    "annotation_status:qf-audit-7990abacb3c0bd1a:reviewer_b:pending",
-    "annotation_status:qf-audit-79e18f8e4d009927:reviewer_a:pending",
-    "annotation_status:qf-audit-79e18f8e4d009927:reviewer_b:pending",
-    "annotation_status:qf-audit-79e8b89219782bdd:reviewer_a:pending",
-    "annotation_status:qf-audit-79e8b89219782bdd:reviewer_b:pending",
-    "annotation_status:qf-audit-7ae8df77137e7fb5:reviewer_a:pending",
-    "annotation_status:qf-audit-7ae8df77137e7fb5:reviewer_b:pending",
-    "annotation_status:qf-audit-7b6deb8b7eee5ddf:reviewer_a:pending",
-    "annotation_status:qf-audit-7b6deb8b7eee5ddf:reviewer_b:pending",
-    "annotation_status:qf-audit-7d86847656dd976c:reviewer_a:pending",
-    "annotation_status:qf-audit-7d86847656dd976c:reviewer_b:pending",
-    "annotation_status:qf-audit-7e39b67f3aa5a7f8:reviewer_a:pending",
-    "annotation_status:qf-audit-7e39b67f3aa5a7f8:reviewer_b:pending",
-    "annotation_status:qf-audit-7eedad8f83f55d87:reviewer_a:pending",
-    "annotation_status:qf-audit-7eedad8f83f55d87:reviewer_b:pending",
-    "annotation_status:qf-audit-800c3a095e58b1b7:reviewer_a:pending",
-    "annotation_status:qf-audit-800c3a095e58b1b7:reviewer_b:pending",
-    "annotation_status:qf-audit-84d812f1aaa742ba:reviewer_a:pending",
-    "annotation_status:qf-audit-84d812f1aaa742ba:reviewer_b:pending",
-    "annotation_status:qf-audit-8587415af5fdd59f:reviewer_a:pending",
-    "annotation_status:qf-audit-8587415af5fdd59f:reviewer_b:pending",
-    "annotation_status:qf-audit-86c5d7b15ddbec74:reviewer_a:pending",
-    "annotation_status:qf-audit-86c5d7b15ddbec74:reviewer_b:pending",
-    "annotation_status:qf-audit-876e57964a7547df:reviewer_a:pending",
-    "annotation_status:qf-audit-876e57964a7547df:reviewer_b:pending",
-    "annotation_status:qf-audit-8784db73185edb7d:reviewer_a:pending",
-    "annotation_status:qf-audit-8784db73185edb7d:reviewer_b:pending",
-    "annotation_status:qf-audit-8aaae032d210f043:reviewer_a:pending",
-    "annotation_status:qf-audit-8aaae032d210f043:reviewer_b:pending",
-    "annotation_status:qf-audit-8afc96d4763635ac:reviewer_a:pending",
-    "annotation_status:qf-audit-8afc96d4763635ac:reviewer_b:pending",
-    "annotation_status:qf-audit-8d4a09c5761930bb:reviewer_a:pending",
-    "annotation_status:qf-audit-8d4a09c5761930bb:reviewer_b:pending",
-    "annotation_status:qf-audit-8d9331fffd7b9694:reviewer_a:pending",
-    "annotation_status:qf-audit-8d9331fffd7b9694:reviewer_b:pending",
-    "annotation_status:qf-audit-8ee6c63a9533bff9:reviewer_a:pending",
-    "annotation_status:qf-audit-8ee6c63a9533bff9:reviewer_b:pending",
-    "annotation_status:qf-audit-8f4584fefde606fa:reviewer_a:pending",
-    "annotation_status:qf-audit-8f4584fefde606fa:reviewer_b:pending",
-    "annotation_status:qf-audit-8f7b95d3c8280395:reviewer_a:pending",
-    "annotation_status:qf-audit-8f7b95d3c8280395:reviewer_b:pending",
-    "annotation_status:qf-audit-8fc017a48ccd7509:reviewer_a:pending",
-    "annotation_status:qf-audit-8fc017a48ccd7509:reviewer_b:pending",
-    "annotation_status:qf-audit-8fe67f1a7c7561ac:reviewer_a:pending",
-    "annotation_status:qf-audit-8fe67f1a7c7561ac:reviewer_b:pending",
-    "annotation_status:qf-audit-921a09ab572aa9a4:reviewer_a:pending",
-    "annotation_status:qf-audit-921a09ab572aa9a4:reviewer_b:pending",
-    "annotation_status:qf-audit-9311efc53e32374d:reviewer_a:pending",
-    "annotation_status:qf-audit-9311efc53e32374d:reviewer_b:pending",
-    "annotation_status:qf-audit-93492105b2976da4:reviewer_a:pending",
-    "annotation_status:qf-audit-93492105b2976da4:reviewer_b:pending",
-    "annotation_status:qf-audit-942b1a640879abfa:reviewer_a:pending",
-    "annotation_status:qf-audit-942b1a640879abfa:reviewer_b:pending",
-    "annotation_status:qf-audit-95a53d0c2e825e55:reviewer_a:pending",
-    "annotation_status:qf-audit-95a53d0c2e825e55:reviewer_b:pending",
-    "annotation_status:qf-audit-95a9c41dee750bae:reviewer_a:pending",
-    "annotation_status:qf-audit-95a9c41dee750bae:reviewer_b:pending",
-    "annotation_status:qf-audit-961d8ee49e279735:reviewer_a:pending",
-    "annotation_status:qf-audit-961d8ee49e279735:reviewer_b:pending",
-    "annotation_status:qf-audit-980a63df6e1e6c1f:reviewer_a:pending",
-    "annotation_status:qf-audit-980a63df6e1e6c1f:reviewer_b:pending",
-    "annotation_status:qf-audit-98402a1618118574:reviewer_a:pending",
-    "annotation_status:qf-audit-98402a1618118574:reviewer_b:pending",
-    "annotation_status:qf-audit-986cf24132a2a19f:reviewer_a:pending",
-    "annotation_status:qf-audit-986cf24132a2a19f:reviewer_b:pending",
-    "annotation_status:qf-audit-99d6bf77251dd0b7:reviewer_a:pending",
-    "annotation_status:qf-audit-99d6bf77251dd0b7:reviewer_b:pending",
-    "annotation_status:qf-audit-9a94296121261831:reviewer_a:pending",
-    "annotation_status:qf-audit-9a94296121261831:reviewer_b:pending",
-    "annotation_status:qf-audit-9c7d65044a78841b:reviewer_a:pending",
-    "annotation_status:qf-audit-9c7d65044a78841b:reviewer_b:pending",
-    "annotation_status:qf-audit-9cf0d437ad3c0d77:reviewer_a:pending",
-    "annotation_status:qf-audit-9cf0d437ad3c0d77:reviewer_b:pending",
-    "annotation_status:qf-audit-9e38a1ad5b141faf:reviewer_a:pending",
-    "annotation_status:qf-audit-9e38a1ad5b141faf:reviewer_b:pending",
-    "annotation_status:qf-audit-9ed9cb8fea6fe38d:reviewer_a:pending",
-    "annotation_status:qf-audit-9ed9cb8fea6fe38d:reviewer_b:pending",
-    "annotation_status:qf-audit-9efb5553008926d8:reviewer_a:pending",
-    "annotation_status:qf-audit-9efb5553008926d8:reviewer_b:pending",
-    "annotation_status:qf-audit-9f1d9ce885a23e7d:reviewer_a:pending",
-    "annotation_status:qf-audit-9f1d9ce885a23e7d:reviewer_b:pending",
-    "annotation_status:qf-audit-9fef0f24776aeccc:reviewer_a:pending",
-    "annotation_status:qf-audit-9fef0f24776aeccc:reviewer_b:pending",
-    "annotation_status:qf-audit-9ffbaf6909af2ff1:reviewer_a:pending",
-    "annotation_status:qf-audit-9ffbaf6909af2ff1:reviewer_b:pending",
-    "annotation_status:qf-audit-a1d98962b66569d0:reviewer_a:pending",
-    "annotation_status:qf-audit-a1d98962b66569d0:reviewer_b:pending",
-    "annotation_status:qf-audit-a1f44a1bbd4ea6c9:reviewer_a:pending",
-    "annotation_status:qf-audit-a1f44a1bbd4ea6c9:reviewer_b:pending",
-    "annotation_status:qf-audit-a2e4116dcb428df9:reviewer_a:pending",
-    "annotation_status:qf-audit-a2e4116dcb428df9:reviewer_b:pending",
-    "annotation_status:qf-audit-a37063196ba54128:reviewer_a:pending",
-    "annotation_status:qf-audit-a37063196ba54128:reviewer_b:pending",
-    "annotation_status:qf-audit-a54f92fd92dceda5:reviewer_a:pending",
-    "annotation_status:qf-audit-a54f92fd92dceda5:reviewer_b:pending",
-    "annotation_status:qf-audit-a57913e026e56e05:reviewer_a:pending",
-    "annotation_status:qf-audit-a57913e026e56e05:reviewer_b:pending",
-    "annotation_status:qf-audit-a7330b42264dddcd:reviewer_a:pending",
-    "annotation_status:qf-audit-a7330b42264dddcd:reviewer_b:pending",
-    "annotation_status:qf-audit-a75fba94705a7901:reviewer_a:pending",
-    "annotation_status:qf-audit-a75fba94705a7901:reviewer_b:pending",
-    "annotation_status:qf-audit-a7726b04dac88361:reviewer_a:pending",
-    "annotation_status:qf-audit-a7726b04dac88361:reviewer_b:pending",
-    "annotation_status:qf-audit-a7cb5b6450d1505f:reviewer_a:pending",
-    "annotation_status:qf-audit-a7cb5b6450d1505f:reviewer_b:pending",
-    "annotation_status:qf-audit-a812f3b37c3b3c32:reviewer_a:pending",
-    "annotation_status:qf-audit-a812f3b37c3b3c32:reviewer_b:pending",
-    "annotation_status:qf-audit-a82344509c5cb8fa:reviewer_a:pending",
-    "annotation_status:qf-audit-a82344509c5cb8fa:reviewer_b:pending",
-    "annotation_status:qf-audit-a950d7d795af6448:reviewer_a:pending",
-    "annotation_status:qf-audit-a950d7d795af6448:reviewer_b:pending",
-    "annotation_status:qf-audit-aa11dd7732a1a647:reviewer_a:pending",
-    "annotation_status:qf-audit-aa11dd7732a1a647:reviewer_b:pending",
-    "annotation_status:qf-audit-aa8f2800f897ada1:reviewer_a:pending",
-    "annotation_status:qf-audit-aa8f2800f897ada1:reviewer_b:pending",
-    "annotation_status:qf-audit-ade1ac6936166fb9:reviewer_a:pending",
-    "annotation_status:qf-audit-ade1ac6936166fb9:reviewer_b:pending",
-    "annotation_status:qf-audit-ae3836182b608eed:reviewer_a:pending",
-    "annotation_status:qf-audit-ae3836182b608eed:reviewer_b:pending",
-    "annotation_status:qf-audit-af81f1d6f506db40:reviewer_a:pending",
-    "annotation_status:qf-audit-af81f1d6f506db40:reviewer_b:pending",
-    "annotation_status:qf-audit-afd9168324e8cf19:reviewer_a:pending",
-    "annotation_status:qf-audit-afd9168324e8cf19:reviewer_b:pending",
-    "annotation_status:qf-audit-b00e43c90537d799:reviewer_a:pending",
-    "annotation_status:qf-audit-b00e43c90537d799:reviewer_b:pending",
-    "annotation_status:qf-audit-b22e175e291006d4:reviewer_a:pending",
-    "annotation_status:qf-audit-b22e175e291006d4:reviewer_b:pending",
-    "annotation_status:qf-audit-b350d36a941c9289:reviewer_a:pending",
-    "annotation_status:qf-audit-b350d36a941c9289:reviewer_b:pending",
-    "annotation_status:qf-audit-b5534c0afced9d84:reviewer_a:pending",
-    "annotation_status:qf-audit-b5534c0afced9d84:reviewer_b:pending",
-    "annotation_status:qf-audit-b55d821ae5501bcc:reviewer_a:pending",
-    "annotation_status:qf-audit-b55d821ae5501bcc:reviewer_b:pending",
-    "annotation_status:qf-audit-b6053ec8568e92df:reviewer_a:pending",
-    "annotation_status:qf-audit-b6053ec8568e92df:reviewer_b:pending",
-    "annotation_status:qf-audit-b6cdc016b993f514:reviewer_a:pending",
-    "annotation_status:qf-audit-b6cdc016b993f514:reviewer_b:pending",
-    "annotation_status:qf-audit-b85621a5dab47df1:reviewer_a:pending",
-    "annotation_status:qf-audit-b85621a5dab47df1:reviewer_b:pending",
-    "annotation_status:qf-audit-b99480156414f488:reviewer_a:pending",
-    "annotation_status:qf-audit-b99480156414f488:reviewer_b:pending",
-    "annotation_status:qf-audit-bb9a19939ccb47f2:reviewer_a:pending",
-    "annotation_status:qf-audit-bb9a19939ccb47f2:reviewer_b:pending",
-    "annotation_status:qf-audit-bba65628b597e3c0:reviewer_a:pending",
-    "annotation_status:qf-audit-bba65628b597e3c0:reviewer_b:pending",
-    "annotation_status:qf-audit-bc4df381834d82be:reviewer_a:pending",
-    "annotation_status:qf-audit-bc4df381834d82be:reviewer_b:pending",
-    "annotation_status:qf-audit-bddb522fd4bfed53:reviewer_a:pending",
-    "annotation_status:qf-audit-bddb522fd4bfed53:reviewer_b:pending",
-    "annotation_status:qf-audit-c010692612bc3149:reviewer_a:pending",
-    "annotation_status:qf-audit-c010692612bc3149:reviewer_b:pending",
-    "annotation_status:qf-audit-c07c35ac7a69ed2a:reviewer_a:pending",
-    "annotation_status:qf-audit-c07c35ac7a69ed2a:reviewer_b:pending",
-    "annotation_status:qf-audit-c09144ad893806c9:reviewer_a:pending",
-    "annotation_status:qf-audit-c09144ad893806c9:reviewer_b:pending",
-    "annotation_status:qf-audit-c1c7d804bd35ddce:reviewer_a:pending",
-    "annotation_status:qf-audit-c1c7d804bd35ddce:reviewer_b:pending",
-    "annotation_status:qf-audit-c1e9d36a6d5c12e3:reviewer_a:pending",
-    "annotation_status:qf-audit-c1e9d36a6d5c12e3:reviewer_b:pending",
-    "annotation_status:qf-audit-c1f6738ddf0711ed:reviewer_a:pending",
-    "annotation_status:qf-audit-c1f6738ddf0711ed:reviewer_b:pending",
-    "annotation_status:qf-audit-c2a9e03b76d1806d:reviewer_a:pending",
-    "annotation_status:qf-audit-c2a9e03b76d1806d:reviewer_b:pending",
-    "annotation_status:qf-audit-c36d7b3149afbf49:reviewer_a:pending",
-    "annotation_status:qf-audit-c36d7b3149afbf49:reviewer_b:pending",
-    "annotation_status:qf-audit-c421ed9ed898dcb9:reviewer_a:pending",
-    "annotation_status:qf-audit-c421ed9ed898dcb9:reviewer_b:pending",
-    "annotation_status:qf-audit-c442689d86974465:reviewer_a:pending",
-    "annotation_status:qf-audit-c442689d86974465:reviewer_b:pending",
-    "annotation_status:qf-audit-c45a1aa09116f442:reviewer_a:pending",
-    "annotation_status:qf-audit-c45a1aa09116f442:reviewer_b:pending",
-    "annotation_status:qf-audit-c5cb5d660dfeba6a:reviewer_a:pending",
-    "annotation_status:qf-audit-c5cb5d660dfeba6a:reviewer_b:pending",
-    "annotation_status:qf-audit-c6e65c929e3e477b:reviewer_a:pending",
-    "annotation_status:qf-audit-c6e65c929e3e477b:reviewer_b:pending",
-    "annotation_status:qf-audit-c71a84502ab31064:reviewer_a:pending",
-    "annotation_status:qf-audit-c71a84502ab31064:reviewer_b:pending",
-    "annotation_status:qf-audit-c72fc167ae412cdc:reviewer_a:pending",
-    "annotation_status:qf-audit-c72fc167ae412cdc:reviewer_b:pending",
-    "annotation_status:qf-audit-c73fc0241964af67:reviewer_a:pending",
-    "annotation_status:qf-audit-c73fc0241964af67:reviewer_b:pending",
-    "annotation_status:qf-audit-c7e38bf9774ee8a2:reviewer_a:pending",
-    "annotation_status:qf-audit-c7e38bf9774ee8a2:reviewer_b:pending",
-    "annotation_status:qf-audit-c8210c3a62331dfd:reviewer_a:pending",
-    "annotation_status:qf-audit-c8210c3a62331dfd:reviewer_b:pending",
-    "annotation_status:qf-audit-c87dfd67ddee2dd1:reviewer_a:pending",
-    "annotation_status:qf-audit-c87dfd67ddee2dd1:reviewer_b:pending",
-    "annotation_status:qf-audit-c8fbd53c284c850a:reviewer_a:pending",
-    "annotation_status:qf-audit-c8fbd53c284c850a:reviewer_b:pending",
-    "annotation_status:qf-audit-c9b4233ee5ad2d1c:reviewer_a:pending",
-    "annotation_status:qf-audit-c9b4233ee5ad2d1c:reviewer_b:pending",
-    "annotation_status:qf-audit-c9e1c30297abb0e8:reviewer_a:pending",
-    "annotation_status:qf-audit-c9e1c30297abb0e8:reviewer_b:pending",
-    "annotation_status:qf-audit-ca9c08e9597590c7:reviewer_a:pending",
-    "annotation_status:qf-audit-ca9c08e9597590c7:reviewer_b:pending",
-    "annotation_status:qf-audit-cbe6678e4869a638:reviewer_a:pending",
-    "annotation_status:qf-audit-cbe6678e4869a638:reviewer_b:pending",
-    "annotation_status:qf-audit-cd6a32675b8eba62:reviewer_a:pending",
-    "annotation_status:qf-audit-cd6a32675b8eba62:reviewer_b:pending",
-    "annotation_status:qf-audit-cdc4e6022d1327f4:reviewer_a:pending",
-    "annotation_status:qf-audit-cdc4e6022d1327f4:reviewer_b:pending",
-    "annotation_status:qf-audit-ce036346b70c207c:reviewer_a:pending",
-    "annotation_status:qf-audit-ce036346b70c207c:reviewer_b:pending",
-    "annotation_status:qf-audit-ce2ea4a9ea6b48ee:reviewer_a:pending",
-    "annotation_status:qf-audit-ce2ea4a9ea6b48ee:reviewer_b:pending",
-    "annotation_status:qf-audit-cea2df4c84d8418e:reviewer_a:pending",
-    "annotation_status:qf-audit-cea2df4c84d8418e:reviewer_b:pending",
-    "annotation_status:qf-audit-cecb63e82d4c5943:reviewer_a:pending",
-    "annotation_status:qf-audit-cecb63e82d4c5943:reviewer_b:pending",
-    "annotation_status:qf-audit-cff683d31e77ad75:reviewer_a:pending",
-    "annotation_status:qf-audit-cff683d31e77ad75:reviewer_b:pending",
-    "annotation_status:qf-audit-d0351449a43fc203:reviewer_a:pending",
-    "annotation_status:qf-audit-d0351449a43fc203:reviewer_b:pending",
-    "annotation_status:qf-audit-d0ea01da8a8b02a0:reviewer_a:pending",
-    "annotation_status:qf-audit-d0ea01da8a8b02a0:reviewer_b:pending",
-    "annotation_status:qf-audit-d11c18943f780c38:reviewer_a:pending",
-    "annotation_status:qf-audit-d11c18943f780c38:reviewer_b:pending",
-    "annotation_status:qf-audit-d1a8ccd244234738:reviewer_a:pending",
-    "annotation_status:qf-audit-d1a8ccd244234738:reviewer_b:pending",
-    "annotation_status:qf-audit-d22451be20697bb4:reviewer_a:pending",
-    "annotation_status:qf-audit-d22451be20697bb4:reviewer_b:pending",
-    "annotation_status:qf-audit-d29d7ec519666ce5:reviewer_a:pending",
-    "annotation_status:qf-audit-d29d7ec519666ce5:reviewer_b:pending",
-    "annotation_status:qf-audit-d2bc1e9649fddb62:reviewer_a:pending",
-    "annotation_status:qf-audit-d2bc1e9649fddb62:reviewer_b:pending",
-    "annotation_status:qf-audit-d613ad7e72962f81:reviewer_a:pending",
-    "annotation_status:qf-audit-d613ad7e72962f81:reviewer_b:pending",
-    "annotation_status:qf-audit-d69fa26d2ee6fd6d:reviewer_a:pending",
-    "annotation_status:qf-audit-d69fa26d2ee6fd6d:reviewer_b:pending",
-    "annotation_status:qf-audit-d6a9a2f63c397182:reviewer_a:pending",
-    "annotation_status:qf-audit-d6a9a2f63c397182:reviewer_b:pending",
-    "annotation_status:qf-audit-d79dd3dbb15ff031:reviewer_a:pending",
-    "annotation_status:qf-audit-d79dd3dbb15ff031:reviewer_b:pending",
-    "annotation_status:qf-audit-d7bba72551321156:reviewer_a:pending",
-    "annotation_status:qf-audit-d7bba72551321156:reviewer_b:pending",
-    "annotation_status:qf-audit-d8e00be38adb4d82:reviewer_a:pending",
-    "annotation_status:qf-audit-d8e00be38adb4d82:reviewer_b:pending",
-    "annotation_status:qf-audit-d906690ad533c3af:reviewer_a:pending",
-    "annotation_status:qf-audit-d906690ad533c3af:reviewer_b:pending",
-    "annotation_status:qf-audit-d925c42afd001f07:reviewer_a:pending",
-    "annotation_status:qf-audit-d925c42afd001f07:reviewer_b:pending",
-    "annotation_status:qf-audit-daf987d8bea8a626:reviewer_a:pending",
-    "annotation_status:qf-audit-daf987d8bea8a626:reviewer_b:pending",
-    "annotation_status:qf-audit-db4c127f1dcd7f47:reviewer_a:pending",
-    "annotation_status:qf-audit-db4c127f1dcd7f47:reviewer_b:pending",
-    "annotation_status:qf-audit-dc9d163ad5a587fe:reviewer_a:pending",
-    "annotation_status:qf-audit-dc9d163ad5a587fe:reviewer_b:pending",
-    "annotation_status:qf-audit-dc9de6bcb3860944:reviewer_a:pending",
-    "annotation_status:qf-audit-dc9de6bcb3860944:reviewer_b:pending",
-    "annotation_status:qf-audit-dca4f02ee38086f1:reviewer_a:pending",
-    "annotation_status:qf-audit-dca4f02ee38086f1:reviewer_b:pending",
-    "annotation_status:qf-audit-dcd07f75a4697d12:reviewer_a:pending",
-    "annotation_status:qf-audit-dcd07f75a4697d12:reviewer_b:pending",
-    "annotation_status:qf-audit-de165444ee3aeeea:reviewer_a:pending",
-    "annotation_status:qf-audit-de165444ee3aeeea:reviewer_b:pending",
-    "annotation_status:qf-audit-debc0193d860812c:reviewer_a:pending",
-    "annotation_status:qf-audit-debc0193d860812c:reviewer_b:pending",
-    "annotation_status:qf-audit-dec992432afff7e6:reviewer_a:pending",
-    "annotation_status:qf-audit-dec992432afff7e6:reviewer_b:pending",
-    "annotation_status:qf-audit-def70cb447d2529c:reviewer_a:pending",
-    "annotation_status:qf-audit-def70cb447d2529c:reviewer_b:pending",
-    "annotation_status:qf-audit-e04004c622b78dcc:reviewer_a:pending",
-    "annotation_status:qf-audit-e04004c622b78dcc:reviewer_b:pending",
-    "annotation_status:qf-audit-e0977900ef506cb4:reviewer_a:pending",
-    "annotation_status:qf-audit-e0977900ef506cb4:reviewer_b:pending",
-    "annotation_status:qf-audit-e0b2f4e8038f13ce:reviewer_a:pending",
-    "annotation_status:qf-audit-e0b2f4e8038f13ce:reviewer_b:pending",
-    "annotation_status:qf-audit-e1c9936547f7ef9a:reviewer_a:pending",
-    "annotation_status:qf-audit-e1c9936547f7ef9a:reviewer_b:pending",
-    "annotation_status:qf-audit-e4fe979861472e93:reviewer_a:pending",
-    "annotation_status:qf-audit-e4fe979861472e93:reviewer_b:pending",
-    "annotation_status:qf-audit-e5025273de1f01bc:reviewer_a:pending",
-    "annotation_status:qf-audit-e5025273de1f01bc:reviewer_b:pending",
-    "annotation_status:qf-audit-e5cd21f359f23d4f:reviewer_a:pending",
-    "annotation_status:qf-audit-e5cd21f359f23d4f:reviewer_b:pending",
-    "annotation_status:qf-audit-e70a2763be749282:reviewer_a:pending",
-    "annotation_status:qf-audit-e70a2763be749282:reviewer_b:pending",
-    "annotation_status:qf-audit-e74c56289cbe4b53:reviewer_a:pending",
-    "annotation_status:qf-audit-e74c56289cbe4b53:reviewer_b:pending",
-    "annotation_status:qf-audit-e7f26ef44ed0ba1f:reviewer_a:pending",
-    "annotation_status:qf-audit-e7f26ef44ed0ba1f:reviewer_b:pending",
-    "annotation_status:qf-audit-e835052a5639725a:reviewer_a:pending",
-    "annotation_status:qf-audit-e835052a5639725a:reviewer_b:pending",
-    "annotation_status:qf-audit-e8548f3f9ed7f4b2:reviewer_a:pending",
-    "annotation_status:qf-audit-e8548f3f9ed7f4b2:reviewer_b:pending",
-    "annotation_status:qf-audit-e8eedbcc20f4d539:reviewer_a:pending",
-    "annotation_status:qf-audit-e8eedbcc20f4d539:reviewer_b:pending",
-    "annotation_status:qf-audit-e969a2abf5d7a997:reviewer_a:pending",
-    "annotation_status:qf-audit-e969a2abf5d7a997:reviewer_b:pending",
-    "annotation_status:qf-audit-e98a4fb4e5160a34:reviewer_a:pending",
-    "annotation_status:qf-audit-e98a4fb4e5160a34:reviewer_b:pending",
-    "annotation_status:qf-audit-ea41c068b04ffad6:reviewer_a:pending",
-    "annotation_status:qf-audit-ea41c068b04ffad6:reviewer_b:pending",
-    "annotation_status:qf-audit-ea63eca40081b816:reviewer_a:pending",
-    "annotation_status:qf-audit-ea63eca40081b816:reviewer_b:pending",
-    "annotation_status:qf-audit-eb89afda02bf2a2a:reviewer_a:pending",
-    "annotation_status:qf-audit-eb89afda02bf2a2a:reviewer_b:pending",
-    "annotation_status:qf-audit-ec57e5a446079c65:reviewer_a:pending",
-    "annotation_status:qf-audit-ec57e5a446079c65:reviewer_b:pending",
-    "annotation_status:qf-audit-ec7da818e9802ce0:reviewer_a:pending",
-    "annotation_status:qf-audit-ec7da818e9802ce0:reviewer_b:pending",
-    "annotation_status:qf-audit-ed431c4dcc7aee2f:reviewer_a:pending",
-    "annotation_status:qf-audit-ed431c4dcc7aee2f:reviewer_b:pending",
-    "annotation_status:qf-audit-ed4a8cfec753d1b3:reviewer_a:pending",
-    "annotation_status:qf-audit-ed4a8cfec753d1b3:reviewer_b:pending",
-    "annotation_status:qf-audit-edd26dac578407fb:reviewer_a:pending",
-    "annotation_status:qf-audit-edd26dac578407fb:reviewer_b:pending",
-    "annotation_status:qf-audit-ee78fbe55b174d4e:reviewer_a:pending",
-    "annotation_status:qf-audit-ee78fbe55b174d4e:reviewer_b:pending",
-    "annotation_status:qf-audit-eeb56fa038d7e6bf:reviewer_a:pending",
-    "annotation_status:qf-audit-eeb56fa038d7e6bf:reviewer_b:pending",
-    "annotation_status:qf-audit-efdd5a6bbfd69fa9:reviewer_a:pending",
-    "annotation_status:qf-audit-efdd5a6bbfd69fa9:reviewer_b:pending",
-    "annotation_status:qf-audit-f012766706beab2b:reviewer_a:pending",
-    "annotation_status:qf-audit-f012766706beab2b:reviewer_b:pending",
-    "annotation_status:qf-audit-f0403113746a5217:reviewer_a:pending",
-    "annotation_status:qf-audit-f0403113746a5217:reviewer_b:pending",
-    "annotation_status:qf-audit-f0dfffa80a7b1099:reviewer_a:pending",
-    "annotation_status:qf-audit-f0dfffa80a7b1099:reviewer_b:pending",
-    "annotation_status:qf-audit-f118e71382e1c3f5:reviewer_a:pending",
-    "annotation_status:qf-audit-f118e71382e1c3f5:reviewer_b:pending",
-    "annotation_status:qf-audit-f19e1d5a3aff7577:reviewer_a:pending",
-    "annotation_status:qf-audit-f19e1d5a3aff7577:reviewer_b:pending",
-    "annotation_status:qf-audit-f20a273ba36f0281:reviewer_a:pending",
-    "annotation_status:qf-audit-f20a273ba36f0281:reviewer_b:pending",
-    "annotation_status:qf-audit-f23ccb7716c5f26e:reviewer_a:pending",
-    "annotation_status:qf-audit-f23ccb7716c5f26e:reviewer_b:pending",
-    "annotation_status:qf-audit-f273ab6a15e42a8a:reviewer_a:pending",
-    "annotation_status:qf-audit-f273ab6a15e42a8a:reviewer_b:pending",
-    "annotation_status:qf-audit-f29de0fa2e0a1263:reviewer_a:pending",
-    "annotation_status:qf-audit-f29de0fa2e0a1263:reviewer_b:pending",
-    "annotation_status:qf-audit-f307ac3a66109834:reviewer_a:pending",
-    "annotation_status:qf-audit-f307ac3a66109834:reviewer_b:pending",
-    "annotation_status:qf-audit-f348b10fc4baf4c7:reviewer_a:pending",
-    "annotation_status:qf-audit-f348b10fc4baf4c7:reviewer_b:pending",
-    "annotation_status:qf-audit-f3c3760dd448f2db:reviewer_a:pending",
-    "annotation_status:qf-audit-f3c3760dd448f2db:reviewer_b:pending",
-    "annotation_status:qf-audit-f62ebe73cc42b435:reviewer_a:pending",
-    "annotation_status:qf-audit-f62ebe73cc42b435:reviewer_b:pending",
-    "annotation_status:qf-audit-f72e0f24d6afdfb2:reviewer_a:pending",
-    "annotation_status:qf-audit-f72e0f24d6afdfb2:reviewer_b:pending",
-    "annotation_status:qf-audit-f744eb1c388e586e:reviewer_a:pending",
-    "annotation_status:qf-audit-f744eb1c388e586e:reviewer_b:pending",
-    "annotation_status:qf-audit-f7d9e1330596eec8:reviewer_a:pending",
-    "annotation_status:qf-audit-f7d9e1330596eec8:reviewer_b:pending",
-    "annotation_status:qf-audit-f8a96e68a28b94bb:reviewer_a:pending",
-    "annotation_status:qf-audit-f8a96e68a28b94bb:reviewer_b:pending",
-    "annotation_status:qf-audit-f9f52ce1ccf78592:reviewer_a:pending",
-    "annotation_status:qf-audit-f9f52ce1ccf78592:reviewer_b:pending",
-    "annotation_status:qf-audit-fc0dfcdf44b3d9c3:reviewer_a:pending",
-    "annotation_status:qf-audit-fc0dfcdf44b3d9c3:reviewer_b:pending",
-    "annotation_status:qf-audit-fd2e6894192034f3:reviewer_a:pending",
-    "annotation_status:qf-audit-fd2e6894192034f3:reviewer_b:pending",
-    "annotation_status:qf-audit-fd6a01ce0f7e6bf8:reviewer_a:pending",
-    "annotation_status:qf-audit-fd6a01ce0f7e6bf8:reviewer_b:pending",
-    "annotation_status:qf-audit-fdd046332c325cbc:reviewer_a:pending",
-    "annotation_status:qf-audit-fdd046332c325cbc:reviewer_b:pending",
-    "annotation_status:qf-audit-ff47d77701494e1e:reviewer_a:pending",
-    "annotation_status:qf-audit-ff47d77701494e1e:reviewer_b:pending",
-    "annotation_status:qf-audit-ff94e898924727ab:reviewer_a:pending",
-    "annotation_status:qf-audit-ff94e898924727ab:reviewer_b:pending",
-    "annotation_status:qf-audit-ff9e280d2359d699:reviewer_a:pending",
-    "annotation_status:qf-audit-ff9e280d2359d699:reviewer_b:pending"
-  ],
+  "integrity_failures": [],
   "items": 332,
   "model_agent_development_only": true,
-  "packet_path": "results/strong_accept_loop/quantity_frame/audit_packet.jsonl",
+  "packet_path": "results/strong_accept_loop/quantity_frame/model_audit_packet.jsonl",
   "packet_rows": 664,
-  "raw_disagreements": [],
+  "raw_disagreements": [
+    {
+      "audit_id": "qf-audit-0204666e8c9db94d",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-021ae82fd14ea8a0",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-03ae82e8a58be2e0",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-03ae82e8a58be2e0",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-044da9f55e15d76c",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-044da9f55e15d76c",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-044da9f55e15d76c",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-05a6182bea4841da",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-073fcc75255809cd",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0b73d8af14a0eb47",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0b73d8af14a0eb47",
+      "field": "unit",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0b73d8af14a0eb47",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0e038ea9df79ccd1",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0e038ea9df79ccd1",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0e038ea9df79ccd1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0ed7c887b7818af2",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-0f5a73d737d3fe43",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-16ed9d69eb5e3730",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-17b8362990dbbf6e",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-18c3baf74fce7ed8",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-1c6d44da3cf93e43",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-215ba16e43129ffc",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-21b6ec4c5da05ceb",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-250a1ba4d4e4295c",
+      "field": "unit",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-250a1ba4d4e4295c",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-2722791f7e142f4a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-2823ceb23f90cc3b",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-2f024cdb014f1d24",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-2f2b7c5b2ec94e2e",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-353588d44946a4d0",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-355714227ede129b",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-36990e4bfa95e93d",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-36990e4bfa95e93d",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-36990e4bfa95e93d",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-373bafde771eecba",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-37686fc9ad1fdcff",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3776788334a67833",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3776788334a67833",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3776788334a67833",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3776788334a67833",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3a49f4906d064bb1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3b01066554f6f431",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3b01066554f6f431",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3b01066554f6f431",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3b01066554f6f431",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3bf3bd267c409668",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3bf3bd267c409668",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3bf3bd267c409668",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3c62fc763a9da7a4",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3d74a5b5e348f5b0",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3d74a5b5e348f5b0",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3d74a5b5e348f5b0",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3d942923775fa58a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-3da7abc463522b46",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-40485033e8de680b",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-40e324431b8dcf76",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-449db3b3dadeca28",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-455c608f8b882f94",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-455c608f8b882f94",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-455c608f8b882f94",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-455d923633253aa2",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-45bd9776bcb177c2",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-48751f157d9523ac",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4aacf83f877431ff",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4d1e3c04dcf613ac",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4d1e3c04dcf613ac",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4d1e3c04dcf613ac",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4e2384a999a82739",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4e2384a999a82739",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4e2384a999a82739",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4e47613c63728b6b",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4e47613c63728b6b",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-4e47613c63728b6b",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-51c71d48b8c621aa",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5629bc7818c60b18",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-563e80d1e4390b0a",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-563e80d1e4390b0a",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-563e80d1e4390b0a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-578b398ded55bfb2",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-58d83f2cbbfa32b2",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5bd32bc8b4c00b06",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5c500efd8d61e1b8",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5d2c784600d65b48",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5d2c784600d65b48",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5da5119b9d96b9a9",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5da5119b9d96b9a9",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-5e35b7dc5fe36998",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-6628a39f4265c71e",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-6680a3157781cc8a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-6affd71abef9a43d",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-6c44a5c7b855bbea",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-6d3114cee69624e0",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-6f1bffd6c795af88",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-704d6ad6337fbaad",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-714c3eefaf98d0bd",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-71942039e5f93b0e",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-72d99efcc7df18dc",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-732e8753d93a40e5",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-75b050f95d65c9aa",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-75b050f95d65c9aa",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-75b050f95d65c9aa",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-761245af7ec278e1",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-769a273cc762b5da",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-78d577437f356aff",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-7990abacb3c0bd1a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-7ae8df77137e7fb5",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-7e39b67f3aa5a7f8",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8afc96d4763635ac",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8d9331fffd7b9694",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8ee6c63a9533bff9",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8fc017a48ccd7509",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8fe67f1a7c7561ac",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8fe67f1a7c7561ac",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-8fe67f1a7c7561ac",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-921a09ab572aa9a4",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-9311efc53e32374d",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-93492105b2976da4",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-95a53d0c2e825e55",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-95a9c41dee750bae",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-95a9c41dee750bae",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-961d8ee49e279735",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-9a94296121261831",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-9ed9cb8fea6fe38d",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-9ffbaf6909af2ff1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-a1f44a1bbd4ea6c9",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-a2e4116dcb428df9",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-a37063196ba54128",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-a57913e026e56e05",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-a7726b04dac88361",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-aa11dd7732a1a647",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-aa11dd7732a1a647",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-aa8f2800f897ada1",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-aa8f2800f897ada1",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-aa8f2800f897ada1",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-aa8f2800f897ada1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ade1ac6936166fb9",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ade1ac6936166fb9",
+      "field": "unit",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ade1ac6936166fb9",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-b00e43c90537d799",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-b22e175e291006d4",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-b55d821ae5501bcc",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-b6053ec8568e92df",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-b85621a5dab47df1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-bba65628b597e3c0",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-bba65628b597e3c0",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-bba65628b597e3c0",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-bddb522fd4bfed53",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c07c35ac7a69ed2a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c09144ad893806c9",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c1c7d804bd35ddce",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c1c7d804bd35ddce",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c1f6738ddf0711ed",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c421ed9ed898dcb9",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c5cb5d660dfeba6a",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c71a84502ab31064",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c71a84502ab31064",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c71a84502ab31064",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c71a84502ab31064",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c87dfd67ddee2dd1",
+      "field": "unit",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c87dfd67ddee2dd1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c9b4233ee5ad2d1c",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c9b4233ee5ad2d1c",
+      "field": "unit",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c9b4233ee5ad2d1c",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-c9e1c30297abb0e8",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-cbe6678e4869a638",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-cdc4e6022d1327f4",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-cea2df4c84d8418e",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-cff683d31e77ad75",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d11c18943f780c38",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d2bc1e9649fddb62",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d69fa26d2ee6fd6d",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d6a9a2f63c397182",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d6a9a2f63c397182",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d6a9a2f63c397182",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d79dd3dbb15ff031",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d8e00be38adb4d82",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d906690ad533c3af",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-d925c42afd001f07",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-db4c127f1dcd7f47",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-dc9de6bcb3860944",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-dca4f02ee38086f1",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-dcd07f75a4697d12",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-dcd07f75a4697d12",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-dec992432afff7e6",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-def70cb447d2529c",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-def70cb447d2529c",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-def70cb447d2529c",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-def70cb447d2529c",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e0977900ef506cb4",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e4fe979861472e93",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e4fe979861472e93",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e4fe979861472e93",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e70a2763be749282",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e7f26ef44ed0ba1f",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e8548f3f9ed7f4b2",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-e969a2abf5d7a997",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ea41c068b04ffad6",
+      "field": "frame_validity",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ea41c068b04ffad6",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ea41c068b04ffad6",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ec57e5a446079c65",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "unclear",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ed431c4dcc7aee2f",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-edd26dac578407fb",
+      "field": "time_window",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f0403113746a5217",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f0dfffa80a7b1099",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f23ccb7716c5f26e",
+      "field": "subgroup",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f23ccb7716c5f26e",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f273ab6a15e42a8a",
+      "field": "denominator_or_base",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f29de0fa2e0a1263",
+      "field": "comparator",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f744eb1c388e586e",
+      "field": "value",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "unclear"
+      }
+    },
+    {
+      "audit_id": "qf-audit-f9f52ce1ccf78592",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-fd6a01ce0f7e6bf8",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "yes",
+        "reviewer_b": "no"
+      }
+    },
+    {
+      "audit_id": "qf-audit-ff94e898924727ab",
+      "field": "counterfactual_candidate",
+      "labels": {
+        "reviewer_a": "no",
+        "reviewer_b": "yes"
+      }
+    }
+  ],
   "source_gate": {
     "advance": false,
     "counts": {
       "comparator": 0,
-      "corpora": 0,
-      "counterfactual": 0,
+      "corpora": 2,
+      "counterfactual": 184,
       "denominator": 0,
-      "valid": 0
+      "valid": 253
     },
     "failures": [
-      "annotations_pending",
-      "annotation_status:qf-audit-00636e864684f36e:reviewer_a:pending",
-      "annotation_status:qf-audit-00636e864684f36e:reviewer_b:pending",
-      "annotation_status:qf-audit-0132beb0aa3740bd:reviewer_a:pending",
-      "annotation_status:qf-audit-0132beb0aa3740bd:reviewer_b:pending",
-      "annotation_status:qf-audit-01f338315f3ed9dd:reviewer_a:pending",
-      "annotation_status:qf-audit-01f338315f3ed9dd:reviewer_b:pending",
-      "annotation_status:qf-audit-0204666e8c9db94d:reviewer_a:pending",
-      "annotation_status:qf-audit-0204666e8c9db94d:reviewer_b:pending",
-      "annotation_status:qf-audit-021ae82fd14ea8a0:reviewer_a:pending",
-      "annotation_status:qf-audit-021ae82fd14ea8a0:reviewer_b:pending",
-      "annotation_status:qf-audit-037593ec5c73d236:reviewer_a:pending",
-      "annotation_status:qf-audit-037593ec5c73d236:reviewer_b:pending",
-      "annotation_status:qf-audit-03ae82e8a58be2e0:reviewer_a:pending",
-      "annotation_status:qf-audit-03ae82e8a58be2e0:reviewer_b:pending",
-      "annotation_status:qf-audit-044da9f55e15d76c:reviewer_a:pending",
-      "annotation_status:qf-audit-044da9f55e15d76c:reviewer_b:pending",
-      "annotation_status:qf-audit-05a6182bea4841da:reviewer_a:pending",
-      "annotation_status:qf-audit-05a6182bea4841da:reviewer_b:pending",
-      "annotation_status:qf-audit-0669bae0243c2e13:reviewer_a:pending",
-      "annotation_status:qf-audit-0669bae0243c2e13:reviewer_b:pending",
-      "annotation_status:qf-audit-073fcc75255809cd:reviewer_a:pending",
-      "annotation_status:qf-audit-073fcc75255809cd:reviewer_b:pending",
-      "annotation_status:qf-audit-0b44aff52c6b0e5e:reviewer_a:pending",
-      "annotation_status:qf-audit-0b44aff52c6b0e5e:reviewer_b:pending",
-      "annotation_status:qf-audit-0b4cbdde766526a8:reviewer_a:pending",
-      "annotation_status:qf-audit-0b4cbdde766526a8:reviewer_b:pending",
-      "annotation_status:qf-audit-0b73d8af14a0eb47:reviewer_a:pending",
-      "annotation_status:qf-audit-0b73d8af14a0eb47:reviewer_b:pending",
-      "annotation_status:qf-audit-0c51af4119412250:reviewer_a:pending",
-      "annotation_status:qf-audit-0c51af4119412250:reviewer_b:pending",
-      "annotation_status:qf-audit-0cc20a4bf07eaf7c:reviewer_a:pending",
-      "annotation_status:qf-audit-0cc20a4bf07eaf7c:reviewer_b:pending",
-      "annotation_status:qf-audit-0e038ea9df79ccd1:reviewer_a:pending",
-      "annotation_status:qf-audit-0e038ea9df79ccd1:reviewer_b:pending",
-      "annotation_status:qf-audit-0e46e237ab6f8e8e:reviewer_a:pending",
-      "annotation_status:qf-audit-0e46e237ab6f8e8e:reviewer_b:pending",
-      "annotation_status:qf-audit-0ed7c887b7818af2:reviewer_a:pending",
-      "annotation_status:qf-audit-0ed7c887b7818af2:reviewer_b:pending",
-      "annotation_status:qf-audit-0f5a73d737d3fe43:reviewer_a:pending",
-      "annotation_status:qf-audit-0f5a73d737d3fe43:reviewer_b:pending",
-      "annotation_status:qf-audit-143361976035da58:reviewer_a:pending",
-      "annotation_status:qf-audit-143361976035da58:reviewer_b:pending",
-      "annotation_status:qf-audit-1477c88e9f8e9f65:reviewer_a:pending",
-      "annotation_status:qf-audit-1477c88e9f8e9f65:reviewer_b:pending",
-      "annotation_status:qf-audit-15a59ce729607702:reviewer_a:pending",
-      "annotation_status:qf-audit-15a59ce729607702:reviewer_b:pending",
-      "annotation_status:qf-audit-1617baa057a5166b:reviewer_a:pending",
-      "annotation_status:qf-audit-1617baa057a5166b:reviewer_b:pending",
-      "annotation_status:qf-audit-165bc03707217cdf:reviewer_a:pending",
-      "annotation_status:qf-audit-165bc03707217cdf:reviewer_b:pending",
-      "annotation_status:qf-audit-16ed9d69eb5e3730:reviewer_a:pending",
-      "annotation_status:qf-audit-16ed9d69eb5e3730:reviewer_b:pending",
-      "annotation_status:qf-audit-17b8362990dbbf6e:reviewer_a:pending",
-      "annotation_status:qf-audit-17b8362990dbbf6e:reviewer_b:pending",
-      "annotation_status:qf-audit-1812fd947fc1b095:reviewer_a:pending",
-      "annotation_status:qf-audit-1812fd947fc1b095:reviewer_b:pending",
-      "annotation_status:qf-audit-18c3baf74fce7ed8:reviewer_a:pending",
-      "annotation_status:qf-audit-18c3baf74fce7ed8:reviewer_b:pending",
-      "annotation_status:qf-audit-19846a3447449d5d:reviewer_a:pending",
-      "annotation_status:qf-audit-19846a3447449d5d:reviewer_b:pending",
-      "annotation_status:qf-audit-19a88207e01e88c3:reviewer_a:pending",
-      "annotation_status:qf-audit-19a88207e01e88c3:reviewer_b:pending",
-      "annotation_status:qf-audit-1b5630aa91336db4:reviewer_a:pending",
-      "annotation_status:qf-audit-1b5630aa91336db4:reviewer_b:pending",
-      "annotation_status:qf-audit-1c6d44da3cf93e43:reviewer_a:pending",
-      "annotation_status:qf-audit-1c6d44da3cf93e43:reviewer_b:pending",
-      "annotation_status:qf-audit-1dfcc3cb36ec6d8f:reviewer_a:pending",
-      "annotation_status:qf-audit-1dfcc3cb36ec6d8f:reviewer_b:pending",
-      "annotation_status:qf-audit-1e223e8632f6b354:reviewer_a:pending",
-      "annotation_status:qf-audit-1e223e8632f6b354:reviewer_b:pending",
-      "annotation_status:qf-audit-1f361618ece2df8e:reviewer_a:pending",
-      "annotation_status:qf-audit-1f361618ece2df8e:reviewer_b:pending",
-      "annotation_status:qf-audit-1fc17be2fd8a83d0:reviewer_a:pending",
-      "annotation_status:qf-audit-1fc17be2fd8a83d0:reviewer_b:pending",
-      "annotation_status:qf-audit-209043ec5b75a546:reviewer_a:pending",
-      "annotation_status:qf-audit-209043ec5b75a546:reviewer_b:pending",
-      "annotation_status:qf-audit-20a57c64f11f6b78:reviewer_a:pending",
-      "annotation_status:qf-audit-20a57c64f11f6b78:reviewer_b:pending",
-      "annotation_status:qf-audit-20c961162dc71c8a:reviewer_a:pending",
-      "annotation_status:qf-audit-20c961162dc71c8a:reviewer_b:pending",
-      "annotation_status:qf-audit-215ba16e43129ffc:reviewer_a:pending",
-      "annotation_status:qf-audit-215ba16e43129ffc:reviewer_b:pending",
-      "annotation_status:qf-audit-2187b8f37d47de15:reviewer_a:pending",
-      "annotation_status:qf-audit-2187b8f37d47de15:reviewer_b:pending",
-      "annotation_status:qf-audit-21b6ec4c5da05ceb:reviewer_a:pending",
-      "annotation_status:qf-audit-21b6ec4c5da05ceb:reviewer_b:pending",
-      "annotation_status:qf-audit-2202b6a230231f53:reviewer_a:pending",
-      "annotation_status:qf-audit-2202b6a230231f53:reviewer_b:pending",
-      "annotation_status:qf-audit-22e59823f1000e77:reviewer_a:pending",
-      "annotation_status:qf-audit-22e59823f1000e77:reviewer_b:pending",
-      "annotation_status:qf-audit-250a1ba4d4e4295c:reviewer_a:pending",
-      "annotation_status:qf-audit-250a1ba4d4e4295c:reviewer_b:pending",
-      "annotation_status:qf-audit-25b8ee53cc844962:reviewer_a:pending",
-      "annotation_status:qf-audit-25b8ee53cc844962:reviewer_b:pending",
-      "annotation_status:qf-audit-2722791f7e142f4a:reviewer_a:pending",
-      "annotation_status:qf-audit-2722791f7e142f4a:reviewer_b:pending",
-      "annotation_status:qf-audit-27f89a018debd2fd:reviewer_a:pending",
-      "annotation_status:qf-audit-27f89a018debd2fd:reviewer_b:pending",
-      "annotation_status:qf-audit-2823ceb23f90cc3b:reviewer_a:pending",
-      "annotation_status:qf-audit-2823ceb23f90cc3b:reviewer_b:pending",
-      "annotation_status:qf-audit-28903d474d297e16:reviewer_a:pending",
-      "annotation_status:qf-audit-28903d474d297e16:reviewer_b:pending",
-      "annotation_status:qf-audit-2b3d2a4a3c50dcbc:reviewer_a:pending",
-      "annotation_status:qf-audit-2b3d2a4a3c50dcbc:reviewer_b:pending",
-      "annotation_status:qf-audit-2b9c5b5988b03c02:reviewer_a:pending",
-      "annotation_status:qf-audit-2b9c5b5988b03c02:reviewer_b:pending",
-      "annotation_status:qf-audit-2f024cdb014f1d24:reviewer_a:pending",
-      "annotation_status:qf-audit-2f024cdb014f1d24:reviewer_b:pending",
-      "annotation_status:qf-audit-2f2b7c5b2ec94e2e:reviewer_a:pending",
-      "annotation_status:qf-audit-2f2b7c5b2ec94e2e:reviewer_b:pending",
-      "annotation_status:qf-audit-2f525ef58304d839:reviewer_a:pending",
-      "annotation_status:qf-audit-2f525ef58304d839:reviewer_b:pending",
-      "annotation_status:qf-audit-30df735a549b3055:reviewer_a:pending",
-      "annotation_status:qf-audit-30df735a549b3055:reviewer_b:pending",
-      "annotation_status:qf-audit-32c5cff3ff8d7d85:reviewer_a:pending",
-      "annotation_status:qf-audit-32c5cff3ff8d7d85:reviewer_b:pending",
-      "annotation_status:qf-audit-337f38a47ba7e015:reviewer_a:pending",
-      "annotation_status:qf-audit-337f38a47ba7e015:reviewer_b:pending",
-      "annotation_status:qf-audit-3395fd0cb3eefb4b:reviewer_a:pending",
-      "annotation_status:qf-audit-3395fd0cb3eefb4b:reviewer_b:pending",
-      "annotation_status:qf-audit-353588d44946a4d0:reviewer_a:pending",
-      "annotation_status:qf-audit-353588d44946a4d0:reviewer_b:pending",
-      "annotation_status:qf-audit-355714227ede129b:reviewer_a:pending",
-      "annotation_status:qf-audit-355714227ede129b:reviewer_b:pending",
-      "annotation_status:qf-audit-3666f83fced14648:reviewer_a:pending",
-      "annotation_status:qf-audit-3666f83fced14648:reviewer_b:pending",
-      "annotation_status:qf-audit-36990e4bfa95e93d:reviewer_a:pending",
-      "annotation_status:qf-audit-36990e4bfa95e93d:reviewer_b:pending",
-      "annotation_status:qf-audit-36f8a8cc29ea2ef5:reviewer_a:pending",
-      "annotation_status:qf-audit-36f8a8cc29ea2ef5:reviewer_b:pending",
-      "annotation_status:qf-audit-37360ca29edef0b1:reviewer_a:pending",
-      "annotation_status:qf-audit-37360ca29edef0b1:reviewer_b:pending",
-      "annotation_status:qf-audit-373bafde771eecba:reviewer_a:pending",
-      "annotation_status:qf-audit-373bafde771eecba:reviewer_b:pending",
-      "annotation_status:qf-audit-37686fc9ad1fdcff:reviewer_a:pending",
-      "annotation_status:qf-audit-37686fc9ad1fdcff:reviewer_b:pending",
-      "annotation_status:qf-audit-3771eec8c9269c40:reviewer_a:pending",
-      "annotation_status:qf-audit-3771eec8c9269c40:reviewer_b:pending",
-      "annotation_status:qf-audit-3776788334a67833:reviewer_a:pending",
-      "annotation_status:qf-audit-3776788334a67833:reviewer_b:pending",
-      "annotation_status:qf-audit-3819b84938c582ab:reviewer_a:pending",
-      "annotation_status:qf-audit-3819b84938c582ab:reviewer_b:pending",
-      "annotation_status:qf-audit-38bedde90d763b46:reviewer_a:pending",
-      "annotation_status:qf-audit-38bedde90d763b46:reviewer_b:pending",
-      "annotation_status:qf-audit-38c04fe2d3a40818:reviewer_a:pending",
-      "annotation_status:qf-audit-38c04fe2d3a40818:reviewer_b:pending",
-      "annotation_status:qf-audit-3930005c562a93e5:reviewer_a:pending",
-      "annotation_status:qf-audit-3930005c562a93e5:reviewer_b:pending",
-      "annotation_status:qf-audit-3a49f4906d064bb1:reviewer_a:pending",
-      "annotation_status:qf-audit-3a49f4906d064bb1:reviewer_b:pending",
-      "annotation_status:qf-audit-3a5c8d500f5e354b:reviewer_a:pending",
-      "annotation_status:qf-audit-3a5c8d500f5e354b:reviewer_b:pending",
-      "annotation_status:qf-audit-3ac9222ef79ffbd6:reviewer_a:pending",
-      "annotation_status:qf-audit-3ac9222ef79ffbd6:reviewer_b:pending",
-      "annotation_status:qf-audit-3b01066554f6f431:reviewer_a:pending",
-      "annotation_status:qf-audit-3b01066554f6f431:reviewer_b:pending",
-      "annotation_status:qf-audit-3bf3b5e1e8df3630:reviewer_a:pending",
-      "annotation_status:qf-audit-3bf3b5e1e8df3630:reviewer_b:pending",
-      "annotation_status:qf-audit-3bf3bd267c409668:reviewer_a:pending",
-      "annotation_status:qf-audit-3bf3bd267c409668:reviewer_b:pending",
-      "annotation_status:qf-audit-3c62fc763a9da7a4:reviewer_a:pending",
-      "annotation_status:qf-audit-3c62fc763a9da7a4:reviewer_b:pending",
-      "annotation_status:qf-audit-3d74a5b5e348f5b0:reviewer_a:pending",
-      "annotation_status:qf-audit-3d74a5b5e348f5b0:reviewer_b:pending",
-      "annotation_status:qf-audit-3d942923775fa58a:reviewer_a:pending",
-      "annotation_status:qf-audit-3d942923775fa58a:reviewer_b:pending",
-      "annotation_status:qf-audit-3da7abc463522b46:reviewer_a:pending",
-      "annotation_status:qf-audit-3da7abc463522b46:reviewer_b:pending",
-      "annotation_status:qf-audit-3f8de54732fe4f6e:reviewer_a:pending",
-      "annotation_status:qf-audit-3f8de54732fe4f6e:reviewer_b:pending",
-      "annotation_status:qf-audit-3fa1f1eee31cbec9:reviewer_a:pending",
-      "annotation_status:qf-audit-3fa1f1eee31cbec9:reviewer_b:pending",
-      "annotation_status:qf-audit-40485033e8de680b:reviewer_a:pending",
-      "annotation_status:qf-audit-40485033e8de680b:reviewer_b:pending",
-      "annotation_status:qf-audit-40e324431b8dcf76:reviewer_a:pending",
-      "annotation_status:qf-audit-40e324431b8dcf76:reviewer_b:pending",
-      "annotation_status:qf-audit-449db3b3dadeca28:reviewer_a:pending",
-      "annotation_status:qf-audit-449db3b3dadeca28:reviewer_b:pending",
-      "annotation_status:qf-audit-455c608f8b882f94:reviewer_a:pending",
-      "annotation_status:qf-audit-455c608f8b882f94:reviewer_b:pending",
-      "annotation_status:qf-audit-455d923633253aa2:reviewer_a:pending",
-      "annotation_status:qf-audit-455d923633253aa2:reviewer_b:pending",
-      "annotation_status:qf-audit-45bd9776bcb177c2:reviewer_a:pending",
-      "annotation_status:qf-audit-45bd9776bcb177c2:reviewer_b:pending",
-      "annotation_status:qf-audit-460c50d272019b0e:reviewer_a:pending",
-      "annotation_status:qf-audit-460c50d272019b0e:reviewer_b:pending",
-      "annotation_status:qf-audit-473ce688bb8ec285:reviewer_a:pending",
-      "annotation_status:qf-audit-473ce688bb8ec285:reviewer_b:pending",
-      "annotation_status:qf-audit-47b6e8656e85d796:reviewer_a:pending",
-      "annotation_status:qf-audit-47b6e8656e85d796:reviewer_b:pending",
-      "annotation_status:qf-audit-4801e6aad192bcfe:reviewer_a:pending",
-      "annotation_status:qf-audit-4801e6aad192bcfe:reviewer_b:pending",
-      "annotation_status:qf-audit-48293f198d258ee5:reviewer_a:pending",
-      "annotation_status:qf-audit-48293f198d258ee5:reviewer_b:pending",
-      "annotation_status:qf-audit-4848005a75c2c57c:reviewer_a:pending",
-      "annotation_status:qf-audit-4848005a75c2c57c:reviewer_b:pending",
-      "annotation_status:qf-audit-48751f157d9523ac:reviewer_a:pending",
-      "annotation_status:qf-audit-48751f157d9523ac:reviewer_b:pending",
-      "annotation_status:qf-audit-4a0082e5d6e0f186:reviewer_a:pending",
-      "annotation_status:qf-audit-4a0082e5d6e0f186:reviewer_b:pending",
-      "annotation_status:qf-audit-4aacf83f877431ff:reviewer_a:pending",
-      "annotation_status:qf-audit-4aacf83f877431ff:reviewer_b:pending",
-      "annotation_status:qf-audit-4b93b11e3b391065:reviewer_a:pending",
-      "annotation_status:qf-audit-4b93b11e3b391065:reviewer_b:pending",
-      "annotation_status:qf-audit-4d1e3c04dcf613ac:reviewer_a:pending",
-      "annotation_status:qf-audit-4d1e3c04dcf613ac:reviewer_b:pending",
-      "annotation_status:qf-audit-4d57797816cbf501:reviewer_a:pending",
-      "annotation_status:qf-audit-4d57797816cbf501:reviewer_b:pending",
-      "annotation_status:qf-audit-4e0badc99a737024:reviewer_a:pending",
-      "annotation_status:qf-audit-4e0badc99a737024:reviewer_b:pending",
-      "annotation_status:qf-audit-4e2384a999a82739:reviewer_a:pending",
-      "annotation_status:qf-audit-4e2384a999a82739:reviewer_b:pending",
-      "annotation_status:qf-audit-4e47613c63728b6b:reviewer_a:pending",
-      "annotation_status:qf-audit-4e47613c63728b6b:reviewer_b:pending",
-      "annotation_status:qf-audit-518b64a7c2ef9df8:reviewer_a:pending",
-      "annotation_status:qf-audit-518b64a7c2ef9df8:reviewer_b:pending",
-      "annotation_status:qf-audit-51c71d48b8c621aa:reviewer_a:pending",
-      "annotation_status:qf-audit-51c71d48b8c621aa:reviewer_b:pending",
-      "annotation_status:qf-audit-545d2d46379dff22:reviewer_a:pending",
-      "annotation_status:qf-audit-545d2d46379dff22:reviewer_b:pending",
-      "annotation_status:qf-audit-5629bc7818c60b18:reviewer_a:pending",
-      "annotation_status:qf-audit-5629bc7818c60b18:reviewer_b:pending",
-      "annotation_status:qf-audit-563e80d1e4390b0a:reviewer_a:pending",
-      "annotation_status:qf-audit-563e80d1e4390b0a:reviewer_b:pending",
-      "annotation_status:qf-audit-578b398ded55bfb2:reviewer_a:pending",
-      "annotation_status:qf-audit-578b398ded55bfb2:reviewer_b:pending",
-      "annotation_status:qf-audit-58d83f2cbbfa32b2:reviewer_a:pending",
-      "annotation_status:qf-audit-58d83f2cbbfa32b2:reviewer_b:pending",
-      "annotation_status:qf-audit-5bd32bc8b4c00b06:reviewer_a:pending",
-      "annotation_status:qf-audit-5bd32bc8b4c00b06:reviewer_b:pending",
-      "annotation_status:qf-audit-5c500efd8d61e1b8:reviewer_a:pending",
-      "annotation_status:qf-audit-5c500efd8d61e1b8:reviewer_b:pending",
-      "annotation_status:qf-audit-5d2c784600d65b48:reviewer_a:pending",
-      "annotation_status:qf-audit-5d2c784600d65b48:reviewer_b:pending",
-      "annotation_status:qf-audit-5da5119b9d96b9a9:reviewer_a:pending",
-      "annotation_status:qf-audit-5da5119b9d96b9a9:reviewer_b:pending",
-      "annotation_status:qf-audit-5e35b7dc5fe36998:reviewer_a:pending",
-      "annotation_status:qf-audit-5e35b7dc5fe36998:reviewer_b:pending",
-      "annotation_status:qf-audit-5e4598235fd54b22:reviewer_a:pending",
-      "annotation_status:qf-audit-5e4598235fd54b22:reviewer_b:pending",
-      "annotation_status:qf-audit-5e737523ce876275:reviewer_a:pending",
-      "annotation_status:qf-audit-5e737523ce876275:reviewer_b:pending",
-      "annotation_status:qf-audit-63a6b3a47fcba9d2:reviewer_a:pending",
-      "annotation_status:qf-audit-63a6b3a47fcba9d2:reviewer_b:pending",
-      "annotation_status:qf-audit-649a41f6a77a33f3:reviewer_a:pending",
-      "annotation_status:qf-audit-649a41f6a77a33f3:reviewer_b:pending",
-      "annotation_status:qf-audit-6628a39f4265c71e:reviewer_a:pending",
-      "annotation_status:qf-audit-6628a39f4265c71e:reviewer_b:pending",
-      "annotation_status:qf-audit-6680a3157781cc8a:reviewer_a:pending",
-      "annotation_status:qf-audit-6680a3157781cc8a:reviewer_b:pending",
-      "annotation_status:qf-audit-69e752f81b950e2b:reviewer_a:pending",
-      "annotation_status:qf-audit-69e752f81b950e2b:reviewer_b:pending",
-      "annotation_status:qf-audit-6affd71abef9a43d:reviewer_a:pending",
-      "annotation_status:qf-audit-6affd71abef9a43d:reviewer_b:pending",
-      "annotation_status:qf-audit-6c06395611736fdc:reviewer_a:pending",
-      "annotation_status:qf-audit-6c06395611736fdc:reviewer_b:pending",
-      "annotation_status:qf-audit-6c44a5c7b855bbea:reviewer_a:pending",
-      "annotation_status:qf-audit-6c44a5c7b855bbea:reviewer_b:pending",
-      "annotation_status:qf-audit-6d3114cee69624e0:reviewer_a:pending",
-      "annotation_status:qf-audit-6d3114cee69624e0:reviewer_b:pending",
-      "annotation_status:qf-audit-6e89ce0d1c50892d:reviewer_a:pending",
-      "annotation_status:qf-audit-6e89ce0d1c50892d:reviewer_b:pending",
-      "annotation_status:qf-audit-6f1bffd6c795af88:reviewer_a:pending",
-      "annotation_status:qf-audit-6f1bffd6c795af88:reviewer_b:pending",
-      "annotation_status:qf-audit-6f9812ec92b25909:reviewer_a:pending",
-      "annotation_status:qf-audit-6f9812ec92b25909:reviewer_b:pending",
-      "annotation_status:qf-audit-6f9df322ca6426f1:reviewer_a:pending",
-      "annotation_status:qf-audit-6f9df322ca6426f1:reviewer_b:pending",
-      "annotation_status:qf-audit-6fbad2bec81e79fb:reviewer_a:pending",
-      "annotation_status:qf-audit-6fbad2bec81e79fb:reviewer_b:pending",
-      "annotation_status:qf-audit-704d6ad6337fbaad:reviewer_a:pending",
-      "annotation_status:qf-audit-704d6ad6337fbaad:reviewer_b:pending",
-      "annotation_status:qf-audit-714c3eefaf98d0bd:reviewer_a:pending",
-      "annotation_status:qf-audit-714c3eefaf98d0bd:reviewer_b:pending",
-      "annotation_status:qf-audit-7183d250c1fabb93:reviewer_a:pending",
-      "annotation_status:qf-audit-7183d250c1fabb93:reviewer_b:pending",
-      "annotation_status:qf-audit-71942039e5f93b0e:reviewer_a:pending",
-      "annotation_status:qf-audit-71942039e5f93b0e:reviewer_b:pending",
-      "annotation_status:qf-audit-7252a044acf30b36:reviewer_a:pending",
-      "annotation_status:qf-audit-7252a044acf30b36:reviewer_b:pending",
-      "annotation_status:qf-audit-72d99efcc7df18dc:reviewer_a:pending",
-      "annotation_status:qf-audit-72d99efcc7df18dc:reviewer_b:pending",
-      "annotation_status:qf-audit-732e8753d93a40e5:reviewer_a:pending",
-      "annotation_status:qf-audit-732e8753d93a40e5:reviewer_b:pending",
-      "annotation_status:qf-audit-74bb704b35abbb75:reviewer_a:pending",
-      "annotation_status:qf-audit-74bb704b35abbb75:reviewer_b:pending",
-      "annotation_status:qf-audit-75b050f95d65c9aa:reviewer_a:pending",
-      "annotation_status:qf-audit-75b050f95d65c9aa:reviewer_b:pending",
-      "annotation_status:qf-audit-7603d110c87f5379:reviewer_a:pending",
-      "annotation_status:qf-audit-7603d110c87f5379:reviewer_b:pending",
-      "annotation_status:qf-audit-760f8e0e1891ba54:reviewer_a:pending",
-      "annotation_status:qf-audit-760f8e0e1891ba54:reviewer_b:pending",
-      "annotation_status:qf-audit-761245af7ec278e1:reviewer_a:pending",
-      "annotation_status:qf-audit-761245af7ec278e1:reviewer_b:pending",
-      "annotation_status:qf-audit-769a273cc762b5da:reviewer_a:pending",
-      "annotation_status:qf-audit-769a273cc762b5da:reviewer_b:pending",
-      "annotation_status:qf-audit-77682fa4ec2fa0bd:reviewer_a:pending",
-      "annotation_status:qf-audit-77682fa4ec2fa0bd:reviewer_b:pending",
-      "annotation_status:qf-audit-78d577437f356aff:reviewer_a:pending",
-      "annotation_status:qf-audit-78d577437f356aff:reviewer_b:pending",
-      "annotation_status:qf-audit-7990abacb3c0bd1a:reviewer_a:pending",
-      "annotation_status:qf-audit-7990abacb3c0bd1a:reviewer_b:pending",
-      "annotation_status:qf-audit-79e18f8e4d009927:reviewer_a:pending",
-      "annotation_status:qf-audit-79e18f8e4d009927:reviewer_b:pending",
-      "annotation_status:qf-audit-79e8b89219782bdd:reviewer_a:pending",
-      "annotation_status:qf-audit-79e8b89219782bdd:reviewer_b:pending",
-      "annotation_status:qf-audit-7ae8df77137e7fb5:reviewer_a:pending",
-      "annotation_status:qf-audit-7ae8df77137e7fb5:reviewer_b:pending",
-      "annotation_status:qf-audit-7b6deb8b7eee5ddf:reviewer_a:pending",
-      "annotation_status:qf-audit-7b6deb8b7eee5ddf:reviewer_b:pending",
-      "annotation_status:qf-audit-7d86847656dd976c:reviewer_a:pending",
-      "annotation_status:qf-audit-7d86847656dd976c:reviewer_b:pending",
-      "annotation_status:qf-audit-7e39b67f3aa5a7f8:reviewer_a:pending",
-      "annotation_status:qf-audit-7e39b67f3aa5a7f8:reviewer_b:pending",
-      "annotation_status:qf-audit-7eedad8f83f55d87:reviewer_a:pending",
-      "annotation_status:qf-audit-7eedad8f83f55d87:reviewer_b:pending",
-      "annotation_status:qf-audit-800c3a095e58b1b7:reviewer_a:pending",
-      "annotation_status:qf-audit-800c3a095e58b1b7:reviewer_b:pending",
-      "annotation_status:qf-audit-84d812f1aaa742ba:reviewer_a:pending",
-      "annotation_status:qf-audit-84d812f1aaa742ba:reviewer_b:pending",
-      "annotation_status:qf-audit-8587415af5fdd59f:reviewer_a:pending",
-      "annotation_status:qf-audit-8587415af5fdd59f:reviewer_b:pending",
-      "annotation_status:qf-audit-86c5d7b15ddbec74:reviewer_a:pending",
-      "annotation_status:qf-audit-86c5d7b15ddbec74:reviewer_b:pending",
-      "annotation_status:qf-audit-876e57964a7547df:reviewer_a:pending",
-      "annotation_status:qf-audit-876e57964a7547df:reviewer_b:pending",
-      "annotation_status:qf-audit-8784db73185edb7d:reviewer_a:pending",
-      "annotation_status:qf-audit-8784db73185edb7d:reviewer_b:pending",
-      "annotation_status:qf-audit-8aaae032d210f043:reviewer_a:pending",
-      "annotation_status:qf-audit-8aaae032d210f043:reviewer_b:pending",
-      "annotation_status:qf-audit-8afc96d4763635ac:reviewer_a:pending",
-      "annotation_status:qf-audit-8afc96d4763635ac:reviewer_b:pending",
-      "annotation_status:qf-audit-8d4a09c5761930bb:reviewer_a:pending",
-      "annotation_status:qf-audit-8d4a09c5761930bb:reviewer_b:pending",
-      "annotation_status:qf-audit-8d9331fffd7b9694:reviewer_a:pending",
-      "annotation_status:qf-audit-8d9331fffd7b9694:reviewer_b:pending",
-      "annotation_status:qf-audit-8ee6c63a9533bff9:reviewer_a:pending",
-      "annotation_status:qf-audit-8ee6c63a9533bff9:reviewer_b:pending",
-      "annotation_status:qf-audit-8f4584fefde606fa:reviewer_a:pending",
-      "annotation_status:qf-audit-8f4584fefde606fa:reviewer_b:pending",
-      "annotation_status:qf-audit-8f7b95d3c8280395:reviewer_a:pending",
-      "annotation_status:qf-audit-8f7b95d3c8280395:reviewer_b:pending",
-      "annotation_status:qf-audit-8fc017a48ccd7509:reviewer_a:pending",
-      "annotation_status:qf-audit-8fc017a48ccd7509:reviewer_b:pending",
-      "annotation_status:qf-audit-8fe67f1a7c7561ac:reviewer_a:pending",
-      "annotation_status:qf-audit-8fe67f1a7c7561ac:reviewer_b:pending",
-      "annotation_status:qf-audit-921a09ab572aa9a4:reviewer_a:pending",
-      "annotation_status:qf-audit-921a09ab572aa9a4:reviewer_b:pending",
-      "annotation_status:qf-audit-9311efc53e32374d:reviewer_a:pending",
-      "annotation_status:qf-audit-9311efc53e32374d:reviewer_b:pending",
-      "annotation_status:qf-audit-93492105b2976da4:reviewer_a:pending",
-      "annotation_status:qf-audit-93492105b2976da4:reviewer_b:pending",
-      "annotation_status:qf-audit-942b1a640879abfa:reviewer_a:pending",
-      "annotation_status:qf-audit-942b1a640879abfa:reviewer_b:pending",
-      "annotation_status:qf-audit-95a53d0c2e825e55:reviewer_a:pending",
-      "annotation_status:qf-audit-95a53d0c2e825e55:reviewer_b:pending",
-      "annotation_status:qf-audit-95a9c41dee750bae:reviewer_a:pending",
-      "annotation_status:qf-audit-95a9c41dee750bae:reviewer_b:pending",
-      "annotation_status:qf-audit-961d8ee49e279735:reviewer_a:pending",
-      "annotation_status:qf-audit-961d8ee49e279735:reviewer_b:pending",
-      "annotation_status:qf-audit-980a63df6e1e6c1f:reviewer_a:pending",
-      "annotation_status:qf-audit-980a63df6e1e6c1f:reviewer_b:pending",
-      "annotation_status:qf-audit-98402a1618118574:reviewer_a:pending",
-      "annotation_status:qf-audit-98402a1618118574:reviewer_b:pending",
-      "annotation_status:qf-audit-986cf24132a2a19f:reviewer_a:pending",
-      "annotation_status:qf-audit-986cf24132a2a19f:reviewer_b:pending",
-      "annotation_status:qf-audit-99d6bf77251dd0b7:reviewer_a:pending",
-      "annotation_status:qf-audit-99d6bf77251dd0b7:reviewer_b:pending",
-      "annotation_status:qf-audit-9a94296121261831:reviewer_a:pending",
-      "annotation_status:qf-audit-9a94296121261831:reviewer_b:pending",
-      "annotation_status:qf-audit-9c7d65044a78841b:reviewer_a:pending",
-      "annotation_status:qf-audit-9c7d65044a78841b:reviewer_b:pending",
-      "annotation_status:qf-audit-9cf0d437ad3c0d77:reviewer_a:pending",
-      "annotation_status:qf-audit-9cf0d437ad3c0d77:reviewer_b:pending",
-      "annotation_status:qf-audit-9e38a1ad5b141faf:reviewer_a:pending",
-      "annotation_status:qf-audit-9e38a1ad5b141faf:reviewer_b:pending",
-      "annotation_status:qf-audit-9ed9cb8fea6fe38d:reviewer_a:pending",
-      "annotation_status:qf-audit-9ed9cb8fea6fe38d:reviewer_b:pending",
-      "annotation_status:qf-audit-9efb5553008926d8:reviewer_a:pending",
-      "annotation_status:qf-audit-9efb5553008926d8:reviewer_b:pending",
-      "annotation_status:qf-audit-9f1d9ce885a23e7d:reviewer_a:pending",
-      "annotation_status:qf-audit-9f1d9ce885a23e7d:reviewer_b:pending",
-      "annotation_status:qf-audit-9fef0f24776aeccc:reviewer_a:pending",
-      "annotation_status:qf-audit-9fef0f24776aeccc:reviewer_b:pending",
-      "annotation_status:qf-audit-9ffbaf6909af2ff1:reviewer_a:pending",
-      "annotation_status:qf-audit-9ffbaf6909af2ff1:reviewer_b:pending",
-      "annotation_status:qf-audit-a1d98962b66569d0:reviewer_a:pending",
-      "annotation_status:qf-audit-a1d98962b66569d0:reviewer_b:pending",
-      "annotation_status:qf-audit-a1f44a1bbd4ea6c9:reviewer_a:pending",
-      "annotation_status:qf-audit-a1f44a1bbd4ea6c9:reviewer_b:pending",
-      "annotation_status:qf-audit-a2e4116dcb428df9:reviewer_a:pending",
-      "annotation_status:qf-audit-a2e4116dcb428df9:reviewer_b:pending",
-      "annotation_status:qf-audit-a37063196ba54128:reviewer_a:pending",
-      "annotation_status:qf-audit-a37063196ba54128:reviewer_b:pending",
-      "annotation_status:qf-audit-a54f92fd92dceda5:reviewer_a:pending",
-      "annotation_status:qf-audit-a54f92fd92dceda5:reviewer_b:pending",
-      "annotation_status:qf-audit-a57913e026e56e05:reviewer_a:pending",
-      "annotation_status:qf-audit-a57913e026e56e05:reviewer_b:pending",
-      "annotation_status:qf-audit-a7330b42264dddcd:reviewer_a:pending",
-      "annotation_status:qf-audit-a7330b42264dddcd:reviewer_b:pending",
-      "annotation_status:qf-audit-a75fba94705a7901:reviewer_a:pending",
-      "annotation_status:qf-audit-a75fba94705a7901:reviewer_b:pending",
-      "annotation_status:qf-audit-a7726b04dac88361:reviewer_a:pending",
-      "annotation_status:qf-audit-a7726b04dac88361:reviewer_b:pending",
-      "annotation_status:qf-audit-a7cb5b6450d1505f:reviewer_a:pending",
-      "annotation_status:qf-audit-a7cb5b6450d1505f:reviewer_b:pending",
-      "annotation_status:qf-audit-a812f3b37c3b3c32:reviewer_a:pending",
-      "annotation_status:qf-audit-a812f3b37c3b3c32:reviewer_b:pending",
-      "annotation_status:qf-audit-a82344509c5cb8fa:reviewer_a:pending",
-      "annotation_status:qf-audit-a82344509c5cb8fa:reviewer_b:pending",
-      "annotation_status:qf-audit-a950d7d795af6448:reviewer_a:pending",
-      "annotation_status:qf-audit-a950d7d795af6448:reviewer_b:pending",
-      "annotation_status:qf-audit-aa11dd7732a1a647:reviewer_a:pending",
-      "annotation_status:qf-audit-aa11dd7732a1a647:reviewer_b:pending",
-      "annotation_status:qf-audit-aa8f2800f897ada1:reviewer_a:pending",
-      "annotation_status:qf-audit-aa8f2800f897ada1:reviewer_b:pending",
-      "annotation_status:qf-audit-ade1ac6936166fb9:reviewer_a:pending",
-      "annotation_status:qf-audit-ade1ac6936166fb9:reviewer_b:pending",
-      "annotation_status:qf-audit-ae3836182b608eed:reviewer_a:pending",
-      "annotation_status:qf-audit-ae3836182b608eed:reviewer_b:pending",
-      "annotation_status:qf-audit-af81f1d6f506db40:reviewer_a:pending",
-      "annotation_status:qf-audit-af81f1d6f506db40:reviewer_b:pending",
-      "annotation_status:qf-audit-afd9168324e8cf19:reviewer_a:pending",
-      "annotation_status:qf-audit-afd9168324e8cf19:reviewer_b:pending",
-      "annotation_status:qf-audit-b00e43c90537d799:reviewer_a:pending",
-      "annotation_status:qf-audit-b00e43c90537d799:reviewer_b:pending",
-      "annotation_status:qf-audit-b22e175e291006d4:reviewer_a:pending",
-      "annotation_status:qf-audit-b22e175e291006d4:reviewer_b:pending",
-      "annotation_status:qf-audit-b350d36a941c9289:reviewer_a:pending",
-      "annotation_status:qf-audit-b350d36a941c9289:reviewer_b:pending",
-      "annotation_status:qf-audit-b5534c0afced9d84:reviewer_a:pending",
-      "annotation_status:qf-audit-b5534c0afced9d84:reviewer_b:pending",
-      "annotation_status:qf-audit-b55d821ae5501bcc:reviewer_a:pending",
-      "annotation_status:qf-audit-b55d821ae5501bcc:reviewer_b:pending",
-      "annotation_status:qf-audit-b6053ec8568e92df:reviewer_a:pending",
-      "annotation_status:qf-audit-b6053ec8568e92df:reviewer_b:pending",
-      "annotation_status:qf-audit-b6cdc016b993f514:reviewer_a:pending",
-      "annotation_status:qf-audit-b6cdc016b993f514:reviewer_b:pending",
-      "annotation_status:qf-audit-b85621a5dab47df1:reviewer_a:pending",
-      "annotation_status:qf-audit-b85621a5dab47df1:reviewer_b:pending",
-      "annotation_status:qf-audit-b99480156414f488:reviewer_a:pending",
-      "annotation_status:qf-audit-b99480156414f488:reviewer_b:pending",
-      "annotation_status:qf-audit-bb9a19939ccb47f2:reviewer_a:pending",
-      "annotation_status:qf-audit-bb9a19939ccb47f2:reviewer_b:pending",
-      "annotation_status:qf-audit-bba65628b597e3c0:reviewer_a:pending",
-      "annotation_status:qf-audit-bba65628b597e3c0:reviewer_b:pending",
-      "annotation_status:qf-audit-bc4df381834d82be:reviewer_a:pending",
-      "annotation_status:qf-audit-bc4df381834d82be:reviewer_b:pending",
-      "annotation_status:qf-audit-bddb522fd4bfed53:reviewer_a:pending",
-      "annotation_status:qf-audit-bddb522fd4bfed53:reviewer_b:pending",
-      "annotation_status:qf-audit-c010692612bc3149:reviewer_a:pending",
-      "annotation_status:qf-audit-c010692612bc3149:reviewer_b:pending",
-      "annotation_status:qf-audit-c07c35ac7a69ed2a:reviewer_a:pending",
-      "annotation_status:qf-audit-c07c35ac7a69ed2a:reviewer_b:pending",
-      "annotation_status:qf-audit-c09144ad893806c9:reviewer_a:pending",
-      "annotation_status:qf-audit-c09144ad893806c9:reviewer_b:pending",
-      "annotation_status:qf-audit-c1c7d804bd35ddce:reviewer_a:pending",
-      "annotation_status:qf-audit-c1c7d804bd35ddce:reviewer_b:pending",
-      "annotation_status:qf-audit-c1e9d36a6d5c12e3:reviewer_a:pending",
-      "annotation_status:qf-audit-c1e9d36a6d5c12e3:reviewer_b:pending",
-      "annotation_status:qf-audit-c1f6738ddf0711ed:reviewer_a:pending",
-      "annotation_status:qf-audit-c1f6738ddf0711ed:reviewer_b:pending",
-      "annotation_status:qf-audit-c2a9e03b76d1806d:reviewer_a:pending",
-      "annotation_status:qf-audit-c2a9e03b76d1806d:reviewer_b:pending",
-      "annotation_status:qf-audit-c36d7b3149afbf49:reviewer_a:pending",
-      "annotation_status:qf-audit-c36d7b3149afbf49:reviewer_b:pending",
-      "annotation_status:qf-audit-c421ed9ed898dcb9:reviewer_a:pending",
-      "annotation_status:qf-audit-c421ed9ed898dcb9:reviewer_b:pending",
-      "annotation_status:qf-audit-c442689d86974465:reviewer_a:pending",
-      "annotation_status:qf-audit-c442689d86974465:reviewer_b:pending",
-      "annotation_status:qf-audit-c45a1aa09116f442:reviewer_a:pending",
-      "annotation_status:qf-audit-c45a1aa09116f442:reviewer_b:pending",
-      "annotation_status:qf-audit-c5cb5d660dfeba6a:reviewer_a:pending",
-      "annotation_status:qf-audit-c5cb5d660dfeba6a:reviewer_b:pending",
-      "annotation_status:qf-audit-c6e65c929e3e477b:reviewer_a:pending",
-      "annotation_status:qf-audit-c6e65c929e3e477b:reviewer_b:pending",
-      "annotation_status:qf-audit-c71a84502ab31064:reviewer_a:pending",
-      "annotation_status:qf-audit-c71a84502ab31064:reviewer_b:pending",
-      "annotation_status:qf-audit-c72fc167ae412cdc:reviewer_a:pending",
-      "annotation_status:qf-audit-c72fc167ae412cdc:reviewer_b:pending",
-      "annotation_status:qf-audit-c73fc0241964af67:reviewer_a:pending",
-      "annotation_status:qf-audit-c73fc0241964af67:reviewer_b:pending",
-      "annotation_status:qf-audit-c7e38bf9774ee8a2:reviewer_a:pending",
-      "annotation_status:qf-audit-c7e38bf9774ee8a2:reviewer_b:pending",
-      "annotation_status:qf-audit-c8210c3a62331dfd:reviewer_a:pending",
-      "annotation_status:qf-audit-c8210c3a62331dfd:reviewer_b:pending",
-      "annotation_status:qf-audit-c87dfd67ddee2dd1:reviewer_a:pending",
-      "annotation_status:qf-audit-c87dfd67ddee2dd1:reviewer_b:pending",
-      "annotation_status:qf-audit-c8fbd53c284c850a:reviewer_a:pending",
-      "annotation_status:qf-audit-c8fbd53c284c850a:reviewer_b:pending",
-      "annotation_status:qf-audit-c9b4233ee5ad2d1c:reviewer_a:pending",
-      "annotation_status:qf-audit-c9b4233ee5ad2d1c:reviewer_b:pending",
-      "annotation_status:qf-audit-c9e1c30297abb0e8:reviewer_a:pending",
-      "annotation_status:qf-audit-c9e1c30297abb0e8:reviewer_b:pending",
-      "annotation_status:qf-audit-ca9c08e9597590c7:reviewer_a:pending",
-      "annotation_status:qf-audit-ca9c08e9597590c7:reviewer_b:pending",
-      "annotation_status:qf-audit-cbe6678e4869a638:reviewer_a:pending",
-      "annotation_status:qf-audit-cbe6678e4869a638:reviewer_b:pending",
-      "annotation_status:qf-audit-cd6a32675b8eba62:reviewer_a:pending",
-      "annotation_status:qf-audit-cd6a32675b8eba62:reviewer_b:pending",
-      "annotation_status:qf-audit-cdc4e6022d1327f4:reviewer_a:pending",
-      "annotation_status:qf-audit-cdc4e6022d1327f4:reviewer_b:pending",
-      "annotation_status:qf-audit-ce036346b70c207c:reviewer_a:pending",
-      "annotation_status:qf-audit-ce036346b70c207c:reviewer_b:pending",
-      "annotation_status:qf-audit-ce2ea4a9ea6b48ee:reviewer_a:pending",
-      "annotation_status:qf-audit-ce2ea4a9ea6b48ee:reviewer_b:pending",
-      "annotation_status:qf-audit-cea2df4c84d8418e:reviewer_a:pending",
-      "annotation_status:qf-audit-cea2df4c84d8418e:reviewer_b:pending",
-      "annotation_status:qf-audit-cecb63e82d4c5943:reviewer_a:pending",
-      "annotation_status:qf-audit-cecb63e82d4c5943:reviewer_b:pending",
-      "annotation_status:qf-audit-cff683d31e77ad75:reviewer_a:pending",
-      "annotation_status:qf-audit-cff683d31e77ad75:reviewer_b:pending",
-      "annotation_status:qf-audit-d0351449a43fc203:reviewer_a:pending",
-      "annotation_status:qf-audit-d0351449a43fc203:reviewer_b:pending",
-      "annotation_status:qf-audit-d0ea01da8a8b02a0:reviewer_a:pending",
-      "annotation_status:qf-audit-d0ea01da8a8b02a0:reviewer_b:pending",
-      "annotation_status:qf-audit-d11c18943f780c38:reviewer_a:pending",
-      "annotation_status:qf-audit-d11c18943f780c38:reviewer_b:pending",
-      "annotation_status:qf-audit-d1a8ccd244234738:reviewer_a:pending",
-      "annotation_status:qf-audit-d1a8ccd244234738:reviewer_b:pending",
-      "annotation_status:qf-audit-d22451be20697bb4:reviewer_a:pending",
-      "annotation_status:qf-audit-d22451be20697bb4:reviewer_b:pending",
-      "annotation_status:qf-audit-d29d7ec519666ce5:reviewer_a:pending",
-      "annotation_status:qf-audit-d29d7ec519666ce5:reviewer_b:pending",
-      "annotation_status:qf-audit-d2bc1e9649fddb62:reviewer_a:pending",
-      "annotation_status:qf-audit-d2bc1e9649fddb62:reviewer_b:pending",
-      "annotation_status:qf-audit-d613ad7e72962f81:reviewer_a:pending",
-      "annotation_status:qf-audit-d613ad7e72962f81:reviewer_b:pending",
-      "annotation_status:qf-audit-d69fa26d2ee6fd6d:reviewer_a:pending",
-      "annotation_status:qf-audit-d69fa26d2ee6fd6d:reviewer_b:pending",
-      "annotation_status:qf-audit-d6a9a2f63c397182:reviewer_a:pending",
-      "annotation_status:qf-audit-d6a9a2f63c397182:reviewer_b:pending",
-      "annotation_status:qf-audit-d79dd3dbb15ff031:reviewer_a:pending",
-      "annotation_status:qf-audit-d79dd3dbb15ff031:reviewer_b:pending",
-      "annotation_status:qf-audit-d7bba72551321156:reviewer_a:pending",
-      "annotation_status:qf-audit-d7bba72551321156:reviewer_b:pending",
-      "annotation_status:qf-audit-d8e00be38adb4d82:reviewer_a:pending",
-      "annotation_status:qf-audit-d8e00be38adb4d82:reviewer_b:pending",
-      "annotation_status:qf-audit-d906690ad533c3af:reviewer_a:pending",
-      "annotation_status:qf-audit-d906690ad533c3af:reviewer_b:pending",
-      "annotation_status:qf-audit-d925c42afd001f07:reviewer_a:pending",
-      "annotation_status:qf-audit-d925c42afd001f07:reviewer_b:pending",
-      "annotation_status:qf-audit-daf987d8bea8a626:reviewer_a:pending",
-      "annotation_status:qf-audit-daf987d8bea8a626:reviewer_b:pending",
-      "annotation_status:qf-audit-db4c127f1dcd7f47:reviewer_a:pending",
-      "annotation_status:qf-audit-db4c127f1dcd7f47:reviewer_b:pending",
-      "annotation_status:qf-audit-dc9d163ad5a587fe:reviewer_a:pending",
-      "annotation_status:qf-audit-dc9d163ad5a587fe:reviewer_b:pending",
-      "annotation_status:qf-audit-dc9de6bcb3860944:reviewer_a:pending",
-      "annotation_status:qf-audit-dc9de6bcb3860944:reviewer_b:pending",
-      "annotation_status:qf-audit-dca4f02ee38086f1:reviewer_a:pending",
-      "annotation_status:qf-audit-dca4f02ee38086f1:reviewer_b:pending",
-      "annotation_status:qf-audit-dcd07f75a4697d12:reviewer_a:pending",
-      "annotation_status:qf-audit-dcd07f75a4697d12:reviewer_b:pending",
-      "annotation_status:qf-audit-de165444ee3aeeea:reviewer_a:pending",
-      "annotation_status:qf-audit-de165444ee3aeeea:reviewer_b:pending",
-      "annotation_status:qf-audit-debc0193d860812c:reviewer_a:pending",
-      "annotation_status:qf-audit-debc0193d860812c:reviewer_b:pending",
-      "annotation_status:qf-audit-dec992432afff7e6:reviewer_a:pending",
-      "annotation_status:qf-audit-dec992432afff7e6:reviewer_b:pending",
-      "annotation_status:qf-audit-def70cb447d2529c:reviewer_a:pending",
-      "annotation_status:qf-audit-def70cb447d2529c:reviewer_b:pending",
-      "annotation_status:qf-audit-e04004c622b78dcc:reviewer_a:pending",
-      "annotation_status:qf-audit-e04004c622b78dcc:reviewer_b:pending",
-      "annotation_status:qf-audit-e0977900ef506cb4:reviewer_a:pending",
-      "annotation_status:qf-audit-e0977900ef506cb4:reviewer_b:pending",
-      "annotation_status:qf-audit-e0b2f4e8038f13ce:reviewer_a:pending",
-      "annotation_status:qf-audit-e0b2f4e8038f13ce:reviewer_b:pending",
-      "annotation_status:qf-audit-e1c9936547f7ef9a:reviewer_a:pending",
-      "annotation_status:qf-audit-e1c9936547f7ef9a:reviewer_b:pending",
-      "annotation_status:qf-audit-e4fe979861472e93:reviewer_a:pending",
-      "annotation_status:qf-audit-e4fe979861472e93:reviewer_b:pending",
-      "annotation_status:qf-audit-e5025273de1f01bc:reviewer_a:pending",
-      "annotation_status:qf-audit-e5025273de1f01bc:reviewer_b:pending",
-      "annotation_status:qf-audit-e5cd21f359f23d4f:reviewer_a:pending",
-      "annotation_status:qf-audit-e5cd21f359f23d4f:reviewer_b:pending",
-      "annotation_status:qf-audit-e70a2763be749282:reviewer_a:pending",
-      "annotation_status:qf-audit-e70a2763be749282:reviewer_b:pending",
-      "annotation_status:qf-audit-e74c56289cbe4b53:reviewer_a:pending",
-      "annotation_status:qf-audit-e74c56289cbe4b53:reviewer_b:pending",
-      "annotation_status:qf-audit-e7f26ef44ed0ba1f:reviewer_a:pending",
-      "annotation_status:qf-audit-e7f26ef44ed0ba1f:reviewer_b:pending",
-      "annotation_status:qf-audit-e835052a5639725a:reviewer_a:pending",
-      "annotation_status:qf-audit-e835052a5639725a:reviewer_b:pending",
-      "annotation_status:qf-audit-e8548f3f9ed7f4b2:reviewer_a:pending",
-      "annotation_status:qf-audit-e8548f3f9ed7f4b2:reviewer_b:pending",
-      "annotation_status:qf-audit-e8eedbcc20f4d539:reviewer_a:pending",
-      "annotation_status:qf-audit-e8eedbcc20f4d539:reviewer_b:pending",
-      "annotation_status:qf-audit-e969a2abf5d7a997:reviewer_a:pending",
-      "annotation_status:qf-audit-e969a2abf5d7a997:reviewer_b:pending",
-      "annotation_status:qf-audit-e98a4fb4e5160a34:reviewer_a:pending",
-      "annotation_status:qf-audit-e98a4fb4e5160a34:reviewer_b:pending",
-      "annotation_status:qf-audit-ea41c068b04ffad6:reviewer_a:pending",
-      "annotation_status:qf-audit-ea41c068b04ffad6:reviewer_b:pending",
-      "annotation_status:qf-audit-ea63eca40081b816:reviewer_a:pending",
-      "annotation_status:qf-audit-ea63eca40081b816:reviewer_b:pending",
-      "annotation_status:qf-audit-eb89afda02bf2a2a:reviewer_a:pending",
-      "annotation_status:qf-audit-eb89afda02bf2a2a:reviewer_b:pending",
-      "annotation_status:qf-audit-ec57e5a446079c65:reviewer_a:pending",
-      "annotation_status:qf-audit-ec57e5a446079c65:reviewer_b:pending",
-      "annotation_status:qf-audit-ec7da818e9802ce0:reviewer_a:pending",
-      "annotation_status:qf-audit-ec7da818e9802ce0:reviewer_b:pending",
-      "annotation_status:qf-audit-ed431c4dcc7aee2f:reviewer_a:pending",
-      "annotation_status:qf-audit-ed431c4dcc7aee2f:reviewer_b:pending",
-      "annotation_status:qf-audit-ed4a8cfec753d1b3:reviewer_a:pending",
-      "annotation_status:qf-audit-ed4a8cfec753d1b3:reviewer_b:pending",
-      "annotation_status:qf-audit-edd26dac578407fb:reviewer_a:pending",
-      "annotation_status:qf-audit-edd26dac578407fb:reviewer_b:pending",
-      "annotation_status:qf-audit-ee78fbe55b174d4e:reviewer_a:pending",
-      "annotation_status:qf-audit-ee78fbe55b174d4e:reviewer_b:pending",
-      "annotation_status:qf-audit-eeb56fa038d7e6bf:reviewer_a:pending",
-      "annotation_status:qf-audit-eeb56fa038d7e6bf:reviewer_b:pending",
-      "annotation_status:qf-audit-efdd5a6bbfd69fa9:reviewer_a:pending",
-      "annotation_status:qf-audit-efdd5a6bbfd69fa9:reviewer_b:pending",
-      "annotation_status:qf-audit-f012766706beab2b:reviewer_a:pending",
-      "annotation_status:qf-audit-f012766706beab2b:reviewer_b:pending",
-      "annotation_status:qf-audit-f0403113746a5217:reviewer_a:pending",
-      "annotation_status:qf-audit-f0403113746a5217:reviewer_b:pending",
-      "annotation_status:qf-audit-f0dfffa80a7b1099:reviewer_a:pending",
-      "annotation_status:qf-audit-f0dfffa80a7b1099:reviewer_b:pending",
-      "annotation_status:qf-audit-f118e71382e1c3f5:reviewer_a:pending",
-      "annotation_status:qf-audit-f118e71382e1c3f5:reviewer_b:pending",
-      "annotation_status:qf-audit-f19e1d5a3aff7577:reviewer_a:pending",
-      "annotation_status:qf-audit-f19e1d5a3aff7577:reviewer_b:pending",
-      "annotation_status:qf-audit-f20a273ba36f0281:reviewer_a:pending",
-      "annotation_status:qf-audit-f20a273ba36f0281:reviewer_b:pending",
-      "annotation_status:qf-audit-f23ccb7716c5f26e:reviewer_a:pending",
-      "annotation_status:qf-audit-f23ccb7716c5f26e:reviewer_b:pending",
-      "annotation_status:qf-audit-f273ab6a15e42a8a:reviewer_a:pending",
-      "annotation_status:qf-audit-f273ab6a15e42a8a:reviewer_b:pending",
-      "annotation_status:qf-audit-f29de0fa2e0a1263:reviewer_a:pending",
-      "annotation_status:qf-audit-f29de0fa2e0a1263:reviewer_b:pending",
-      "annotation_status:qf-audit-f307ac3a66109834:reviewer_a:pending",
-      "annotation_status:qf-audit-f307ac3a66109834:reviewer_b:pending",
-      "annotation_status:qf-audit-f348b10fc4baf4c7:reviewer_a:pending",
-      "annotation_status:qf-audit-f348b10fc4baf4c7:reviewer_b:pending",
-      "annotation_status:qf-audit-f3c3760dd448f2db:reviewer_a:pending",
-      "annotation_status:qf-audit-f3c3760dd448f2db:reviewer_b:pending",
-      "annotation_status:qf-audit-f62ebe73cc42b435:reviewer_a:pending",
-      "annotation_status:qf-audit-f62ebe73cc42b435:reviewer_b:pending",
-      "annotation_status:qf-audit-f72e0f24d6afdfb2:reviewer_a:pending",
-      "annotation_status:qf-audit-f72e0f24d6afdfb2:reviewer_b:pending",
-      "annotation_status:qf-audit-f744eb1c388e586e:reviewer_a:pending",
-      "annotation_status:qf-audit-f744eb1c388e586e:reviewer_b:pending",
-      "annotation_status:qf-audit-f7d9e1330596eec8:reviewer_a:pending",
-      "annotation_status:qf-audit-f7d9e1330596eec8:reviewer_b:pending",
-      "annotation_status:qf-audit-f8a96e68a28b94bb:reviewer_a:pending",
-      "annotation_status:qf-audit-f8a96e68a28b94bb:reviewer_b:pending",
-      "annotation_status:qf-audit-f9f52ce1ccf78592:reviewer_a:pending",
-      "annotation_status:qf-audit-f9f52ce1ccf78592:reviewer_b:pending",
-      "annotation_status:qf-audit-fc0dfcdf44b3d9c3:reviewer_a:pending",
-      "annotation_status:qf-audit-fc0dfcdf44b3d9c3:reviewer_b:pending",
-      "annotation_status:qf-audit-fd2e6894192034f3:reviewer_a:pending",
-      "annotation_status:qf-audit-fd2e6894192034f3:reviewer_b:pending",
-      "annotation_status:qf-audit-fd6a01ce0f7e6bf8:reviewer_a:pending",
-      "annotation_status:qf-audit-fd6a01ce0f7e6bf8:reviewer_b:pending",
-      "annotation_status:qf-audit-fdd046332c325cbc:reviewer_a:pending",
-      "annotation_status:qf-audit-fdd046332c325cbc:reviewer_b:pending",
-      "annotation_status:qf-audit-ff47d77701494e1e:reviewer_a:pending",
-      "annotation_status:qf-audit-ff47d77701494e1e:reviewer_b:pending",
-      "annotation_status:qf-audit-ff94e898924727ab:reviewer_a:pending",
-      "annotation_status:qf-audit-ff94e898924727ab:reviewer_b:pending",
-      "annotation_status:qf-audit-ff9e280d2359d699:reviewer_a:pending",
-      "annotation_status:qf-audit-ff9e280d2359d699:reviewer_b:pending",
-      "valid<100",
-      "corpora<2",
       "denominator<30",
-      "comparator<30",
-      "counterfactual<60"
+      "comparator<30"
     ],
-    "status": "pending_annotation"
+    "status": "fail"
   },
-  "status": "pending_annotation"
+  "status": "fail"
 }

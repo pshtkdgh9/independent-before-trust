@@ -15,12 +15,12 @@
 
 ## Required before pilot
 
-- [ ] Dataset source, version, license/terms, checksum, download/preprocessing commands
+- [x] Dataset source, version, license/terms, checksum, download/preprocessing commands
 - [x] Pilot model source, immutable revision, license, chat-template path, dtype/quantization arguments
 - [ ] `nvidia-smi`, OS, Python, CUDA, PyTorch, Transformers, and driver record
 - [x] Machine-readable run config and output schemas
 - [x] Versioned pilot prompt and deterministic primary revision metrics
-- [ ] Pilot sample construction log and invariant validation
+- [x] Pilot sample construction log and invariant validation
 
 ## Required before submission
 

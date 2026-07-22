@@ -7,8 +7,8 @@ Policy source: https://aclrollingreview.org/static/responsibleNLPresearch.pdf. T
 - **Limitations described:** planned; mandatory manuscript section. Must cover open-model/task scope, synthetic lineage transformations, parser error, source-label leakage, contamination, compute limits, and non-human equivalence.
 - **Potential risks discussed:** planned; repeated-source manipulation could inform persuasion or misinformation systems. Release only bounded synthetic transformations and defensive analysis; no targeting of real people or live platforms.
 - **Artifacts used/created:** yes. New code, processed paired interventions, prompts, generations, and aggregate results will be documented and released when source terms allow.
-- **Licenses/terms:** pending dataset/model selection. Any item without verified usable terms is excluded.
-- **Personal or sensitive data:** not planned. Prefer established public NLP datasets without private user content; record dataset statements and applicable concerns.
+- **Licenses/terms:** the current pilot dataset is pinned BIG-bench under Apache-2.0; the selected, not-yet-downloaded Phi-3.5 Mini model reports an MIT license. Exact URLs and revisions are in `data_provenance.md`. Any added item without verified usable terms is excluded.
+- **Personal or sensitive data:** the current pilot uses synthetic object-order reasoning and contains no expected personal data. Added task families must be screened and documented before use.
 
 ## Data and artifacts
 
@@ -40,4 +40,4 @@ Policy source: https://aclrollingreview.org/static/responsibleNLPresearch.pdf. T
 
 ## Current checklist verdict
 
-`INCOMPLETE`: policy has been reviewed and requirements routed to artifacts, but dataset/model selections, compute totals, manuscript locations, and final disclosure do not yet exist.
+`INCOMPLETE`: policy has been reviewed and requirements routed to artifacts; the pilot dataset and model candidate are selected with visible licenses. Model-file checksums, actual compute totals, manuscript line references, and the final disclosure do not yet exist.

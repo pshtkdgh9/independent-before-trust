@@ -25,9 +25,9 @@ Only `SUPPORTED` claims may be stated as findings.
 - `src/lad/pilot.py`: elicits actual private answers, constructs and validates complete pairs, counterbalances execution order, renders condition-label-blind prompts, retains raw responses and parse errors, and computes deterministic condition summaries.
 - `src/lad/provenance.py`: records per-file bytes and SHA-256 for pinned model snapshots.
 - `scripts/prepare_hf_model.py` and `scripts/run_cloudlab_pilot.py`: executable download/provenance and inference paths.
-- `tests/`: 17 passing tests as of 2026-07-22, including paired invariants, condition-label leakage, parser-failure retention, output schemas, and provenance checksums.
+- `tests/`: 24 passing tests as of 2026-07-22, including private-first elicitation, paired invariants, condition-label leakage, parser-failure retention, output schemas, and provenance checksums.
 
-These artifacts establish implementation readiness only. They do not change C1–C3 from `HYPOTHESIS` to `SUPPORTED`.
+These artifacts establish implementation readiness only. They do not change C1--C3 from `HYPOTHESIS` to `SUPPORTED`.
 
 ## Interpretation rules
 

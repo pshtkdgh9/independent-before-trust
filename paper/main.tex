@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{inconsolata}
+
+\title{Lineage-Aware Deliberation: When Repeated Evidence\\Masquerades as Independent Corroboration}
+
+\author{Anonymous ACL submission}
+
+\newcommand{\common}{\textsc{Common}}
+\newcommand{\independent}{\textsc{Independent}}
+\newcommand{\lad}{\textsc{LAD}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Language-agent collaboration can present several agreeing messages even when all of them derive from one underlying source. Counting those messages as independent support conflates nominal agreement with evidential independence. We introduce a paired intervention that holds the peer claims, correctness, confidence, order, and nominal peer count fixed while varying only whether their evidence has common or independent lineage. We also specify Lineage-Aware Deliberation (\lad), a revision protocol that binds atomic claims to source identifiers, closes over derivation parents, and discounts dependent support. The study measures harmful and beneficial belief revision, calibration, effective support, and processing failures across open-weight language models. This manuscript defines the identification and evaluation protocol; empirical claims remain contingent on the registered result artifacts and are not reported before those runs complete.
+\end{abstract}
+
+\section{Introduction}
+
+Multiple agreeing agents do not necessarily provide multiple pieces of evidence. If their messages inherit the same source, agreement can reflect repeated transmission rather than corroboration. This distinction matters for language-agent systems because a target model observes linguistic claims and nominal speakers, while the dependence among the claims can remain implicit.
+
+We study a bounded mechanism question: with nominal agreement fixed, does a target language model revise its answer differently when peer support derives from one source rather than independently sufficient sources? The comparison is causal only within the paired intervention. Each pair preserves the question, peer claims, claim correctness, confidence values, message order, surface-length envelope, and nominal number of peers. The pair changes only the source-lineage graph associated with those messages.
+
+The protocol begins with a private answer elicited from the evaluated model without peer messages. That answer is frozen before the paired conditions are constructed. Initially correct answers enter a harmful-revision stratum in which peers support an incorrect alternative; initially incorrect answers enter a beneficial-revision stratum in which peers support the gold answer. This private-first design separates revision from preprocessing assumptions about what the model initially believed.
+
+The paper makes three precise protocol contributions:
+\begin{enumerate}
+    \item a private-first paired intervention that identifies the effect of common versus independent source lineage while holding peer claims, correctness, confidence, order, and nominal peer count fixed;
+    \item \lad, an aggregation and typed-revision protocol that validates claim--source bindings, closes over derivation parents, and counts support at the lineage-root level; and
+    \item an evidence contract linking harmful and beneficial revision, effective support, the corroboration gap, calibration, and processing failures to immutable run artifacts.
+\end{enumerate}
+These contributions define what the study constructs and measures. They do not imply that source dependence changes revision or that \lad{} improves outcomes; those propositions remain hypotheses until the registered artifacts support them.
+
+\section{Related Work}
+
+\paragraph{Multi-agent debate.}
+Multi-agent debate elicits proposals and critiques from several model instances before producing a final answer \citep{pmlr-v235-du24e}. Its benefits are not uniform across protocols: a systematic comparison found debate sensitive to strategy and hyperparameter choices relative to self-consistency and ensembling \citep{pmlr-v235-smit24a}. Other work has varied agent traits and interaction patterns \citep{zhang-etal-2024-exploring} or promoted divergent reasoning through structured disagreement \citep{liang-etal-2024-encouraging}. These studies motivate ordinary debate and non-debate controls. Their stated interventions concern interaction, diversity, or protocol design rather than whether several supporting messages inherit one evidential source.
+
+\paragraph{Conformity and confidence.}
+Observed agreement can depend on group composition and model capability. Controlled multi-agent simulations report stance shifts toward numerical majorities or stronger agents \citep{choi-etal-2025-empirical}. Confidence expression can also alter debate dynamics, including persistence and convergence \citep{lin-hooi-2025-enhancing}. Ask-Before-Detection addresses conformity in error detection by eliciting an adaptive reference solution before judging a candidate \citep{li-etal-2025-ask}. We therefore freeze the target model's private answer, hold confidence and nominal peers fixed within each pair, and treat majority, confidence weighting, and private-first elicitation as distinct controls.
+
+\paragraph{Belief revision and source dependence.}
+Belief-R evaluates whether language models revise conclusions when premises change and reports a trade-off between updating when needed and remaining stable otherwise \citep{wilie-etal-2024-belief}. Our outcome taxonomy adopts the same broad distinction between warranted change and warranted retention, but the intervention is social and evidential: the claims shown to the target remain fixed while their source ancestry changes. The resulting question is not whether a cited span is valid or whether agents agree. It is whether apparently multiple valid supports constitute independent corroboration under a declared lineage graph.
+
+\section{Problem Formulation}
+
+Let a target model produce a private answer $a_0$ to an item $x$. It then receives peer messages $M=\{m_1,\ldots,m_k\}$. Each message contains a claim $c_i$, a confidence value $q_i$, and a source identifier $s_i$. A directed lineage graph $G$ records derivation relations among sources. Two messages are evidentially dependent when their supporting sources share the same relevant ancestor in $G$.
+
+The nominal support for claim $c$ is
+\begin{equation}
+N(c)=\sum_{i=1}^{k}\mathbb{I}[c_i=c].
+\end{equation}
+For the primary diagnostic, let $R(s_i)$ be the set of roots reachable by recursively following the declared parents of source $s_i$, with $R(s_i)=\{s_i\}$ when $s_i$ has no parent. The effective support is
+\begin{equation}
+E(c)=\left|\bigcup_{i:c_i=c}R(s_i)\right|,
+\end{equation}
+and the normalized corroboration gap is $\gamma(c)=(N(c)-E(c))/N(c)$ for $N(c)>0$, and zero otherwise. A cycle in the lineage graph is invalid. These quantities do not assert that differently named sources are epistemically independent in general; they measure independence under the controlled construction used here.
+
+The paired conditions differ as follows. In \common, all peer evidence for the focal claim descends from one source root. In \independent, each peer message has a distinct source root that independently entails the same claim. Condition-neutral random identifiers prevent source names from revealing the condition.
+
+\section{Lineage-Aware Deliberation}
+
+The planned full \lad{} method processes atomic claim--source bindings rather than treating messages as independent votes. It validates the declared evidence span for each claim, computes the transitive parent closure of every source, groups supports that share a root, and aggregates at the lineage-group level. A typed decision layer then maps the private answer and lineage-group evidence to retain, revise, or abstain. The present pilot implements the root-closure statistic and the controlled intervention; the evidence validator and typed decision layer are not treated as evaluated components until their code and ablations are released.
+
+The method is deliberately narrow. Evidence validation asks whether a cited span supports a claim. Lineage accounting asks whether several valid supports reduce to one evidential origin. Confidence weighting and semantic claim deduplication address different factors and therefore serve as separate baselines rather than substitutes for the lineage intervention.
+
+\section{Experimental Design}
+
+\subsection{Private-first paired construction}
+
+For every item and evaluated model, the system first runs a no-peer prompt and records the raw response, parsed answer, parser outcome, prompt hash, and latency. Responses must contain one candidate label inside an \texttt{<answer>} tag; a missing or empty tag and a label outside the candidate set are retained as parser failures and excluded from revision-rate denominators. No pair is created after a private-response parse failure.
+
+For a successfully parsed private answer, the constructor freezes a three-message peer set. If the private answer is correct, all peers state one sampled incorrect candidate; otherwise, all peers state the gold answer. The messages have confidence 0.8 and fixed order $(1,2,3)$. The constructor then creates a complete \common--\independent{} pair. In \common, three randomly labelled child sources share one root; in \independent, the three randomly labelled sources are roots. A validator requires equality of every non-lineage field and requires three nominal supports but respectively one and three effective roots. Random labels are generated from the registered seed. Execution order alternates by pair so that neither condition is always generated first.
+
+The primary strata are determined before peer exposure. A harmful revision changes an initially correct private answer to an incorrect answer. A beneficial revision changes an initially incorrect private answer to the gold answer. Their condition-specific rates use, respectively, parsed initially correct and parsed initially incorrect generations as denominators. Every revision response and parser outcome is retained; parser-failure rates are reported by condition rather than silently converted to incorrect answers. Unjustified revision and justified non-revision are reported separately so that final accuracy does not conceal how the change occurred.
+
+\subsection{Comparators and ablations}
+
+The planned comparison set includes no-peer inference, ordinary peer exposure, majority vote, confidence weighting, claim--evidence validation, exact source-identifier deduplication, semantic claim deduplication without lineage, and \lad. Ablations remove derivation-parent closure, typed revision, confidence calibration, dependence discounting, or source-label counterbalancing. All implemented comparators receive the same frozen private responses and paired messages.
+
+\subsection{Tasks, models, and outcomes}
+
+Public datasets serve as experimental instruments rather than the research contribution. The registered pilot uses \texttt{microsoft/Phi-3.5-mini-instruct} at revision \texttt{ccf028fc8e1b3ab750a7c55b22792f57ba69f216}, deterministic decoding, seed 1701, at most 64 generated tokens, and the 50-item BIG-bench logical-deduction pilot manifest. Main conclusions require at least two independently developed model families and more than one task structure. Exact licenses, file hashes, preprocessing commands, prompts, environment versions, and hardware records are frozen beside each run.
+
+For each eligible item, the primary binary outcome is computed once under each condition. The primary estimands are the within-item differences $p_{\textsc{common}}-p_{\textsc{independent}}$ in harmful- and beneficial-revision rates. Paired confidence intervals resample item pairs, never individual condition rows; the bootstrap replicate count and analysis seed will be frozen in the analysis configuration before result inspection. Secondary outcomes include verified accuracy, unjustified revision, justified non-revision, Brier score, expected calibration error, evidence-grounded revision, normalized corroboration gap, tokens, wall time, peak memory, and parser or lineage failures. Mixed-effects logistic models with task and model grouping are secondary and cannot replace the paired primary analysis.
+
+\section{Results}
+
+No empirical result is asserted in this version. The result tables and figures will be generated only from immutable run artifacts after the open-model experiments, baseline comparisons, ablations, robustness tests, and error analysis complete. Null or adverse findings will remain in the reported condition set and will narrow or remove the corresponding claims.
+
+\section{Discussion}
+
+The design isolates a specific failure mode: treating dependent linguistic support as if it were independent corroboration. A difference between paired conditions would establish sensitivity to source dependence within the tested prompts, models, and task constructions. It would not establish a general cognitive account of conformity, human group behavior, deployment safety, or retrieval-augmented generation.
+
+The strongest alternative explanation is that surface paraphrases or source labels reveal the condition. Counterbalancing, prompt-leakage checks, paired invariants, and source-hiding ablations address this risk. A second possibility is that exact source deduplication performs as well as full lineage closure. Such a result would weaken the method contribution while preserving evidence about the underlying dependence effect. A null paired effect across the planned model families triggers the pre-specified pivot rather than a positive claim.
+
+\section{Limitations}
+
+Constructed source graphs provide experimental control but do not cover uncertain or disputed provenance in deployed systems. Distinct source identifiers guarantee independence only under the task construction. The target models may respond to presentation details despite counterbalancing. Deterministic decoding estimates one response regime, while seeded stochastic runs provide only a bounded robustness check. The study does not evaluate human participants, proprietary models, production security, or an end-to-end retrieval system.
+
+\section{Ethical Considerations}
+
+The planned experiments use public task data and model-generated text without human participants or personal data. Release artifacts will retain licenses, source URLs, revisions, hashes, transformations, and redistribution boundaries. The manuscript, claims, and evidence package are independent of an existing journal submission; that prior work contributes no prose, result, dataset, or method to this study. Assistance used for drafting or code generation will be disclosed according to the applicable ACL policy, and all scientific claims remain the authors' responsibility.
+
+\section*{Data Availability}
+
+The anonymous artifact package will provide source manifests, preprocessing commands, paired-condition manifests, raw generations, parser outcomes, metric files, and environment records where redistribution terms permit. Restricted upstream files, if any, will be replaced by acquisition instructions and checksums.
+
+\bibliography{references}
+
+\end{document}

@@ -24,6 +24,24 @@ class PilotRunnerTests(unittest.TestCase):
         self.assertEqual(answer, "E")
         self.assertIsNone(error)
 
+    def test_parses_bounded_label_when_closing_tag_is_truncated(self):
+        answer, error = parse_answer(
+            "<answer>B) The brown book is second.",
+            candidates=["A", "B", "C"],
+        )
+
+        self.assertEqual(answer, "B")
+        self.assertIsNone(error)
+
+    def test_parses_bounded_label_at_start_when_tags_are_omitted(self):
+        answer, error = parse_answer(
+            "(A) The quail is leftmost.\n\nReasoning follows.",
+            candidates=["A", "B", "C"],
+        )
+
+        self.assertEqual(answer, "A")
+        self.assertIsNone(error)
+
     def test_prompt_does_not_leak_condition_label(self):
         from src.lad.pilot import build_revision_prompt
 

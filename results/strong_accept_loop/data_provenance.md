@@ -1,6 +1,6 @@
 # Data Provenance Register
 
-One pilot source has been downloaded and transformed. No model inference has been run yet, so this provenance package does not constitute empirical result evidence. The local reference inventory remains checksummed in `reference_inventory.tsv`.
+One pilot source has been downloaded and transformed. The pinned model snapshot has been downloaded on CloudLab and a compatibility-fixed inference run is in progress, but no result has been promoted to evidence. The local reference inventory remains checksummed in `reference_inventory.tsv`.
 
 ## Pilot dataset
 
@@ -27,7 +27,7 @@ Preprocessing preserves source order, groups identical scenario text, selects on
 
 Known risk: BIG-bench intentionally carries a benchmark canary and is likely represented in contemporary model training corpora. Therefore this task is a pipeline and causal-intervention pilot, not evidence of unseen-task generalization. Main experiments require additional task families and explicit contamination sensitivity analysis.
 
-## Planned pilot model (not downloaded yet)
+## Pilot model
 
 | Item | Value |
 |---|---|
@@ -37,14 +37,16 @@ Known risk: BIG-bench intentionally carries a benchmark canary and is likely rep
 | Visible license | MIT |
 | License source | <https://huggingface.co/microsoft/Phi-3.5-mini-instruct/blob/ccf028fc8e1b3ab750a7c55b22792f57ba69f216/LICENSE> |
 | Access checked | 2026-07-22 |
-| Status | Selected only; bytes/checksums remain pending until CloudLab download |
-| Intended role | 50–100-instance feasibility pilot, not a sole main-experiment model |
+| Status | Downloaded on CloudLab; file-level manifest imported to `cloudlab_artifacts/cloudlab-manifest.jsonl` |
+| Intended role | 50-instance feasibility pilot, not a sole main-experiment model |
 
 The exact download command is in `README.md`. `scripts/prepare_hf_model.py` records every downloaded file, byte size, SHA-256 checksum, storage path, source URL, revision, license, terms URL, and command in `data_provenance/manifest.jsonl`. Model weights remain outside Git and are not redistributed.
 
+The imported snapshot record reports `7,644,702,568` total bytes. The two weight shards are `4,972,489,328` bytes (SHA-256 `c5214cdb995ed3dd716add8d9efbfe016b76bb2f1c4c1e6c1c6a95497d7a8837`) and `2,669,692,552` bytes (SHA-256 `41246eed2b75b66526339c5d32d6f7acdefe0bd24180f97c74303f4656877344`). Every other snapshot file and Hugging Face metadata file is enumerated in the imported manifest.
+
 ## CloudLab pilot hardware allocation
 
-The original Wisconsin `d7525` request failed because the portal reported zero allocatable nodes. No scientific computation occurred in that attempt. The replacement experiment requests one Wisconsin `c240g5` through the version-controlled `cloudlab/lad-c240g5.rspec`. The official hardware manual describes this type as one Tesla P100 12 GB GPU, 20 Intel Skylake CPU cores, and 192 GB RAM. Because P100 does not provide the planned A30 bfloat16 regime, the pilot command will use `--dtype float16`; this is a documented infrastructure pivot, not a post-result analysis choice. CloudLab assigned node `c240g5-110121` with hostname `c240g5-110121.wisc.cloudlab.us`. GPU/driver output, software versions, and run timestamps remain pending the first SSH capture. See `cloudlab_attempts.md`.
+The original Wisconsin `d7525` request failed because the portal reported zero allocatable nodes. No scientific computation occurred in that attempt. The replacement experiment requests one Wisconsin `c240g5` through the version-controlled `cloudlab/lad-c240g5.rspec`. The official hardware manual describes this type as one Tesla P100 12 GB GPU, 20 Intel Skylake CPU cores, and 192 GB RAM. Because P100 does not provide the planned A30 bfloat16 regime, the pilot uses `--dtype float16`; this is a documented infrastructure pivot, not a post-result analysis choice. CloudLab assigned node `c240g5-110121` with hostname `c240g5-110121.wisc.cloudlab.us`. The captured environment records Ubuntu 22.04.2, kernel `5.15.0-177-generic`, NVIDIA driver `535.309.01`, CUDA compatibility `12.2`, `torch==2.5.1+cu121`, and P100 compute capability `(6, 0)`. See `cloudlab_attempts.md`.
 
 ## Local reference material
 

@@ -20,6 +20,7 @@ from .statistics import paired_revision_effects
 
 ARTIFACT_CLASS = "empirical-candidate-unverified"
 ANSWER_PATTERN = re.compile(r"<answer>\s*([^<>\n]+?)\s*</answer>", re.IGNORECASE)
+OPEN_ANSWER_PATTERN = re.compile(r"<answer>\s*([^<>\n]+)", re.IGNORECASE)
 
 
 class GenerationBackend(Protocol):
@@ -87,13 +88,20 @@ def parse_answer(
     response: str, candidates: Iterable[str] | None = None
 ) -> tuple[str | None, str | None]:
     match = ANSWER_PATTERN.search(response)
-    if not match:
-        return None, "missing_answer_tag"
-    answer = match.group(1).strip()
+    candidate_list = [str(candidate) for candidate in candidates or []]
+    if match:
+        answer = match.group(1).strip()
+    else:
+        open_match = OPEN_ANSWER_PATTERN.search(response)
+        if open_match:
+            answer = open_match.group(1).strip()
+        elif candidate_list:
+            answer = response.strip().splitlines()[0].strip()
+        else:
+            return None, "missing_answer_tag"
     if not answer:
         return None, "empty_answer"
-    if candidates is not None:
-        candidate_list = [str(candidate) for candidate in candidates]
+    if candidate_list:
         exact = [candidate for candidate in candidate_list if answer == candidate]
         if exact:
             return exact[0], None
@@ -101,7 +109,8 @@ def parse_answer(
             candidate
             for candidate in candidate_list
             if re.match(
-                rf"^{re.escape(candidate)}(?:\s*[\)\].:\-]|\s*$)",
+                rf"^(?:\(\s*{re.escape(candidate)}\s*\)|"
+                rf"{re.escape(candidate)}(?:\s*[\)\].:\-]|\s*$))",
                 answer,
                 flags=re.IGNORECASE,
             )

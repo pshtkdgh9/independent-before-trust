@@ -34,6 +34,35 @@ Official hardware source: <https://docs.cloudlab.us/hardware.html>
 - Assigned node: `c240g5-110121`
 - SSH hostname: `c240g5-110121.wisc.cloudlab.us`
 - SSH identity prepared locally: `C:\Users\netdb\.ssh\cloudlab_ed25519` (private key contents are not copied into the repository)
-- Scientific status: no inference result yet.
+- Driver preparation: the base image exposed the P100 through PCI but had only `nouveau`; Ubuntu `ubuntu-drivers devices` recommended `nvidia-driver-535`. Version `535.309.01-0ubuntu0.22.04.1` was installed and verified after reboot.
+- Verified runtime: NVIDIA driver `535.309.01`, reported CUDA compatibility `12.2`, Tesla P100-PCIE-12GB, 12,288 MiB VRAM.
+- PyTorch runtime: `torch==2.5.1+cu121`, CUDA available, compute capability `(6, 0)`.
+- Scientific status: the first compatibility-fixed 50-item inference completed, but its high strict-format parse-failure rate prevents promotion to evidence.
 
 The generated request source was checked in the portal before submission and contained both `<hardware_type name="c240g5"/>` and the Ubuntu 22.04 image URN.
+
+### Attempt 2a: dependency incompatibility, retained as diagnostic evidence
+
+The first real invocation at Git commit `344a58a` downloaded and loaded the pinned model but failed on its first generation. The unbounded requirements file had selected `transformers==5.14.1`; the pinned Phi-3.5 remote code accessed `DynamicCache.seen_tokens`, which that version no longer exposes. No paired result was produced, and this attempt is not scientific evidence. The failure trace remains in the CloudLab run log.
+
+The official Phi-3.5 model card specifies `transformers==4.43.0` and `accelerate==0.31.0`. Those versions were pinned instead of patching third-party cache code. A one-item smoke test then completed one private generation and both paired conditions with zero parser failures. The parser regression discovered by this smoke test—Phi-3.5 returned `<answer>E) option text</answer>` rather than only `E`—is covered by a unit test and a candidate-bounded normalization rule.
+
+### Attempt 2b: compatibility-fixed full pilot
+
+- Git commit: `0462b68`
+- Output path: `results/runs/phi35-pilot-ce1b110/` (the directory label records the substantive compatibility-fix commit; `run-git-commit.txt` records the exact execution commit)
+- Model stack: `torch==2.5.1+cu121`, `transformers==4.43.0`, `accelerate==0.31.0`
+- Dtype: `float16`
+- Seed: `1701`
+- Completed records: 50 private answers; 26 parseable private answers yielded 52 paired revision generations
+- Strict-format baseline parse-failure rate: `0.48`
+- Candidate result: harmful COMMON-minus-INDEPENDENT difference `0.0`; beneficial difference `+0.1333` with bootstrap interval `[0.0, 0.3333]`
+- Current state: complete but not promoted; artifacts remain `empirical-candidate-unverified`
+
+Raw-output inspection showed that most strict-format failures contained an unambiguous candidate label either immediately after an opening `<answer>` tag whose closing tag was truncated, or at the first response position without tags. A candidate-bounded parser change accepts only those leading labels; it does not search later reasoning text. Two regression tests lock those cases. Because the omitted private answers never received paired revisions, metrics cannot be repaired by post-hoc re-parsing alone: a distinct full rerun is required and will retain Attempt 2b unchanged.
+
+### Attempt 2c: bounded-parser full rerun
+
+- Status: pending launch after commit/push
+- Planned records: 50 private answers plus up to 100 paired revision generations
+- Stop rule: complete all eligible paired generations; do not inspect effects for optional stopping

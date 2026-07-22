@@ -15,6 +15,7 @@ sys.modules[_SPEC.name] = _MODULE
 _SPEC.loader.exec_module(_MODULE)
 
 FeverSourcePackError = _MODULE.FeverSourcePackError
+extract_fever_source_pack_result = _MODULE.extract_fever_source_pack_result
 extract_fever_source_pack = _MODULE.extract_fever_source_pack
 
 
@@ -107,14 +108,17 @@ class ExtractFeverSourcePackTests(unittest.TestCase):
             self.assertNotIn("expected_action", first)
             self.assertNotIn("conflict_replacement_sentence", first)
 
-    def test_rejects_duplicate_claims_and_empty_evidence_sentences(self):
+    def test_retains_first_duplicate_claim_and_reports_skipped_duplicates(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             wiki_dir = root / "wiki-pages"
             wiki_dir.mkdir()
             _write_jsonl(
                 wiki_dir / "wiki.jsonl",
-                [{"id": "Ada_Lovelace", "text": "Ada.", "lines": "0\t\t"}],
+                [
+                    {"id": "First_Page", "text": "First.", "lines": "0\tFirst sentence."},
+                    {"id": "Second_Page", "text": "Second.", "lines": "0\tSecond sentence."},
+                ],
             )
             claims = root / "claims.jsonl"
             _write_jsonl(
@@ -124,18 +128,62 @@ class ExtractFeverSourcePackTests(unittest.TestCase):
                         "id": 1,
                         "label": "SUPPORTS",
                         "claim": "Duplicate claim.",
-                        "evidence": [[["ann", "e1", "Ada_Lovelace", 0]]],
+                        "evidence": [[["ann", "e1", "First_Page", 0]]],
                     },
                     {
                         "id": 2,
                         "label": "SUPPORTS",
                         "claim": "Duplicate claim.",
-                        "evidence": [[["ann", "e2", "Ada_Lovelace", 0]]],
+                        "evidence": [[["ann", "e2", "First_Page", 0]]],
                     },
+                    _claim(3, "Unique claim.", "Second_Page"),
                 ],
             )
 
-            with self.assertRaisesRegex(FeverSourcePackError, "duplicate claim"):
+            result = extract_fever_source_pack_result(claims, wiki_dir, limit=None, seed=0)
+
+            self.assertEqual(result.summary["duplicates_skipped"], 1)
+            self.assertEqual(result.summary["candidate_rows_written"], 2)
+            self.assertEqual([row["source_row_id"] for row in result.rows], [1, 3])
+            self.assertEqual(
+                len({row["claim"] for row in result.rows}),
+                len(result.rows),
+            )
+
+    def test_rejects_duplicate_source_row_ids_conflicting_duplicates_and_empty_evidence(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            wiki_dir = root / "wiki-pages"
+            wiki_dir.mkdir()
+            _write_jsonl(
+                wiki_dir / "wiki.jsonl",
+                [
+                    {"id": "Ada_Lovelace", "text": "Ada.", "lines": "0\t\t"},
+                    {"id": "First_Page", "text": "First.", "lines": "0\tFirst sentence."},
+                    {"id": "Second_Page", "text": "Second.", "lines": "0\tSecond sentence."},
+                ],
+            )
+            claims = root / "claims.jsonl"
+            _write_jsonl(
+                claims,
+                [
+                    _claim(1, "Duplicate ID A.", "First_Page"),
+                    _claim(1, "Duplicate ID B.", "First_Page"),
+                ],
+            )
+            with self.assertRaisesRegex(FeverSourcePackError, "duplicate source row id"):
+                extract_fever_source_pack(claims, wiki_dir, limit=None, seed=0)
+
+            _write_jsonl(
+                claims,
+                [
+                    _claim(2, "Conflicting duplicate.", "First_Page"),
+                    _claim(3, "Conflicting duplicate.", "Second_Page"),
+                ],
+            )
+            with self.assertRaisesRegex(
+                FeverSourcePackError, "conflicting duplicate evidence mapping"
+            ):
                 extract_fever_source_pack(claims, wiki_dir, limit=None, seed=0)
 
             _write_jsonl(
@@ -196,6 +244,8 @@ class ExtractFeverSourcePackTests(unittest.TestCase):
 
             self.assertEqual(first.returncode, 0, first.stderr)
             self.assertEqual(second.returncode, 0, second.stderr)
+            self.assertEqual(json.loads(first.stdout)["duplicates_skipped"], 0)
+            self.assertEqual(json.loads(first.stdout)["candidate_rows_written"], 2)
             self.assertEqual(output.read_bytes(), first_bytes)
             self.assertEqual(first_bytes.count(b"\n"), 2)
             self.assertNotIn(b"\r\n", first_bytes)

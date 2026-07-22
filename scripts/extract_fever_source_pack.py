@@ -28,10 +28,31 @@ class CandidateReference:
     raw_claim_hash: str
 
 
+@dataclass(frozen=True)
+class ExtractionResult:
+    rows: tuple[dict[str, Any], ...]
+    summary: dict[str, int]
+
+
+@dataclass(frozen=True)
+class SeenClaim:
+    line_number: int
+    label: str
+    evidence_mapping: tuple[str, int] | None
+
+
 def extract_fever_source_pack(
     claims_path: Path, wiki_dir: Path, *, limit: int | None, seed: int
 ) -> tuple[dict[str, Any], ...]:
-    references = _load_candidate_references(claims_path)
+    return extract_fever_source_pack_result(
+        claims_path, wiki_dir, limit=limit, seed=seed
+    ).rows
+
+
+def extract_fever_source_pack_result(
+    claims_path: Path, wiki_dir: Path, *, limit: int | None, seed: int
+) -> ExtractionResult:
+    references, load_summary = _load_candidate_references(claims_path)
     needed_page_ids = {reference.wiki_page_id for reference in references}
     wiki_pages = _load_needed_wiki_pages(wiki_dir, needed_page_ids)
 
@@ -53,8 +74,14 @@ def extract_fever_source_pack(
     if not rows:
         raise FeverSourcePackError("no extractable candidate rows")
 
+    available_rows = len(rows)
     rows = _apply_limit(rows, limit=limit, seed=seed)
-    return tuple(rows)
+    summary = {
+        **load_summary,
+        "candidate_rows_available": available_rows,
+        "candidate_rows_written": len(rows),
+    }
+    return ExtractionResult(rows=tuple(rows), summary=summary)
 
 
 def write_jsonl_atomic(rows: Iterable[Mapping[str, Any]], output_path: Path) -> None:
@@ -91,41 +118,72 @@ def main() -> None:
     args = parser.parse_args()
 
     try:
-        rows = extract_fever_source_pack(
+        result = extract_fever_source_pack_result(
             args.claims, args.wiki_dir, limit=args.limit, seed=args.seed
         )
-        write_jsonl_atomic(rows, args.output)
+        write_jsonl_atomic(result.rows, args.output)
+        print(json.dumps(result.summary, sort_keys=True))
     except (OSError, json.JSONDecodeError, FeverSourcePackError) as exc:
         raise SystemExit(f"cannot extract FEVER source pack: {exc}") from exc
 
 
-def _load_candidate_references(claims_path: Path) -> tuple[CandidateReference, ...]:
+def _load_candidate_references(
+    claims_path: Path,
+) -> tuple[tuple[CandidateReference, ...], dict[str, int]]:
     references: list[CandidateReference] = []
-    seen_claims: dict[str, int] = {}
+    seen_claims: dict[str, SeenClaim] = {}
+    seen_source_row_ids: dict[int, int] = {}
+    total_rows = 0
+    duplicates_skipped = 0
 
     with claims_path.open("r", encoding="utf-8") as handle:
         for line_number, line in enumerate(handle, start=1):
             if not line.strip():
                 continue
+            total_rows += 1
             row = json.loads(line)
+            source_row_id = _required_int(row, "id", line_number)
+            previous_source_line = seen_source_row_ids.get(source_row_id)
+            if previous_source_line is not None:
+                raise FeverSourcePackError(
+                    f"duplicate source row id {source_row_id} on lines "
+                    f"{previous_source_line} and {line_number}"
+                )
+            seen_source_row_ids[source_row_id] = line_number
+
             claim = _required_str(row, "claim", line_number)
             if not claim.strip():
                 raise FeverSourcePackError(f"empty claim on line {line_number}")
-            previous = seen_claims.get(claim)
-            if previous is not None:
-                raise FeverSourcePackError(
-                    f"duplicate claim on lines {previous} and {line_number}"
-                )
-            seen_claims[claim] = line_number
+            label = _required_str(row, "label", line_number)
 
             reference = _single_evidence_reference(row, line_number)
+            previous_claim = seen_claims.get(claim)
+            if previous_claim is not None:
+                if (
+                    reference is not None
+                    and previous_claim.evidence_mapping is not None
+                    and (label, reference)
+                    != (previous_claim.label, previous_claim.evidence_mapping)
+                ):
+                    raise FeverSourcePackError(
+                        "conflicting duplicate evidence mapping for claim on lines "
+                        f"{previous_claim.line_number} and {line_number}"
+                    )
+                duplicates_skipped += 1
+                continue
+            seen_claims[claim] = SeenClaim(
+                line_number=line_number,
+                label=label,
+                evidence_mapping=reference,
+            )
+
             if reference is None:
                 continue
             page_id, sentence_id = reference
             references.append(
                 CandidateReference(
-                    source_row_id=_required_int(row, "id", line_number),
-                    label=_required_str(row, "label", line_number),
+                    source_row_id=source_row_id,
+                    label=label,
                     claim=claim,
                     wiki_page_id=page_id,
                     sentence_id=sentence_id,
@@ -135,7 +193,11 @@ def _load_candidate_references(claims_path: Path) -> tuple[CandidateReference, .
 
     if not references:
         raise FeverSourcePackError("no candidate rows with exactly one evidence reference")
-    return tuple(references)
+    return tuple(references), {
+        "source_rows_read": total_rows,
+        "duplicates_skipped": duplicates_skipped,
+        "candidate_references_retained": len(references),
+    }
 
 
 def _single_evidence_reference(

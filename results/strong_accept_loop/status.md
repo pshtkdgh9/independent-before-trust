@@ -37,6 +37,7 @@ Date: 2026-07-22
 - DCEA's four CloudLab cells completed at execution commit `d5bae8b`: 320 raw generations are preserved with configs, manifests, timestamps, hashes, and validator reports.
 - DCEA was retired without parser repair or favorable reruns: every fixed-parser integrity report is `fail`, the interpretable Phi pair-flip rates did not distinguish singleton from redundant support, and the contrastive condition did not improve Phi directional following.
 - CLEP protocol v1 completed 72 CloudLab generations at `bbf75d1` across two models and three methods. All six integrity reports are `fail`; the exact proposition field was underspecified and output-format compliance was incomplete. The raw artifacts are retained as diagnostic only and will not be rescored.
+- CLEP closed-label protocol v2 completed 144 new generations at `fa3102a`; all six integrity reports pass. Language effects were not directionally consistent across English, Korean, and Spanish, and typed generation improved Qwen but not Phi relative to translate-then-classify.
 
 ## Blocking evidence
 
@@ -55,4 +56,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Predeclare CLEP protocol v2 with categorical, closed-set fields so proposition preservation is measurable without free-form lemma matching. Run new generations in a versioned directory and keep protocol-v1 outputs excluded. Kill the topic if the new integrity-valid two-family artifact shows no paired language effect; retain or drop the typed method only from a predeclared head-to-head comparison.
+Apply the predeclared CLEP kill criterion: the two-family artifact shows no consistent non-English preservation deficit and no cross-family typed-method advantage. Retire CLEP as a submission topic, retain v1/v2 artifacts, and reopen topic selection around a real public-data task with a method contribution rather than another tiny synthetic behavior study.

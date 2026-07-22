@@ -12,6 +12,8 @@ No LAD or DCEA artifact may be mapped to a CLEP claim. DCEA's 320 generations ma
 
 CLEP protocol-v1's 72 generations likewise map only to a protocol-failure decision. All six integrity reports failed, so none is evidence for CLEP-C1--C3.
 
+CLEP protocol-v2's 144 generations are integrity-valid but do not support the planned general claims. The mixed language directions and model-specific method effects map only to the decision to retire CLEP; CLEP-C1--C3 remain unsupported and must not appear as findings.
+
 Only `SUPPORTED` claims may be stated as findings.
 
 | ID | Headline claim | Status | Required comparison | Required artifacts | Current evidence | Known weakness |

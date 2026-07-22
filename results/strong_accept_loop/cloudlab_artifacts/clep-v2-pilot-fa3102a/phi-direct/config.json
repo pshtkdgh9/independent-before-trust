@@ -1,0 +1,12 @@
+{
+  "item_count": 24,
+  "license": "MIT",
+  "max_new_tokens": 48,
+  "method": "direct",
+  "model_id": "microsoft/Phi-3.5-mini-instruct",
+  "model_path": "/users/SangSong/independent-before-trust/models/phi-3.5-mini-instruct-ccf028f",
+  "output_dir": "/users/SangSong/clep-v2-pilot-fa3102a/phi-direct",
+  "protocol": "clep-closed-label-v2",
+  "revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216",
+  "seed": 1701
+}

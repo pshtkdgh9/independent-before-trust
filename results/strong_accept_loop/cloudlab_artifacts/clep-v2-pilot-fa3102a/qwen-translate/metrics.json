@@ -1,0 +1,35 @@
+{
+  "action_exact": 0.5416666666666666,
+  "by_language": {
+    "en": {
+      "action_exact": 0.5,
+      "certainty_exact": 0.5,
+      "exact": 0.25,
+      "parse_success": 0.75,
+      "polarity_exact": 0.75,
+      "speaker_exact": 0.75
+    },
+    "es": {
+      "action_exact": 0.5,
+      "certainty_exact": 0.625,
+      "exact": 0.375,
+      "parse_success": 0.75,
+      "polarity_exact": 0.75,
+      "speaker_exact": 0.75
+    },
+    "ko": {
+      "action_exact": 0.625,
+      "certainty_exact": 0.375,
+      "exact": 0.375,
+      "parse_success": 0.75,
+      "polarity_exact": 0.75,
+      "speaker_exact": 0.75
+    }
+  },
+  "certainty_exact": 0.5,
+  "count": 24,
+  "exact": 0.3333333333333333,
+  "parse_success": 0.75,
+  "polarity_exact": 0.75,
+  "speaker_exact": 0.75
+}

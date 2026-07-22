@@ -1,0 +1,40 @@
+{
+  "errors": [],
+  "generation_count": 24,
+  "reproduced_metrics": {
+    "action_exact": 0.625,
+    "by_language": {
+      "en": {
+        "action_exact": 0.5,
+        "certainty_exact": 0.5,
+        "exact": 0.25,
+        "parse_success": 0.75,
+        "polarity_exact": 0.75,
+        "speaker_exact": 0.75
+      },
+      "es": {
+        "action_exact": 0.625,
+        "certainty_exact": 0.75,
+        "exact": 0.5,
+        "parse_success": 0.875,
+        "polarity_exact": 0.875,
+        "speaker_exact": 0.875
+      },
+      "ko": {
+        "action_exact": 0.75,
+        "certainty_exact": 0.5,
+        "exact": 0.25,
+        "parse_success": 1.0,
+        "polarity_exact": 1.0,
+        "speaker_exact": 1.0
+      }
+    },
+    "certainty_exact": 0.5833333333333334,
+    "count": 24,
+    "exact": 0.3333333333333333,
+    "parse_success": 0.875,
+    "polarity_exact": 0.875,
+    "speaker_exact": 0.875
+  },
+  "status": "pass"
+}

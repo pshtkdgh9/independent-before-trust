@@ -1,0 +1,12 @@
+{
+  "item_count": 24,
+  "license": "Apache-2.0",
+  "max_new_tokens": 48,
+  "method": "typed",
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_path": "/users/SangSong/independent-before-trust/models/qwen2.5-1.5b-instruct-989aa79",
+  "output_dir": "/users/SangSong/clep-v2-pilot-fa3102a/qwen-typed",
+  "protocol": "clep-closed-label-v2",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "seed": 1701
+}

@@ -1,5 +1,42 @@
 # Data Provenance Register
 
+## Quantity-frame source acquisition
+
+This records source acquisition only for the provisional Quantity-Frame-Preserving Lay Summarization candidate paper. No preprocessing, prevalence estimate, benchmark result, model run, or experimental claim is made from these records. Machine-readable manifest: `data_provenance/quantity_frame_manifest.jsonl`.
+
+| Item | Value |
+|---|---|
+| Name | GEM/cochrane-simplification validation |
+| Canonical repository | <https://huggingface.co/datasets/GEM/cochrane-simplification> |
+| Exact artifact URL | <https://huggingface.co/datasets/GEM/cochrane-simplification/resolve/75a92ae445171fa1b7641a229bfe3c77c0d8723d/validation.json> |
+| Immutable revision | `75a92ae445171fa1b7641a229bfe3c77c0d8723d` |
+| License / terms | CC BY 4.0; <https://creativecommons.org/licenses/by/4.0/> |
+| Access date | 2026-07-23 |
+| Raw storage path | `data/raw/quantity_frame/cochrane-simplification/75a92ae445171fa1b7641a229bfe3c77c0d8723d/validation.json` |
+| Bytes / SHA-256 | `1,538,508` / `18c883a77ff20f718b71c05251146d9648022f277cd4dc345b43820cd6ba2d5f` |
+| Download command | `python scripts/acquire_quantity_frame_sources.py --manifest data_provenance/quantity_frame_manifest.jsonl` |
+| Preprocessing status | None |
+| Privacy / consent | Public biomedical review summaries; no private clinical notes or patient records are expected |
+| Redistribution | Metadata, scripts, and hashes may be tracked; raw corpus files remain Git-ignored and should be fetched from the pinned public source with CC BY 4.0 attribution |
+| Known risks | Validation-only acquisition is not a representative corpus analysis; no claim should cite it until a separate preprocessing and sampling plan is executed |
+
+| Item | Value |
+|---|---|
+| Name | tomasg25/scientific_lay_summarisation eLife validation |
+| Canonical repository | <https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation> |
+| Exact artifact URL | <https://drive.usercontent.google.com/download?id=1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE&export=download&authuser=1&confirm=t&uuid=1332bc11-7cbf-4c4d-8561-85621060f397&at=APZUnTVLLKAGVSBpQlYKojrJ57xb%3A1716450570186> |
+| Immutable source locator | <https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation/resolve/9e109befb07bfb993843991d09b8aa6ee40b9267/scientific_lay_summarisation.py> |
+| Immutable revision | `9e109befb07bfb993843991d09b8aa6ee40b9267` |
+| License / terms | Dataset card reports CC BY 4.0; <https://creativecommons.org/licenses/by/4.0/> |
+| Access date | 2026-07-23 |
+| Raw storage path | `data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/elife_val.json` |
+| Bytes / SHA-256 | `16,023,867` / `24fe7b98f04d2e6e5a80dda26ba241d5742de0f02c9e13a33121cabd98e9aeed` |
+| Download command | `python scripts/acquire_quantity_frame_sources.py --manifest data_provenance/quantity_frame_manifest.jsonl` |
+| Preprocessing status | None |
+| Privacy / consent | Public scholarly articles and expert-written lay summaries; no private clinical notes or patient records are expected |
+| Redistribution | Metadata, scripts, hashes, and acquisition command may be tracked; raw corpus files remain Git-ignored and should be fetched from the public source with CC BY 4.0 attribution |
+| Known risks | The immutable HF repository exposes a loader that points to a Google Drive bulk archive rather than a split-level URL. This task downloaded that archive only to extract `val.json`; the raw archive itself remains Git-ignored and is not a claimed analysis artifact |
+
 ## FEVER evidence-state source acquisition
 
 | Item | Value |

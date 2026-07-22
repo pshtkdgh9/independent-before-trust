@@ -1,3 +1,4 @@
+import hashlib
 import json
 
 import pytest
@@ -6,8 +7,10 @@ from src.quantity_frame import CandidateItem, NOT_STATED, QuantityFrame, SchemaE
 
 
 VALID_HASH = "a" * 64
-OTHER_HASH = "b" * 64
-THIRD_HASH = "c" * 64
+SOURCE_TEXT = "In the trial, 12 of 100 participants improved after 12 weeks."
+TARGET_TEXT = "Twelve percent improved after 12 weeks."
+SOURCE_TEXT_HASH = hashlib.sha256(SOURCE_TEXT.encode("utf-8")).hexdigest()
+TARGET_TEXT_HASH = hashlib.sha256(TARGET_TEXT.encode("utf-8")).hexdigest()
 
 
 def representative_frame(**overrides):
@@ -30,13 +33,21 @@ def representative_candidate(**overrides):
         "corpus": "GEM/cochrane-simplification",
         "source_record_hash": VALID_HASH,
         "split": "validation",
-        "source_text_hash": OTHER_HASH,
-        "target_text_hash": THIRD_HASH,
-        "source_text": "In the trial, 12 of 100 participants improved after 12 weeks.",
-        "target_text": "Twelve percent improved after 12 weeks.",
+        "source_text_hash": SOURCE_TEXT_HASH,
+        "target_text_hash": TARGET_TEXT_HASH,
+        "source_text": SOURCE_TEXT,
+        "target_text": TARGET_TEXT,
         "quantity_frame": representative_frame(),
     }
     values.update(overrides)
+    if "source_text_hash" not in overrides:
+        values["source_text_hash"] = hashlib.sha256(
+            str(values["source_text"]).encode("utf-8")
+        ).hexdigest()
+    if "target_text_hash" not in overrides:
+        values["target_text_hash"] = hashlib.sha256(
+            str(values["target_text"]).encode("utf-8")
+        ).hexdigest()
     return CandidateItem(**values)
 
 
@@ -55,22 +66,31 @@ def test_quantity_frame_requires_value_and_source_span():
     with pytest.raises(SchemaError, match="missing required slot: value"):
         representative_frame(value=NOT_STATED)
 
+    with pytest.raises(SchemaError, match="missing required slot: value"):
+        representative_frame(value=" not_stated ")
+
     with pytest.raises(SchemaError, match="missing required field: source_span"):
         representative_frame(source_span="")
 
+    with pytest.raises(SchemaError, match="missing required field: source_span"):
+        representative_frame(source_span=" not_stated ")
+
 
 def test_quantity_frame_serializes_not_stated_slots_explicitly_and_canonicalizes_unit():
-    frame = representative_frame()
+    assert representative_frame().unit == "percent"
+
+    frame = representative_frame(subgroup=" not_stated ", unit=" not_stated ")
 
     assert frame.value == "12"
-    assert frame.unit == "percent"
+    assert frame.subgroup is NOT_STATED
+    assert frame.unit is NOT_STATED
     assert frame.to_dict() == {
         "value": "12",
         "denominator_or_base": "100 participants",
         "subgroup": "not_stated",
         "time_window": "12 weeks",
         "comparator": "placebo",
-        "unit": "percent",
+        "unit": "not_stated",
         "source_span": "12 of 100 participants",
     }
     assert QuantityFrame.from_dict(frame.to_dict()) == frame
@@ -123,10 +143,10 @@ def test_candidate_item_requires_stable_ids_lineage_and_candidate_only_without_v
         "corpus": "GEM/cochrane-simplification",
         "source_record_hash": VALID_HASH,
         "split": "validation",
-        "source_text_hash": OTHER_HASH,
-        "target_text_hash": THIRD_HASH,
-        "source_text": "In the trial, 12 of 100 participants improved after 12 weeks.",
-        "target_text": "Twelve percent improved after 12 weeks.",
+        "source_text_hash": SOURCE_TEXT_HASH,
+        "target_text_hash": TARGET_TEXT_HASH,
+        "source_text": SOURCE_TEXT,
+        "target_text": TARGET_TEXT,
         "candidate_only": True,
         "quantity_frame": representative_frame().to_dict(),
     }
@@ -145,6 +165,18 @@ def test_candidate_item_requires_stable_ids_lineage_and_candidate_only_without_v
     ],
 )
 def test_candidate_item_rejects_invalid_identity_lineage_or_candidate_flag(field, value, message):
+    with pytest.raises(SchemaError, match=message):
+        representative_candidate(**{field: value})
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    [
+        ("source_text_hash", VALID_HASH, "source_text_hash mismatch"),
+        ("target_text_hash", VALID_HASH, "target_text_hash mismatch"),
+    ],
+)
+def test_candidate_item_rejects_text_hash_mismatches(field, value, message):
     with pytest.raises(SchemaError, match=message):
         representative_candidate(**{field: value})
 

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from enum import Enum
@@ -146,8 +147,21 @@ class CandidateItem:
                 field,
                 _non_empty_text(getattr(self, field), f"{field} must be non-empty text"),
             )
-        for field in ("source_record_hash", "source_text_hash", "target_text_hash"):
-            object.__setattr__(self, field, _hash(getattr(self, field), field))
+        object.__setattr__(
+            self,
+            "source_record_hash",
+            _hash(self.source_record_hash, "source_record_hash"),
+        )
+        object.__setattr__(
+            self,
+            "source_text_hash",
+            _text_hash(self.source_text_hash, "source_text_hash", self.source_text),
+        )
+        object.__setattr__(
+            self,
+            "target_text_hash",
+            _text_hash(self.target_text_hash, "target_text_hash", self.target_text),
+        )
         if self.candidate_only is not True:
             raise SchemaError("candidate_only must be True")
         if not isinstance(self.quantity_frame, QuantityFrame):
@@ -227,13 +241,18 @@ class CandidateItem:
 
 
 def _required_text(value: Any, field: str) -> str:
-    if value is NOT_STATED or value == "not_stated":
-        raise SchemaError(f"missing required slot: {field}")
-    if field == "source_span" and (
-        not isinstance(value, str) or not value.strip()
-    ):
-        raise SchemaError("missing required field: source_span")
-    return _non_empty_text(value, f"{field} must be non-empty text")
+    if value is NOT_STATED:
+        raise SchemaError(_missing_required_message(field))
+    text = _non_empty_text(value, _missing_required_message(field))
+    if _is_not_stated(text):
+        raise SchemaError(_missing_required_message(field))
+    return text
+
+
+def _missing_required_message(field: str) -> str:
+    if field == "source_span":
+        return "missing required field: source_span"
+    return f"missing required slot: {field}"
 
 
 def _candidate_item_id(value: Any, field: str) -> str:
@@ -247,21 +266,25 @@ def _non_empty_text(value: Any, message: str) -> str:
 
 
 def _optional_slot(value: Any, field: str) -> str | NotStated:
-    if _is_not_stated(value):
+    if value is NOT_STATED:
         return NOT_STATED
     text = _non_empty_text(value, f"{field} must be non-empty text or not_stated")
+    if _is_not_stated(text):
+        return NOT_STATED
     if text.lower() == "inferred":
         raise SchemaError(f"{field} cannot be inferred")
     return text
 
 
 def _unit_slot(value: Any) -> str | NotStated:
-    if _is_not_stated(value):
+    if value is NOT_STATED:
         return NOT_STATED
     text = _non_empty_text(value, "unit must be non-empty text or not_stated")
+    if _is_not_stated(text):
+        return NOT_STATED
     if text.lower() == "inferred":
         raise SchemaError("unit cannot be inferred")
-    canonical = UNIT_ALIASES.get(text.strip().lower())
+    canonical = UNIT_ALIASES.get(text.lower())
     return canonical if canonical is not None else text
 
 
@@ -278,6 +301,14 @@ def _hash(value: Any, field: str) -> str:
     if not HASH_RE.match(text):
         raise SchemaError(f"{field} must be lowercase 64-hex")
     return text
+
+
+def _text_hash(value: Any, field: str, text: str) -> str:
+    digest = _hash(value, field)
+    expected = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    if digest != expected:
+        raise SchemaError(f"{field} mismatch")
+    return digest
 
 
 def _reject_unknown_fields(row: Mapping[str, Any], allowed: set[str]) -> None:

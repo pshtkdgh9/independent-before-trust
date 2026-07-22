@@ -1,0 +1,42 @@
+{
+  "errors": [
+    "parse_failures"
+  ],
+  "generation_count": 12,
+  "reproduced_metrics": {
+    "all_fields_exact": 0.0,
+    "by_language": {
+      "en": {
+        "all_fields_exact": 0.0,
+        "certainty_exact": 0.5,
+        "parse_success": 0.5,
+        "polarity_exact": 0.5,
+        "proposition_exact": 0.0,
+        "speaker_exact": 0.5
+      },
+      "es": {
+        "all_fields_exact": 0.0,
+        "certainty_exact": 0.25,
+        "parse_success": 0.5,
+        "polarity_exact": 0.5,
+        "proposition_exact": 0.0,
+        "speaker_exact": 0.5
+      },
+      "ko": {
+        "all_fields_exact": 0.0,
+        "certainty_exact": 0.0,
+        "parse_success": 0.0,
+        "polarity_exact": 0.0,
+        "proposition_exact": 0.0,
+        "speaker_exact": 0.0
+      }
+    },
+    "certainty_exact": 0.25,
+    "count": 12,
+    "parse_success": 0.3333333333333333,
+    "polarity_exact": 0.3333333333333333,
+    "proposition_exact": 0.0,
+    "speaker_exact": 0.3333333333333333
+  },
+  "status": "fail"
+}

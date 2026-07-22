@@ -36,6 +36,7 @@ Date: 2026-07-22
 - The predeclared LAD two-family kill criterion fired: Qwen made zero revisions in either condition across all 45 complete pairs, while the validated Phi result was negative/mixed. LAD is retired rather than selectively scaled.
 - DCEA's four CloudLab cells completed at execution commit `d5bae8b`: 320 raw generations are preserved with configs, manifests, timestamps, hashes, and validator reports.
 - DCEA was retired without parser repair or favorable reruns: every fixed-parser integrity report is `fail`, the interpretable Phi pair-flip rates did not distinguish singleton from redundant support, and the contrastive condition did not improve Phi directional following.
+- CLEP protocol v1 completed 72 CloudLab generations at `bbf75d1` across two models and three methods. All six integrity reports are `fail`; the exact proposition field was underspecified and output-format compliance was incomplete. The raw artifacts are retained as diagnostic only and will not be rescored.
 
 ## Blocking evidence
 
@@ -54,4 +55,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Implement a minimal CLEP paired artifact covering negation, possibility, probability, certainty, and speaker attribution in at least three languages. Validate every parallel item independently, then run the pinned Phi and Qwen models on direct generation, translate-then-generate, and typed epistemic-slot generation. Kill the topic if two families show no paired language effect or if the typed method does not beat the translation baseline. Do not reuse LAD or DCEA results as CLEP evidence.
+Predeclare CLEP protocol v2 with categorical, closed-set fields so proposition preservation is measurable without free-form lemma matching. Run new generations in a versioned directory and keep protocol-v1 outputs excluded. Kill the topic if the new integrity-valid two-family artifact shows no paired language effect; retain or drop the typed method only from a predeclared head-to-head comparison.

@@ -1,0 +1,12 @@
+{"certainty": "possible", "evidence": "Ada may not arrive.", "item_id": "g1-en", "language": "en", "parallel_group": "g1", "polarity": "negative", "proposition": "arrive", "speaker": "Ada"}
+{"certainty": "possible", "evidence": "Ada는 도착하지 않을 수도 있다.", "item_id": "g1-ko", "language": "ko", "parallel_group": "g1", "polarity": "negative", "proposition": "arrive", "speaker": "Ada"}
+{"certainty": "possible", "evidence": "Es posible que Ada no llegue.", "item_id": "g1-es", "language": "es", "parallel_group": "g1", "polarity": "negative", "proposition": "arrive", "speaker": "Ada"}
+{"certainty": "probable", "evidence": "Bruno will probably approve.", "item_id": "g2-en", "language": "en", "parallel_group": "g2", "polarity": "positive", "proposition": "approve", "speaker": "Bruno"}
+{"certainty": "probable", "evidence": "Bruno는 아마 승인할 것이다.", "item_id": "g2-ko", "language": "ko", "parallel_group": "g2", "polarity": "positive", "proposition": "approve", "speaker": "Bruno"}
+{"certainty": "probable", "evidence": "Bruno probablemente aprobará.", "item_id": "g2-es", "language": "es", "parallel_group": "g2", "polarity": "positive", "proposition": "approve", "speaker": "Bruno"}
+{"certainty": "certain", "evidence": "Cora will certainly resign.", "item_id": "g3-en", "language": "en", "parallel_group": "g3", "polarity": "positive", "proposition": "resign", "speaker": "Cora"}
+{"certainty": "certain", "evidence": "Cora는 확실히 사임할 것이다.", "item_id": "g3-ko", "language": "ko", "parallel_group": "g3", "polarity": "positive", "proposition": "resign", "speaker": "Cora"}
+{"certainty": "certain", "evidence": "Cora sin duda dimitirá.", "item_id": "g3-es", "language": "es", "parallel_group": "g3", "polarity": "positive", "proposition": "resign", "speaker": "Cora"}
+{"certainty": "certain", "evidence": "Diego definitely will not attend.", "item_id": "g4-en", "language": "en", "parallel_group": "g4", "polarity": "negative", "proposition": "attend", "speaker": "Diego"}
+{"certainty": "certain", "evidence": "Diego는 분명 참석하지 않을 것이다.", "item_id": "g4-ko", "language": "ko", "parallel_group": "g4", "polarity": "negative", "proposition": "attend", "speaker": "Diego"}
+{"certainty": "certain", "evidence": "Diego definitivamente no asistirá.", "item_id": "g4-es", "language": "es", "parallel_group": "g4", "polarity": "negative", "proposition": "attend", "speaker": "Diego"}

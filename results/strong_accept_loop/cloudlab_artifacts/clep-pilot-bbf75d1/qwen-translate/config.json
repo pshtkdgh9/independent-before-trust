@@ -1,0 +1,12 @@
+{
+  "dtype": "float16",
+  "item_count": 12,
+  "license": "Apache-2.0",
+  "max_new_tokens": 96,
+  "method": "translate",
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_path": "/users/SangSong/independent-before-trust/models/qwen2.5-1.5b-instruct-989aa79",
+  "output_dir": "/users/SangSong/clep-pilot-bbf75d1/qwen-translate",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "seed": 1701
+}

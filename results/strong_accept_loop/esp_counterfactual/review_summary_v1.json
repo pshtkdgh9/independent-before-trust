@@ -1,0 +1,250 @@
+{
+  "agreement": {
+    "acceptable_lay_rewrite": {
+      "agree": 104,
+      "cohen_kappa": 0.8534031413612566,
+      "rate": 0.9285714285714286,
+      "total": 112
+    },
+    "scope_preserved": {
+      "agree": 102,
+      "cohen_kappa": 0.778393351800554,
+      "rate": 0.9107142857142857,
+      "total": 112
+    },
+    "strength_preserved": {
+      "agree": 103,
+      "cohen_kappa": 0.8372093023255813,
+      "rate": 0.9196428571428571,
+      "total": 112
+    },
+    "unsupported_addition": {
+      "agree": 102,
+      "cohen_kappa": 0.6412556053811659,
+      "rate": 0.9107142857142857,
+      "total": 112
+    }
+  },
+  "comparisons": {
+    "Qwen/Qwen2.5-1.5B-Instruct": {
+      "acceptable_lay_rewrite_strict_yes": {
+        "frame": {
+          "denominator": 28,
+          "numerator": 7,
+          "rate": 0.25
+        },
+        "generic": {
+          "denominator": 28,
+          "numerator": 9,
+          "rate": 0.32142857142857145
+        }
+      },
+      "advance": false,
+      "frame_not_worse_acceptable_rate": false,
+      "frame_not_worse_unsupported_additions": false,
+      "frame_run": "esp-qwen-frame",
+      "frame_strictly_better_equivariance": false,
+      "generic_run": "esp-qwen-generic",
+      "paired_equivariance": {
+        "frame": {
+          "denominator": 14,
+          "numerator": 0,
+          "rate": 0.0
+        },
+        "frame_minus_generic_rate": -0.07142857142857142,
+        "generic": {
+          "denominator": 14,
+          "numerator": 1,
+          "rate": 0.07142857142857142
+        }
+      },
+      "unsupported_addition_strict_yes": {
+        "frame": {
+          "denominator": 28,
+          "numerator": 4,
+          "rate": 0.14285714285714285
+        },
+        "generic": {
+          "denominator": 28,
+          "numerator": 3,
+          "rate": 0.10714285714285714
+        }
+      }
+    },
+    "microsoft/Phi-3.5-mini-instruct": {
+      "acceptable_lay_rewrite_strict_yes": {
+        "frame": {
+          "denominator": 28,
+          "numerator": 17,
+          "rate": 0.6071428571428571
+        },
+        "generic": {
+          "denominator": 28,
+          "numerator": 10,
+          "rate": 0.35714285714285715
+        }
+      },
+      "advance": true,
+      "frame_not_worse_acceptable_rate": true,
+      "frame_not_worse_unsupported_additions": true,
+      "frame_run": "esp-phi-frame",
+      "frame_strictly_better_equivariance": true,
+      "generic_run": "esp-phi-generic",
+      "paired_equivariance": {
+        "frame": {
+          "denominator": 14,
+          "numerator": 8,
+          "rate": 0.5714285714285714
+        },
+        "frame_minus_generic_rate": 0.5714285714285714,
+        "generic": {
+          "denominator": 14,
+          "numerator": 0,
+          "rate": 0.0
+        }
+      },
+      "unsupported_addition_strict_yes": {
+        "frame": {
+          "denominator": 28,
+          "numerator": 2,
+          "rate": 0.07142857142857142
+        },
+        "generic": {
+          "denominator": 28,
+          "numerator": 2,
+          "rate": 0.07142857142857142
+        }
+      }
+    }
+  },
+  "evidence_class": "model_agent_development_only",
+  "gate": {
+    "advance": false,
+    "rule": "frame paired equivariance must be strictly greater than generic in both model families; frame strict-consensus unsupported-addition rate must be no greater; frame strict-consensus acceptable rate must be no lower"
+  },
+  "human_evidence": false,
+  "row_count": 112,
+  "runs": {
+    "esp-phi-frame": {
+      "acceptable_lay_rewrite_strict_yes": {
+        "denominator": 28,
+        "numerator": 17,
+        "rate": 0.6071428571428571
+      },
+      "condition": "frame",
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "paired_equivariance": {
+        "denominator": 14,
+        "numerator": 8,
+        "rate": 0.5714285714285714
+      },
+      "rows": 28,
+      "scope_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 21,
+        "rate": 0.75
+      },
+      "strength_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 19,
+        "rate": 0.6785714285714286
+      },
+      "unsupported_addition_strict_yes": {
+        "denominator": 28,
+        "numerator": 2,
+        "rate": 0.07142857142857142
+      }
+    },
+    "esp-phi-generic": {
+      "acceptable_lay_rewrite_strict_yes": {
+        "denominator": 28,
+        "numerator": 10,
+        "rate": 0.35714285714285715
+      },
+      "condition": "generic",
+      "model_id": "microsoft/Phi-3.5-mini-instruct",
+      "paired_equivariance": {
+        "denominator": 14,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "rows": 28,
+      "scope_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 19,
+        "rate": 0.6785714285714286
+      },
+      "strength_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 10,
+        "rate": 0.35714285714285715
+      },
+      "unsupported_addition_strict_yes": {
+        "denominator": 28,
+        "numerator": 2,
+        "rate": 0.07142857142857142
+      }
+    },
+    "esp-qwen-frame": {
+      "acceptable_lay_rewrite_strict_yes": {
+        "denominator": 28,
+        "numerator": 7,
+        "rate": 0.25
+      },
+      "condition": "frame",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "paired_equivariance": {
+        "denominator": 14,
+        "numerator": 0,
+        "rate": 0.0
+      },
+      "rows": 28,
+      "scope_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 18,
+        "rate": 0.6428571428571429
+      },
+      "strength_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 7,
+        "rate": 0.25
+      },
+      "unsupported_addition_strict_yes": {
+        "denominator": 28,
+        "numerator": 4,
+        "rate": 0.14285714285714285
+      }
+    },
+    "esp-qwen-generic": {
+      "acceptable_lay_rewrite_strict_yes": {
+        "denominator": 28,
+        "numerator": 9,
+        "rate": 0.32142857142857145
+      },
+      "condition": "generic",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "paired_equivariance": {
+        "denominator": 14,
+        "numerator": 1,
+        "rate": 0.07142857142857142
+      },
+      "rows": 28,
+      "scope_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 18,
+        "rate": 0.6428571428571429
+      },
+      "strength_preserved_strict_yes": {
+        "denominator": 28,
+        "numerator": 9,
+        "rate": 0.32142857142857145
+      },
+      "unsupported_addition_strict_yes": {
+        "denominator": 28,
+        "numerator": 3,
+        "rate": 0.10714285714285714
+      }
+    }
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,53 @@
+{
+  "config": {
+    "condition": "generic",
+    "git_commit": "b1d86358eac24a757fb631d5c4342869d9c177e6",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "pairs_sha256": "98889e12289c6e72e9c54f789fb57e6ae4b2cc49234339021f0c4a42ea994685",
+    "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "counts": {
+    "generations": 28,
+    "pairs": 14
+  },
+  "errors": [],
+  "files": {
+    "RUN_COMPLETE": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "config.json": {
+      "bytes": 739,
+      "sha256": "53554b0ac21efd8d0e6740dc8deff008fc6cee5db65f715c17325ba691a91b3a"
+    },
+    "generations.jsonl": {
+      "bytes": 20124,
+      "sha256": "e90027a3687b1b34cac8a88adc35fcc955d1dd7acdb7e22380a177d42bde66a7"
+    },
+    "metrics.json": {
+      "bytes": 94,
+      "sha256": "9da4e0cc74a002e628cdf5a20493962df42f45aefd95266b239f108d58533fcb"
+    },
+    "run-completed-utc.txt": {
+      "bytes": 26,
+      "sha256": "1d9e29b67d5a9f2745d85f0294e27324bc29a29576e57891cef3e548491f0938"
+    },
+    "run-git-commit.txt": {
+      "bytes": 41,
+      "sha256": "bdae891a052a921ed00bca4a17407586a72f661fa00e1cf7c5a382c10bc2111f"
+    },
+    "run-started-utc.txt": {
+      "bytes": 26,
+      "sha256": "67fc9049175012b3081ff7ddd40a0c98a7be2fbd5a0eafa26ee45c3f42d00028"
+    }
+  },
+  "hashes": {
+    "pairs_sha256": "98889e12289c6e72e9c54f789fb57e6ae4b2cc49234339021f0c4a42ea994685"
+  },
+  "recomputed_metrics": {
+    "cue_bin_preservation_rate": 0.32142857142857145,
+    "pair_count": 14,
+    "row_count": 28
+  },
+  "status": "pass"
+}

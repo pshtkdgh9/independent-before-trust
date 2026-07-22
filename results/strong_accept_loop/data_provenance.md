@@ -1,6 +1,6 @@
 # Data Provenance Register
 
-## ESP provisional corpus
+## ESP retired corpus and artifact provenance
 
 | Item | Value |
 |---|---|
@@ -22,7 +22,7 @@
 | Redistribution | Do not redistribute the HF Parquet packaging until its card-level terms are clarified; release scripts, hashes, IDs, and derived annotations where attribution and source terms permit |
 | Known risks | Cue matching is candidate retrieval, not gold scope annotation; the validation split is used only for method development; the blind-test summaries are empty and cannot be used for reference-based claims |
 
-The two downloads were checksum-verified against their Git-LFS object hashes. The blind test was inspected only to establish its schema and absence of reference summaries; it will not be used to tune or score the method. Human-reviewed scope labels and a document-disjoint evaluation split remain mandatory before any ESP finding is promoted.
+The two downloads were checksum-verified against their Git-LFS object hashes. The blind test was inspected only to establish its schema and absence of reference summaries; it was not used to tune or score the method. Human-reviewed scope labels and a document-disjoint evaluation split were never completed before ESP retirement, and no ESP finding is promoted.
 
 ### ESP CloudLab feasibility artifacts
 
@@ -38,6 +38,12 @@ The six deterministic cells ran on 2026-07-22 from Git commit `beca9cc32f9082985
 | `esp-qwen-frame` | 68,846 | `6aab8aeb762f18f61bdaaf438706c9292ff97dee05686e72fb0c8330a580f402` |
 
 The blind packet, hidden condition key, two model-agent audits, and deterministic summary are stored in `esp_output_reviews/`. They are derived evaluation artifacts and may be released with the code subject to the upstream text redistribution boundary above. They are explicitly not human annotations.
+
+### ESP counterfactual review artifact
+
+The natural-text counterfactual gate is recorded at `results/strong_accept_loop/esp_counterfactual/review_summary_v1.json`. It contains 112 model-agent review rows across Phi and Qwen generic/frame comparisons. It records `evidence_class=model_agent_development_only` and `human_evidence=false`; no human annotation or adjudication artifact exists for this gate.
+
+The review summary records Phi as advancing and Qwen as not advancing; the combined gate is `advance=false`. This artifact is provenance for the decision to retire ESP and reopen topic search. It is not provenance for a supported ESP claim.
 
 ## CLEP provisional data boundary
 

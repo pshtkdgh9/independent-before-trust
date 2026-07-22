@@ -1,10 +1,12 @@
 # Topic Decision
 
-Date: 2026-07-22
+Date: 2026-07-23
 
-## Current provisional direction after the second empirical pivot
+## Current direction after the ESP negative gate
 
-## Current provisional direction after the third empirical pivot
+No headline topic is currently selected. Topic search is reopened after LAD, DCEA, CLEP, and ESP all failed their recorded gates. The next topic must not be chosen in this file until a new candidate passes a documented search, novelty boundary, provenance path, and falsifiable pilot plan.
+
+## Retired ESP direction after the third empirical pivot
 
 **Say Less, Mean the Same: Epistemic-Scope-Preserving Lay Summarization**
 
@@ -18,7 +20,7 @@ Its claims start unearned:
 - ESP-C2: frame-conditioned generation reduces those changes relative to matched direct and generic self-refinement baselines;
 - ESP-C3: the reduction is not purchased by source copying or a material loss of readability and content coverage.
 
-Selection is provisional. It is killed if full-text review finds an existing source-to-lay method with the same explicit scope constraint, if a reproducible annotation protocol cannot achieve acceptable agreement, or if two open-model families show no frame-preservation improvement under a fixed pilot. The June 2026 diagnostic-uncertainty benchmark is treated as a close evaluation collision, not omitted; the method must differ through natural scientific lay summarization, explicit scope, and direct generation evidence.
+Selection is retired. The natural-text counterfactual review in `esp_counterfactual/review_summary_v1.json` records Phi as passing (`advance=true`) and Qwen as failing (`advance=false`); the combined gate is `advance=false`. The evidence class is `model_agent_development_only` and `human_evidence=false`. Scaling ESP would therefore amount to continuing after a negative two-family gate using non-human development evidence. The June 2026 diagnostic-uncertainty benchmark remains a close evaluation collision, not omitted; it no longer matters for topic selection because ESP itself failed the advance rule.
 
 ## Retired CLEP direction
 
@@ -95,3 +97,5 @@ Criterion 2 fired on 2026-07-22. The integrity-validated Phi-3.5 run did not sho
 DCEA will use no trust/reputation score, signed edge, or prior graph algorithm. LAD code and negative artifacts remain background tooling/audit evidence only; they will not be relabeled as DCEA evidence. All DCEA data transformations, prompts, results, claims, prose, and figures must be newly generated. Negative results trigger weaker claims or another documented pivot, never suppression.
 
 CLEP must use newly authored prompts, paired items, analysis, prose, figures, and result artifacts. LAD and DCEA code may be reused only for generic hashing, immutable-run layout, and validator patterns, with that boundary recorded. Their data and outcomes cannot be relabeled as CLEP evidence. Kill CLEP if the full-text audit finds a direct matched operator-preservation study, if paired language effects are absent in two independent open-model families, or if the typed representation provides no improvement beyond a translate-then-answer baseline.
+
+ESP used newly authored prompts, model-agent development audits, counterfactual review artifacts, and separately pinned BioLaySumm source material. LAD, DCEA, and CLEP data and outcomes cannot be relabeled as ESP evidence. ESP is now retired because the counterfactual gate did not advance across two model families, and no ESP artifact is human evidence.

@@ -1,0 +1,19 @@
+{
+  "backend": "HuggingFaceBackend",
+  "condition": "frame",
+  "do_sample": false,
+  "dtype": "float16",
+  "generation_count": 28,
+  "git_commit": "b1d86358eac24a757fb631d5c4342869d9c177e6",
+  "max_new_tokens": 96,
+  "model_id": "microsoft/Phi-3.5-mini-instruct",
+  "model_path": "models/phi-3.5-mini-instruct-ccf028f",
+  "model_revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216",
+  "pair_count": 14,
+  "pairs_path": "data/annotations/esp_counterfactual_pairs_v0.jsonl",
+  "pairs_sha256": "98889e12289c6e72e9c54f789fb57e6ae4b2cc49234339021f0c4a42ea994685",
+  "protocol": "esp-counterfactual-v0",
+  "revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216",
+  "seed": 1701,
+  "tokenizer_revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216"
+}

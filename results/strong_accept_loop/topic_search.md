@@ -2,6 +2,23 @@
 
 Date: 2026-07-22. Candidate selection excludes benchmark-only work and requires a reusable NLP insight, public/open evidence path, A30 24 GB feasibility, EACL/ACL fit, and separation from the already-submitted journal manuscript.
 
+## Third-pivot public-data method search
+
+CLEP was retired under its predeclared two-family gate. The next search therefore requires an existing licensed corpus, a method contribution, and a primary outcome that is not a tiny synthetic behavior effect. Scores below use the same five 1--5 dimensions as the earlier searches.
+
+| Rank | Candidate | F | N | E | A | O | Total | Decision |
+|---:|---|---:|---:|---:|---:|---:|---:|---|
+| 1 | **Epistemic-Scope-Preserving Lay Summarization:** extract source uncertainty frames and require generated lay summaries to preserve cue strength and scope. | 5 | 4 | 4 | 5 | 5 | 23 | Selected provisionally; corpus-license, scope-annotation, and direct-collision gates remain. |
+| 2 | **Question-Guided Minimal Simplification Repair:** insert only content diagnosed as missing by InfoLossQA. | 5 | 2 | 5 | 5 | 5 | 22 | Rejected as headline: Nandiraju et al. (2025) already detect missing health-text elements and regenerate text by inserting them. |
+| 3 | **Input-Normalized Table-to-Text Generation:** repair malformed ToTTo inputs before generation. | 4 | 1 | 4 | 4 | 5 | 18 | Rejected: Sundararajan et al. (NAACL 2024) directly fix ToTTo input problems and report large factual-error reductions. |
+| 4 | **Discourse-Relation-Preserving Simplification:** preserve causal, concessive, and contrast relations through typed discourse planning. | 5 | 3 | 3 | 5 | 5 | 21 | Fallback; discourse annotation and reliable automatic evaluation are expensive. |
+| 5 | **Denominator-Aware Numerical Lay Summarization:** bind quantities to populations, time windows, and comparators before generation. | 5 | 3 | 4 | 5 | 5 | 22 | Fallback; numerical-fidelity and data-to-text literature make the novelty boundary narrow. |
+| 6 | **Targeted Concept Explanation with Context Contracts:** explain only reader-flagged concepts while preserving local claims. | 5 | 2 | 4 | 4 | 5 | 20 | Rejected: WikiDomains and targeted concept simplification already establish this task directly. |
+
+The provisional winner studies a linguistic failure rather than proposing another benchmark: lay rewriting can delete or strengthen hedges, modal auxiliaries, attribution, and their semantic scope. The proposed method represents each source uncertainty frame as `(cue, strength, scoped proposition, attribution)` and conditions generation on preserving that frame while simplifying its realization. Primary comparisons must measure both accessibility and frame preservation; generic semantic similarity is insufficient.
+
+The novelty claim is deliberately narrow. Prior work studies hedge identification, asks humans to use hedges during simplification, evaluates general meaning preservation, or produces minimally lossy summaries. A June 2026 clinical uncertainty benchmark also evaluates preservation. None of these observations alone establishes a new method contribution. Selection remains provisional until full-text review shows that no prior system already performs source-to-lay generation with explicit uncertainty-scope constraints.
+
 ## Second-pivot addendum
 
 The initial ranking is retained as an audit record rather than rewritten after results. LAD was retired after two model families failed its predeclared mechanism gate. DCEA was then implemented and retired after its fixed-parser artifacts failed integrity, its interpretable outputs lacked the decisive redundancy separation, and a later closest-work search found explicit Shapley treatment of source redundancy and synergy.

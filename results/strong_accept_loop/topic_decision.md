@@ -4,6 +4,24 @@ Date: 2026-07-22
 
 ## Current provisional direction after the second empirical pivot
 
+## Current provisional direction after the third empirical pivot
+
+**Say Less, Mean the Same: Epistemic-Scope-Preserving Lay Summarization**
+
+Research question: *Can an explicit representation of uncertainty strength and semantic scope prevent lay summaries from turning qualified scientific findings into categorical claims without forfeiting accessibility?*
+
+This is a generation-method and linguistic-analysis paper, not a new benchmark. The provisional method extracts auditable uncertainty frames `(cue, strength, scoped proposition, attribution)` from a scientific source, exposes those frames to an open generator, and validates whether the lay realization preserves both strength and scope. Public PLOS/eLife or another clearly licensed source--lay corpus will be used only after exact version, license, checksum, and preprocessing provenance are recorded.
+
+Its claims start unearned:
+
+- ESP-C1: standard open-model lay summarization measurably changes source uncertainty strength or scope on naturally occurring scientific claims;
+- ESP-C2: frame-conditioned generation reduces those changes relative to matched direct and generic self-refinement baselines;
+- ESP-C3: the reduction is not purchased by source copying or a material loss of readability and content coverage.
+
+Selection is provisional. It is killed if full-text review finds an existing source-to-lay method with the same explicit scope constraint, if a reproducible annotation protocol cannot achieve acceptable agreement, or if two open-model families show no frame-preservation improvement under a fixed pilot. The June 2026 diagnostic-uncertainty benchmark is treated as a close evaluation collision, not omitted; the method must differ through natural scientific lay summarization, explicit scope, and direct generation evidence.
+
+## Retired CLEP direction
+
 **Lost in Translation, Overstated in Generation: Cross-Lingual Epistemic Preservation**
 
 Research question: *When propositional content is held fixed, does changing the language channel alter whether an open language model preserves negation, uncertainty, and source attribution, and can an explicit epistemic-slot representation reduce those meaning-changing errors?*

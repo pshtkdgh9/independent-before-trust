@@ -2,10 +2,10 @@
 
 Date: 2026-07-22
 
-- Phase: LAD and DCEA retired; cross-lingual epistemic preservation under provisional novelty gate
+- Phase: LAD, DCEA, and CLEP retired; epistemic-scope-preserving lay summarization under provisional novelty gate
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
-- Selected direction: Lost in Translation, Overstated in Generation: Cross-Lingual Epistemic Preservation (CLEP), provisional
+- Selected direction: Say Less, Mean the Same: Epistemic-Scope-Preserving Lay Summarization (ESP), provisional
 - Terminal gate: not satisfied
 
 ## Completed
@@ -38,10 +38,11 @@ Date: 2026-07-22
 - DCEA was retired without parser repair or favorable reruns: every fixed-parser integrity report is `fail`, the interpretable Phi pair-flip rates did not distinguish singleton from redundant support, and the contrastive condition did not improve Phi directional following.
 - CLEP protocol v1 completed 72 CloudLab generations at `bbf75d1` across two models and three methods. All six integrity reports are `fail`; the exact proposition field was underspecified and output-format compliance was incomplete. The raw artifacts are retained as diagnostic only and will not be rescored.
 - CLEP closed-label protocol v2 completed 144 new generations at `fa3102a`; all six integrity reports pass. Language effects were not directionally consistent across English, Korean, and Spanish, and typed generation improved Qwen but not Phi relative to translate-then-classify.
+- A third-pivot search compared six public-data method candidates. Question-guided simplification repair and ToTTo input repair were rejected after direct 2024--2025 collisions; epistemic-scope-preserving lay summarization is provisional pending full-text and data gates.
 
 ## Blocking evidence
 
-- No CLEP headline claim has evidence yet.
+- No ESP headline claim has evidence yet.
 - DCEA cannot be promoted: its required citation format failed in all four cells, its predicted redundancy separation was absent in the interpretable Phi outputs, and a 2025 Shapley source-attribution paper directly covers redundancy/complementarity/synergy.
 - CPR was rejected after the initial post-LAD shortlist because RARR (ACL 2023) already performs attribution-assisted minimal repair of unsupported LM output.
 - Generic causal context attribution is also prior work: ContextCite (NeurIPS 2024) and AttriBoT (ICLR 2025) require the new topic to focus narrowly on directional replacement interventions and redundancy, not source removal alone.
@@ -56,4 +57,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Apply the predeclared CLEP kill criterion: the two-family artifact shows no consistent non-English preservation deficit and no cross-family typed-method advantage. Retire CLEP as a submission topic, retain v1/v2 artifacts, and reopen topic selection around a real public-data task with a method contribution rather than another tiny synthetic behavior study.
+Complete the ESP novelty and provenance gate: verify the closest 2011--2026 uncertainty-preservation work in full text, pin a clearly licensed source--lay corpus, and define an annotation-reliable scope-preservation pilot before any favorable claim is written.

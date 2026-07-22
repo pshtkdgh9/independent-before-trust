@@ -72,6 +72,12 @@ The remaining provisional gap is narrower than causal attribution in general. Re
 
 No novelty claim is yet verified. The immediate falsification test is whether directional replacement supplies information beyond semantic support and removal-based attribution specifically in the redundant-support cell. If it does not, DCEA is retired rather than reframed after observing results.
 
+## Third-pivot collision findings
+
+The public-data method search rejected two initially attractive directions after direct collisions. *Automated Feedback Loops to Protect Text Simplification with Generative AI from Information Loss* (Nandiraju et al., 2025, arXiv:2505.16172) already detects missing health-text elements and regenerates simplified text by inserting them, so InfoLossQA-guided minimal repair cannot be claimed broadly as a new repair task. *Improving Factual Accuracy of Neural Table-to-Text Output by Addressing Input Problems in ToTTo* (Sundararajan et al., NAACL 2024, https://aclanthology.org/2024.naacl-long.408/) already repairs malformed ToTTo inputs and measures downstream factual-error reduction.
+
+The remaining provisional gap is epistemic **scope** preservation in natural scientific lay summarization. Relevant boundaries include: hedge use in simplification (W11-2314), BioScope-style hedge cue/scope identification, PLOS/eLife lay-summary corpora (Goldsack et al., EMNLP 2022), InfoLossQA (ACL 2024), reading-comprehension meaning preservation (TACL 2024), lossless LLM simplification (2025), and *Possible or Definite?* (arXiv:2606.18471), which evaluates diagnostic uncertainty preservation in clinical revision. The proposed contribution cannot be merely another uncertainty benchmark or cue counter. It must provide a reproducible frame-conditioned generation method and show strength-and-scope preservation under matched open-model experiments while retaining readability and coverage.
+
 ## DCEA retirement and next novelty gate
 
 DCEA failed its direct falsification test. The fixed parser rejected all four model/prompt artifacts. The interpretable Phi outputs did not separate singleton and redundant pair flips, and contrastive prompting did not improve directional following. A further primary-source search found *Source Attribution in Retrieval-Augmented Generation* (2025), which explicitly frames Shapley source attribution around redundancy, complementarity, and synergy: https://arxiv.org/abs/2507.04480. DCEA is therefore retired rather than repaired after outcome inspection.

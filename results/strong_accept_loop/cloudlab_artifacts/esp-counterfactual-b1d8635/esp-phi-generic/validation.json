@@ -1,0 +1,53 @@
+{
+  "config": {
+    "condition": "generic",
+    "git_commit": "b1d86358eac24a757fb631d5c4342869d9c177e6",
+    "model_id": "microsoft/Phi-3.5-mini-instruct",
+    "pairs_sha256": "98889e12289c6e72e9c54f789fb57e6ae4b2cc49234339021f0c4a42ea994685",
+    "revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216"
+  },
+  "counts": {
+    "generations": 28,
+    "pairs": 14
+  },
+  "errors": [],
+  "files": {
+    "RUN_COMPLETE": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "config.json": {
+      "bytes": 744,
+      "sha256": "6a497a4e0dca13679f8e1070c08cb9665369d15831600aeff0119a1d1e440a11"
+    },
+    "generations.jsonl": {
+      "bytes": 20019,
+      "sha256": "eaef6f6cc6d982692fc85bb3717df4cd81b3d14d9dc3c2ebf704af65dca605f3"
+    },
+    "metrics.json": {
+      "bytes": 78,
+      "sha256": "979e10c5f87ceb470bde7a1c485041307adada7041ff7ef73524a6ff9c433982"
+    },
+    "run-completed-utc.txt": {
+      "bytes": 26,
+      "sha256": "7be3b6c6eb19dd21774cacc54c6203b7cdce2d2f735086df44141cec051021d9"
+    },
+    "run-git-commit.txt": {
+      "bytes": 41,
+      "sha256": "bdae891a052a921ed00bca4a17407586a72f661fa00e1cf7c5a382c10bc2111f"
+    },
+    "run-started-utc.txt": {
+      "bytes": 26,
+      "sha256": "3fb0c356031ead57555f7328e14759e50b531de6275a17c01cb21114724ef833"
+    }
+  },
+  "hashes": {
+    "pairs_sha256": "98889e12289c6e72e9c54f789fb57e6ae4b2cc49234339021f0c4a42ea994685"
+  },
+  "recomputed_metrics": {
+    "cue_bin_preservation_rate": 0.5,
+    "pair_count": 14,
+    "row_count": 28
+  },
+  "status": "pass"
+}

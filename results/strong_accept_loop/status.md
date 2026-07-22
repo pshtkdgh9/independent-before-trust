@@ -44,6 +44,7 @@ Date: 2026-07-22
 - Six deterministic ESP cells completed on CloudLab at commit `beca9cc`: Phi-3.5 and Qwen2.5-1.5B crossed with direct, generic-preservation, and explicit-frame prompts, with 38/38 non-empty generations per cell.
 - Automatic cue preservation increased from generic to frame for both families (Phi `0.3684` to `0.5789`; Qwen `0.2368` to `0.3947`), but this metric remains diagnostic only.
 - Two condition-blind model-agent audits covered all 228 outputs. Strict two-reviewer strength/scope consensus favored frame over generic in both families, but exact agreement was only `0.640` for strength, `0.443` for scope, and `0.268` for overall acceptability. These audits are development evidence, not human judgments.
+- A failure analysis froze the v1 semantic rubric: omitted targets are `scope=no`, wrong-scope hedges do not preserve strength, and acceptability is conjunctive over semantic fidelity and readability. Two new blinded model-agent audits improved raw agreement to `0.895` strength, `0.689` scope, `0.811` unsupported additions, and `0.899` acceptability. One attempted lane was discarded before writing after accidental exposure to old labels; a completed lane consulted only another file's field names, not labels, and this protocol deviation is retained. None of these audits is human evidence.
 
 ## Blocking evidence
 
@@ -63,4 +64,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Freeze a revised semantic rubric, add a controlled uncertainty-strength counterfactual cell, and obtain reliable blinded judgments before any favorable claim is written. Preserve the current six-cell run as feasibility evidence; do not tune the rubric to make its frame condition win.
+Implement the approved natural-text counterfactual equivariance plan, while keeping independent human review as a mandatory evidence gate. Preserve the current six-cell run as feasibility evidence; do not tune the rubric or pair selection to make frame conditioning win.

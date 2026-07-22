@@ -1,0 +1,329 @@
+{
+  "agreement": {
+    "acceptable_lay_rewrite": 0.8991228070175439,
+    "scope_preserved": 0.6885964912280702,
+    "strength_preserved": 0.8947368421052632,
+    "unsupported_addition": 0.8114035087719298
+  },
+  "by_run": {
+    "esp-phi-direct": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        },
+        "scope_preserved": {
+          "no": 23,
+          "unclear": 0,
+          "yes": 15
+        },
+        "strength_preserved": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        },
+        "unsupported_addition": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        },
+        "scope_preserved": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        },
+        "strength_preserved": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        },
+        "unsupported_addition": {
+          "no": 30,
+          "unclear": 0,
+          "yes": 8
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 0,
+        "scope_preserved_yes": 2,
+        "strength_preserved_yes": 0,
+        "unsupported_addition_either_yes": 8
+      }
+    },
+    "esp-phi-frame": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 20,
+          "unclear": 0,
+          "yes": 18
+        },
+        "scope_preserved": {
+          "no": 6,
+          "unclear": 0,
+          "yes": 32
+        },
+        "strength_preserved": {
+          "no": 19,
+          "unclear": 0,
+          "yes": 19
+        },
+        "unsupported_addition": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 28,
+          "unclear": 0,
+          "yes": 10
+        },
+        "scope_preserved": {
+          "no": 18,
+          "unclear": 0,
+          "yes": 20
+        },
+        "strength_preserved": {
+          "no": 28,
+          "unclear": 0,
+          "yes": 10
+        },
+        "unsupported_addition": {
+          "no": 34,
+          "unclear": 0,
+          "yes": 4
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 10,
+        "scope_preserved_yes": 18,
+        "strength_preserved_yes": 10,
+        "unsupported_addition_either_yes": 5
+      }
+    },
+    "esp-phi-generic": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        },
+        "scope_preserved": {
+          "no": 27,
+          "unclear": 0,
+          "yes": 11
+        },
+        "strength_preserved": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        },
+        "unsupported_addition": {
+          "no": 34,
+          "unclear": 0,
+          "yes": 4
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        },
+        "scope_preserved": {
+          "no": 33,
+          "unclear": 0,
+          "yes": 5
+        },
+        "strength_preserved": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        },
+        "unsupported_addition": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 0,
+        "scope_preserved_yes": 2,
+        "strength_preserved_yes": 0,
+        "unsupported_addition_either_yes": 7
+      }
+    },
+    "esp-qwen-direct": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        },
+        "scope_preserved": {
+          "no": 24,
+          "unclear": 0,
+          "yes": 14
+        },
+        "strength_preserved": {
+          "no": 34,
+          "unclear": 0,
+          "yes": 4
+        },
+        "unsupported_addition": {
+          "no": 33,
+          "unclear": 0,
+          "yes": 5
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        },
+        "scope_preserved": {
+          "no": 30,
+          "unclear": 0,
+          "yes": 8
+        },
+        "strength_preserved": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        },
+        "unsupported_addition": {
+          "no": 28,
+          "unclear": 0,
+          "yes": 10
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 0,
+        "scope_preserved_yes": 6,
+        "strength_preserved_yes": 0,
+        "unsupported_addition_either_yes": 13
+      }
+    },
+    "esp-qwen-frame": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 27,
+          "unclear": 0,
+          "yes": 11
+        },
+        "scope_preserved": {
+          "no": 9,
+          "unclear": 0,
+          "yes": 29
+        },
+        "strength_preserved": {
+          "no": 27,
+          "unclear": 0,
+          "yes": 11
+        },
+        "unsupported_addition": {
+          "no": 32,
+          "unclear": 0,
+          "yes": 6
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 31,
+          "unclear": 0,
+          "yes": 7
+        },
+        "scope_preserved": {
+          "no": 14,
+          "unclear": 0,
+          "yes": 24
+        },
+        "strength_preserved": {
+          "no": 30,
+          "unclear": 0,
+          "yes": 8
+        },
+        "unsupported_addition": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 7,
+        "scope_preserved_yes": 23,
+        "strength_preserved_yes": 8,
+        "unsupported_addition_either_yes": 8
+      }
+    },
+    "esp-qwen-generic": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        },
+        "scope_preserved": {
+          "no": 30,
+          "unclear": 0,
+          "yes": 8
+        },
+        "strength_preserved": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        },
+        "unsupported_addition": {
+          "no": 35,
+          "unclear": 0,
+          "yes": 3
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        },
+        "scope_preserved": {
+          "no": 30,
+          "unclear": 0,
+          "yes": 8
+        },
+        "strength_preserved": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        },
+        "unsupported_addition": {
+          "no": 33,
+          "unclear": 0,
+          "yes": 5
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 1,
+        "scope_preserved_yes": 2,
+        "strength_preserved_yes": 1,
+        "unsupported_addition_either_yes": 8
+      }
+    }
+  },
+  "items": 228
+}

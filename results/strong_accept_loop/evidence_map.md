@@ -14,6 +14,8 @@ The v0 agent-annotation audit at `esp_annotations/agreement.json` reports exact 
 
 The CloudLab artifacts under `cloudlab_artifacts/esp-pilot-beca9cc/` contain six fixed-condition configs, metrics, and 228 raw generations. Cue preservation was direct/generic/frame `0.3421/0.3684/0.5789` for Phi and `0.2105/0.2368/0.3947` for Qwen. The condition-blind development audit at `esp_output_reviews/summary.json` gives strict two-reviewer strength-preserved counts of `2/5/14` for Phi and `7/4/11` for Qwen, but reviewer agreement is inadequate. These artifacts establish feasibility and the need for a reliable semantic evaluation; they do not support ESP-C1--C3 as findings.
 
+The frozen v1 rubric and fresh audits are recorded in `esp_output_review_guidelines_v1.md` and `esp_output_reviews/summary_v1.json`. Raw agreement improved substantially, and strict v1 consensus again favored frame over generic for strength (Phi `10` versus `0`; Qwen `8` versus `1`) and scope (Phi `18` versus `2`; Qwen `23` versus `2`). Because the raters are model agents, this remains a development signal only. It motivates the separately specified counterfactual test but does not change any claim to `SUPPORTED`.
+
 ## Retired CLEP claims
 
 | Claim | Required artifact | Current status |

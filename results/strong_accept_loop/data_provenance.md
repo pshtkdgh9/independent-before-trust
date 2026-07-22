@@ -44,6 +44,20 @@ The exact download command is in `README.md`. `scripts/prepare_hf_model.py` reco
 
 The imported snapshot record reports `7,644,702,568` total bytes. The two weight shards are `4,972,489,328` bytes (SHA-256 `c5214cdb995ed3dd716add8d9efbfe016b76bb2f1c4c1e6c1c6a95497d7a8837`) and `2,669,692,552` bytes (SHA-256 `41246eed2b75b66526339c5d32d6f7acdefe0bd24180f97c74303f4656877344`). Every other snapshot file and Hugging Face metadata file is enumerated in the imported manifest.
 
+## Second-family replication model
+
+| Item | Value |
+|---|---|
+| Model | `Qwen/Qwen2.5-1.5B-Instruct` |
+| Canonical source | <https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct> |
+| Immutable revision | `989aa7980e4cf806f80c7fef2b1adb7bc71aa306` |
+| Visible license | Apache-2.0 |
+| License source | <https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/blob/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/LICENSE> |
+| Selection reason | Independently developed family; permissive license; float16 weights fit the allocated P100 |
+| Status | Selected before download; bytes/checksums pending CloudLab snapshot preparation |
+
+The second-family experiment repeats the identical 50-item intervention, seed, decoding, and parser. It is a model-family replication for the predeclared kill/pivot decision, not an opportunistic search for a positive result.
+
 ## CloudLab pilot hardware allocation
 
 The original Wisconsin `d7525` request failed because the portal reported zero allocatable nodes. No scientific computation occurred in that attempt. The replacement experiment requests one Wisconsin `c240g5` through the version-controlled `cloudlab/lad-c240g5.rspec`. The official hardware manual describes this type as one Tesla P100 12 GB GPU, 20 Intel Skylake CPU cores, and 192 GB RAM. Because P100 does not provide the planned A30 bfloat16 regime, the pilot uses `--dtype float16`; this is a documented infrastructure pivot, not a post-result analysis choice. CloudLab assigned node `c240g5-110121` with hostname `c240g5-110121.wisc.cloudlab.us`. The captured environment records Ubuntu 22.04.2, kernel `5.15.0-177-generic`, NVIDIA driver `535.309.01`, CUDA compatibility `12.2`, `torch==2.5.1+cu121`, and P100 compute capability `(6, 0)`. See `cloudlab_attempts.md`.

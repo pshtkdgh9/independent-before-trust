@@ -10,6 +10,8 @@
 
 The pinned BioLaySumm validation split and extracted 40-item manifest establish feasibility and provenance only. Regex cue matches are not gold labels and cannot support ESP-C1--C3. No LAD, DCEA, or CLEP artifact may be mapped to an ESP claim.
 
+The v0 agent-annotation audit at `esp_annotations/agreement.json` reports exact agreement on controlled labels for 40 candidates (38 valid, 2 non-epistemic). Because both annotators are model agents rather than independent human experts, this artifact freezes development labels and tests the rubric only; it is not mapped to a headline claim and is not reported as human agreement.
+
 ## Retired CLEP claims
 
 | Claim | Required artifact | Current status |

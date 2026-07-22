@@ -1,0 +1,15 @@
+{
+  "disagreements": {
+    "attribution": [],
+    "cue_valid": [],
+    "retain_in_lay_rewrite": [],
+    "strength": []
+  },
+  "exact_agreement": {
+    "attribution": 1.0,
+    "cue_valid": 1.0,
+    "retain_in_lay_rewrite": 1.0,
+    "strength": 1.0
+  },
+  "items": 40
+}

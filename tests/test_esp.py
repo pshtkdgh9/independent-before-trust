@@ -1,6 +1,11 @@
 import unittest
 
-from src.esp.core import build_pilot_items, extract_uncertainty_frames
+from src.esp.core import (
+    annotation_agreement,
+    build_pilot_items,
+    extract_uncertainty_frames,
+    validate_annotations,
+)
 
 
 class ESPTests(unittest.TestCase):
@@ -56,6 +61,43 @@ class ESPTests(unittest.TestCase):
 
         self.assertEqual(item.source_text, "The effect may be small.")
         self.assertNotIn("discussion", item.source_text.lower())
+
+    def test_rejects_annotation_ids_that_do_not_match_manifest_order(self):
+        with self.assertRaisesRegex(ValueError, "item IDs"):
+            validate_annotations(
+                ["esp-0000-00", "esp-0001-00"],
+                [{"item_id": "esp-0001-00"}, {"item_id": "esp-0000-00"}],
+            )
+
+    def test_reports_exact_label_agreement_without_scoring_scope_as_exact(self):
+        left = [
+            {
+                "item_id": "a",
+                "cue_valid": "yes",
+                "strength": "possible",
+                "attribution": "authors",
+                "retain_in_lay_rewrite": "yes",
+                "scope_text": "may help adults",
+            },
+            {
+                "item_id": "b",
+                "cue_valid": "no",
+                "strength": "not_epistemic",
+                "attribution": "authors",
+                "retain_in_lay_rewrite": "no",
+                "scope_text": "",
+            },
+        ]
+        right = [dict(row) for row in left]
+        right[0]["scope_text"] = "help adults"
+        right[1]["cue_valid"] = "yes"
+
+        report = annotation_agreement(left, right)
+
+        self.assertEqual(report["items"], 2)
+        self.assertEqual(report["exact_agreement"]["cue_valid"], 0.5)
+        self.assertEqual(report["exact_agreement"]["strength"], 1.0)
+        self.assertNotIn("scope_text", report["exact_agreement"])
 
 
 if __name__ == "__main__":

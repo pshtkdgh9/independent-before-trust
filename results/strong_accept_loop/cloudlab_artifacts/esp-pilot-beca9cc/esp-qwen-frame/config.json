@@ -1,0 +1,13 @@
+{
+  "annotations": "results/strong_accept_loop/esp_annotations/annotator_a.jsonl",
+  "condition": "frame",
+  "eligible_items": 38,
+  "items": "data/processed/esp-pilot-v0/items.jsonl",
+  "max_new_tokens": 96,
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "model_path": "/users/SangSong/independent-before-trust/models/qwen2.5-1.5b-instruct-989aa79",
+  "output_dir": "results/runs/esp-qwen-frame",
+  "protocol": "esp-v0-development",
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "seed": 1701
+}

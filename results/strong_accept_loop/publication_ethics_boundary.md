@@ -1,8 +1,8 @@
 # Publication Ethics and Non-Overlap Boundary
 
-## CLEP boundary after the second pivot
+## ESP boundary after topic pivots
 
-CLEP is a new manuscript direction. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, or DCEA. LAD and DCEA are failed internal research branches retained for transparency. Their code may contribute only generic experiment plumbing such as checksums, immutable directories, and validators; any reused utility must be identified in the repository history and cannot be presented as a CLEP scientific contribution. Their data and negative outcomes cannot be pooled with CLEP results.
+ESP is a new manuscript direction. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, or CLEP. The retired branches are retained for transparency. Their code may contribute only generic experiment plumbing and cannot be presented as an ESP scientific contribution. Their data and negative outcomes cannot be pooled with ESP results.
 
 ## Existing submission
 
@@ -21,13 +21,19 @@ Code may be reused only if it is a generic, independently testable utility (for 
 
 Any reused component must be listed here and in `data_provenance.md` or the reproducibility checklist with: source path/repository, original purpose, license, exact files/functions used, reason for reuse, modifications, and why it does not transfer the prior paper's contribution or evidence.
 
-Current reuse register: **none**. The reference PDFs and extracted text are used only to orient topic search; they are not manuscript prose and are not empirical evidence.
+Current reuse register:
+
+- `src/lad/hf_backend.py` is reused solely as generic local Hugging Face model loading and deterministic generation plumbing in `scripts/run_esp_pilot.py`. It was written in this repository, carries no prior-paper scientific method, and transfers no prior results or data.
+- `src/lad/provenance.py` and `scripts/download_public_file.py` are reused solely for download checksums and provenance serialization. Their dataset-specific privacy and redistribution text was removed; ESP supplies its own source-specific declarations.
+- The pinned Phi and Qwen snapshots are public third-party models reused as compute inputs under their recorded MIT and Apache-2.0 licenses. No prior LAD/DCEA/CLEP output is reused.
+
+The reference PDFs and extracted text are used only to orient topic search; they are not manuscript prose and are not empirical evidence.
 
 ## New-work boundary
 
-The selected project studies directional evidence use in supplied-context generation: whether a model's answer follows a controlled change to an answer-bearing source fact, including when equivalent support is redundant. It does not study signed networks, trust/reputation prediction, graph calibration, or the prior submission's evidence package. The DCEA task artifacts, source packs, transformations, prompts, outputs, metrics, tables, figures, and claims will be created anew in this repository.
+The selected project studies epistemic strength and semantic scope in scientific lay rewriting. It does not study signed networks, trust/reputation prediction, graph calibration, lineage-aware deliberation, causal source attribution, or multilingual channel effects. ESP source selection, annotations, prompts, outputs, metrics, tables, figures, and claims are created anew in this repository from the separately pinned public BioLaySumm source.
 
-The retired LAD pilot code and results may remain as an ethical audit trail and as generic examples of model loading, deterministic generation, logging, hashing, and artifact validation. They cannot be relabeled as DCEA evidence, cannot appear as DCEA results, and cannot justify any DCEA claim. Any generic utility actually reused by DCEA must be added to the reuse register with its exact boundary.
+Retired-branch code and results remain as an ethical audit trail. They cannot be relabeled as ESP evidence, cannot appear as ESP findings, and cannot justify any ESP claim. Only the generic utilities named in the reuse register cross the boundary.
 
 ## Citation and disclosure
 

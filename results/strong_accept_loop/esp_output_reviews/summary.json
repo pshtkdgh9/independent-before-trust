@@ -1,0 +1,329 @@
+{
+  "agreement": {
+    "acceptable_lay_rewrite": 0.2675438596491228,
+    "scope_preserved": 0.44298245614035087,
+    "strength_preserved": 0.6403508771929824,
+    "unsupported_addition": 0.9692982456140351
+  },
+  "by_run": {
+    "esp-phi-direct": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 0,
+          "unclear": 0,
+          "yes": 38
+        },
+        "scope_preserved": {
+          "no": 0,
+          "unclear": 22,
+          "yes": 16
+        },
+        "strength_preserved": {
+          "no": 10,
+          "unclear": 22,
+          "yes": 6
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 33,
+          "unclear": 0,
+          "yes": 5
+        },
+        "scope_preserved": {
+          "no": 17,
+          "unclear": 0,
+          "yes": 21
+        },
+        "strength_preserved": {
+          "no": 16,
+          "unclear": 17,
+          "yes": 5
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 5,
+        "scope_preserved_yes": 10,
+        "strength_preserved_yes": 2,
+        "unsupported_addition_either_yes": 0
+      }
+    },
+    "esp-phi-frame": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 2,
+          "unclear": 0,
+          "yes": 36
+        },
+        "scope_preserved": {
+          "no": 0,
+          "unclear": 8,
+          "yes": 30
+        },
+        "strength_preserved": {
+          "no": 11,
+          "unclear": 8,
+          "yes": 19
+        },
+        "unsupported_addition": {
+          "no": 36,
+          "unclear": 0,
+          "yes": 2
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 21,
+          "unclear": 0,
+          "yes": 17
+        },
+        "scope_preserved": {
+          "no": 7,
+          "unclear": 0,
+          "yes": 31
+        },
+        "strength_preserved": {
+          "no": 13,
+          "unclear": 7,
+          "yes": 18
+        },
+        "unsupported_addition": {
+          "no": 37,
+          "unclear": 0,
+          "yes": 1
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 17,
+        "scope_preserved_yes": 25,
+        "strength_preserved_yes": 14,
+        "unsupported_addition_either_yes": 2
+      }
+    },
+    "esp-phi-generic": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 0,
+          "unclear": 0,
+          "yes": 38
+        },
+        "scope_preserved": {
+          "no": 0,
+          "unclear": 21,
+          "yes": 17
+        },
+        "strength_preserved": {
+          "no": 9,
+          "unclear": 21,
+          "yes": 8
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 31,
+          "unclear": 0,
+          "yes": 7
+        },
+        "scope_preserved": {
+          "no": 23,
+          "unclear": 0,
+          "yes": 15
+        },
+        "strength_preserved": {
+          "no": 8,
+          "unclear": 23,
+          "yes": 7
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 7,
+        "scope_preserved_yes": 10,
+        "strength_preserved_yes": 5,
+        "unsupported_addition_either_yes": 0
+      }
+    },
+    "esp-qwen-direct": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 1,
+          "unclear": 0,
+          "yes": 37
+        },
+        "scope_preserved": {
+          "no": 0,
+          "unclear": 15,
+          "yes": 23
+        },
+        "strength_preserved": {
+          "no": 12,
+          "unclear": 15,
+          "yes": 11
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 30,
+          "unclear": 0,
+          "yes": 8
+        },
+        "scope_preserved": {
+          "no": 19,
+          "unclear": 0,
+          "yes": 19
+        },
+        "strength_preserved": {
+          "no": 11,
+          "unclear": 19,
+          "yes": 8
+        },
+        "unsupported_addition": {
+          "no": 37,
+          "unclear": 1,
+          "yes": 0
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 7,
+        "scope_preserved_yes": 17,
+        "strength_preserved_yes": 7,
+        "unsupported_addition_either_yes": 0
+      }
+    },
+    "esp-qwen-frame": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 4,
+          "unclear": 0,
+          "yes": 34
+        },
+        "scope_preserved": {
+          "no": 0,
+          "unclear": 6,
+          "yes": 32
+        },
+        "strength_preserved": {
+          "no": 12,
+          "unclear": 6,
+          "yes": 20
+        },
+        "unsupported_addition": {
+          "no": 34,
+          "unclear": 0,
+          "yes": 4
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 24,
+          "unclear": 0,
+          "yes": 14
+        },
+        "scope_preserved": {
+          "no": 7,
+          "unclear": 0,
+          "yes": 31
+        },
+        "strength_preserved": {
+          "no": 17,
+          "unclear": 7,
+          "yes": 14
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 13,
+        "scope_preserved_yes": 28,
+        "strength_preserved_yes": 11,
+        "unsupported_addition_either_yes": 4
+      }
+    },
+    "esp-qwen-generic": {
+      "a": {
+        "acceptable_lay_rewrite": {
+          "no": 2,
+          "unclear": 0,
+          "yes": 36
+        },
+        "scope_preserved": {
+          "no": 0,
+          "unclear": 19,
+          "yes": 19
+        },
+        "strength_preserved": {
+          "no": 10,
+          "unclear": 19,
+          "yes": 9
+        },
+        "unsupported_addition": {
+          "no": 37,
+          "unclear": 0,
+          "yes": 1
+        }
+      },
+      "b": {
+        "acceptable_lay_rewrite": {
+          "no": 33,
+          "unclear": 0,
+          "yes": 5
+        },
+        "scope_preserved": {
+          "no": 24,
+          "unclear": 0,
+          "yes": 14
+        },
+        "strength_preserved": {
+          "no": 9,
+          "unclear": 24,
+          "yes": 5
+        },
+        "unsupported_addition": {
+          "no": 38,
+          "unclear": 0,
+          "yes": 0
+        }
+      },
+      "items": 38,
+      "strict_consensus": {
+        "acceptable_both_yes": 5,
+        "scope_preserved_yes": 11,
+        "strength_preserved_yes": 4,
+        "unsupported_addition_either_yes": 1
+      }
+    }
+  },
+  "items": 228
+}

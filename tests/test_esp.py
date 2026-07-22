@@ -2,6 +2,7 @@ import unittest
 
 from src.esp.core import (
     annotation_agreement,
+    blind_review_id,
     build_pilot_items,
     extract_uncertainty_frames,
     validate_annotations,
@@ -11,6 +12,16 @@ from src.esp.core import (
 
 
 class ESPTests(unittest.TestCase):
+    def test_blind_review_id_is_stable_and_hides_condition(self):
+        first = blind_review_id("esp-0001-00", "frame")
+        self.assertEqual(first, blind_review_id("esp-0001-00", "frame"))
+        self.assertNotEqual(first, blind_review_id("esp-0001-00", "generic"))
+        self.assertNotEqual(
+            blind_review_id("esp-0001-00", "frame", "esp-phi-frame"),
+            blind_review_id("esp-0001-00", "frame", "esp-qwen-frame"),
+        )
+        self.assertNotIn("frame", first)
+
     def test_extracts_cue_and_sentence_scope_without_matching_substrings(self):
         text = (
             "The treatment may reduce symptoms in adults. "

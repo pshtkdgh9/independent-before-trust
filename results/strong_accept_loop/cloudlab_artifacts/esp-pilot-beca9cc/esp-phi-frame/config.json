@@ -1,0 +1,13 @@
+{
+  "annotations": "results/strong_accept_loop/esp_annotations/annotator_a.jsonl",
+  "condition": "frame",
+  "eligible_items": 38,
+  "items": "data/processed/esp-pilot-v0/items.jsonl",
+  "max_new_tokens": 96,
+  "model_id": "microsoft/Phi-3.5-mini-instruct",
+  "model_path": "/users/SangSong/independent-before-trust/models/phi-3.5-mini-instruct-ccf028f",
+  "output_dir": "results/runs/esp-phi-frame",
+  "protocol": "esp-v0-development",
+  "revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216",
+  "seed": 1701
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-07-22
 
-- Phase: LAD, DCEA, and CLEP retired; epistemic-scope-preserving lay summarization under provisional novelty gate
+- Phase: LAD, DCEA, and CLEP retired; ESP two-family feasibility run complete, semantic-evaluation reliability gate open
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
 - Selected direction: Say Less, Mean the Same: Epistemic-Scope-Preserving Lay Summarization (ESP), provisional
@@ -41,10 +41,13 @@ Date: 2026-07-22
 - A third-pivot search compared six public-data method candidates. Question-guided simplification repair and ToTTo input repair were rejected after direct 2024--2025 collisions; epistemic-scope-preserving lay summarization is provisional pending full-text and data gates.
 - Pinned BioLaySumm eLife revision `144e9c785e3a309da804eb6786feb38e6596f390`; checksum-verified validation and blind-test splits were acquired, and a deterministic 40-frame/31-document development manifest was built from abstract sections.
 - Two isolated agent annotation lanes applied the frozen v0 guidelines to all 40 candidates. They agreed on all four controlled labels and rejected the same two non-epistemic capability uses; this is development-label consistency, not human inter-annotator evidence.
+- Six deterministic ESP cells completed on CloudLab at commit `beca9cc`: Phi-3.5 and Qwen2.5-1.5B crossed with direct, generic-preservation, and explicit-frame prompts, with 38/38 non-empty generations per cell.
+- Automatic cue preservation increased from generic to frame for both families (Phi `0.3684` to `0.5789`; Qwen `0.2368` to `0.3947`), but this metric remains diagnostic only.
+- Two condition-blind model-agent audits covered all 228 outputs. Strict two-reviewer strength/scope consensus favored frame over generic in both families, but exact agreement was only `0.640` for strength, `0.443` for scope, and `0.268` for overall acceptability. These audits are development evidence, not human judgments.
 
 ## Blocking evidence
 
-- No ESP headline claim has evidence yet.
+- ESP now has complete two-family raw generations and a positive automatic/development signal, but no ESP headline claim is supported because semantic-review reliability is inadequate and no independent human evaluation exists.
 - DCEA cannot be promoted: its required citation format failed in all four cells, its predicted redundancy separation was absent in the interpretable Phi outputs, and a 2025 Shapley source-attribution paper directly covers redundancy/complementarity/synergy.
 - CPR was rejected after the initial post-LAD shortlist because RARR (ACL 2023) already performs attribution-assisted minimal repair of unsupported LM output.
 - Generic causal context attribution is also prior work: ContextCite (NeurIPS 2024) and AttriBoT (ICLR 2025) require the new topic to focus narrowly on directional replacement interventions and redundancy, not source removal alone.
@@ -54,10 +57,10 @@ Date: 2026-07-22
 - The first `d7525` allocation failed because zero nodes were available; the failure is recorded in `cloudlab_attempts.md`.
 - The first real invocation exposed and preserved a `transformers==5.14.1` incompatibility; official model-card versions were pinned and a one-item paired smoke test passed before the full rerun.
 - No main experiments, ablations, robustness tests, or error analysis.
-- The ESP cue extractor supplies candidates only; no independent human-reviewed scope gold labels or ESP model generations exist yet. Same-family agent agreement cannot satisfy the paper's human annotation gate.
+- The ESP cue extractor supplies candidates only. Same-family agent frame labels and model-agent output audits cannot satisfy the paper's independent-human annotation gate; the low output-review agreement requires a revised rubric and adjudication protocol.
 - No manuscript/PDF, supplement, cold-review pass, or meta-review pass.
 - Topic-stage overlap clearance does not replace the mandatory final manuscript/supplement lexical, semantic, and evidence-lineage audit.
 
 ## Highest-ROI next step
 
-Complete the ESP novelty and provenance gate: verify the closest 2011--2026 uncertainty-preservation work in full text, pin a clearly licensed source--lay corpus, and define an annotation-reliable scope-preservation pilot before any favorable claim is written.
+Freeze a revised semantic rubric, add a controlled uncertainty-strength counterfactual cell, and obtain reliable blinded judgments before any favorable claim is written. Preserve the current six-cell run as feasibility evidence; do not tune the rubric to make its frame condition win.

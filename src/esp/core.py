@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from typing import Iterable, Mapping
@@ -35,6 +36,12 @@ _CUES = (
     (re.compile(r"\bsuggests?\b", re.IGNORECASE), "suggestive"),
     (re.compile(r"\blikely\b", re.IGNORECASE), "likely"),
 )
+
+
+def blind_review_id(item_id: str, condition: str, run: str = "", seed: int = 1701) -> str:
+    """Return a stable opaque identifier that does not expose the condition."""
+    payload = f"{seed}:{item_id}:{condition}:{run}".encode("utf-8")
+    return "esp-review-" + hashlib.sha256(payload).hexdigest()[:12]
 
 
 def _sentence_spans(text: str) -> Iterable[tuple[int, int, str]]:

@@ -24,6 +24,21 @@
 
 The two downloads were checksum-verified against their Git-LFS object hashes. The blind test was inspected only to establish its schema and absence of reference summaries; it will not be used to tune or score the method. Human-reviewed scope labels and a document-disjoint evaluation split remain mandatory before any ESP finding is promoted.
 
+### ESP CloudLab feasibility artifacts
+
+The six deterministic cells ran on 2026-07-22 from Git commit `beca9cc32f9082985535d24fdcbb2cea1199267e` with `torch==2.5.1+cu121`, `transformers==4.43.0`, NVIDIA driver `535.309.01`, and one Tesla P100 12 GB. Each directory contains `config.json`, `generations.jsonl`, and `metrics.json`; all have 38 outputs and no empty recorded generation. The Git-tracked audit location is `results/strong_accept_loop/cloudlab_artifacts/esp-pilot-beca9cc/`.
+
+| Run | Total bytes | generations SHA-256 |
+|---|---:|---|
+| `esp-phi-direct` | 60,017 | `91aa0ade20a72ffb1e2411cf9b673df73a409246adc53e86da10fb3069de662f` |
+| `esp-phi-generic` | 63,051 | `fb893f32293c081c9661c59e72a9036b30ad25456e0ca9e0e219b9c828f9756e` |
+| `esp-phi-frame` | 68,139 | `dcfe8fb46bf14f5ce34f1e0593cecab12db4ec10bc6de2a5fab9e91419541221` |
+| `esp-qwen-direct` | 62,114 | `689708f820aa045ec8db7d906941c87beaf87ba48e71d9e5cab0cf0b029f76c9` |
+| `esp-qwen-generic` | 62,891 | `e8d96cd95f2a3134c6583f9fe131974f6308fb343b2fd0ec5c609f0045111036` |
+| `esp-qwen-frame` | 68,846 | `6aab8aeb762f18f61bdaaf438706c9292ff97dee05686e72fb0c8330a580f402` |
+
+The blind packet, hidden condition key, two model-agent audits, and deterministic summary are stored in `esp_output_reviews/`. They are derived evaluation artifacts and may be released with the code subject to the upstream text redistribution boundary above. They are explicitly not human annotations.
+
 ## CLEP provisional data boundary
 
 No external CLEP dataset has been acquired yet. The first controlled pilot will use newly authored minimal propositions and independently checked English/Korean/Spanish parallel realizations. These are method-development fixtures, not a released benchmark and not sufficient for a headline generalization claim. Before any public corpus is downloaded, this file must record source URL, revision/version, visible license or terms, acquisition time, compressed and extracted sizes, SHA-256 checksums, exact preprocessing command, output location, and redistribution boundary.

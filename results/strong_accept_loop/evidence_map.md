@@ -4,13 +4,15 @@
 
 | Claim | Required artifact | Current status |
 |---|---|---|
-| ESP-C1: open models alter uncertainty strength or scope during natural scientific lay rewriting | human-reviewed frame annotations; two-family raw outputs; blinded preservation judgments | Candidate manifest exists locally; no finding evidence |
-| ESP-C2: explicit frame conditioning improves strength-and-scope preservation over direct and generic-preservation prompts | fixed prompts; paired outputs; integrity validation; paired intervals; adjudicated human labels | No model output; hypothesis only |
-| ESP-C3: preservation gains do not come from copying or reduced accessibility/coverage | copying, readability, coverage, unsupported-addition, and human quality analyses | No model output; hypothesis only |
+| ESP-C1: open models alter uncertainty strength or scope during natural scientific lay rewriting | human-reviewed frame annotations; two-family raw outputs; blinded preservation judgments | 228 raw outputs exist; development audits disagree too strongly to support the claim |
+| ESP-C2: explicit frame conditioning improves strength-and-scope preservation over direct and generic-preservation prompts | fixed prompts; paired outputs; integrity validation; paired intervals; adjudicated human labels | Positive cue diagnostic and strict model-agent consensus signal in both families; still `HYPOTHESIS` without reliable human labels |
+| ESP-C3: preservation gains do not come from copying or reduced accessibility/coverage | copying, readability, coverage, unsupported-addition, and human quality analyses | Unsupported additions were observed; copying, readability, and coverage analyses are absent |
 
 The pinned BioLaySumm validation split and extracted 40-item manifest establish feasibility and provenance only. Regex cue matches are not gold labels and cannot support ESP-C1--C3. No LAD, DCEA, or CLEP artifact may be mapped to an ESP claim.
 
 The v0 agent-annotation audit at `esp_annotations/agreement.json` reports exact agreement on controlled labels for 40 candidates (38 valid, 2 non-epistemic). Because both annotators are model agents rather than independent human experts, this artifact freezes development labels and tests the rubric only; it is not mapped to a headline claim and is not reported as human agreement.
+
+The CloudLab artifacts under `cloudlab_artifacts/esp-pilot-beca9cc/` contain six fixed-condition configs, metrics, and 228 raw generations. Cue preservation was direct/generic/frame `0.3421/0.3684/0.5789` for Phi and `0.2105/0.2368/0.3947` for Qwen. The condition-blind development audit at `esp_output_reviews/summary.json` gives strict two-reviewer strength-preserved counts of `2/5/14` for Phi and `7/4/11` for Qwen, but reviewer agreement is inadequate. These artifacts establish feasibility and the need for a reliable semantic evaluation; they do not support ESP-C1--C3 as findings.
 
 ## Retired CLEP claims
 

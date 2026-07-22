@@ -15,6 +15,7 @@ from src.quantity_frame.schema import (
     SlotName,
 )
 from src.quantity_frame.extract import ScanDiagnostics, SpanRecord, retrieve_candidates, scan_text
+from src.quantity_frame.decision import SourceGateResult, evaluate_source_gate
 
 __all__ = [
     "CandidateItem",
@@ -25,10 +26,12 @@ __all__ = [
     "SchemaError",
     "SlotName",
     "SourceRecord",
+    "SourceGateResult",
     "SpanRecord",
     "ScanDiagnostics",
     "load_manifest",
     "retrieve_candidates",
     "scan_text",
+    "evaluate_source_gate",
     "verify_manifest",
 ]

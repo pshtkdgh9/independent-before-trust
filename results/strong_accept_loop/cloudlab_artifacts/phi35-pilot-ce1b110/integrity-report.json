@@ -1,0 +1,45 @@
+{
+  "counts": {
+    "baseline": 50,
+    "generations": 52,
+    "paired_items": 26,
+    "pairs": 52,
+    "parse_failures": 24
+  },
+  "errors": [
+    "baseline item has no paired record: bigbench-logical-deduction-0001",
+    "baseline item has no paired record: bigbench-logical-deduction-0002",
+    "baseline item has no paired record: bigbench-logical-deduction-0003",
+    "baseline item has no paired record: bigbench-logical-deduction-0006",
+    "baseline item has no paired record: bigbench-logical-deduction-0007",
+    "baseline item has no paired record: bigbench-logical-deduction-0008",
+    "baseline item has no paired record: bigbench-logical-deduction-0011",
+    "baseline item has no paired record: bigbench-logical-deduction-0012",
+    "baseline item has no paired record: bigbench-logical-deduction-0013",
+    "baseline item has no paired record: bigbench-logical-deduction-0017",
+    "baseline item has no paired record: bigbench-logical-deduction-0018",
+    "baseline item has no paired record: bigbench-logical-deduction-0021",
+    "baseline item has no paired record: bigbench-logical-deduction-0025",
+    "baseline item has no paired record: bigbench-logical-deduction-0026",
+    "baseline item has no paired record: bigbench-logical-deduction-0027",
+    "baseline item has no paired record: bigbench-logical-deduction-0031",
+    "baseline item has no paired record: bigbench-logical-deduction-0032",
+    "baseline item has no paired record: bigbench-logical-deduction-0033",
+    "baseline item has no paired record: bigbench-logical-deduction-0036",
+    "baseline item has no paired record: bigbench-logical-deduction-0041",
+    "baseline item has no paired record: bigbench-logical-deduction-0046",
+    "baseline item has no paired record: bigbench-logical-deduction-0047",
+    "baseline item has no paired record: bigbench-logical-deduction-0048",
+    "baseline item has no paired record: bigbench-logical-deduction-0049",
+    "parse failures present: 24"
+  ],
+  "run_dir": "results/strong_accept_loop/cloudlab_artifacts/phi35-pilot-ce1b110",
+  "sha256": {
+    "baseline_generations.jsonl": "d0590d85ef28b81addc614c13dede41658842e93ceaf9f0a1a969a51518725ad",
+    "config.json": "8f5d1c1c2f5210c6754c6b0bdc9a1cc7221a9388f945fe5d3d5007a9d7fdf3d9",
+    "generations.jsonl": "117e3c1324d45d98c8477a243afbc322cc7bdf24fd3fd154e2188d429fd61802",
+    "metrics.json": "501190fbc7b44f3c91ae62a4b4ae1ffa44a1088485131a5dbd44f6d40b3b72c6",
+    "pairs.jsonl": "c980c688fc119c1dadbdbf564bea18cab1aa32a7e6979478d937059e3b0d450a"
+  },
+  "status": "fail"
+}

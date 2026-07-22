@@ -53,6 +53,9 @@ python scripts/run_cloudlab_pilot.py \
   --revision ccf028fc8e1b3ab750a7c55b22792f57ba69f216 \
   --license MIT \
   --trust-remote-code
+python scripts/validate_pilot_artifacts.py \
+  --run-dir results/runs/phi35-pilot \
+  --output results/runs/phi35-pilot/integrity-report.json
 ```
 
 `run_cloudlab_pilot.py` first elicits each model's actual private answer, then constructs a matched COMMON/INDEPENDENT pair around that fixed answer. It retains baseline generations, runtime pair manifests, revision responses, and parser failures. Outputs are labeled `empirical-candidate-unverified`; they become evidence only after provenance, invariant, and analysis validation.

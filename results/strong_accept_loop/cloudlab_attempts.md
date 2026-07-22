@@ -63,6 +63,14 @@ Raw-output inspection showed that most strict-format failures contained an unamb
 
 ### Attempt 2c: bounded-parser full rerun
 
-- Status: pending launch after commit/push
-- Planned records: 50 private answers plus up to 100 paired revision generations
+- Git commit: `e53721e`
+- Output path: `results/runs/phi35-pilot-e53721e/`
+- Status: complete; strengthened integrity validator `pass`
+- Completed records: 50 private answers plus 100 paired revision generations
+- Baseline parse-failure rate: `0.0`
+- Baseline accuracy: `0.44`
+- Harmful revision COMMON-minus-INDEPENDENT: `-0.04545`, paired bootstrap interval `[-0.13636, 0.0]`, eligible `n=22`
+- Beneficial revision COMMON-minus-INDEPENDENT: `+0.07143`, paired bootstrap interval `[0.0, 0.17857]`, eligible `n=28`
 - Stop rule: complete all eligible paired generations; do not inspect effects for optional stopping
+
+The result does not support the anticipated direction that independent lineage should reduce harmful revision or increase beneficial revision. Both intervals include zero at an endpoint, and the point estimates weakly favor COMMON lineage on these outcomes. This bounded one-model, one-task pilot is retained as a negative/mixed result and does not support C1–C3.

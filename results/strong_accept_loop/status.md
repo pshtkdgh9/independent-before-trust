@@ -2,7 +2,7 @@
 
 Date: 2026-07-22
 
-- Phase: first full c240g5 pilot audited; bounded-parser rerun pending
+- Phase: bounded-parser Phi-3.5 pilot validated; second-family decision gate next
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
 - Selected direction: Lineage-Aware Deliberation
@@ -21,7 +21,7 @@ Date: 2026-07-22
 - Pinned Apache-2.0 BIG-bench logical-deduction source, raw checksum, preprocessing record, and 50 private-first pilot items.
 - Adaptive protocol that elicits the model's private answer before constructing its matched lineage intervention.
 - Anonymous evidence-bounded manuscript scaffold and review contracts pushed in `d824fb2`.
-- Paired COMMON-minus-INDEPENDENT bootstrap analysis and candidate-bounded answer normalization exercised by 30 passing unit tests.
+- Paired COMMON-minus-INDEPENDENT bootstrap analysis, candidate-bounded answer normalization, and tamper-resistant artifact validation exercised by 34 passing unit tests and an independent scoped code review.
 - Dedicated `c240g5` CloudLab RSpec/profile created after the unavailable `d7525` allocation failed transparently.
 - Direct comparison separates the prior and new research questions, contributions, task framings, datasets/evaluation packages, claim sets, writing, and experimental evidence; the current 13 LAD research documents share zero normalized contiguous 8-token sequences with the prior source.
 
@@ -29,12 +29,14 @@ Date: 2026-07-22
 
 - Full-text verification of closest competing methods.
 - CloudLab experiment `cbnu-ai-lab/lad-phi35-p100` remains ready on Wisconsin node `c240g5-110121` with verified P100/CUDA access.
-- First compatibility-fixed 50-item run completed at exact execution commit `0462b68`; artifacts, model manifest, and environment capture were imported locally.
+- First compatibility-fixed 50-item run completed at exact execution commit `0462b68`; its strict parser failure is preserved as diagnostic evidence.
+- Bounded-parser rerun completed at exact execution commit `e53721e`: 50 baseline and 100 paired generations, zero parse failures, and validator status `pass`.
 
 ## Blocking evidence
 
-- No model-generated result has passed integrity validation yet; all headline claims remain hypotheses.
-- The first full run had a `0.48` strict-format baseline parse-failure rate and only 26 paired items; it is retained as diagnostic evidence, not a headline result.
+- All headline claims remain hypotheses: the validated Phi-3.5 pilot did not support the anticipated effect direction.
+- The first full run had a `0.48` strict-format baseline parse-failure rate and only 26 paired items; it remains diagnostic evidence, not a headline result.
+- The validated rerun's harmful difference was `-0.04545` (CI `[-0.13636, 0]`) and beneficial difference was `+0.07143` (CI `[0, 0.17857]`), both COMMON-minus-INDEPENDENT and both contrary to the anticipated direction.
 - The first pilot dataset is recorded, but additional main-experiment task families remain unselected.
 - The first `d7525` allocation failed because zero nodes were available; the failure is recorded in `cloudlab_attempts.md`.
 - The first real invocation exposed and preserved a `transformers==5.14.1` incompatibility; official model-card versions were pinned and a one-item paired smoke test passed before the full rerun.
@@ -44,4 +46,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Commit and launch the distinct bounded-parser full rerun, then validate baseline parse rate, paired invariants, condition ordering, raw-output completeness, paired effects, timestamps, checksums, and resource logs. Do not strengthen the LAD claim: the unvalidated first-run candidate effects were null for harmful revision and opposite the initial beneficial-revision expectation.
+Run the same fixed intervention on a second independently developed open model family, as required by the predeclared kill/pivot rule. If the second family also lacks the anticipated source-multiplicity sensitivity, pivot rather than scaling LAD. Do not strengthen the LAD claim from the current negative/mixed Phi-3.5 pilot.

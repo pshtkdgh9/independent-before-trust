@@ -49,9 +49,9 @@ Use at least three public, license-compatible structures: factual verification w
 ## Models and hardware
 
 - Pilot: `microsoft/Phi-3.5-mini-instruct`, pinned revision, MIT license, deterministic decoding.
-- Main: two independently developed open-weight 7B–8B Hugging Face families, exact revisions/licenses pinned.
+- Main: two independently developed open-weight families that fit the recorded hardware regime, exact revisions/licenses pinned.
 - Optional: quantized 14B robustness only after the pipeline is stable.
-- CloudLab: Wisconsin d7525, one NVIDIA A30 24 GB, Ubuntu 22.04.
+- CloudLab pilot: Wisconsin `c240g5`, one Tesla P100 12 GB, Ubuntu 22.04, after the requested `d7525` was unavailable.
 - Deterministic decoding for the primary comparison; seeded stochastic decoding only for planned robustness.
 
 ## Statistical plan
@@ -67,6 +67,10 @@ Primary estimands are paired differences in harmful and beneficial revision betw
 5. Main paired runs, ablations, robustness, and stratified error analysis.
 
 Long runs stop only for documented infrastructure failure, invalid configuration, a recorded resource bound, or a pre-registered futility/safety condition. Partial outputs remain logged.
+
+## Phi-3.5 pilot outcome
+
+The integrity-validated 50-item logical-deduction pilot produced 100 complete paired revisions with no parse failures. It did not support the anticipated LAD direction: COMMON-minus-INDEPENDENT harmful revision was `-0.04545` with paired bootstrap interval `[-0.13636, 0]`, while beneficial revision was `+0.07143` with interval `[0, 0.17857]`. The result is bounded to one model, one task, and one prompt protocol. Per the predeclared kill rule, the next experiment is a same-protocol replication on a second independently developed open model family; a second non-supporting result triggers a topic pivot rather than selective scaling.
 
 ## Claim limits
 

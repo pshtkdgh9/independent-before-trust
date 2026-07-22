@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "baseline": 50,
+    "generations": 100,
+    "paired_items": 50,
+    "pairs": 100,
+    "parse_failures": 0
+  },
+  "errors": [],
+  "run_dir": "results/strong_accept_loop/cloudlab_artifacts/phi35-pilot-e53721e",
+  "sha256": {
+    "baseline_generations.jsonl": "7355f7fdd9d1ca5b43c4ba802f45231eac28097034e517b7bf9cea335a83b39d",
+    "config.json": "c7e90a3e0a919bc34334491dc493878dbb88a0b6ad2cbec00b516e6166173c5a",
+    "generations.jsonl": "f7e498252fee70d884016153d4be354bc4467de3191562d72a886e021dc4b027",
+    "metrics.json": "fe5836ee3f1b2ca8d5d9416bbf9dc7395fee8612a771b528604258087bc91a8e",
+    "pairs.jsonl": "0c706f028acb37ba0259bb35e58b3e9d6105b795b39cee607e1c06a21994d8de"
+  },
+  "status": "pass"
+}

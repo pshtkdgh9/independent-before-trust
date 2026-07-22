@@ -1,0 +1,16 @@
+{
+  "artifact_class": "empirical-candidate-unverified",
+  "dtype": "float16",
+  "max_new_tokens": 64,
+  "model_id": "microsoft/Phi-3.5-mini-instruct",
+  "model_license": "MIT",
+  "model_revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216",
+  "platform": "Linux-5.15.0-177-generic-x86_64-with-glibc2.35",
+  "prompt_version": "lad-pilot-v1",
+  "python_version": "3.10.12",
+  "quantization": "none",
+  "record_count": 100,
+  "seed": 1701,
+  "temperature": 0.0,
+  "tokenizer_revision": "ccf028fc8e1b3ab750a7c55b22792f57ba69f216"
+}

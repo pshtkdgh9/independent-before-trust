@@ -21,6 +21,24 @@
 | Redistribution boundary | Attribution and share-alike obligations apply. Derived Wikipedia text must not be redistributed unless the CC BY-SA 3.0 boundary is satisfied |
 | Experimental claim status | Source acquisition only; no benchmark claim is made |
 
+### FEVER candidate source pack
+
+| Item | Value |
+|---|---|
+| Name | FEVER candidate source pack |
+| Status | Candidate material only; not a benchmark result, evidence result, or headline result, and not yet paired with gold data |
+| Generated on | CloudLab |
+| Source Git commit | `d3750f87a9b1628b5a529dc4b369d9a816e09a58` |
+| Exact command | `python scripts/extract_fever_source_pack.py --claims data/raw/fever/paper_dev.jsonl --wiki-dir /users/SangSong/evidence-state-data/raw/fever/wiki-pages/wiki-pages --output /users/SangSong/evidence-state-data/fever_candidate_source_pack.jsonl --limit 120 --seed 0` |
+| Source rows read | 9,999 |
+| Duplicate claims skipped | 256 |
+| Candidate references retained | 4,186 |
+| Candidate rows available | 4,151 |
+| Rows written | 120 |
+| Local path | `data/evidence_state/fever_candidate_source_pack.jsonl` |
+| Bytes / SHA-256 | `101,910` / `967c9996bf3a871d96d4a6d66376461404dfbb890d8fb4ff68eec5d81f7290e8` |
+| Redistribution boundary | Exact source text retains the CC BY-SA attribution/share-alike boundary |
+
 ## ESP retired corpus and artifact provenance
 
 | Item | Value |

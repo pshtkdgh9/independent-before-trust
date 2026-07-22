@@ -12,6 +12,8 @@
 - [x] Machine-readable pilot config, raw-generation, metric, and provenance schemas
 - [x] Parser failures retained and reported by condition
 - [x] Pinned-snapshot download and file-level checksum tooling
+- [x] Paired item-resampling analysis with a fixed bootstrap seed and replicate count
+- [x] Version-controlled CloudLab RSpec with an explicit physical GPU node type and image
 
 ## Required before pilot
 
@@ -29,7 +31,7 @@
 - [ ] Runtime, token, GPU-memory, and compute totals
 - [ ] All raw generations retained or release restrictions documented
 - [ ] Parser failures and excluded records enumerated
-- [ ] Statistical analysis scripts regenerate reported values
+- [x] Statistical analysis code is integrated into the pilot metrics artifact; empirical-value regeneration remains pending the run
 - [ ] Tables/figures regenerate from immutable result artifacts
 - [ ] Anonymous supplement contains no identity-leaking paths or URLs
 - [ ] Clean-room run from a fresh environment succeeds

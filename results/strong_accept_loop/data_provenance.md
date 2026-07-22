@@ -42,6 +42,10 @@ Known risk: BIG-bench intentionally carries a benchmark canary and is likely rep
 
 The exact download command is in `README.md`. `scripts/prepare_hf_model.py` records every downloaded file, byte size, SHA-256 checksum, storage path, source URL, revision, license, terms URL, and command in `data_provenance/manifest.jsonl`. Model weights remain outside Git and are not redistributed.
 
+## CloudLab pilot hardware allocation
+
+The original Wisconsin `d7525` request failed because the portal reported zero allocatable nodes. No scientific computation occurred in that attempt. The replacement experiment requests one Wisconsin `c240g5` through the version-controlled `cloudlab/lad-c240g5.rspec`. The official hardware manual describes this type as one Tesla P100 12 GB GPU, 20 Intel Skylake CPU cores, and 192 GB RAM. Because P100 does not provide the planned A30 bfloat16 regime, the pilot command will use `--dtype float16`; this is a documented infrastructure pivot, not a post-result analysis choice. CloudLab assigned node `c240g5-110121` with hostname `c240g5-110121.wisc.cloudlab.us`. GPU/driver output, software versions, and run timestamps remain pending the first SSH capture. See `cloudlab_attempts.md`.
+
 ## Local reference material
 
 | Material | Role | Source/access | License/terms | Integrity | Redistribution | Experimental evidence? |

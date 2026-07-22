@@ -81,6 +81,14 @@ class PilotRunnerTests(unittest.TestCase):
             self.assertEqual(result["artifact_class"], "empirical-candidate-unverified")
             self.assertEqual(result["conditions"]["COMMON"]["harmful_revision_rate"], 1.0)
             self.assertEqual(result["conditions"]["INDEPENDENT"]["harmful_revision_rate"], 0.0)
+            self.assertEqual(
+                result["paired_effects"]["harmful_revision"]["paired_difference"],
+                1.0,
+            )
+            self.assertEqual(
+                result["paired_effects"]["effect_direction"],
+                "COMMON-minus-INDEPENDENT",
+            )
 
     def test_parse_failures_are_retained_and_counted(self):
         class InvalidBackend:

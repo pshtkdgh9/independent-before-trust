@@ -1,0 +1,23 @@
+<rspec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1"
+       xmlns:client="http://www.protogeni.net/resources/rspec/ext/client/1"
+       xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1"
+       xmlns="http://www.geni.net/resources/rspec/3"
+       xsi:schemaLocation="http://www.geni.net/resources/rspec/3 http://www.geni.net/resources/rspec/3/request.xsd"
+       type="request">
+  <rspec_tour xmlns="http://www.protogeni.net/resources/rspec/ext/apt-tour/1">
+    <description type="markdown">One Wisconsin c240g5 node for the LAD open-model pilot.</description>
+    <instructions type="markdown">Connect over SSH after provisioning and follow the repository CloudLab runbook.</instructions>
+  </rspec_tour>
+  <node client_id="node0" exclusive="true">
+    <hardware_type name="c240g5"/>
+    <sliver_type name="raw">
+      <disk_image name="urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU22-64-STD"/>
+    </sliver_type>
+  </node>
+  <data_set xmlns="http://www.protogeni.net/resources/rspec/ext/profile-parameters/1">
+    <data_item name="emulab.net.parameter.phystype">c240g5</data_item>
+    <data_item name="emulab.net.parameter.osImage">urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU22-64-STD</data_item>
+    <data_item name="emulab.net.parameter.nodeCount">1</data_item>
+  </data_set>
+</rspec>

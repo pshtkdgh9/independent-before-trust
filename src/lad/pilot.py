@@ -15,6 +15,7 @@ from typing import Any, Iterable, Mapping, Protocol
 from .lineage import effective_support, validate_paired_intervention
 from .metrics import aggregate_revision_metrics
 from .pairs import build_lineage_pair
+from .statistics import paired_revision_effects
 
 
 ARTIFACT_CLASS = "empirical-candidate-unverified"
@@ -208,6 +209,9 @@ def run_paired_pilot(
     metrics = {
         "artifact_class": ARTIFACT_CLASS,
         "conditions": conditions,
+        "paired_effects": paired_revision_effects(
+            generation_rows, bootstrap_replicates=10_000, seed=config.seed
+        ),
         "warning": (
             "Candidate experimental artifact; requires provenance, integrity, and "
             "analysis validation before supporting a manuscript claim."

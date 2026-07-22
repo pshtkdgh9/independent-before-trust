@@ -5,6 +5,8 @@
 - Selected topic: Lineage-Aware Deliberation (LAD)
 - Core question: whether repeated-source evidence creates false corroboration in language-agent belief revision
 - Current highest-ROI blocker: download/checksum the pinned pilot model on CloudLab and run the 50-item private-first pilot
+- Reproducible code checkpoint: `be28f14` on `origin/codex/lad-private-first-pilot`
+- CloudLab allocation state: Wisconsin reports one free `d7525`; experiment submission is intentionally held until the portal confirms `phystype=d7525`
 - Compute target: one CloudLab Wisconsin d7525 node, NVIDIA A30 24 GB, Ubuntu 22.04
 - Evidence status: no empirical headline claim is currently supported
 - Submission status: not ready

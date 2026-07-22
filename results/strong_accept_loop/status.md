@@ -20,6 +20,7 @@ Date: 2026-07-22
 - Pinned Hugging Face snapshot downloader, file-level provenance hashing, condition-blind pilot prompt, raw-output retention, and CloudLab inference CLI.
 - Pinned Apache-2.0 BIG-bench logical-deduction source, raw checksum, preprocessing record, and 50 private-first pilot items.
 - Adaptive protocol that elicits the model's private answer before constructing its matched lineage intervention.
+- Reproducible checkpoint `be28f14` pushed to `origin/codex/lad-private-first-pilot`; 24 unit tests and Python bytecode compilation pass.
 
 ## In progress
 
@@ -32,6 +33,7 @@ Date: 2026-07-22
 - No model-generated experimental evidence yet; all headline claims remain hypotheses.
 - The pilot model and immutable revision are selected, but no model files have yet been downloaded/checksummed on CloudLab.
 - The first pilot dataset is recorded, but additional main-experiment task families remain unselected.
+- CloudLab Wisconsin currently advertises one free `d7525`, but the portal's nested physical-node selector has not yet produced a verified `phystype=d7525` value; no experiment was submitted with an unverified node type.
 - No main experiments, ablations, robustness tests, or error analysis.
 - No manuscript/PDF, supplement, cold-review pass, or meta-review pass.
 

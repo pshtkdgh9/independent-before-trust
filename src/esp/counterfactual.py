@@ -48,7 +48,12 @@ def validate_counterfactual_pairs(
                 f"{pair.original_strength} -> {pair.counterfactual_strength}"
             )
 
-        if pair.original_source == pair.counterfactual_source:
+        original_source = pair.original_source.strip()
+        counterfactual_source = pair.counterfactual_source.strip()
+        if not original_source or not counterfactual_source:
+            raise ValueError("counterfactual pair source strings must be non-empty")
+
+        if original_source == counterfactual_source:
             raise ValueError("original and counterfactual sources must differ")
 
         if len(pair.edit_spans) != 1 or not pair.edit_spans[0].strip():
@@ -61,9 +66,6 @@ def validate_counterfactual_pairs(
         )
         if pair.proposition_skeleton != counterfactual_skeleton:
             raise ValueError("counterfactual pair must keep proposition_skeleton unchanged")
-
-        if not pair.original_source.strip() or not pair.counterfactual_source.strip():
-            raise ValueError("counterfactual pair source strings must be non-empty")
 
         if pair.polarity_changed:
             raise ValueError("counterfactual pair must reject polarity changes")

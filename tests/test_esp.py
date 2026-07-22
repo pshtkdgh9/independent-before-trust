@@ -157,6 +157,7 @@ class ESPTests(unittest.TestCase):
             ("unique pair IDs", {"pair_id": "esp-cf-0001"}, [CounterfactualPair(**valid)]),
             ("adjacent strength", {"counterfactual_strength": "suggestive"}, []),
             ("differ", {"counterfactual_source": valid["original_source"]}, []),
+            ("differ", {"counterfactual_source": valid["original_source"] + "   "}, []),
             ("exactly one edit span", {"edit_spans": ("may -> likely", "reduce -> improve")}, []),
             ("exactly one edit span", {"edit_spans": ("",)}, []),
             ("proposition_skeleton", {"counterfactual_proposition_skeleton": "Symptoms are reduced."}, []),

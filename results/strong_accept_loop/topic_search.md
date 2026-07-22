@@ -12,6 +12,18 @@ Comparator interpretation is negative: 39 candidates proposed a stated comparato
 
 Current selected direction: none. Reopen topic search under the existing constraints; do not name a replacement candidate until a new search, novelty boundary, provenance path, and falsifiable pilot plan pass.
 
+## Post-quantity adversarial rejection scan
+
+After commit `8b8d638`, a five-candidate post-quantity scan found no viable replacement topic. All candidates are **REJECTED**:
+
+1. RELiC literary evidence retrieval (ACL 2025, https://aclanthology.org/2025.acl-short.29/): rejected as direct reproduction or extension of the anchor method and the benchmark/RAG neighborhood.
+2. SUnsET unstructured evidence attribution (EMNLP 2025, https://aclanthology.org/2025.emnlp-main.95/): rejected as direct reproduction or extension of the anchor method and the evidence-attribution/RAG neighborhood.
+3. HiGoE hierarchical evidence graphs (ACL 2026, https://aclanthology.org/2026.acl-long.902/): rejected as direct reproduction or extension of the anchor method and the evidence-graph/RAG neighborhood.
+4. SynQA synthetic context attribution (ACL 2025, https://aclanthology.org/2025.acl-long.828/): rejected as direct reproduction or extension of the anchor method and the synthetic attribution benchmark/RAG neighborhood.
+5. KB-aligned OOD gate (ACL 2026, https://aclanthology.org/2026.acl-long.740/): rejected because it collides with the retired evidence-state, abstention, and RAG direction.
+
+There is no top-three shortlist and no selected topic. The critic's fallback to denominator-aware numerical lay summarization is also rejected: the quantity-frame source gate already retired that neighborhood at commits `2d4b079` and `8b8d638`. The next search must leave all evidence attribution, RAG, citation, quantity, summarization, and factuality neighborhoods.
+
 ## Evidence-state triage provisional candidate
 
 The next provisional candidate is **Evidence-State Triage Policy**: a method study that decides whether the system should `clarify`, `retrieve`, or `abstain` under controlled evidence states. The downstream answer remains out of scope for the primary claim.

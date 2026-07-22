@@ -10,6 +10,18 @@ The negative gate is specific: `valid=253`, but `denominator=0<30` and `comparat
 
 No manuscript novelty or result claim follows from this audit. Task5-7 were not executed because the source gate failed. The next step is to reopen topic search without naming a replacement candidate.
 
+## Post-quantity adversarial rejection scan
+
+After commit `8b8d638`, a five-candidate scan was recorded only as a rejection audit. All candidates are **REJECTED**:
+
+1. RELiC literary evidence retrieval (ACL 2025, https://aclanthology.org/2025.acl-short.29/): direct reproduction or extension of the anchor method and the benchmark/RAG neighborhood.
+2. SUnsET unstructured evidence attribution (EMNLP 2025, https://aclanthology.org/2025.emnlp-main.95/): direct reproduction or extension of the anchor method and the evidence-attribution/RAG neighborhood.
+3. HiGoE hierarchical evidence graphs (ACL 2026, https://aclanthology.org/2026.acl-long.902/): direct reproduction or extension of the anchor method and the evidence-graph/RAG neighborhood.
+4. SynQA synthetic context attribution (ACL 2025, https://aclanthology.org/2025.acl-long.828/): direct reproduction or extension of the anchor method and the synthetic attribution benchmark/RAG neighborhood.
+5. KB-aligned OOD gate (ACL 2026, https://aclanthology.org/2026.acl-long.740/): collision with the retired evidence-state, abstention, and RAG direction.
+
+This scan does not produce a top-three shortlist or selected topic. The critic's fallback to denominator-aware numerical lay summarization is rejected because the quantity-frame source gate already retired that neighborhood at commits `2d4b079` and `8b8d638`. The next search must leave all evidence attribution, RAG, citation, quantity, summarization, and factuality neighborhoods.
+
 ## Retired evidence-state triage scan
 
 The retired evidence-state triage direction would choose `clarify`, `retrieve`, or `abstain` before any downstream answer. Its proposed causal variable was the evidence state, not model confidence alone and not final answer correctness.

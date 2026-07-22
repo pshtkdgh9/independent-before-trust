@@ -4,17 +4,19 @@ Date: 2026-07-22
 
 ## Current selected direction after the empirical pivot
 
-**Contradiction-Budgeted Common Ground: Deferring Premature Commitment in Language-Agent Deliberation**
+**Beyond Leave-One-Out: Directional Counterfactual Audits of Evidence Use**
 
-Research question: *When language agents receive mutually inconsistent but individually plausible claims, can an explicit budget over unresolved contradictions improve when they commit, defer, or request more evidence?*
+Research question: *Does a cited and semantically supportive source causally direct a model's answer, and can matched value-replacement interventions identify evidence use that source-removal attribution misses under redundancy?*
 
-This is a mechanism paper, not a benchmark paper. The controlled intervention holds messages and evidence fixed while changing the common-ground update policy. The proposed policy exposes unresolved proposition pairs, spends a bounded verification budget, and permits a calibrated `DEFER` action instead of forcing consensus. Public tasks are experimental instruments only.
+This is a causal model-analysis paper, not a benchmark paper and not an end-to-end RAG claim. Retrieval is outside the first controlled regime. A paired intervention replaces only an answer-bearing value in a supplied source while holding query, source identifiers, distractors, order, and surface envelope fixed. Unlike semantic support metrics, it asks whether the answer moves in the predicted direction; unlike single-source removal, it can remain identifiable when equivalent evidence is redundant.
 
-The direction is selected provisionally pending a fresh closest-work scan and a direct pilot. Its claims start unearned:
+Its claims start unearned:
 
-- CBCG-C1: contradiction-budgeted updating reduces harmful premature commitments relative to immediate consensus and confidence-only deferral in tested regimes;
-- CBCG-C2: the benefit persists when contradiction count, evidence order, confidence, and surface form are controlled;
-- CBCG-C3: explicit unresolved-conflict state predicts failures that final confidence and nominal agreement do not expose.
+- DCEA-C1: semantic citation support does not imply directional causal evidence use in the tested regimes;
+- DCEA-C2: matched value replacement detects evidence use that single-source removal misses under redundant support;
+- DCEA-C3: a contrastive evidence-use instruction improves directional grounding without reducing answer validity.
+
+Closest-work boundary: ContextCite (NeurIPS 2024) introduces context attribution with learned subset masking; AttriBoT (ICLR 2025) efficiently approximates leave-one-out likelihood attribution; Ye et al. (EMNLP 2021) evaluate explanation methods on counterfactual reading-comprehension examples; DisentQA (ACL 2023) separates parametric and contextual answers; and evidence-attribution work evaluates citation recovery. DCEA does not claim to invent causal context attribution. Its provisional contribution is a signed, answer-level value-replacement estimand and a redundancy test showing where support and removal-based necessity can fail to identify directional use. A direct two-family pilot and full-text audit remain mandatory.
 
 ## Retired direction after the first novelty gate
 
@@ -44,7 +46,10 @@ These remain hypotheses until the evidence map points to completed artifacts.
 
 - **Evidence-First Deliberation:** demoted after contemporaneous papers were found on counterfactual conformity decomposition, calibrated-confidence debate, identity anonymization, evidence contracts, and consensus-free debate. Independent first-round answers remain a control.
 - **Conflict-aware evidence graphs for RAG:** rejected as the main topic because CARE, Astute RAG, authority-bias RAG, evidence-tree search, and related conflict routing make novelty tight. No RAG claim will be made without a real retriever and end-to-end evidence.
-- **Contradiction-Budgeted Common Ground:** retained as fallback, but proposition extraction introduces an additional unvalidated component.
+- **Contradiction-Budgeted Common Ground:** rejected after the LAD pivot because 2024--2026 work already covers its common-ground, clarification, abstention, stopping-budget, confidence-update, and conflict-resolution components.
+- **Claim-Preserving Provenance Repair:** rejected because RARR (ACL 2023) already finds attribution for existing LM output and minimally edits unsupported content while preserving the original.
+- **Conflict-Preserving Synthesis:** rejected because MoDS (NAACL 2025) already targets coverage and balance across opposing perspectives.
+- **Argument-Role Coverage Repair:** rejected because Arg-LLaDA (ACL 2026) already performs sufficiency-aware iterative repair of unsupported, redundant, and incomplete spans.
 - **Provenance-Gated Agent Memory:** ACL 2026 already establishes experience-following and error propagation, making simple filtering incremental.
 - **Selective Communication:** feasible but crowded by sparse debate and debate-on-demand; token savings alone are engineering-led.
 - **Cross-Lingual Deliberation:** important extension, but translation competence would confound the primary causal factor.
@@ -59,8 +64,8 @@ Pivot to Contradiction-Budgeted Common Ground if:
 3. source lineage cannot be constructed deterministically and would require an unvalidated proprietary judge; or
 4. LAD gives neither benefit nor diagnostic insight beyond citation validation or simple exact deduplication.
 
-Criterion 2 fired on 2026-07-22. The integrity-validated Phi-3.5 run did not show the anticipated direction. The exact-protocol Qwen2.5-1.5B replication produced 45 complete parsed pairs and zero answer revisions in either condition; five outputs failed the fixed parser and are retained. The second artifact is diagnostic rather than claim-grade because its validator correctly rejects those failures, but scaling LAD would amount to searching for a responsive model after two independently developed families failed to support the mechanism. LAD is therefore retired as the submission topic. Its negative artifacts remain part of the audit trail and cannot support CBCG claims.
+Criterion 2 fired on 2026-07-22. The integrity-validated Phi-3.5 run did not show the anticipated direction. The exact-protocol Qwen2.5-1.5B replication produced 45 complete parsed pairs and zero answer revisions in either condition; five outputs failed the fixed parser and are retained. The second artifact is diagnostic rather than claim-grade because its validator correctly rejects those failures, but scaling LAD would amount to searching for a responsive model after two independently developed families failed to support the mechanism. LAD is therefore retired as the submission topic. Its negative artifacts remain part of the audit trail and cannot support DCEA claims.
 
 ## Ethics boundary
 
-CBCG will use no trust/reputation score, signed edge, or prior graph algorithm. LAD code and negative artifacts remain background tooling/audit evidence only; they will not be relabeled as CBCG evidence. All CBCG prompts, transformations, results, claims, prose, and figures must be newly generated. Negative results trigger weaker claims or another documented pivot, never suppression.
+DCEA will use no trust/reputation score, signed edge, or prior graph algorithm. LAD code and negative artifacts remain background tooling/audit evidence only; they will not be relabeled as DCEA evidence. All DCEA data transformations, prompts, results, claims, prose, and figures must be newly generated. Negative results trigger weaker claims or another documented pivot, never suppression.

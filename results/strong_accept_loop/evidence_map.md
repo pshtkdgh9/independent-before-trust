@@ -4,13 +4,13 @@ Only `SUPPORTED` claims may be stated as findings.
 
 | ID | Headline claim | Status | Required comparison | Required artifacts | Current evidence | Known weakness |
 |---|---|---|---|---|---|---|
-| CBCG-C1 | Contradiction-budgeted updating reduces harmful premature commitments. | HYPOTHESIS | Fixed-message comparison against immediate consensus and confidence-only deferral | intervention manifest, raw decisions, utility/error metrics, paired CI | None | A deferral policy can appear safer by refusing too often; coverage must be reported. |
-| CBCG-C2 | The effect persists under controlled contradiction count, evidence order, confidence, and surface form. | HYPOTHESIS | Predeclared factorial stress tests with matched semantic content | configs, strata, interaction estimates, failure counts | None | Surface matching may not eliminate all pragmatic cues. |
-| CBCG-C3 | Explicit unresolved-conflict state exposes failures hidden by confidence and agreement. | HYPOTHESIS | Held-out diagnostic model and concrete error analysis | diagnostic table/figure, calibration analysis, examples | None | Predictive association alone is not a causal effect. |
+| DCEA-C1 | Semantic citation support does not imply directional causal use of the cited evidence in tested generation regimes. | HYPOTHESIS | Matched original-versus-fact-replacement source pairs with citation-support and directional-response labels | task manifest, raw generations, citation labels, paired effects and CIs | None | The intervention must preserve fluency and avoid changing unrelated cues. |
+| DCEA-C2 | Directional replacement detects evidence use that single-source removal misses under redundant support. | HYPOTHESIS | Singleton and redundant-support cells evaluated with replacement, removal, and likelihood-based LOO attribution | configs, token likelihoods, outputs, interaction table | None | Redundancy construction may be too synthetic unless replicated on natural paraphrases. |
+| DCEA-C3 | An explicit contrastive evidence-use instruction improves directional grounding without reducing answer validity. | HYPOTHESIS | Ordinary citation prompting versus contrastive source-difference prompting under identical models and decoding | paired outputs, validity checks, ablation table, error analysis | None | Prompt-only gains may be brittle and cannot support a universal method claim. |
 
 ## Retired LAD evidence (audit only)
 
-The validated Phi-3.5 run and diagnostic Qwen2.5 run directly tested the LAD hypothesis and did not justify continuing it. Phi harmful COMMON-minus-INDEPENDENT was `-0.04545` (CI `[-0.13636, 0]`) and beneficial was `+0.07143` (CI `[0, 0.17857]`). Qwen had 45 complete parsed pairs, zero harmful revisions, zero beneficial revisions, and five fixed-parser failures. These artifacts justify the documented topic pivot; they are not evidence for CBCG-C1--C3.
+The validated Phi-3.5 run and diagnostic Qwen2.5 run directly tested the LAD hypothesis and did not justify continuing it. Phi harmful COMMON-minus-INDEPENDENT was `-0.04545` (CI `[-0.13636, 0]`) and beneficial was `+0.07143` (CI `[0, 0.17857]`). Qwen had 45 complete parsed pairs, zero harmful revisions, zero beneficial revisions, and five fixed-parser failures. These artifacts justify the documented topic pivot; they are not evidence for DCEA-C1--C3.
 
 ## Artifact contracts
 
@@ -32,7 +32,7 @@ The validated Phi-3.5 run and diagnostic Qwen2.5 run directly tested the LAD hyp
 - `src/lad/validation.py` and `scripts/validate_pilot_artifacts.py`: independently reviewed integrity path that reconstructs parsing, correctness, prompt hashes, support, condition summaries, and paired effects from raw artifacts.
 - `tests/`: 35 passing tests as of 2026-07-22, including private-first elicitation, paired invariants, condition-label leakage, bounded parsing, runner/validator normalization parity, tamper rejection, output schemas, and provenance checksums.
 
-These artifacts establish implementation readiness only. They do not change C1--C3 from `HYPOTHESIS` to `SUPPORTED`.
+These LAD artifacts establish historical implementation readiness only. They do not change DCEA-C1--C3 from `HYPOTHESIS` to `SUPPORTED`.
 
 ## Interpretation rules
 

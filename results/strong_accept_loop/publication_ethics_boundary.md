@@ -21,7 +21,9 @@ Current reuse register: **none**. The reference PDFs and extracted text are used
 
 ## New-work boundary
 
-The selected project studies temporal ordering and evidential structure in natural-language agent deliberation: private belief commitment, peer-message exposure, and evidence-conditioned revision. The intended method, outcome variables, datasets, scripts, prompts, logs, tables, and claims will be created anew in this repository.
+The selected project studies directional evidence use in supplied-context generation: whether a model's answer follows a controlled change to an answer-bearing source fact, including when equivalent support is redundant. It does not study signed networks, trust/reputation prediction, graph calibration, or the prior submission's evidence package. The DCEA task artifacts, source packs, transformations, prompts, outputs, metrics, tables, figures, and claims will be created anew in this repository.
+
+The retired LAD pilot code and results may remain as an ethical audit trail and as generic examples of model loading, deterministic generation, logging, hashing, and artifact validation. They cannot be relabeled as DCEA evidence, cannot appear as DCEA results, and cannot justify any DCEA claim. Any generic utility actually reused by DCEA must be added to the reuse register with its exact boundary.
 
 ## Citation and disclosure
 

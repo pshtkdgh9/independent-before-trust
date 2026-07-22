@@ -2,10 +2,10 @@
 
 Date: 2026-07-22
 
-- Phase: LAD empirical kill criterion fired; CBCG topic pivot and fresh novelty gate
+- Phase: LAD retired; directional counterfactual evidence audit under provisional novelty gate
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
-- Selected direction: Contradiction-Budgeted Common Ground (provisional until fresh closest-work scan)
+- Selected direction: Beyond Leave-One-Out: Directional Counterfactual Audits of Evidence Use (DCEA), provisional
 - Terminal gate: not satisfied
 
 ## Completed
@@ -37,7 +37,9 @@ Date: 2026-07-22
 
 ## Blocking evidence
 
-- All CBCG headline claims remain hypotheses; no CBCG result exists yet.
+- All DCEA headline claims remain hypotheses; no DCEA result exists yet.
+- CPR was rejected after the initial post-LAD shortlist because RARR (ACL 2023) already performs attribution-assisted minimal repair of unsupported LM output.
+- Generic causal context attribution is also prior work: ContextCite (NeurIPS 2024) and AttriBoT (ICLR 2025) require the new topic to focus narrowly on directional replacement interventions and redundancy, not source removal alone.
 - The first full run had a `0.48` strict-format baseline parse-failure rate and only 26 paired items; it remains diagnostic evidence, not a headline result.
 - The validated rerun's harmful difference was `-0.04545` (CI `[-0.13636, 0]`) and beneficial difference was `+0.07143` (CI `[0, 0.17857]`), both COMMON-minus-INDEPENDENT and both contrary to the anticipated direction.
 - The first pilot dataset is recorded, but additional main-experiment task families remain unselected.
@@ -49,4 +51,4 @@ Date: 2026-07-22
 
 ## Highest-ROI next step
 
-Run a fresh closest-work/novelty audit for Contradiction-Budgeted Common Ground, then specify the smallest direct pilot with fixed evidence and matched immediate-consensus, confidence-only deferral, and contradiction-budgeted policies. Do not reuse LAD results as CBCG evidence.
+Implement a minimal DCEA task artifact with matched factual-source replacements, redundant-support controls, and exact expected answer changes. Run two open-model pilots against semantic citation support, leave-one-out likelihood attribution, and source-removal regeneration. Kill the topic if directional replacement adds no diagnostic information beyond these baselines. Do not reuse LAD results as DCEA evidence.

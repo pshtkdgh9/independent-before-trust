@@ -78,9 +78,15 @@ At exact execution commit `0db697f`, `Qwen/Qwen2.5-1.5B-Instruct` revision `989a
 
 This second independently developed family does not support source-multiplicity sensitivity. The predeclared LAD kill criterion therefore fires. No larger LAD run, parser expansion, or favorable-model search is planned. The artifacts support only the decision to stop LAD.
 
-## CBCG replacement plan (design gate)
+## DCEA replacement plan
 
-The replacement topic is Contradiction-Budgeted Common Ground. Before any result claim, a fresh closest-work scan must clear novelty and a new protocol must hold messages/evidence fixed while comparing: (1) immediate forced commitment, (2) confidence-only defer/query, and (3) explicit unresolved-contradiction budgeting. Primary outcomes must jointly report harmful commitment, correct commitment, deferral coverage, verification cost, and selective risk. LAD runs are excluded from CBCG effect estimates.
+The replacement topic is Directional Counterfactual Evidence Audit. Each item contains a query, a fixed source pack with stable opaque source identifiers, a single answer-bearing atomic fact, matched distractors, and an expected response. A paired intervention changes only the answer-bearing value in one source; a redundancy cell supplies a second independently worded source carrying the same value. No retrieval occurs in the controlled primary comparison.
+
+The minimal factorial pilot crosses: (1) original versus directional fact replacement; (2) singleton versus redundant support; and (3) ordinary citation prompting versus a contrastive instruction that requires the answer and cited source to follow the supplied evidence. Every cell uses deterministic decoding and counterbalanced order. Primary outcomes are directional answer-following, citation validity, citation-support correctness, exact/normalized answer change, source-removal response change, and teacher-forced log-likelihood differences for the original and counterfactual answers.
+
+Baselines are semantic answer-source support, direct citation correctness, exact source removal with regeneration, leave-one-out log-likelihood attribution, and no-context parametric response. DCEA adds matched value replacement, which provides a signed expected response rather than only asking whether probability decreases. The redundancy interaction is the decisive test: if a model uses either of two equivalent sources, removing one may have little effect, whereas changing their shared value should move the answer.
+
+The first pilot must include the already pinned Phi-3.5 and Qwen2.5 families before scaling. Ablations remove redundancy, the contrastive instruction, source-ID randomization, or counterbalancing. Kill DCEA if replacement response is nearly identical to source removal, if the redundancy interaction is absent across both families, or if intervention artifacts make the answer recoverable from non-evidence cues. LAD runs are excluded from all DCEA effect estimates.
 
 ## Claim limits
 

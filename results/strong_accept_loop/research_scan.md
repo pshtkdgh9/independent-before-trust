@@ -48,3 +48,26 @@ This coverage record prevents the generated Ultragoal stories from being misread
 - Confirm whether any work already holds message semantics fixed while manipulating common versus independent provenance.
 - Verify bibliographic metadata from primary sources before adding citations to the manuscript.
 - Treat contemporaneous 2026 preprints as related work, never as same-regime numerical baselines unless reproduced under the LAD protocol.
+
+## Post-LAD closest-work gate
+
+The initial CBCG fallback was rejected after direct primary-source review. Common-ground tracking, clarification, abstention, budgeted debate stopping, confidence-aware updates, consensus-free debate, and explicit conflict resolution are already active 2024--2026 lines; combining them would not provide a sufficiently crisp new contribution.
+
+The first post-LAD replacement, Claim-Preserving Provenance Repair, was rejected after this scan found a direct collision with RARR (ACL 2023): RARR finds attribution for an existing LM output and post-edits unsupported content while preserving the original as much as possible. Generic conflict-preserving synthesis also collides with MoDS (NAACL 2025), and argument-role repair collides with Arg-LLaDA (ACL 2026). These candidates remain in the audit trail but are not selected.
+
+The provisional DCEA direction is bounded against these primary works:
+
+1. Wei et al. (ACL 2026), GenProve: generation-time fluent answers with sentence-level Quotation/Compression/Inference provenance triples and joint training. https://aclanthology.org/2026.acl-long.228/
+2. Xu et al. (Findings ACL 2026), GAVEL: inference-time evidence contracts, atomic subclaims, deterministic citation/span validation, and provenance-grounded fact-checking. https://aclanthology.org/2026.findings-acl.1789/
+3. Localizing Factual Inconsistencies in Attributable Text Generation (TACL 2026): fine-grained localization rather than the complete minimal-repair objective. https://aclanthology.org/2026.tacl-1.6/
+4. Attribution, Citation, and Quotation (ACL 2026): taxonomy and survey of evidence-based generation. https://aclanthology.org/2026.acl-long.1430/
+5. CLUE (ACL 2026): source-of-uncertainty explanations in automated fact-checking, adjacent to but distinct from answer repair. https://aclanthology.org/2026.acl-long.2110/
+6. ContextCite (NeurIPS 2024): introduces context attribution and estimates which context sources led to a generated statement through masked subsets and response likelihood. https://proceedings.neurips.cc/paper_files/paper/2024/hash/adbea136219b64db96a9941e4249a857-Abstract-Conference.html
+7. AttriBoT (ICLR 2025): efficiently approximates leave-one-out context attribution and explicitly distinguishes causal source contribution from merely supportive citations. https://proceedings.iclr.cc/paper_files/paper/2025/hash/2aab664e0d1656e8b56c74f868e1ea69-Abstract-Conference.html
+8. Connecting Attributions and QA Model Behavior on Realistic Counterfactuals (EMNLP 2021): evaluates attribution methods against realistic RC counterfactuals. https://aclanthology.org/2021.emnlp-main.447/
+9. DisentQA (ACL 2023): uses factual, counterfactual, empty, and random contexts to separate contextual from parametric answers. https://aclanthology.org/2023.acl-long.559/
+10. Evaluating Evidence Attribution in Generated Fact Checking Explanations (NAACL 2025): uses citation masking and recovery to evaluate whether explanation context permits recovering cited evidence. https://aclanthology.org/2025.naacl-long.282/
+
+The remaining provisional gap is narrower than causal attribution in general. Removal and likelihood-drop methods estimate source necessity for a fixed response; semantic citation checks estimate support. DCEA instead intervenes on the answer-bearing value and scores whether the generated answer changes in the intervention's signed direction. Its redundancy cell tests the specific case in which removing either of two equivalent sources yields little change even though their shared content directs the answer. This boundary is a hypothesis, not yet a novelty finding; the pilot and further full-text scan can still kill it.
+
+No novelty claim is yet verified. The immediate falsification test is whether directional replacement supplies information beyond semantic support and removal-based attribution specifically in the redundant-support cell. If it does not, DCEA is retired rather than reframed after observing results.

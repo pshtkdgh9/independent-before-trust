@@ -1,5 +1,7 @@
 import json
 import importlib.util
+import zipfile
+from io import BytesIO
 from pathlib import Path
 
 import pytest
@@ -69,6 +71,7 @@ def test_source_record_preserves_archive_lineage_fields(tmp_path):
             "derived_from_path": "data/raw/example/archive.zip",
             "derived_from_sha256": "b" * 64,
             "extraction_command": "python scripts/acquire_quantity_frame_sources.py",
+            "google_drive_file_id": "1abc",
         }
     )
 
@@ -129,7 +132,96 @@ def test_acquire_cli_verifies_selected_manifest(tmp_path, monkeypatch, capsys):
     assert "verified_sources=1 failures=0" in capsys.readouterr().out
 
 
+def test_download_replaces_stale_existing_file_after_hash_mismatch(tmp_path, monkeypatch):
+    destination = tmp_path / "artifact.txt"
+    destination.write_text("stale", encoding="utf-8")
+    fresh = b"fresh"
+    import hashlib
+
+    class Response:
+        def __enter__(self):
+            return BytesIO(fresh)
+
+        def __exit__(self, exc_type, exc, traceback):
+            return False
+
+    monkeypatch.setattr(acquire_quantity_frame_sources.urllib.request, "urlopen", lambda *args, **kwargs: Response())
+
+    acquire_quantity_frame_sources.download(
+        "https://example.test/artifact.txt",
+        destination,
+        expected_sha256=hashlib.sha256(fresh).hexdigest(),
+    )
+
+    assert destination.read_bytes() == fresh
+
+
+def test_download_reuses_existing_file_only_when_hash_matches(tmp_path, monkeypatch):
+    destination = tmp_path / "artifact.txt"
+    destination.write_bytes(b"fresh")
+    expected = acquire_quantity_frame_sources.sha256_file(destination)
+
+    def fail_urlopen(*args, **kwargs):
+        raise AssertionError("matching existing file should not be downloaded")
+
+    monkeypatch.setattr(acquire_quantity_frame_sources.urllib.request, "urlopen", fail_urlopen)
+
+    acquire_quantity_frame_sources.download(
+        "https://example.test/artifact.txt",
+        destination,
+        expected_sha256=expected,
+    )
+
+    assert destination.read_bytes() == b"fresh"
+
+
+def test_extract_member_rejects_ambiguous_suffix_matches(tmp_path):
+    archive_path = tmp_path / "archive.zip"
+    with zipfile.ZipFile(archive_path, "w") as archive:
+        archive.writestr("a/val.json", "{}")
+        archive.writestr("b/val.json", "{}")
+
+    with pytest.raises(ValueError, match="ambiguous archive member"):
+        acquire_quantity_frame_sources.extract_member(
+            archive_path,
+            "val.json",
+            tmp_path / "val.json",
+        )
+
+
+def test_sources_use_stable_google_drive_locator_not_volatile_url():
+    drive_sources = [
+        source
+        for source in acquire_quantity_frame_sources.SOURCES
+        if "google_drive_file_id" in source
+    ]
+
+    assert drive_sources
+    for source in drive_sources:
+        assert source["google_drive_file_id"] == "1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE"
+        assert "drive.usercontent.google.com" not in str(source["artifact_url"])
+        assert "confirm=" not in str(source["artifact_url"])
+        assert "uuid=" not in str(source["artifact_url"])
+        assert "at=" not in str(source["artifact_url"])
+
+
 def test_repository_manifest_verifies_four_quantity_frame_artifacts():
+    records = SourceRecord.from_dict
+    manifest_records = [
+        records(json.loads(line))
+        for line in Path("data_provenance/quantity_frame_manifest.jsonl").read_text(
+            encoding="utf-8"
+        ).splitlines()
+        if line.strip()
+    ]
+    missing = [
+        record.raw_path
+        for record in manifest_records
+        if not Path(record.raw_path).is_file()
+    ]
+    if missing:
+        pytest.skip(f"raw quantity-frame artifacts absent: {', '.join(missing)}")
+
     assert (
         verify_manifest(Path("data_provenance/quantity_frame_manifest.jsonl"))
         == (4, 0)

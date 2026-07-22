@@ -28,14 +28,14 @@ This records source acquisition only for the provisional Quantity-Frame-Preservi
 | HF loader revision | `9e109befb07bfb993843991d09b8aa6ee40b9267` |
 | HF loader path / bytes / SHA-256 | `data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/scientific_lay_summarisation.py` / `6,464` / `07adb618266d5caf198815d61d338e1f23d2bab8b7afd3833a615cf37314e260` |
 | Upstream content locator | Google Drive file ID `1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE` referenced by the pinned HF loader |
-| Archive URL used | <https://drive.usercontent.google.com/download?id=1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE&export=download&authuser=1&confirm=t&uuid=1332bc11-7cbf-4c4d-8561-85621060f397&at=APZUnTVLLKAGVSBpQlYKojrJ57xb%3A1716450570186> |
+| Stable archive locator | <https://drive.google.com/file/d/1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE/view> |
 | Archive path / bytes / SHA-256 | `data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/elife_archive.zip` / `88,704,247` / `b0d11e4475f5ffd6a8c1875f7b6b2a6be3c4afc67c4682c2dbf43a1611a8e1a0` |
 | License / terms | Dataset card reports CC BY 4.0; <https://creativecommons.org/licenses/by/4.0/> |
 | Access date | 2026-07-23 |
 | Extracted validation member | `val.json` |
 | Extracted validation path | `data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/elife_val.json` |
 | Extracted validation bytes / SHA-256 | `16,023,867` / `24fe7b98f04d2e6e5a80dda26ba241d5742de0f02c9e13a33121cabd98e9aeed` |
-| Download command | `python scripts/acquire_quantity_frame_sources.py --manifest data_provenance/quantity_frame_manifest.jsonl` |
+| Download command | `python scripts/acquire_quantity_frame_sources.py --manifest data_provenance/quantity_frame_manifest.jsonl` using the stable file ID and Google Drive `uc?export=download&id=...` flow with confirm-token handling; existing local files are reused only after SHA-256 verification |
 | Extraction command | `python scripts/acquire_quantity_frame_sources.py --manifest data_provenance/quantity_frame_manifest.jsonl` |
 | Preprocessing status | None |
 | Privacy / consent | Public scholarly articles and expert-written lay summaries; no private clinical notes or patient records are expected |

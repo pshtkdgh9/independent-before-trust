@@ -53,6 +53,7 @@ class SourceRecord:
     derived_from_path: str | None = None
     derived_from_sha256: str | None = None
     extraction_command: str | None = None
+    google_drive_file_id: str | None = None
 
     @classmethod
     def from_dict(cls, row: Mapping[str, Any]) -> "SourceRecord":
@@ -96,6 +97,7 @@ class SourceRecord:
             "archive_member",
             "derived_from_path",
             "extraction_command",
+            "google_drive_file_id",
         )
         for field in optional_text_fields:
             if field in row and not _non_empty_text(row[field]):
@@ -126,6 +128,7 @@ class SourceRecord:
             derived_from_path=_optional_str(row, "derived_from_path"),
             derived_from_sha256=derived_from_sha256,
             extraction_command=_optional_str(row, "extraction_command"),
+            google_drive_file_id=_optional_str(row, "google_drive_file_id"),
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -154,6 +157,8 @@ class SourceRecord:
             record["derived_from_sha256"] = self.derived_from_sha256
         if self.extraction_command is not None:
             record["extraction_command"] = self.extraction_command
+        if self.google_drive_file_id is not None:
+            record["google_drive_file_id"] = self.google_drive_file_id
         return record
 
 

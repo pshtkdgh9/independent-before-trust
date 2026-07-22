@@ -12,21 +12,36 @@ run_condition() {
   local revision="$4"
   local condition="$5"
   local output_dir="$run_root/$label-$condition"
-  mkdir -p "$output_dir"
-  date --utc --iso-8601=seconds >"$output_dir/run-started-utc.txt"
-  git rev-parse HEAD >"$output_dir/run-git-commit.txt"
+  local partial_dir="${output_dir}.partial"
+  if [[ -e "$output_dir" ]]; then
+    echo "Refusing to reuse existing output directory: $output_dir" >&2
+    exit 1
+  fi
+  if [[ -e "$partial_dir" ]]; then
+    echo "Refusing to reuse existing partial directory: $partial_dir" >&2
+    exit 1
+  fi
+  local run_started_utc
+  local git_commit
+  run_started_utc="$(date --utc --iso-8601=seconds)"
+  git_commit="$(git rev-parse HEAD)"
+  mkdir -p "$partial_dir"
   .venv/bin/python scripts/run_esp_counterfactual.py \
     --pairs data/annotations/esp_counterfactual_pairs_v0.jsonl \
-    --output-dir "$output_dir" \
+    --output-dir "$partial_dir" \
     --model-path "$model_path" \
     --model-id "$model_id" \
     --revision "$revision" \
+    --git-commit "$git_commit" \
     --condition "$condition" \
     --seed 1701 \
     --max-new-tokens 96 \
     --dtype float16
-  date --utc --iso-8601=seconds >"$output_dir/run-completed-utc.txt"
-  touch "$output_dir/RUN_COMPLETE"
+  printf '%s\n' "$run_started_utc" >"$partial_dir/run-started-utc.txt"
+  printf '%s\n' "$git_commit" >"$partial_dir/run-git-commit.txt"
+  date --utc --iso-8601=seconds >"$partial_dir/run-completed-utc.txt"
+  touch "$partial_dir/RUN_COMPLETE"
+  mv "$partial_dir" "$output_dir"
 }
 
 for condition in generic frame; do

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 import sys
 import tempfile
@@ -81,6 +82,7 @@ class ESPCounterfactualRunnerTests(unittest.TestCase):
                 condition="frame",
                 seed=17,
                 max_new_tokens=32,
+                git_commit="feedface",
             )
 
             metrics = run_counterfactual_generation(
@@ -108,6 +110,14 @@ class ESPCounterfactualRunnerTests(unittest.TestCase):
             self.assertEqual(saved_config["pair_count"], 1)
             self.assertEqual(saved_config["generation_count"], 2)
             self.assertEqual(saved_config["dtype"], "float16")
+            self.assertEqual(saved_config["git_commit"], "feedface")
+            self.assertEqual(
+                saved_config["pairs_sha256"],
+                hashlib.sha256(pairs_path.read_bytes()).hexdigest(),
+            )
+            self.assertFalse(saved_config["do_sample"])
+            self.assertEqual(saved_config["backend"], "HuggingFaceBackend")
+            self.assertEqual(saved_config["tokenizer_revision"], "abc123")
             self.assertEqual(saved_metrics, metrics)
             self.assertEqual(saved_metrics["row_count"], 2)
             self.assertEqual(saved_metrics["pair_count"], 1)
@@ -129,6 +139,7 @@ class ESPCounterfactualRunnerTests(unittest.TestCase):
                     model_id="fake/model",
                     revision="abc123",
                     condition="frame",
+                    git_commit="feedface",
                 ),
             )
 
@@ -160,10 +171,42 @@ class ESPCounterfactualRunnerTests(unittest.TestCase):
                         model_id="fake/model",
                         revision="abc123",
                         condition="generic",
+                        git_commit="feedface",
                     ),
                 )
 
             self.assertFalse((output_dir / "generations.jsonl").exists())
+            self.assertFalse((output_dir / "RUN_COMPLETE").exists())
+
+    def test_rejects_non_empty_output_dir_before_generation(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            pairs_path = temp_path / "pairs.jsonl"
+            write_jsonl(pairs_path, [valid_pair()])
+            output_dir = temp_path / "out"
+            output_dir.mkdir()
+            (output_dir / "generations.jsonl").write_text("stale\n", encoding="utf-8")
+            backend = FakeBackend()
+
+            with self.assertRaisesRegex(ValueError, "non-empty output_dir"):
+                run_counterfactual_generation(
+                    pairs_path=pairs_path,
+                    backend=backend,
+                    config=CounterfactualRunConfig(
+                        output_dir=output_dir,
+                        model_path=Path("models/fake"),
+                        model_id="fake/model",
+                        revision="abc123",
+                        condition="generic",
+                        git_commit="feedface",
+                    ),
+                )
+
+            self.assertEqual(backend.prompts, [])
+            self.assertEqual(
+                (output_dir / "generations.jsonl").read_text(encoding="utf-8"),
+                "stale\n",
+            )
 
     def test_rejects_unsupported_condition_before_generation(self):
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -182,6 +225,7 @@ class ESPCounterfactualRunnerTests(unittest.TestCase):
                         model_id="fake/model",
                         revision="abc123",
                         condition="direct",
+                        git_commit="feedface",
                     ),
                 )
 

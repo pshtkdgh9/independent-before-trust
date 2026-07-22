@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from dataclasses import dataclass
@@ -38,6 +39,7 @@ class CounterfactualRunConfig:
     model_path: Path
     model_id: str
     revision: str
+    git_commit: str
     condition: str
     seed: int = 1701
     max_new_tokens: int = 96
@@ -46,6 +48,18 @@ class CounterfactualRunConfig:
 
 def read_jsonl(path: Path) -> list[dict[str, object]]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _is_non_empty_dir(path: Path) -> bool:
+    return path.is_dir() and any(path.iterdir())
 
 
 def load_counterfactual_pairs(
@@ -117,6 +131,8 @@ def run_counterfactual_generation(
 ) -> dict[str, object]:
     if config.condition not in ALLOWED_CONDITIONS:
         raise ValueError("condition must be one of: frame, generic")
+    if _is_non_empty_dir(config.output_dir):
+        raise ValueError(f"non-empty output_dir refused: {config.output_dir}")
 
     pairs = load_counterfactual_pairs(pairs_path)
     rows: list[dict[str, object]] = []
@@ -177,11 +193,16 @@ def run_counterfactual_generation(
         "model_path": str(config.model_path),
         "revision": config.revision,
         "model_revision": config.revision,
+        "tokenizer_revision": config.revision,
+        "git_commit": config.git_commit,
         "condition": config.condition,
         "seed": config.seed,
         "max_new_tokens": config.max_new_tokens,
         "dtype": config.dtype,
         "pairs_path": str(pairs_path),
+        "pairs_sha256": file_sha256(pairs_path),
+        "do_sample": False,
+        "backend": "HuggingFaceBackend",
     }
 
     config.output_dir.mkdir(parents=True, exist_ok=True)
@@ -201,6 +222,7 @@ def main() -> None:
     parser.add_argument("--model-path", type=Path, required=True)
     parser.add_argument("--model-id", required=True)
     parser.add_argument("--revision", required=True)
+    parser.add_argument("--git-commit", required=True)
     parser.add_argument("--condition", choices=sorted(ALLOWED_CONDITIONS), required=True)
     parser.add_argument("--seed", type=int, default=1701)
     parser.add_argument("--max-new-tokens", type=int, default=96)
@@ -216,6 +238,7 @@ def main() -> None:
         model_path=args.model_path,
         model_id=args.model_id,
         revision=args.revision,
+        git_commit=args.git_commit,
         condition=args.condition,
         seed=args.seed,
         max_new_tokens=args.max_new_tokens,

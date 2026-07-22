@@ -11,3 +11,4 @@ models/
 results/runs/
 results/mock_pilot/
 .omx/
+.worktrees/

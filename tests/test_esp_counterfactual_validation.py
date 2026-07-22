@@ -251,6 +251,63 @@ class ESPCounterfactualValidationTests(unittest.TestCase):
                 "prompt leaks internal label for esp-cf-v0-0001 original", report["errors"]
             )
 
+    def test_rejects_expected_model_id_revision_and_condition_mismatches(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            run_dir = Path(temp_dir) / "run"
+            _build_complete_run(run_dir)
+
+            report = validator.validate_esp_counterfactual_run(
+                run_dir,
+                pairs_path=runner.DEFAULT_PAIRS_PATH,
+                expected_git_commit=_EXPECTED_COMMIT,
+                expected_model_id="wrong/model",
+                expected_revision="wrong-revision",
+                expected_condition="generic",
+            )
+
+            self.assertEqual(report["status"], "fail")
+            self.assertIn("config model_id mismatch: test/model", report["errors"])
+            self.assertIn("config revision mismatch: revision-1", report["errors"])
+            self.assertIn("config condition mismatch: frame", report["errors"])
+
+    def test_rejects_assigned_strength_that_does_not_match_manifest(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            run_dir = Path(temp_dir) / "run"
+            _build_complete_run(run_dir)
+            rows = [
+                json.loads(line)
+                for line in (run_dir / "generations.jsonl").read_text(encoding="utf-8").splitlines()
+            ]
+            rows[0]["assigned_strength"] = "possible"
+            _write_jsonl(run_dir / "generations.jsonl", rows)
+
+            report = self._validate(run_dir)
+
+            self.assertEqual(report["status"], "fail")
+            self.assertIn(
+                "assigned_strength mismatch for esp-cf-v0-0001 original: 'possible'",
+                report["errors"],
+            )
+
+    def test_rejects_source_item_id_that_does_not_match_manifest(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            run_dir = Path(temp_dir) / "run"
+            _build_complete_run(run_dir)
+            rows = [
+                json.loads(line)
+                for line in (run_dir / "generations.jsonl").read_text(encoding="utf-8").splitlines()
+            ]
+            rows[0]["source_item_id"] = "esp-wrong-source"
+            _write_jsonl(run_dir / "generations.jsonl", rows)
+
+            report = self._validate(run_dir)
+
+            self.assertEqual(report["status"], "fail")
+            self.assertIn(
+                "source_item_id mismatch for esp-cf-v0-0001 original: 'esp-wrong-source'",
+                report["errors"],
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

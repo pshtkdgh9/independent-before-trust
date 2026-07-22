@@ -1,5 +1,13 @@
 # Experiment Plan: Lineage-Aware Deliberation
 
+## Current planning state
+
+LAD, DCEA, CLEP, ESP, and evidence-state triage are retired. No headline experiment is currently selected.
+
+Evidence-state triage stopped before GPU. The model-agent audit summary records two balanced 24-row lanes and a 13-row intersection, but conflict construction failed the audit: overlap agreement is only 7/13 for conflict usability and 6/13 for natural incompatible sentence existence. The candidate is retired for novelty/action aggregation collision and invalid conflict construction. Its design, schema, builder, provenance path, and candidate pack remain negative auditable artifacts only.
+
+Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.
+
 ## Research questions
 
 - RQ1: With nominal agreement fixed, does common-source support cause different belief revision than independently sourced support?

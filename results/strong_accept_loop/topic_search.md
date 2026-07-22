@@ -8,6 +8,10 @@ ESP is retired as the headline candidate, not erased from the audit trail. The n
 
 No replacement topic is selected here. The next search must use the same constraints as the earlier pivots: licensed/public evidence path, method contribution rather than benchmark construction, explicit closest-work boundary, and a falsifiable two-family gate before any headline claim.
 
+Evidence-state triage was also audited and retired before GPU. The two model-agent audit lanes each contain 24 balanced rows, but overlap agreement on conflict usability is only 7/13 and natural incompatible sentence existence is only 6/13. The candidate is retired because the framing collides with novelty/action aggregation and the conflict construction is invalid. Its artifacts remain negative audit records only.
+
+Next audit target only, not selected: **Denominator-Aware Numerical Lay Summarization**.
+
 ## Third-pivot public-data method search
 
 CLEP was retired under its predeclared two-family gate. The next search therefore requires an existing licensed corpus, a method contribution, and a primary outcome that is not a tiny synthetic behavior effect. Scores below use the same five 1--5 dimensions as the earlier searches.
@@ -18,7 +22,7 @@ CLEP was retired under its predeclared two-family gate. The next search therefor
 | 2 | **Question-Guided Minimal Simplification Repair:** insert only content diagnosed as missing by InfoLossQA. | 5 | 2 | 5 | 5 | 5 | 22 | Rejected as headline: Nandiraju et al. (2025) already detect missing health-text elements and regenerate text by inserting them. |
 | 3 | **Input-Normalized Table-to-Text Generation:** repair malformed ToTTo inputs before generation. | 4 | 1 | 4 | 4 | 5 | 18 | Rejected: Sundararajan et al. (NAACL 2024) directly fix ToTTo input problems and report large factual-error reductions. |
 | 4 | **Discourse-Relation-Preserving Simplification:** preserve causal, concessive, and contrast relations through typed discourse planning. | 5 | 3 | 3 | 5 | 5 | 21 | Fallback; discourse annotation and reliable automatic evaluation are expensive. |
-| 5 | **Denominator-Aware Numerical Lay Summarization:** bind quantities to populations, time windows, and comparators before generation. | 5 | 3 | 4 | 5 | 5 | 22 | Fallback; numerical-fidelity and data-to-text literature make the novelty boundary narrow. |
+| 5 | **Denominator-Aware Numerical Lay Summarization:** bind quantities to populations, time windows, and comparators before generation. | 5 | 3 | 4 | 5 | 5 | 22 | Next audit target only, not selected; numerical-fidelity and data-to-text literature make the novelty boundary narrow. |
 | 6 | **Targeted Concept Explanation with Context Contracts:** explain only reader-flagged concepts while preserving local claims. | 5 | 2 | 4 | 4 | 5 | 20 | Rejected: WikiDomains and targeted concept simplification already establish this task directly. |
 
 The former provisional winner studied a linguistic failure rather than proposing another benchmark: lay rewriting can delete or strengthen hedges, modal auxiliaries, attribution, and their semantic scope. The proposed method represented each source uncertainty frame as `(cue, strength, scoped proposition, attribution)` and conditioned generation on preserving that frame while simplifying its realization. Primary comparisons would have needed to measure both accessibility and frame preservation; generic semantic similarity was insufficient.

@@ -2,7 +2,7 @@
 
 Date: 2026-07-23
 
-- Phase: LAD, DCEA, CLEP, and ESP retired; topic search reopened
+- Phase: LAD, DCEA, CLEP, ESP, and evidence-state triage retired; topic search reopened
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
 - Selected direction: none; do not select the next topic until a new evidence-first search passes its gates
@@ -46,10 +46,12 @@ Date: 2026-07-23
 - Two condition-blind model-agent audits covered all 228 outputs. Strict two-reviewer strength/scope consensus favored frame over generic in both families, but exact agreement was only `0.640` for strength, `0.443` for scope, and `0.268` for overall acceptability. These audits are development evidence, not human judgments.
 - A failure analysis froze the v1 semantic rubric: omitted targets are `scope=no`, wrong-scope hedges do not preserve strength, and acceptability is conjunctive over semantic fidelity and readability. Two new blinded model-agent audits improved raw agreement to `0.895` strength, `0.689` scope, `0.811` unsupported additions, and `0.899` acceptability. One attempted lane was discarded before writing after accidental exposure to old labels; a completed lane consulted only another file's field names, not labels, and this protocol deviation is retained. None of these audits is human evidence.
 - ESP's natural-text counterfactual negative gate is complete in `esp_counterfactual/review_summary_v1.json`: Phi passes (`advance=true`), Qwen fails (`advance=false`), and the overall gate is `advance=false`. The evidence class is `model_agent_development_only` and `human_evidence=false`, so ESP is retired as the headline candidate rather than selectively scaled.
+- Evidence-state triage candidate audit is complete in `evidence_state_triage/candidate_audit_summary.json`: each model-agent audit lane has 24 rows balanced 12 SUPPORTS and 12 REFUTES; the lane intersection is 13 rows. Overlap agreement is label 13/13, sufficiency 13/13, conflict usability 7/13, ambiguity 13/13, self-contained evidence 13/13, and natural incompatible sentence 6/13. Evidence class is `model_agent_development_only`, `human=false`, and `human_evidence=false`.
 
 ## Blocking evidence
 
 - ESP cannot be promoted: the counterfactual gate did not pass across two families, Qwen failed the gate, the overall gate is `advance=false`, and the review summary explicitly records model-agent development evidence only with `human_evidence=false`.
+- Evidence-state triage cannot be promoted: it is retired before GPU because the topic collides with novelty/action aggregation framing and its audit exposes invalid conflict construction. The design, schema, builder, provenance path, and candidate pack are retained only as negative auditable artifacts.
 - DCEA cannot be promoted: its required citation format failed in all four cells, its predicted redundancy separation was absent in the interpretable Phi outputs, and a 2025 Shapley source-attribution paper directly covers redundancy/complementarity/synergy.
 - CPR was rejected after the initial post-LAD shortlist because RARR (ACL 2023) already performs attribution-assisted minimal repair of unsupported LM output.
 - Generic causal context attribution is also prior work: ContextCite (NeurIPS 2024) and AttriBoT (ICLR 2025) require the new topic to focus narrowly on directional replacement interventions and redundancy, not source removal alone.
@@ -65,4 +67,4 @@ Date: 2026-07-23
 
 ## Highest-ROI next step
 
-Reopen topic search from the existing audit constraints. Preserve LAD, DCEA, CLEP, and ESP as retired topics with their negative evidence; do not select a replacement until a new candidate has a licensed evidence path, a direct novelty boundary, and a predeclared two-family gate.
+Reopen topic search from the existing audit constraints. Preserve LAD, DCEA, CLEP, ESP, and evidence-state triage as retired topics with their negative evidence; do not select a replacement until a new candidate has a licensed evidence path, a direct novelty boundary, and a predeclared two-family gate. Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.

@@ -4,7 +4,15 @@ Date: 2026-07-23
 
 ## Current direction after the ESP negative gate
 
-No headline topic is currently selected. Topic search is reopened after LAD, DCEA, CLEP, and ESP all failed their recorded gates. The next topic must not be chosen in this file until a new candidate passes a documented search, novelty boundary, provenance path, and falsifiable pilot plan.
+No headline topic is currently selected. Topic search is reopened after LAD, DCEA, CLEP, ESP, and evidence-state triage all failed their recorded gates. The next topic must not be chosen in this file until a new candidate passes a documented search, novelty boundary, provenance path, and falsifiable pilot plan. Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.
+
+## Retired evidence-state triage before GPU
+
+Evidence-state triage is retired before GPU experiments. It does not support a headline claim.
+
+The audit record is `evidence_state_triage/candidate_audit_summary.json`. Both model-agent lanes contain 24 rows, balanced 12 SUPPORTS and 12 REFUTES. Their 13-row intersection agrees on labels 13/13, sufficiency usability 13/13, ambiguity 13/13, self-contained evidence 13/13, but only conflict usability 7/13 and natural incompatible sentence existence 6/13.
+
+The evidence class is `model_agent_development_only`; `human=false` and `human_evidence=false`. The candidate is retired because of a novelty/action aggregation collision and invalid conflict construction. The design, schema, builder, provenance code, and candidate pack remain negative auditable artifacts only.
 
 ## Retired ESP direction after the third empirical pivot
 

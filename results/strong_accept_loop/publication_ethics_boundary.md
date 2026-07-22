@@ -2,7 +2,7 @@
 
 ## ESP boundary after topic pivots and retirement
 
-ESP was a new manuscript direction and is now retired as a headline candidate. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, or CLEP. LAD, DCEA, CLEP, and ESP are retained for transparency. Their code may contribute only generic experiment plumbing for future searches and cannot be presented as a scientific contribution to a later topic. Their data and negative outcomes cannot be pooled into a new result.
+ESP was a new manuscript direction and is now retired as a headline candidate. Evidence-state triage was separately audited and retired before GPU. Neither direction may reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, CLEP, or the other retired directions. LAD, DCEA, CLEP, ESP, and evidence-state triage are retained for transparency. Their code may contribute only generic experiment plumbing for future searches and cannot be presented as a scientific contribution to a later topic. Their data and negative outcomes cannot be pooled into a new result.
 
 ## Existing submission
 
@@ -36,6 +36,12 @@ The retired ESP project studied epistemic strength and semantic scope in scienti
 Retired-branch code and results remain as an ethical audit trail. They cannot be relabeled as ESP evidence, cannot appear as ESP findings, and cannot justify any ESP claim. Only the generic utilities named in the reuse register cross the boundary.
 
 The ESP counterfactual review records Phi as passing, Qwen as failing, and the combined gate as `advance=false`; it also records `evidence_class=model_agent_development_only` and `human_evidence=false`. Future work must not cite this as human evaluation or as support for an ESP headline claim.
+
+## Retired evidence-state triage boundary
+
+Evidence-state triage is retired before GPU because of novelty/action aggregation collision and invalid conflict construction. Its audit is `model_agent_development_only`; `human=false` and `human_evidence=false`.
+
+The evidence-state schema, builder, provenance path, FEVER candidate source pack, source manifest, and two candidate audit JSONLs are retained only as negative auditable artifacts. They cannot be presented as human annotation, a validated task, a pilot result, or support for a headline claim. Future topic work may reuse only generic checksum, schema-validation, or serialization patterns after recording the reuse boundary.
 
 ## Citation and disclosure
 

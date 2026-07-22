@@ -1,5 +1,19 @@
 # Evidence Map
 
+## Retired evidence-state triage claims
+
+Evidence-state triage is retired before GPU and has no supported headline claim.
+
+| Claim | Required artifact | Current status |
+|---|---|---|
+| EST-C1: public evidence items can support a clean sufficiency/conflict triage task for a new headline method | validated natural conflict pack; independent human review; two-family pilot | Unsupported; model-agent audit only |
+| EST-C2: the candidate supplies a novel action/evidence aggregation contribution rather than rephrasing existing triage or aggregation work | full novelty boundary; method contrast; pilot outcome | Unsupported; retired for novelty/action aggregation collision |
+| EST-C3: conflict examples are naturally present and usable without synthetic invalid construction | agreed natural incompatible sentence audit; source provenance; conflict validator | Unsupported; overlap agreement is only 7/13 for conflict usability and 6/13 for natural incompatible sentence existence |
+
+The summary at `evidence_state_triage/candidate_audit_summary.json` records two 24-row model-agent audit lanes balanced 12/12, an intersection of 13, and overlap agreement of label 13/13, sufficiency 13/13, conflict usability 7/13, ambiguity 13/13, self-contained evidence 13/13, and natural incompatible sentence 6/13. It records `evidence_class=model_agent_development_only`, `human=false`, and `human_evidence=false`.
+
+`src/evidence_state/schema.py`, `src/evidence_state/builder.py`, `src/evidence_state/provenance.py`, `data/evidence_state/fever_candidate_source_pack.jsonl`, `data/evidence_state/source_manifest.jsonl`, and `scripts/build_evidence_state_items.py` are preserved as negative auditable artifacts only. They do not map to any supported claim.
+
 ## Retired ESP claims (all unsupported)
 
 | Claim | Required artifact | Current status |

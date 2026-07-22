@@ -1,0 +1,51 @@
+{
+  "date": "2026-07-23",
+  "topic": "Evidence-State Triage",
+  "status": "retired_before_gpu",
+  "decision": "retire",
+  "headline_claim": false,
+  "evidence_class": "model_agent_development_only",
+  "human": false,
+  "human_evidence": false,
+  "reason": [
+    "novelty/action aggregation collision",
+    "invalid conflict construction"
+  ],
+  "audit_files": [
+    "candidate_audit_a.jsonl",
+    "candidate_audit_b.jsonl"
+  ],
+  "audit_counts": {
+    "candidate_audit_a": {
+      "rows": 24,
+      "supports": 12,
+      "refutes": 12
+    },
+    "candidate_audit_b": {
+      "rows": 24,
+      "supports": 12,
+      "refutes": 12
+    },
+    "intersection_rows": 13,
+    "overlap_agreement": {
+      "label": "13/13",
+      "usable_for_sufficiency": "13/13",
+      "usable_for_conflict": "7/13",
+      "ambiguity_risk": "13/13",
+      "evidence_self_contained": "13/13",
+      "incompatible_sentence_exists_naturally_within_candidate": "6/13"
+    }
+  },
+  "interpretation": "The audit supports only retirement of evidence-state triage as a candidate. It does not support a headline claim, a human evaluation claim, or a GPU run.",
+  "negative_artifacts_to_preserve": [
+    "src/evidence_state/schema.py",
+    "src/evidence_state/builder.py",
+    "src/evidence_state/provenance.py",
+    "data/evidence_state/fever_candidate_source_pack.jsonl",
+    "data/evidence_state/source_manifest.jsonl",
+    "scripts/build_evidence_state_items.py",
+    "results/strong_accept_loop/evidence_state_triage/candidate_audit_a.jsonl",
+    "results/strong_accept_loop/evidence_state_triage/candidate_audit_b.jsonl"
+  ],
+  "next_audit_target_only_not_selected": "Denominator-Aware Numerical Lay Summarization"
+}

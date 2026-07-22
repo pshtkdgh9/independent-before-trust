@@ -83,13 +83,31 @@ def build_revision_prompt(record: Mapping[str, Any]) -> str:
     )
 
 
-def parse_answer(response: str) -> tuple[str | None, str | None]:
+def parse_answer(
+    response: str, candidates: Iterable[str] | None = None
+) -> tuple[str | None, str | None]:
     match = ANSWER_PATTERN.search(response)
     if not match:
         return None, "missing_answer_tag"
     answer = match.group(1).strip()
     if not answer:
         return None, "empty_answer"
+    if candidates is not None:
+        candidate_list = [str(candidate) for candidate in candidates]
+        exact = [candidate for candidate in candidate_list if answer == candidate]
+        if exact:
+            return exact[0], None
+        prefixed = [
+            candidate
+            for candidate in candidate_list
+            if re.match(
+                rf"^{re.escape(candidate)}(?:\s*[\)\].:\-]|\s*$)",
+                answer,
+                flags=re.IGNORECASE,
+            )
+        ]
+        if len(prefixed) == 1:
+            return prefixed[0], None
     return answer, None
 
 
@@ -160,8 +178,8 @@ def run_paired_pilot(
             started = time.perf_counter()
             raw_response = backend.generate(prompt)
             elapsed = time.perf_counter() - started
-            final_answer, parse_error = parse_answer(raw_response)
             candidates = record.get("candidate_answers")
+            final_answer, parse_error = parse_answer(raw_response, candidates)
             if (
                 parse_error is None
                 and candidates is not None
@@ -254,7 +272,7 @@ def run_adaptive_paired_pilot(
             started = time.perf_counter()
             raw_response = backend.generate(prompt)
             elapsed = time.perf_counter() - started
-            private_answer, parse_error = parse_answer(raw_response)
+            private_answer, parse_error = parse_answer(raw_response, candidates)
             if parse_error is None and private_answer not in candidates:
                 parse_error = "answer_outside_candidates"
                 private_answer = None

@@ -1,6 +1,7 @@
 # GPU/runtime versions are pinned only after the CloudLab CUDA driver is recorded.
 # Install a compatible PyTorch build first, then install the research stack.
-accelerate
+# Phi-3.5 model-card compatibility requirements.
+accelerate==0.31.0
 datasets
 huggingface-hub
 numpy
@@ -10,4 +11,4 @@ pyyaml
 scikit-learn
 scipy
 sentence-transformers
-transformers
+transformers==4.43.0

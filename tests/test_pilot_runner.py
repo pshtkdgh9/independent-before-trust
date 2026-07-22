@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from src.lad.pairs import build_lineage_pair
-from src.lad.pilot import PilotConfig, run_paired_pilot
+from src.lad.pilot import PilotConfig, parse_answer, run_paired_pilot
 
 
 class FakeBackend:
@@ -15,6 +15,15 @@ class FakeBackend:
 
 
 class PilotRunnerTests(unittest.TestCase):
+    def test_parses_option_label_when_model_repeats_option_text(self):
+        answer, error = parse_answer(
+            "<answer>E) The black book is the leftmost.</answer>",
+            candidates=["A", "B", "C", "D", "E"],
+        )
+
+        self.assertEqual(answer, "E")
+        self.assertIsNone(error)
+
     def test_prompt_does_not_leak_condition_label(self):
         from src.lad.pilot import build_revision_prompt
 

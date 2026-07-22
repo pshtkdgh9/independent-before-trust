@@ -1,8 +1,16 @@
 # Data Provenance Register
 
+## Quantity-frame retirement status
+
+The quantity-frame records below preserve public data provenance for a retired audit target only. Denominator-/Quantity-Frame-Preserving Lay Summarization was not selected as a manuscript direction and is **RETIRED before GPU** after the source gate failed at commit `2d4b079`.
+
+The acquisition and audit artifacts are `data_provenance/quantity_frame_manifest.jsonl`, `quantity_frame/candidate_build.json`, `quantity_frame/model_audit_packet.jsonl`, and `quantity_frame/source_gate.json`. The audit covered 332 candidate items from the two corpora listed below and 664 completed model-agent development audit rows. It records `human_evidence=false`, zero integrity failures, `valid=253`, `denominator=0<30`, `comparator=0<30`, `counterfactual=184`, and `advance=false`.
+
+Comparator labels do not change the gate: 39 candidates proposed a stated comparator and 33 had both reviewers mark the comparator slot `yes`, but zero also had both reviewers validate the entire frame. Denominator proposed stated is 0. These records support only a negative source-gate decision; they are not human evidence, not GPU evidence, and not a manuscript result. Task5-7 were not executed.
+
 ## Quantity-frame source acquisition
 
-This records source acquisition only for the provisional Quantity-Frame-Preserving Lay Summarization candidate paper. No preprocessing, prevalence estimate, benchmark result, model run, or experimental claim is made from these records. Machine-readable manifest: `data_provenance/quantity_frame_manifest.jsonl`.
+This records source acquisition only for the retired Quantity-Frame-Preserving Lay Summarization audit target. No preprocessing, prevalence estimate, benchmark result, model run, or experimental claim is made from these records. Machine-readable manifest: `data_provenance/quantity_frame_manifest.jsonl`.
 
 | Item | Value |
 |---|---|

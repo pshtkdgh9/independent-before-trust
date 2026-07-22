@@ -2,9 +2,19 @@
 
 Date: 2026-07-23
 
-## Current direction after the ESP negative gate
+## Current direction after the quantity-frame negative gate
 
-No headline topic is currently selected. Topic search is reopened after LAD, DCEA, CLEP, ESP, and evidence-state triage all failed their recorded gates. The next topic must not be chosen in this file until a new candidate passes a documented search, novelty boundary, provenance path, and falsifiable pilot plan. Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.
+No headline topic is currently selected. Topic search is reopened after LAD, DCEA, CLEP, ESP, evidence-state triage, and Denominator-/Quantity-Frame-Preserving Lay Summarization all failed their recorded gates. The next topic must not be chosen in this file until a new candidate passes a documented search, novelty boundary, provenance path, and falsifiable pilot plan.
+
+## Retired quantity-frame audit target before GPU
+
+Denominator-/Quantity-Frame-Preserving Lay Summarization was an audit target only, not a selected direction. It is **RETIRED before GPU** after the negative source gate at commit `2d4b079`.
+
+The decision artifacts are `quantity_frame/candidate_build.json`, `quantity_frame/model_audit_packet.jsonl`, and `quantity_frame/source_gate.json`. They record 332 candidate items from two corpora, 664 completed model-agent development audit rows, `human_evidence=false`, no integrity failures, and overall `advance=false`.
+
+The source gate fails because the pre-GPU source inventory does not meet the minimum evidence thresholds: `valid=253`, `denominator=0<30`, `comparator=0<30`, and `counterfactual=184`. Comparator labels do not rescue the gate: 39 candidates proposed a stated comparator and 33 had both reviewers mark the comparator slot `yes`, but zero also had both reviewers validate the entire frame; denominator proposed stated is 0.
+
+This is a negative source-gate result only. It supports no manuscript claim, no GPU run, no human-evidence statement, and no favorable subset search. Task5-7 were not executed because the gate failed.
 
 ## Retired evidence-state triage before GPU
 

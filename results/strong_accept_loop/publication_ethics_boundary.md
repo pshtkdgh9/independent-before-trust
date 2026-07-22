@@ -1,8 +1,18 @@
 # Publication Ethics and Non-Overlap Boundary
 
+## Quantity-frame retirement boundary
+
+Denominator-/Quantity-Frame-Preserving Lay Summarization was an audit target only, not a selected manuscript direction. It is retired before GPU after the source gate at commit `2d4b079` recorded `advance=false`.
+
+The retained artifacts are `quantity_frame/candidate_build.json`, `quantity_frame/model_audit_packet.jsonl`, and `quantity_frame/source_gate.json`: 332 candidate items from two public corpora, 664 completed model-agent development audit rows, `human_evidence=false`, zero integrity failures, `valid=253`, `denominator=0<30`, `comparator=0<30`, and `counterfactual=184`.
+
+The comparator audit nuance must travel with any internal summary: 39 candidates proposed a stated comparator and 33 had both reviewers mark the comparator slot `yes`, but zero also had both reviewers validate the entire frame; denominator proposed stated is 0. This is not human annotation, not a validated task, not a pilot result, and not a manuscript claim.
+
+Task5-7 were not executed because the gate failed. Future topic work may reuse only generic checksum, acquisition, serialization, or validation patterns after recording the reuse boundary. Quantity-frame data, audits, and negative outcomes cannot be pooled, rescored, relabeled, or used to support a later headline claim.
+
 ## Evidence-state triage boundary
 
-Evidence-State Triage Policy is a new provisional topic. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, CLEP, or ESP. The method target is paired causal evidence-state intervention with `clarify`, `retrieve`, and `abstain` actions; the downstream answer remains outside the primary claim.
+Evidence-State Triage Policy is a retired topic. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, CLEP, ESP, or quantity-frame. The method target was paired causal evidence-state intervention with `clarify`, `retrieve`, and `abstain` actions; the downstream answer remained outside the primary claim.
 
 Retired LAD, DCEA, CLEP, and ESP artifacts may be cited internally only as audit history explaining why the topic pivot occurred. They cannot be pooled, relabeled, rescored, or treated as supporting evidence for any evidence-state triage claim. Negative results must remain negative.
 

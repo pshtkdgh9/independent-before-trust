@@ -1,4 +1,16 @@
-# Experiment Plan: Evidence-State Triage Policy
+# Experiment Plan: Retired Audit Trail
+
+## Current planning state after quantity-frame source gate
+
+No headline experiment is currently selected. Denominator-/Quantity-Frame-Preserving Lay Summarization was an audit target only and is **RETIRED before GPU** after the source gate failed at commit `2d4b079`.
+
+The gate artifacts are `quantity_frame/candidate_build.json`, `quantity_frame/model_audit_packet.jsonl`, and `quantity_frame/source_gate.json`. They record 332 items across two public corpora, 664 completed model-agent development audit rows, `human_evidence=false`, zero integrity failures, and `advance=false`. The decisive counts are `valid=253`, `denominator=0<30`, `comparator=0<30`, and `counterfactual=184`.
+
+Comparator interpretation: 39 candidates proposed a stated comparator and 33 had both reviewers mark the comparator slot `yes`, but zero also had both reviewers validate the entire frame. Denominator proposed stated is 0. The claim is frozen as a negative source-gate result only: no manuscript claim, no GPU, no human evidence, no favorable subset search, and no Task5-7 execution.
+
+Next step: reopen topic search under the existing audit constraints and do not name a new selected candidate here.
+
+## Retired Evidence-State Triage Policy Plan
 
 ## Current research questions
 
@@ -74,7 +86,7 @@ LAD, DCEA, CLEP, ESP, and evidence-state triage are retired. No headline experim
 
 Evidence-state triage stopped before GPU. The model-agent audit summary records two balanced 24-row lanes and a 13-row intersection, but conflict construction failed the audit: overlap agreement is only 7/13 for conflict usability and 6/13 for natural incompatible sentence existence. The candidate is retired for novelty/action aggregation collision and invalid conflict construction. Its design, schema, builder, provenance path, and candidate pack remain negative auditable artifacts only.
 
-Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.
+Denominator-/Quantity-Frame-Preserving Lay Summarization was later audited and retired before GPU after its source gate failed; Task5-7 were not executed.
 
 ## Research questions
 

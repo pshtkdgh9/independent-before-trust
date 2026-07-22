@@ -1,5 +1,19 @@
 # Evidence Map
 
+## Retired quantity-frame claims
+
+Denominator-/Quantity-Frame-Preserving Lay Summarization is retired before GPU and has no supported headline claim. It was an audit target only, not a selected manuscript direction.
+
+| Claim | Required artifact | Current status |
+|---|---|---|
+| QF-C1: public lay-summary sources contain enough validated denominator/base frames to support a quantity-preservation method study | source-gate inventory; two-reviewer frame validation; minimum source count | Unsupported; `denominator=0<30` |
+| QF-C2: public lay-summary sources contain enough validated comparator frames to support a comparator-preservation method study | source-gate inventory; two-reviewer frame validation; minimum source count | Unsupported; `comparator=0<30` |
+| QF-C3: quantity-frame counterfactuals provide a feasible pre-GPU path to a generation claim | valid source frames; denominator and comparator thresholds; later GPU pilot | Unsupported; source gate `advance=false`, so Task5-7 and GPU were not executed |
+
+The source-gate artifacts are `quantity_frame/candidate_build.json`, `quantity_frame/model_audit_packet.jsonl`, and `quantity_frame/source_gate.json` at commit `2d4b079`. They record 332 candidate items from two corpora, 664 completed model-agent development audit rows, `human_evidence=false`, `valid=253`, `counterfactual=184`, and zero integrity failures.
+
+Comparator labels are not claim evidence. The audit found 39 candidates with a proposed stated comparator and 33 with both reviewers marking the comparator slot `yes`, but zero also had both reviewers validate the entire frame. Denominator proposed stated is 0. The artifact maps only to a negative source-gate decision.
+
 ## Retired evidence-state triage claims
 
 Evidence-state triage is retired before GPU and has no supported headline claim.

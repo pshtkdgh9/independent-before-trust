@@ -1,8 +1,18 @@
 # Research Scan
 
-## Evidence-state triage scan
+## Quantity-frame source-gate retirement
 
-The current provisional direction is evidence-state triage: choose `clarify`, `retrieve`, or `abstain` before any downstream answer. Its proposed causal variable is the evidence state, not model confidence alone and not final answer correctness.
+Current topic status: no headline topic is selected. LAD, DCEA, CLEP, ESP, evidence-state triage, and Denominator-/Quantity-Frame-Preserving Lay Summarization are retired.
+
+Denominator-/Quantity-Frame-Preserving Lay Summarization was an audit target only. The public-source path used two acquired corpora and stopped before GPU when the source gate failed at commit `2d4b079`. The gate artifacts record 332 candidate items, 664 completed model-agent development audit rows, `human_evidence=false`, no integrity failures, and `advance=false`.
+
+The negative gate is specific: `valid=253`, but `denominator=0<30` and `comparator=0<30`. Comparator audit labels do not create a viable source pool: 39 candidates proposed a stated comparator and 33 had both reviewers mark the comparator slot `yes`, but zero also had both reviewers validate the entire frame. Denominator proposed stated is 0.
+
+No manuscript novelty or result claim follows from this audit. Task5-7 were not executed because the source gate failed. The next step is to reopen topic search without naming a replacement candidate.
+
+## Retired evidence-state triage scan
+
+The retired evidence-state triage direction would choose `clarify`, `retrieve`, or `abstain` before any downstream answer. Its proposed causal variable was the evidence state, not model confidence alone and not final answer correctness.
 
 Verified closest anchors found in the 2026-07-23 scan:
 
@@ -120,4 +130,4 @@ Evidence-state triage is retired before GPU. The candidate audit is model-agent 
 
 The topic also collides with novelty/action aggregation framing. The retained artifacts document why the direction stopped; they do not support a new research claim.
 
-Next audit target only, not selected: Denominator-Aware Numerical Lay Summarization.
+Denominator-/Quantity-Frame-Preserving Lay Summarization was subsequently audited and retired before GPU after its source gate failed.

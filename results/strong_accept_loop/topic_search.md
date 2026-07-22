@@ -2,6 +2,16 @@
 
 Date: 2026-07-22. Candidate selection excludes benchmark-only work and requires a reusable NLP insight, public/open evidence path, A30 24 GB feasibility, EACL/ACL fit, and separation from the already-submitted journal manuscript.
 
+## Search reopened after quantity-frame source gate
+
+Denominator-/Quantity-Frame-Preserving Lay Summarization was an audit target only, not a selected topic. It is **RETIRED before GPU** after the source gate at commit `2d4b079` and artifacts `quantity_frame/candidate_build.json`, `quantity_frame/model_audit_packet.jsonl`, and `quantity_frame/source_gate.json`.
+
+The source gate covered 332 candidate items from two public corpora and 664 completed model-agent development audit rows. It records `human_evidence=false`, `advance=false`, `valid=253`, `denominator=0<30`, `comparator=0<30`, `counterfactual=184`, and zero integrity failures. Agreement was high for slot labels, including denominator/base `0.9759` and comparator `0.9307`, but this is development-audit agreement only.
+
+Comparator interpretation is negative: 39 candidates proposed a stated comparator and 33 had both reviewers mark the comparator slot `yes`, but zero also had both reviewers validate the entire frame; no candidate proposed a stated denominator/base. The result supports only a negative source-gate decision. It is not a manuscript claim, not human evidence, and not a reason to run GPU experiments.
+
+Current selected direction: none. Reopen topic search under the existing constraints; do not name a replacement candidate until a new search, novelty boundary, provenance path, and falsifiable pilot plan pass.
+
 ## Evidence-state triage provisional candidate
 
 The next provisional candidate is **Evidence-State Triage Policy**: a method study that decides whether the system should `clarify`, `retrieve`, or `abstain` under controlled evidence states. The downstream answer remains out of scope for the primary claim.
@@ -20,7 +30,7 @@ The replacement search uses the same constraints as the earlier pivots: licensed
 
 Evidence-state triage was also audited and retired before GPU. The two model-agent audit lanes each contain 24 balanced rows, but overlap agreement on conflict usability is only 7/13 and natural incompatible sentence existence is only 6/13. The candidate is retired because the framing collides with novelty/action aggregation and the conflict construction is invalid. Its artifacts remain negative audit records only.
 
-Next audit target only, not selected: **Denominator-Aware Numerical Lay Summarization**.
+Retired audit target: **Denominator-/Quantity-Frame-Preserving Lay Summarization**. Its source gate failed before GPU; Task5-7 were not executed.
 
 ## Third-pivot public-data method search
 
@@ -32,7 +42,7 @@ CLEP was retired under its predeclared two-family gate. The next search therefor
 | 2 | **Question-Guided Minimal Simplification Repair:** insert only content diagnosed as missing by InfoLossQA. | 5 | 2 | 5 | 5 | 5 | 22 | Rejected as headline: Nandiraju et al. (2025) already detect missing health-text elements and regenerate text by inserting them. |
 | 3 | **Input-Normalized Table-to-Text Generation:** repair malformed ToTTo inputs before generation. | 4 | 1 | 4 | 4 | 5 | 18 | Rejected: Sundararajan et al. (NAACL 2024) directly fix ToTTo input problems and report large factual-error reductions. |
 | 4 | **Discourse-Relation-Preserving Simplification:** preserve causal, concessive, and contrast relations through typed discourse planning. | 5 | 3 | 3 | 5 | 5 | 21 | Fallback; discourse annotation and reliable automatic evaluation are expensive. |
-| 5 | **Denominator-Aware Numerical Lay Summarization:** bind quantities to populations, time windows, and comparators before generation. | 5 | 3 | 4 | 5 | 5 | 22 | Next audit target only, not selected; numerical-fidelity and data-to-text literature make the novelty boundary narrow. |
+| 5 | **Denominator-/Quantity-Frame-Preserving Lay Summarization:** bind quantities to populations, time windows, and comparators before generation. | 5 | 3 | 4 | 5 | 5 | 22 | Retired before GPU after the source gate failed at commit `2d4b079`: `denominator=0<30`, `comparator=0<30`, `advance=false`, `human_evidence=false`. |
 | 6 | **Targeted Concept Explanation with Context Contracts:** explain only reader-flagged concepts while preserving local claims. | 5 | 2 | 4 | 4 | 5 | 20 | Rejected: WikiDomains and targeted concept simplification already establish this task directly. |
 
 The former provisional winner studied a linguistic failure rather than proposing another benchmark: lay rewriting can delete or strengthen hedges, modal auxiliaries, attribution, and their semantic scope. The proposed method represented each source uncertainty frame as `(cue, strength, scoped proposition, attribution)` and conditioned generation on preserving that frame while simplifying its realization. Primary comparisons would have needed to measure both accessibility and frame preservation; generic semantic similarity was insufficient.

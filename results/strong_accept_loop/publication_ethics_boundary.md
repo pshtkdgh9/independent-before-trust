@@ -1,8 +1,8 @@
 # Publication Ethics and Non-Overlap Boundary
 
-## ESP boundary after topic pivots
+## ESP boundary after topic pivots and retirement
 
-ESP is a new manuscript direction. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, or CLEP. The retired branches are retained for transparency. Their code may contribute only generic experiment plumbing and cannot be presented as an ESP scientific contribution. Their data and negative outcomes cannot be pooled with ESP results.
+ESP was a new manuscript direction and is now retired as a headline candidate. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, or CLEP. LAD, DCEA, CLEP, and ESP are retained for transparency. Their code may contribute only generic experiment plumbing for future searches and cannot be presented as a scientific contribution to a later topic. Their data and negative outcomes cannot be pooled into a new result.
 
 ## Existing submission
 
@@ -29,11 +29,13 @@ Current reuse register:
 
 The reference PDFs and extracted text are used only to orient topic search; they are not manuscript prose and are not empirical evidence.
 
-## New-work boundary
+## Retired ESP boundary
 
-The selected project studies epistemic strength and semantic scope in scientific lay rewriting. It does not study signed networks, trust/reputation prediction, graph calibration, lineage-aware deliberation, causal source attribution, or multilingual channel effects. ESP source selection, annotations, prompts, outputs, metrics, tables, figures, and claims are created anew in this repository from the separately pinned public BioLaySumm source.
+The retired ESP project studied epistemic strength and semantic scope in scientific lay rewriting. It did not study signed networks, trust/reputation prediction, graph calibration, lineage-aware deliberation, causal source attribution, or multilingual channel effects. ESP source selection, annotations, prompts, outputs, metrics, tables, figures, and claims were created anew in this repository from the separately pinned public BioLaySumm source.
 
 Retired-branch code and results remain as an ethical audit trail. They cannot be relabeled as ESP evidence, cannot appear as ESP findings, and cannot justify any ESP claim. Only the generic utilities named in the reuse register cross the boundary.
+
+The ESP counterfactual review records Phi as passing, Qwen as failing, and the combined gate as `advance=false`; it also records `evidence_class=model_agent_development_only` and `human_evidence=false`. Future work must not cite this as human evaluation or as support for an ESP headline claim.
 
 ## Citation and disclosure
 

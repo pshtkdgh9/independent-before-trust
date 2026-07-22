@@ -1,11 +1,11 @@
 # Strong-Accept Loop Status
 
-Date: 2026-07-22
+Date: 2026-07-23
 
-- Phase: LAD, DCEA, and CLEP retired; ESP two-family feasibility run complete, semantic-evaluation reliability gate open
+- Phase: LAD, DCEA, CLEP, and ESP retired; topic search reopened
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
-- Selected direction: Say Less, Mean the Same: Epistemic-Scope-Preserving Lay Summarization (ESP), provisional
+- Selected direction: none; do not select the next topic until a new evidence-first search passes its gates
 - Terminal gate: not satisfied
 
 ## Completed
@@ -45,10 +45,11 @@ Date: 2026-07-22
 - Automatic cue preservation increased from generic to frame for both families (Phi `0.3684` to `0.5789`; Qwen `0.2368` to `0.3947`), but this metric remains diagnostic only.
 - Two condition-blind model-agent audits covered all 228 outputs. Strict two-reviewer strength/scope consensus favored frame over generic in both families, but exact agreement was only `0.640` for strength, `0.443` for scope, and `0.268` for overall acceptability. These audits are development evidence, not human judgments.
 - A failure analysis froze the v1 semantic rubric: omitted targets are `scope=no`, wrong-scope hedges do not preserve strength, and acceptability is conjunctive over semantic fidelity and readability. Two new blinded model-agent audits improved raw agreement to `0.895` strength, `0.689` scope, `0.811` unsupported additions, and `0.899` acceptability. One attempted lane was discarded before writing after accidental exposure to old labels; a completed lane consulted only another file's field names, not labels, and this protocol deviation is retained. None of these audits is human evidence.
+- ESP's natural-text counterfactual negative gate is complete in `esp_counterfactual/review_summary_v1.json`: Phi passes (`advance=true`), Qwen fails (`advance=false`), and the overall gate is `advance=false`. The evidence class is `model_agent_development_only` and `human_evidence=false`, so ESP is retired as the headline candidate rather than selectively scaled.
 
 ## Blocking evidence
 
-- ESP now has complete two-family raw generations and a positive automatic/development signal, but no ESP headline claim is supported because semantic-review reliability is inadequate and no independent human evaluation exists.
+- ESP cannot be promoted: the counterfactual gate did not pass across two families, Qwen failed the gate, the overall gate is `advance=false`, and the review summary explicitly records model-agent development evidence only with `human_evidence=false`.
 - DCEA cannot be promoted: its required citation format failed in all four cells, its predicted redundancy separation was absent in the interpretable Phi outputs, and a 2025 Shapley source-attribution paper directly covers redundancy/complementarity/synergy.
 - CPR was rejected after the initial post-LAD shortlist because RARR (ACL 2023) already performs attribution-assisted minimal repair of unsupported LM output.
 - Generic causal context attribution is also prior work: ContextCite (NeurIPS 2024) and AttriBoT (ICLR 2025) require the new topic to focus narrowly on directional replacement interventions and redundancy, not source removal alone.
@@ -58,10 +59,10 @@ Date: 2026-07-22
 - The first `d7525` allocation failed because zero nodes were available; the failure is recorded in `cloudlab_attempts.md`.
 - The first real invocation exposed and preserved a `transformers==5.14.1` incompatibility; official model-card versions were pinned and a one-item paired smoke test passed before the full rerun.
 - No main experiments, ablations, robustness tests, or error analysis.
-- The ESP cue extractor supplies candidates only. Same-family agent frame labels and model-agent output audits cannot satisfy the paper's independent-human annotation gate; the low output-review agreement requires a revised rubric and adjudication protocol.
+- The ESP cue extractor supplies candidates only. Same-family agent frame labels and model-agent output audits cannot satisfy an independent-human annotation gate; the completed counterfactual review is also model-agent development evidence only.
 - No manuscript/PDF, supplement, cold-review pass, or meta-review pass.
 - Topic-stage overlap clearance does not replace the mandatory final manuscript/supplement lexical, semantic, and evidence-lineage audit.
 
 ## Highest-ROI next step
 
-Implement the approved natural-text counterfactual equivariance plan, while keeping independent human review as a mandatory evidence gate. Preserve the current six-cell run as feasibility evidence; do not tune the rubric or pair selection to make frame conditioning win.
+Reopen topic search from the existing audit constraints. Preserve LAD, DCEA, CLEP, and ESP as retired topics with their negative evidence; do not select a replacement until a new candidate has a licensed evidence path, a direct novelty boundary, and a predeclared two-family gate.

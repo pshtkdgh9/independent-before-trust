@@ -123,8 +123,16 @@ Primary outcomes are frame-strength preservation and scope attachment on retaine
 
 Kill ESP if full-text review finds the same frame-conditioned lay-generation method; if scope annotation agreement is inadequate after guideline revision; if both model families show no improvement over the generic preservation instruction; or if gains arise from copying the source or degrading readability/coverage. The clinical 2026 benchmark's numerical values are context only and will never be presented as same-regime comparison.
 
-## ESP feasibility outcome and open gate
+## ESP feasibility outcome before final gate
 
 At exact execution commit `beca9cc32f9082985535d24fdcbb2cea1199267e`, the direct, generic-preservation, and explicit-frame conditions each produced 38 outputs from Phi-3.5 and Qwen2.5-1.5B. Automatic cue preservation increased under frame conditioning in both families, and a condition-blind two-agent development audit also produced higher strict-consensus strength and scope counts for frame than generic. However, agreement between the two model-agent reviewers was only `0.640` for strength, `0.443` for scope, and `0.268` for overall acceptability. Several frame outputs introduced unsupported content, including a treatment recommendation absent from the source.
 
-Therefore the no-benefit kill condition has not fired, but neither has the evidence gate passed. The run is a feasibility signal only. Before scaling, the study must freeze a clearer semantic rubric, test controlled counterfactual changes in uncertainty strength, measure copying/readability/coverage, and obtain reliable blinded human judgments. No result from the development audit may be described as human evaluation.
+At this stage, the no-benefit kill condition had not fired, but neither had the evidence gate passed. The run was a feasibility signal only. Before any scaling, the study still needed a clearer semantic rubric, controlled counterfactual changes in uncertainty strength, copying/readability/coverage checks, and reliable blinded human judgments. No result from the development audit may be described as human evaluation.
+
+## ESP counterfactual outcome and stop decision
+
+The natural-text counterfactual review is complete in `esp_counterfactual/review_summary_v1.json`. Phi passes its family gate: paired equivariance increases from generic `0.0` to frame `0.5714285714285714`, frame acceptable rate is not lower (`0.6071428571428571` versus `0.35714285714285715`), and unsupported additions are not higher (`0.07142857142857142` versus `0.07142857142857142`). Qwen fails: paired equivariance decreases from generic `0.07142857142857142` to frame `0.0`, frame acceptable rate is lower (`0.25` versus `0.32142857142857145`), and unsupported additions are higher (`0.14285714285714285` versus `0.10714285714285714`).
+
+The combined rule requires the frame condition to be strictly better on paired equivariance in both model families, no worse on unsupported additions, and no lower on acceptable rate. The combined gate is `advance=false`. The artifact records `evidence_class=model_agent_development_only`, `human_evidence=false`, and `row_count=112`.
+
+ESP is therefore retired as the headline candidate. No larger ESP run, rubric tuning, pair selection change, or favorable-family scaling is planned. The artifacts support only the decision to stop ESP and reopen topic search.

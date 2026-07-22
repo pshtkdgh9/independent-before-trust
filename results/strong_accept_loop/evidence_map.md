@@ -1,11 +1,11 @@
 # Evidence Map
 
-## Current ESP claims (all unearned)
+## Retired ESP claims (all unsupported)
 
 | Claim | Required artifact | Current status |
 |---|---|---|
-| ESP-C1: open models alter uncertainty strength or scope during natural scientific lay rewriting | human-reviewed frame annotations; two-family raw outputs; blinded preservation judgments | 228 raw outputs exist; development audits disagree too strongly to support the claim |
-| ESP-C2: explicit frame conditioning improves strength-and-scope preservation over direct and generic-preservation prompts | fixed prompts; paired outputs; integrity validation; paired intervals; adjudicated human labels | Positive cue diagnostic and strict model-agent consensus signal in both families; still `HYPOTHESIS` without reliable human labels |
+| ESP-C1: open models alter uncertainty strength or scope during natural scientific lay rewriting | human-reviewed frame annotations; two-family raw outputs; blinded preservation judgments | Unsupported; available ESP reviews are model-agent development evidence only and `human_evidence=false` |
+| ESP-C2: explicit frame conditioning improves strength-and-scope preservation over direct and generic-preservation prompts | fixed prompts; paired outputs; integrity validation; paired intervals; adjudicated human labels | Unsupported; the counterfactual gate records Phi pass, Qwen fail, and overall `advance=false` |
 | ESP-C3: preservation gains do not come from copying or reduced accessibility/coverage | copying, readability, coverage, unsupported-addition, and human quality analyses | Unsupported additions were observed; copying, readability, and coverage analyses are absent |
 
 The pinned BioLaySumm validation split and extracted 40-item manifest establish feasibility and provenance only. Regex cue matches are not gold labels and cannot support ESP-C1--C3. No LAD, DCEA, or CLEP artifact may be mapped to an ESP claim.
@@ -15,6 +15,8 @@ The v0 agent-annotation audit at `esp_annotations/agreement.json` reports exact 
 The CloudLab artifacts under `cloudlab_artifacts/esp-pilot-beca9cc/` contain six fixed-condition configs, metrics, and 228 raw generations. Cue preservation was direct/generic/frame `0.3421/0.3684/0.5789` for Phi and `0.2105/0.2368/0.3947` for Qwen. The condition-blind development audit at `esp_output_reviews/summary.json` gives strict two-reviewer strength-preserved counts of `2/5/14` for Phi and `7/4/11` for Qwen, but reviewer agreement is inadequate. These artifacts establish feasibility and the need for a reliable semantic evaluation; they do not support ESP-C1--C3 as findings.
 
 The frozen v1 rubric and fresh audits are recorded in `esp_output_review_guidelines_v1.md` and `esp_output_reviews/summary_v1.json`. Raw agreement improved substantially, and strict v1 consensus again favored frame over generic for strength (Phi `10` versus `0`; Qwen `8` versus `1`) and scope (Phi `18` versus `2`; Qwen `23` versus `2`). Because the raters are model agents, this remains a development signal only. It motivates the separately specified counterfactual test but does not change any claim to `SUPPORTED`.
+
+The counterfactual review summary at `esp_counterfactual/review_summary_v1.json` closes ESP as a headline candidate. Under the predeclared advance rule, `microsoft/Phi-3.5-mini-instruct` advances and `Qwen/Qwen2.5-1.5B-Instruct` does not; the overall gate is `advance=false`. The artifact records `evidence_class=model_agent_development_only`, `human_evidence=false`, and `row_count=112`. It maps only to the decision to retire ESP and reopen topic search, not to ESP-C1--C3.
 
 ## Retired CLEP claims
 

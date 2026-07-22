@@ -9,6 +9,7 @@ from src.esp.core import (
     render_rewrite_prompt,
     score_cue_preservation,
 )
+from src.esp.counterfactual import CounterfactualPair, validate_counterfactual_pairs
 
 
 class ESPTests(unittest.TestCase):
@@ -126,6 +127,50 @@ class ESPTests(unittest.TestCase):
     def test_cue_score_distinguishes_preserved_strength(self):
         self.assertTrue(score_cue_preservation("It might help adults.", "possible"))
         self.assertFalse(score_cue_preservation("It helps adults.", "possible"))
+
+    def test_counterfactual_pair_records_are_validated_and_immutable(self):
+        pair = CounterfactualPair(
+            pair_id="esp-cf-0001",
+            original_strength="possible",
+            counterfactual_strength="likely",
+            original_source="The result may reduce symptoms.",
+            counterfactual_source="The result likely reduces symptoms.",
+            edit_spans=("may -> likely",),
+            proposition_skeleton="The result {strength} reduce symptoms.",
+        )
+
+        self.assertEqual(validate_counterfactual_pairs([pair]), [pair])
+        with self.assertRaisesRegex(AttributeError, "cannot assign"):
+            pair.original_strength = "likely"
+
+    def test_counterfactual_pair_validation_rejects_invalid_records(self):
+        valid = {
+            "pair_id": "esp-cf-0001",
+            "original_strength": "possible",
+            "counterfactual_strength": "likely",
+            "original_source": "The result may reduce symptoms.",
+            "counterfactual_source": "The result likely reduces symptoms.",
+            "edit_spans": ("may -> likely",),
+            "proposition_skeleton": "The result {strength} reduce symptoms.",
+        }
+        cases = [
+            ("unique pair IDs", {"pair_id": "esp-cf-0001"}, [CounterfactualPair(**valid)]),
+            ("adjacent strength", {"counterfactual_strength": "suggestive"}, []),
+            ("differ", {"counterfactual_source": valid["original_source"]}, []),
+            ("exactly one edit span", {"edit_spans": ("may -> likely", "reduce -> improve")}, []),
+            ("exactly one edit span", {"edit_spans": ("",)}, []),
+            ("proposition_skeleton", {"counterfactual_proposition_skeleton": "Symptoms are reduced."}, []),
+            ("source strings", {"original_source": ""}, []),
+            ("polarity changes", {"polarity_changed": True}, []),
+            ("material argument changes", {"material_argument_changed": True}, []),
+        ]
+
+        for pattern, overrides, prefix in cases:
+            fields = dict(valid)
+            fields.update(overrides)
+            with self.subTest(pattern=pattern):
+                with self.assertRaisesRegex(ValueError, pattern):
+                    validate_counterfactual_pairs([*prefix, CounterfactualPair(**fields)])
 
 
 if __name__ == "__main__":

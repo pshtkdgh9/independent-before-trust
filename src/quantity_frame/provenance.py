@@ -20,6 +20,7 @@ REQUIRED_FIELDS = (
     "raw_path",
     "bytes",
     "sha256",
+    "artifact_url",
     "download_command",
     "redistribution",
     "intended_role",
@@ -46,7 +47,12 @@ class SourceRecord:
     download_command: str
     redistribution: str
     intended_role: str
-    artifact_url: str | None = None
+    artifact_url: str
+    source_locator_url: str | None = None
+    archive_member: str | None = None
+    derived_from_path: str | None = None
+    derived_from_sha256: str | None = None
+    extraction_command: str | None = None
 
     @classmethod
     def from_dict(cls, row: Mapping[str, Any]) -> "SourceRecord":
@@ -66,6 +72,7 @@ class SourceRecord:
             "accessed_utc",
             "raw_path",
             "sha256",
+            "artifact_url",
             "download_command",
             "redistribution",
             "intended_role",
@@ -84,9 +91,21 @@ class SourceRecord:
         sha256 = str(row["sha256"]).lower()
         if not SHA256_RE.match(sha256):
             raise ProvenanceError("sha256 must be lowercase 64-hex")
-        artifact_url = row.get("artifact_url")
-        if artifact_url is not None and not _non_empty_text(artifact_url):
-            raise ProvenanceError("artifact_url must be non-empty text")
+        optional_text_fields = (
+            "source_locator_url",
+            "archive_member",
+            "derived_from_path",
+            "extraction_command",
+        )
+        for field in optional_text_fields:
+            if field in row and not _non_empty_text(row[field]):
+                raise ProvenanceError(f"{field} must be non-empty text")
+
+        derived_from_sha256 = row.get("derived_from_sha256")
+        if derived_from_sha256 is not None:
+            derived_from_sha256 = str(derived_from_sha256).lower()
+            if not SHA256_RE.match(derived_from_sha256):
+                raise ProvenanceError("derived_from_sha256 must be lowercase 64-hex")
 
         return cls(
             name=str(row["name"]),
@@ -101,7 +120,12 @@ class SourceRecord:
             download_command=str(row["download_command"]),
             redistribution=str(row["redistribution"]),
             intended_role=str(row["intended_role"]),
-            artifact_url=None if artifact_url is None else str(artifact_url),
+            artifact_url=str(row["artifact_url"]),
+            source_locator_url=_optional_str(row, "source_locator_url"),
+            archive_member=_optional_str(row, "archive_member"),
+            derived_from_path=_optional_str(row, "derived_from_path"),
+            derived_from_sha256=derived_from_sha256,
+            extraction_command=_optional_str(row, "extraction_command"),
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -115,12 +139,21 @@ class SourceRecord:
             "raw_path": self.raw_path,
             "bytes": self.bytes,
             "sha256": self.sha256,
+            "artifact_url": self.artifact_url,
             "download_command": self.download_command,
             "redistribution": self.redistribution,
             "intended_role": self.intended_role,
         }
-        if self.artifact_url is not None:
-            record["artifact_url"] = self.artifact_url
+        if self.source_locator_url is not None:
+            record["source_locator_url"] = self.source_locator_url
+        if self.archive_member is not None:
+            record["archive_member"] = self.archive_member
+        if self.derived_from_path is not None:
+            record["derived_from_path"] = self.derived_from_path
+        if self.derived_from_sha256 is not None:
+            record["derived_from_sha256"] = self.derived_from_sha256
+        if self.extraction_command is not None:
+            record["extraction_command"] = self.extraction_command
         return record
 
 
@@ -169,3 +202,8 @@ def verify_manifest(path: Path) -> tuple[int, int]:
 
 def _non_empty_text(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
+
+
+def _optional_str(row: Mapping[str, Any], field: str) -> str | None:
+    value = row.get(field)
+    return None if value is None else str(value)

@@ -33,6 +33,7 @@ def complete_record(tmp_path: Path) -> dict[str, object]:
         "raw_path": raw_file.as_posix(),
         "bytes": raw_file.stat().st_size,
         "sha256": "A" * 64,
+        "artifact_url": "https://example.test/validation.json",
         "download_command": "python scripts/acquire_quantity_frame_sources.py",
         "redistribution": "metadata only; raw corpus remains git-ignored",
         "intended_role": "development prevalence estimation",
@@ -44,11 +45,37 @@ def test_source_record_requires_revision():
         SourceRecord.from_dict({"name": "cochrane"})
 
 
+def test_source_record_requires_artifact_url(tmp_path):
+    row = complete_record(tmp_path)
+    del row["artifact_url"]
+
+    with pytest.raises(ProvenanceError, match="missing: artifact_url"):
+        SourceRecord.from_dict(row)
+
+
 def test_source_record_validates_required_fields_and_canonical_sha(tmp_path):
     record = SourceRecord.from_dict(complete_record(tmp_path))
 
     assert record.sha256 == "a" * 64
     assert record.bytes > 0
+
+
+def test_source_record_preserves_archive_lineage_fields(tmp_path):
+    row = complete_record(tmp_path)
+    row.update(
+        {
+            "source_locator_url": "https://huggingface.co/datasets/example/resolve/rev/loader.py",
+            "archive_member": "val.json",
+            "derived_from_path": "data/raw/example/archive.zip",
+            "derived_from_sha256": "b" * 64,
+            "extraction_command": "python scripts/acquire_quantity_frame_sources.py",
+        }
+    )
+
+    assert SourceRecord.from_dict(row).to_dict() == {
+        **row,
+        "sha256": "a" * 64,
+    }
 
 
 @pytest.mark.parametrize(
@@ -100,3 +127,10 @@ def test_acquire_cli_verifies_selected_manifest(tmp_path, monkeypatch, capsys):
 
     assert acquire_quantity_frame_sources.main() == 0
     assert "verified_sources=1 failures=0" in capsys.readouterr().out
+
+
+def test_repository_manifest_verifies_four_quantity_frame_artifacts():
+    assert (
+        verify_manifest(Path("data_provenance/quantity_frame_manifest.jsonl"))
+        == (4, 0)
+    )

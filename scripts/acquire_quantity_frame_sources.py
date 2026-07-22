@@ -34,9 +34,32 @@ SOURCES = (
         "intended_role": "source acquisition for development prevalence estimation; no preprocessing",
     },
     {
-        "name": "tomasg25/scientific_lay_summarisation eLife validation",
+        "name": "tomasg25/scientific_lay_summarisation loader",
+        "canonical_url": "https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation",
+        "artifact_url": "https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation/resolve/9e109befb07bfb993843991d09b8aa6ee40b9267/scientific_lay_summarisation.py",
+        "revision": "9e109befb07bfb993843991d09b8aa6ee40b9267",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "raw_path": "data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/scientific_lay_summarisation.py",
+        "redistribution": "metadata, script, hashes, and acquisition command only; raw corpus remains git-ignored",
+        "intended_role": "loader provenance for Google Drive archive locator; no preprocessing",
+    },
+    {
+        "name": "tomasg25/scientific_lay_summarisation eLife Google Drive archive",
         "canonical_url": "https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation",
         "artifact_url": "https://drive.usercontent.google.com/download?id=1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE&export=download&authuser=1&confirm=t&uuid=1332bc11-7cbf-4c4d-8561-85621060f397&at=APZUnTVLLKAGVSBpQlYKojrJ57xb%3A1716450570186",
+        "source_locator_url": "https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation/resolve/9e109befb07bfb993843991d09b8aa6ee40b9267/scientific_lay_summarisation.py",
+        "revision": "9e109befb07bfb993843991d09b8aa6ee40b9267",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "raw_path": "data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/elife_archive.zip",
+        "redistribution": "metadata, script, hashes, and acquisition command only; raw corpus remains git-ignored",
+        "intended_role": "bulk archive source acquisition for validation split extraction; no preprocessing",
+    },
+    {
+        "name": "tomasg25/scientific_lay_summarisation eLife validation",
+        "canonical_url": "https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation",
+        "artifact_url": "https://drive.usercontent.google.com/download?id=1WKW8BAqluOlXrpy1B9mV3j3CtAK3JdnE&export=download&authuser=1&confirm=t&uuid=1332bc11-7cbf-4c4d-8561-85621060f397&at=APZUnTVLLKAGVSBpQlYKojrJ57xb%3A1716450570186#member=val.json",
         "source_locator_url": "https://huggingface.co/datasets/tomasg25/scientific_lay_summarisation/resolve/9e109befb07bfb993843991d09b8aa6ee40b9267/scientific_lay_summarisation.py",
         "revision": "9e109befb07bfb993843991d09b8aa6ee40b9267",
         "license": "CC BY 4.0",
@@ -81,25 +104,33 @@ def main() -> int:
             )
         else:
             download(str(source["artifact_url"]), raw_path)
-        record = SourceRecord.from_dict(
-            {
-                "name": source["name"],
-                "canonical_url": source["canonical_url"],
-                "revision": source["revision"],
-                "license": source["license"],
-                "license_url": source["license_url"],
-                "accessed_utc": ACCESS_TIME,
-                "raw_path": raw_path.as_posix(),
-                "bytes": raw_path.stat().st_size,
-                "sha256": sha256_file(raw_path),
-                "artifact_url": source["artifact_url"],
-                "download_command": (
-                    f"python scripts/acquire_quantity_frame_sources.py --manifest {args.manifest.as_posix()}"
-                ),
-                "redistribution": source["redistribution"],
-                "intended_role": source["intended_role"],
-            }
-        )
+        row = {
+            "name": source["name"],
+            "canonical_url": source["canonical_url"],
+            "revision": source["revision"],
+            "license": source["license"],
+            "license_url": source["license_url"],
+            "accessed_utc": ACCESS_TIME,
+            "raw_path": raw_path.as_posix(),
+            "bytes": raw_path.stat().st_size,
+            "sha256": sha256_file(raw_path),
+            "artifact_url": source["artifact_url"],
+            "download_command": (
+                f"python scripts/acquire_quantity_frame_sources.py --manifest {args.manifest.as_posix()}"
+            ),
+            "redistribution": source["redistribution"],
+            "intended_role": source["intended_role"],
+        }
+        for field in ("source_locator_url", "archive_member"):
+            if field in source:
+                row[field] = source[field]
+        if "archive_path" in source:
+            row["derived_from_path"] = Path(str(source["archive_path"])).as_posix()
+            row["derived_from_sha256"] = sha256_file(Path(str(source["archive_path"])))
+            row["extraction_command"] = (
+                f"python scripts/acquire_quantity_frame_sources.py --manifest {args.manifest.as_posix()}"
+            )
+        record = SourceRecord.from_dict(row)
         records.append(record)
 
     args.manifest.parent.mkdir(parents=True, exist_ok=True)

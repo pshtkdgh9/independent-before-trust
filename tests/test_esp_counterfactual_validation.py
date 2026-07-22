@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import importlib.util
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -39,6 +40,12 @@ def _write_jsonl(path: Path, rows: list[dict[str, object]]) -> None:
         "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows),
         encoding="utf-8",
     )
+
+
+def _copy_manifest_without_field(path: Path, field: str) -> None:
+    rows = [json.loads(line) for line in runner.DEFAULT_PAIRS_PATH.read_text(encoding="utf-8").splitlines()]
+    rows[0].pop(field)
+    _write_jsonl(path, rows)
 
 
 def _build_complete_run(run_dir: Path, *, condition: str = "frame") -> None:
@@ -307,6 +314,79 @@ class ESPCounterfactualValidationTests(unittest.TestCase):
                 "source_item_id mismatch for esp-cf-v0-0001 original: 'esp-wrong-source'",
                 report["errors"],
             )
+
+    def test_missing_manifest_attribution_yields_fail_report_without_traceback(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            run_dir = temp_path / "run"
+            pairs_path = temp_path / "pairs.jsonl"
+            _build_complete_run(run_dir)
+            _copy_manifest_without_field(pairs_path, "attribution")
+
+            report = validator.validate_esp_counterfactual_run(
+                run_dir,
+                pairs_path=pairs_path,
+                expected_git_commit=_EXPECTED_COMMIT,
+                expected_model_id="test/model",
+                expected_revision="revision-1",
+                expected_condition="frame",
+            )
+
+            self.assertEqual(report["status"], "fail")
+            self.assertIn("pair manifest row 1 missing field attribution", report["errors"])
+
+    def test_missing_manifest_source_item_id_yields_fail_report_without_traceback(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            run_dir = temp_path / "run"
+            pairs_path = temp_path / "pairs.jsonl"
+            _build_complete_run(run_dir)
+            _copy_manifest_without_field(pairs_path, "source_item_id")
+
+            report = validator.validate_esp_counterfactual_run(
+                run_dir,
+                pairs_path=pairs_path,
+                expected_git_commit=_EXPECTED_COMMIT,
+                expected_model_id="test/model",
+                expected_revision="revision-1",
+                expected_condition="frame",
+            )
+
+            self.assertEqual(report["status"], "fail")
+            self.assertIn("pair manifest row 1 missing field source_item_id", report["errors"])
+
+    def test_cli_default_pairs_path_works_from_temporary_cwd(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            run_dir = temp_path / "run"
+            output_path = temp_path / "validation.json"
+            _build_complete_run(run_dir)
+
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(_VALIDATOR_PATH),
+                    "--run-dir",
+                    str(run_dir),
+                    "--output",
+                    str(output_path),
+                    "--expected-git-commit",
+                    _EXPECTED_COMMIT,
+                    "--expected-model-id",
+                    "test/model",
+                    "--expected-revision",
+                    "revision-1",
+                    "--expected-condition",
+                    "frame",
+                ],
+                cwd=temp_path,
+                text=True,
+                capture_output=True,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+            report = json.loads(output_path.read_text(encoding="utf-8"))
+            self.assertEqual(report["status"], "pass")
 
 
 if __name__ == "__main__":

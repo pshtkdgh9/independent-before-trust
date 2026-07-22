@@ -10,16 +10,28 @@ import sys
 from pathlib import Path
 from typing import Any
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT))
 
 from src.esp.core import render_rewrite_prompt, score_cue_preservation
 from src.esp.counterfactual import CounterfactualPair, validate_counterfactual_pairs
 
 
-DEFAULT_PAIRS_PATH = Path("data/annotations/esp_counterfactual_pairs_v0.jsonl")
+DEFAULT_PAIRS_PATH = REPO_ROOT / "data" / "annotations" / "esp_counterfactual_pairs_v0.jsonl"
 EXPECTED_PAIR_COUNT = 14
 EXPECTED_GENERATION_COUNT = 28
 PROTOCOL = "esp-counterfactual-v0"
+REQUIRED_MANIFEST_FIELDS = (
+    "pair_id",
+    "source_item_id",
+    "original_strength",
+    "counterfactual_strength",
+    "attribution",
+    "original_source",
+    "counterfactual_source",
+    "edit_spans",
+    "proposition_skeleton",
+)
 _INTERNAL_LABEL_RE = re.compile(
     r"\b(?:variant|condition|original|counterfactual)\s*:", re.IGNORECASE
 )
@@ -82,42 +94,94 @@ def _read_jsonl(path: Path, errors: list[str], label: str) -> list[dict[str, Any
     return rows
 
 
+def _validated_manifest_row(
+    row: dict[str, Any], row_number: int, errors: list[str]
+) -> dict[str, Any] | None:
+    valid = True
+    for field in REQUIRED_MANIFEST_FIELDS:
+        if field not in row:
+            errors.append(f"pair manifest row {row_number} missing field {field}")
+            valid = False
+    if not valid:
+        return None
+
+    for field in (
+        "pair_id",
+        "source_item_id",
+        "original_strength",
+        "counterfactual_strength",
+        "attribution",
+        "original_source",
+        "counterfactual_source",
+        "proposition_skeleton",
+    ):
+        if not isinstance(row[field], str) or not row[field].strip():
+            errors.append(f"pair manifest row {row_number} invalid {field}")
+            valid = False
+    edit_spans = row["edit_spans"]
+    if (
+        not isinstance(edit_spans, list)
+        or len(edit_spans) != 1
+        or not isinstance(edit_spans[0], str)
+        or not edit_spans[0].strip()
+    ):
+        errors.append(f"pair manifest row {row_number} invalid edit_spans")
+        valid = False
+    counterfactual_skeleton = row.get("counterfactual_proposition_skeleton")
+    if counterfactual_skeleton is not None and not isinstance(
+        counterfactual_skeleton, str
+    ):
+        errors.append(
+            f"pair manifest row {row_number} invalid counterfactual_proposition_skeleton"
+        )
+        valid = False
+    for field in ("polarity_changed", "material_argument_changed"):
+        if field in row and not isinstance(row[field], bool):
+            errors.append(f"pair manifest row {row_number} invalid {field}")
+            valid = False
+    return row if valid else None
+
+
 def _load_manifest(path: Path, errors: list[str]) -> list[dict[str, Any]]:
     rows = _read_jsonl(path, errors, "pair manifest")
     pairs: list[CounterfactualPair] = []
-    for row in rows:
-        try:
-            pairs.append(
-                CounterfactualPair(
-                    pair_id=str(row["pair_id"]),
-                    original_strength=str(row["original_strength"]),
-                    counterfactual_strength=str(row["counterfactual_strength"]),
-                    original_source=str(row["original_source"]),
-                    counterfactual_source=str(row["counterfactual_source"]),
-                    edit_spans=tuple(str(span) for span in row["edit_spans"]),
-                    proposition_skeleton=str(row["proposition_skeleton"]),
-                    counterfactual_proposition_skeleton=(
-                        str(row["counterfactual_proposition_skeleton"])
-                        if row.get("counterfactual_proposition_skeleton") is not None
-                        else None
-                    ),
-                    polarity_changed=bool(row.get("polarity_changed", False)),
-                    material_argument_changed=bool(
-                        row.get("material_argument_changed", False)
-                    ),
-                )
+    validated_rows: list[dict[str, Any]] = []
+    for row_number, row in enumerate(rows, 1):
+        validated = _validated_manifest_row(row, row_number, errors)
+        if validated is None:
+            continue
+        pairs.append(
+            CounterfactualPair(
+                pair_id=validated["pair_id"],
+                original_strength=validated["original_strength"],
+                counterfactual_strength=validated["counterfactual_strength"],
+                original_source=validated["original_source"],
+                counterfactual_source=validated["counterfactual_source"],
+                edit_spans=tuple(validated["edit_spans"]),
+                proposition_skeleton=validated["proposition_skeleton"],
+                counterfactual_proposition_skeleton=(
+                    validated["counterfactual_proposition_skeleton"]
+                    if validated.get("counterfactual_proposition_skeleton") is not None
+                    else None
+                ),
+                polarity_changed=validated.get("polarity_changed", False),
+                material_argument_changed=validated.get(
+                    "material_argument_changed", False
+                ),
             )
-        except KeyError as exc:
-            errors.append(f"pair manifest missing field {exc.args[0]}")
-    try:
-        validate_counterfactual_pairs(pairs)
-    except ValueError as exc:
-        errors.append(str(exc))
-    if len(rows) != EXPECTED_PAIR_COUNT:
-        errors.append(
-            f"pair manifest count mismatch: expected {EXPECTED_PAIR_COUNT}, found {len(rows)}"
         )
-    return rows
+        validated_rows.append(validated)
+    if pairs:
+        try:
+            validate_counterfactual_pairs(pairs)
+        except ValueError as exc:
+            errors.append(str(exc))
+    if len(validated_rows) != EXPECTED_PAIR_COUNT:
+        errors.append(
+            "pair manifest count mismatch: "
+            f"expected {EXPECTED_PAIR_COUNT}, found {len(validated_rows)}"
+        )
+    return validated_rows
 
 
 def _expected_rows(manifest: list[dict[str, Any]], condition: str) -> list[dict[str, Any]]:
@@ -321,9 +385,8 @@ def validate_esp_counterfactual_run(
     }
     if output_path is not None:
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(
-            json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-        )
+        with output_path.open("w", encoding="utf-8", newline="\n") as handle:
+            handle.write(json.dumps(report, indent=2, sort_keys=True) + "\n")
     return report
 
 

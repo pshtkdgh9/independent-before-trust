@@ -116,3 +116,41 @@ def annotation_agreement(
         for field in fields
     }
     return {"items": item_count, "exact_agreement": exact}
+
+
+def render_rewrite_prompt(
+    source_scope: str, annotation: Mapping[str, object], condition: str
+) -> str:
+    base = (
+        "Rewrite the scientific sentence for a general audience in one concise sentence. "
+        "Do not add facts. Return only the rewritten sentence.\n\n"
+    )
+    if condition == "direct":
+        return base + f"SOURCE:\n{source_scope}"
+    if condition == "generic":
+        return (
+            base
+            + "Preserve the original level of uncertainty and what it applies to.\n\n"
+            + f"SOURCE:\n{source_scope}"
+        )
+    if condition == "frame":
+        return (
+            base
+            + "Preserve this audited uncertainty frame exactly in meaning:\n"
+            + f"FRAME: STRENGTH={annotation['strength']}; "
+            + f"ATTRIBUTION={annotation['attribution']}; "
+            + f"SCOPE={annotation['scope_text']}\n\n"
+            + f"SOURCE:\n{source_scope}"
+        )
+    raise ValueError(f"unknown condition: {condition}")
+
+
+def score_cue_preservation(output: str, strength: str) -> bool:
+    patterns = {
+        "possible": re.compile(r"\b(may|might|could|possible|possibly|can)\b", re.I),
+        "suggestive": re.compile(r"\b(suggest|suggests|suggested|indicate|indicates)\b", re.I),
+        "likely": re.compile(r"\b(likely|probably|probable)\b", re.I),
+        "unknown": re.compile(r"\b(unknown|unclear|not known)\b", re.I),
+    }
+    pattern = patterns.get(strength)
+    return bool(pattern and pattern.search(output))

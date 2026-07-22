@@ -5,6 +5,8 @@ from src.esp.core import (
     build_pilot_items,
     extract_uncertainty_frames,
     validate_annotations,
+    render_rewrite_prompt,
+    score_cue_preservation,
 )
 
 
@@ -98,6 +100,21 @@ class ESPTests(unittest.TestCase):
         self.assertEqual(report["exact_agreement"]["cue_valid"], 0.5)
         self.assertEqual(report["exact_agreement"]["strength"], 1.0)
         self.assertNotIn("scope_text", report["exact_agreement"])
+
+    def test_frame_prompt_exposes_frame_but_direct_prompt_does_not(self):
+        annotation = {
+            "scope_text": "the treatment may help adults",
+            "strength": "possible",
+            "attribution": "authors",
+        }
+        direct = render_rewrite_prompt("The treatment may help adults.", annotation, "direct")
+        framed = render_rewrite_prompt("The treatment may help adults.", annotation, "frame")
+        self.assertNotIn("FRAME", direct)
+        self.assertIn("STRENGTH=possible", framed)
+
+    def test_cue_score_distinguishes_preserved_strength(self):
+        self.assertTrue(score_cue_preservation("It might help adults.", "possible"))
+        self.assertFalse(score_cue_preservation("It helps adults.", "possible"))
 
 
 if __name__ == "__main__":

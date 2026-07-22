@@ -1,0 +1,16 @@
+filename	bytes	sha256	role
+25ACL_A General Framework to Enhance Fine-tuning-based LLM Unlearning.pdf	1969761	2d4a7e50b687e6732a63d0ade94b81ce10b6c90bf1174987e6b71f3d2732561d	background-only
+25ACL_Ask-Before-Detection Identifying and Mitigating Conformity Bias in LLM-Powered Error Detector for Math Word Problem Solutions.pdf	609290	cda1b23ce4dce1baef97efa6e13736665c711eaaa80ae48ddb2ee44de7685056	background-only
+25ACL_kor_Red-Teaming LLM Multi-Agent Systems via Communication Attacks.pdf	1236876	10d4b12c24c350cff1d0c5456f386067efcb8dfd93b10296a323f75ab81425ca	background-only-translation
+25ACL_Reasoning with Graphs Structuring Implicit Knowledge to Enhance LLMs' Reasoning.pdf	627234	860f10ea6e79ad9dc31f1d66822af0d70a2f5c8d540e0586f0185ec88fb7a729	background-only
+25ACL_Red-Teaming LLM Multi-Agent Systems via Communication Attacks.pdf	817033	f7b136e99b7bb0a2cec8ff27d4e73db6c3ab5cc9d9d7241de0c03fe9d8560f92	background-only
+25ACL_Stepwise Perplexity-Guided Refinement for Efficient Chain-of-Thought Reasoning in Large Language Models.pdf	1741851	c19a50dbb6b0b3c293a994d07ab333ce7f45b3577bdb2acd18a3f02e3b3a2567	background-only
+25ACL_Towards Context-Robust LLMs A Gated Representation Fine-tuning Approach.pdf	1718155	c5570c29a78ab939e9592118677f6eaf323d315eee6479698206b3eff947d054	background-only
+25ACL_Unveiling Privacy Risks in LLM Agent Memory.pdf	581750	2889bf341bb347fef16560add741391eb92fc66cc6fc015747893a55dc255087	background-only
+26ACL_A Reward-Guided Dual-Phase Framework for Adaptive Inference-Time Reasoning.pdf	1250649	60a482767c11220fd37d61cc614694542eabca9e37a690f8e0d570f773640576	background-only
+26ACL_Attn-GS Attention-Guided Context Compression for Efficient Personalized LLMs.pdf	771257	f64ac4dcc836559a98b17fbdbb5b68bb6a93e13fd5b9175da2f17032e2a31dbb	background-only
+26ACL_Exploring Graph Learning Tasks with Pure LLMs A Comprehensive Benchmark and Investigation.pdf	1052149	a7d66bb25b9af767a3f1045f07a622400188ee3edf40d6fe1047fb7b277bb06d	background-only
+26ACL_How Memory Management Impacts LLM Agents An Empirical Study of Experience-Following Behavior.pdf	9600578	6a7c81e54088b0e50a4e24fc7a9c48b1765290c1b2edef110483dcf3ea06c964	background-only
+26ACL_kor_To trust or not to trust Attention-based Trust Management for LLM Multi-Agent Systems.pdf	1581539	078dac4a6d71246abec8063638bfcb1c927c79a558a5e58afc41f31af2d08cc5	background-only-translation
+26ACL_To trust or not to trust Attention-based Trust Management for LLM Multi-Agent Systems.pdf	2102689	f9efb540e5d1f4aea3d0158234edf3166598656c58953e24531c33750363c081	background-only
+26EACL_PEAR Planner-Executor Agent Robustness Benchmark.pdf	2142060	bab0d4ed6e47ef0a277775ea321e4a91494ae8709956468f08f18a083cd7ab87	background-only

@@ -1,0 +1,13 @@
+# GPU/runtime versions are pinned only after the CloudLab CUDA driver is recorded.
+# Install a compatible PyTorch build first, then install the research stack.
+accelerate
+datasets
+huggingface-hub
+numpy
+pandas
+pyarrow
+pyyaml
+scikit-learn
+scipy
+sentence-transformers
+transformers

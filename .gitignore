@@ -1,0 +1,13 @@
+Reference Paper/
+outputs/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+data/raw/
+data/processed/
+models/
+results/runs/
+results/mock_pilot/
+.omx/

@@ -1,0 +1,23 @@
+{
+  "artifact_class": "processed-experimental-input",
+  "filtering_decisions": "one task item per unique scenario; deterministic rotating item selection; no content filtering; no private answer injected during preprocessing",
+  "output_bytes": 35141,
+  "output_path": "data/processed/lad-pilot-v1/items.jsonl",
+  "output_records": 50,
+  "output_sha256": "6d4af279528c92518c92032c62cf4ead91fc7e0bcf1059b3f53e1c2533cdf407",
+  "preprocessing_command": "python scripts/build_bigbench_pilot.py --input 'data\\raw\\bigbench\\092b196c\\logical_deduction_five_objects.json' --output 'data\\processed\\lad-pilot-v1\\items.jsonl' --provenance-log 'results\\strong_accept_loop\\provenance_logs\\bigbench_logical_deduction_preprocessing.json' --source-url https://raw.githubusercontent.com/google/BIG-bench/092b196c1f8f14a54bbc62f24759d43bde46dd3b/bigbench/benchmark_tasks/logical_deduction/five_objects/task.json --revision 092b196c1f8f14a54bbc62f24759d43bde46dd3b --seed 1701 --limit 50",
+  "privacy_or_consent": "synthetic object-order reasoning; no personal data",
+  "protocol": "adaptive-private-first-v1",
+  "redistribution": "derived items and runtime pairs releasable with Apache-2.0 attribution",
+  "seed": 1701,
+  "selected_scenarios": 50,
+  "selection": "preserve source order; choose group_index modulo group size from each unique input; elicit target-model private answer before pair construction",
+  "source_bytes": 305889,
+  "source_examples": 500,
+  "source_path": "data/raw/bigbench/092b196c/logical_deduction_five_objects.json",
+  "source_revision": "092b196c1f8f14a54bbc62f24759d43bde46dd3b",
+  "source_sha256": "552dec4d5067bdbe033e78e80fdf1f5a8061d17b385379b8ec5104fa17d07918",
+  "source_task": "five_objects",
+  "source_url": "https://raw.githubusercontent.com/google/BIG-bench/092b196c1f8f14a54bbc62f24759d43bde46dd3b/bigbench/benchmark_tasks/logical_deduction/five_objects/task.json",
+  "unique_scenarios": 100
+}

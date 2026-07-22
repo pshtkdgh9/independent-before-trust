@@ -4,7 +4,7 @@ set -euo pipefail
 repo_dir="${1:-$PWD}"
 cd "$repo_dir"
 
-run_dir="results/runs/phi35-pilot"
+run_dir="${2:-results/runs/phi35-pilot}"
 mkdir -p "$run_dir"
 date --utc --iso-8601=seconds >"$run_dir/run-started-utc.txt"
 git rev-parse HEAD >"$run_dir/run-git-commit.txt"

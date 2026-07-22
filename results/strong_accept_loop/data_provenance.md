@@ -1,5 +1,26 @@
 # Data Provenance Register
 
+## FEVER evidence-state source acquisition
+
+| Item | Value |
+|---|---|
+| Name | FEVER wiki pages archive |
+| Source URL | <https://fever.ai/download/fever/wiki-pages.zip> |
+| Dataset card / revision | <https://huggingface.co/datasets/EleutherAI/fever/tree/85ebc1eaacc6b6bf0d54719c942b7aad097a1abd> |
+| CloudLab archive path | `/users/SangSong/evidence-state-data/raw/fever/wiki-pages.zip` |
+| Downloaded | 2026-07-23 |
+| Archive bytes / SHA-256 | `1,713,485,474` / `4b06d95da6adf7fe02d2796176c670dacccb21348da89cba4c50676ab99665f2` |
+| Download command | `curl -L --fail --retry 5 -C - https://fever.ai/download/fever/wiki-pages.zip -o /users/SangSong/evidence-state-data/raw/fever/wiki-pages.zip` |
+| Extraction command | `unzip -q .../wiki-pages.zip -d .../wiki-pages` |
+| Extracted path | `/users/SangSong/evidence-state-data/raw/fever/wiki-pages` |
+| Extracted size | Approximately `7.2G`; this is not an exact byte count |
+| Extracted file count | 221 files |
+| File checksum manifest / file count path | `/users/SangSong/evidence-state-data/raw/fever/wiki-pages.files.sha256` |
+| Extracted aggregate checksum | Not recorded; no extracted aggregate checksum is asserted |
+| License/terms | FEVER Hugging Face pinned revision `85ebc1eaacc6b6bf0d54719c942b7aad097a1abd` tags `cc-by-sa-3.0` and `gpl-3.0`; underlying Wikipedia text is CC BY-SA 3.0 |
+| Redistribution boundary | Attribution and share-alike obligations apply. Derived Wikipedia text must not be redistributed unless the CC BY-SA 3.0 boundary is satisfied |
+| Experimental claim status | Source acquisition only; no benchmark claim is made |
+
 ## ESP retired corpus and artifact provenance
 
 | Item | Value |

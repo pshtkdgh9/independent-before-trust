@@ -2,9 +2,23 @@
 
 Date: 2026-07-23
 
-## Current direction after the ESP negative gate
+## Current provisional direction after the ESP negative gate
 
-No headline topic is currently selected. Topic search is reopened after LAD, DCEA, CLEP, and ESP all failed their recorded gates. The next topic must not be chosen in this file until a new candidate passes a documented search, novelty boundary, provenance path, and falsifiable pilot plan.
+**Evidence-State Triage Policy: Clarify, Retrieve, or Abstain under Controlled Evidence States**
+
+Research question: *Can an explicit evidence-state policy distinguish missing evidence, user-intent ambiguity, and conflicting evidence well enough to choose `clarify`, `retrieve`, or `abstain` before any downstream answer is attempted?*
+
+This is a method and causal-intervention paper, not a benchmark release. The planned contribution is a paired evidence-state intervention suite plus a lightweight state-aware triage policy. A dataset may be constructed only as an instrument for testing the policy; benchmark creation is not the novelty claim.
+
+Its claims start unearned:
+
+- EST-C1: open models and prompt/router baselines confuse insufficiency, ambiguity, and conflict in ways that create avoidable false answers or wrong non-answer actions;
+- EST-C2: paired causal evidence-state interventions reveal directional action failures that aggregate answer accuracy or generic abstention metrics hide;
+- EST-C3: a state-aware triage method improves action macro-F1 and selective risk over the strongest baseline separately for insufficiency and conflict without increasing false-answer rate.
+
+Selection is provisional. Closest-work screening found dense adjacent work on insufficient evidence, selective ambiguous QA, uncertainty solving instead of abstention, ask-first retrieval systems, knowledge-boundary retrieval, calibrated abstention, post-refusal clarification, and conflict-aware RAG. The current novelty statement is only a search-limited absence-of-exact-combination inference: no located work combines paired causal evidence-state interventions over insufficiency and conflict with a three-action `clarify`/`retrieve`/`abstain` policy while keeping answer generation downstream.
+
+Advance only if the state-aware method beats the strongest baseline on macro-F1 and on selective risk separately for insufficiency and conflict; more than 50% of paired interventions produce the predicted directional action flip; the result holds across two independently developed open model families; and false-answer rate is no worse than the strongest baseline. If any condition fails, retire the topic rather than repairing labels, changing the gate, or searching for a favorable model.
 
 ## Retired ESP direction after the third empirical pivot
 

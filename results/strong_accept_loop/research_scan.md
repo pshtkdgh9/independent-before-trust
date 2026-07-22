@@ -1,6 +1,24 @@
 # Research Scan
 
-## Current synthesis
+## Evidence-state triage scan
+
+The current provisional direction is evidence-state triage: choose `clarify`, `retrieve`, or `abstain` before any downstream answer. Its proposed causal variable is the evidence state, not model confidence alone and not final answer correctness.
+
+Verified closest anchors found in the 2026-07-23 scan:
+
+1. Atanasova et al. (TACL 2022), *Fact Checking with Insufficient Evidence*: establishes insufficient-evidence detection for fact checking and contrastive missing-evidence construction.
+2. Cole et al. (EMNLP 2023), *Selectively Answering Ambiguous Questions*: studies selective answering when questions are inherently ambiguous.
+3. Liu et al. (ACL 2025), *Do not Abstain! Identify and Solve the Uncertainty*: identifies uncertainty sources including document scarcity, capability limitation, and query ambiguity, and trains inquiries rather than defaulting to refusal.
+4. Nguyen et al. (Findings IJCNLP-AACL 2025), *When in Doubt, Ask First*: combines retrieval agents, clarification, and unanswerable handling for ambiguous and unanswerable QA.
+5. Zhang et al. (Findings EMNLP 2025), KBM: models knowledge boundaries for adaptive retrieval decisions.
+6. Abstain-R1 (2026): trains calibrated abstention and post-refusal clarification behavior.
+7. CARE-family conflict-aware RAG work: addresses context-memory or retrieved-evidence conflict before generation.
+
+These anchors rule out broad claims of novelty for insufficient evidence, ambiguity-aware selective QA, ask-first behavior, adaptive retrieval, abstention training, post-refusal clarification, or conflict-aware RAG. The remaining possible gap is narrower: paired causal evidence-state interventions that separately manipulate insufficiency and conflict, require a three-way policy over `clarify`, `retrieve`, and `abstain`, and keep answer generation downstream.
+
+This is only a search-limited absence-of-exact-combination inference. Full-text review remains mandatory before manuscript novelty language. No external URL, checksum, license, or benchmark claim should be added unless independently verified and recorded in provenance.
+
+## Retired LAD synthesis
 
 Recent work establishes that language-agent groups can conform, amplify errors, and become less reliable as interaction structure changes. Closely adjacent 2026 work also studies debate failure, conformity measurement, confidence, identity, consensus, and graph-based collaboration. Those results make a broad "multi-agent debate is unreliable" paper insufficiently novel.
 

@@ -1,5 +1,19 @@
 # Evidence Map
 
+## Current evidence-state triage claims (all unearned)
+
+| Claim | Required artifact | Current status |
+|---|---|---|
+| EST-C1: open models and prompt/router baselines confuse insufficiency, ambiguity, and conflict in ways that create avoidable false answers or wrong non-answer actions | licensed paired item manifest; frozen prompts; two-family raw outputs; parser and integrity reports; action confusion matrices | HYPOTHESIS; no licensed pilot source, model run, or validation artifact exists |
+| EST-C2: paired causal evidence-state interventions reveal directional action failures hidden by aggregate answer accuracy or generic abstention metrics | intervention validator; paired `sufficient -> insufficient`, `sufficient -> conflict`, and `insufficient -> conflict` variants; directional flip analysis | HYPOTHESIS; design specified only |
+| EST-C3: a state-aware triage method improves action macro-F1 and selective risk over the strongest baseline separately for insufficiency and conflict without increasing false-answer rate | baseline suite; state-aware router; macro-F1 table; selective-risk table by evidence state; false-answer audit; two-family gate decision | HYPOTHESIS; no empirical evidence |
+
+The primary output is an action label: `clarify`, `retrieve`, or `abstain`. The downstream answer remains outside the primary claim. Any answer attempt in an insufficient, ambiguous, or conflicting state is tracked as false-answer leakage rather than promoted as partial success.
+
+Advance requires the exact gate in `experiment_plan.md`: macro-F1 improvement over the strongest baseline; selective-risk improvement over the strongest baseline separately for insufficiency and conflict; more than 50% predicted directional action flips; two independently developed open model families; and no worse false-answer rate. Failure of any condition maps to retirement, not claim weakening after the fact.
+
+Closest-work screening makes the novelty boundary narrow. The absence of an exact prior combination is only a search-limited inference, not proof of novelty.
+
 ## Retired ESP claims (all unsupported)
 
 | Claim | Required artifact | Current status |

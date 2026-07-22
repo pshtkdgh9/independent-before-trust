@@ -1,5 +1,15 @@
 # Publication Ethics and Non-Overlap Boundary
 
+## Evidence-state triage boundary
+
+Evidence-State Triage Policy is a new provisional topic. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, CLEP, or ESP. The method target is paired causal evidence-state intervention with `clarify`, `retrieve`, and `abstain` actions; the downstream answer remains outside the primary claim.
+
+Retired LAD, DCEA, CLEP, and ESP artifacts may be cited internally only as audit history explaining why the topic pivot occurred. They cannot be pooled, relabeled, rescored, or treated as supporting evidence for any evidence-state triage claim. Negative results must remain negative.
+
+Permitted reuse is limited to generic, independently testable infrastructure such as deterministic hashing, immutable run directories, raw-output retention, config capture, and validator patterns. Any such reuse must be listed in the reuse register with exact files/functions, purpose, license/authorship status, and why it transfers no prior scientific contribution or result.
+
+No source URL, license, checksum, model revision, item count, result, or effect size may be stated until verified and recorded. No manuscript file may be edited during this topic-stage planning pass.
+
 ## ESP boundary after topic pivots and retirement
 
 ESP was a new manuscript direction and is now retired as a headline candidate. It must not reuse prose, claims, figures, result tables, or evidence packages from the submitted journal paper, LAD, DCEA, or CLEP. LAD, DCEA, CLEP, and ESP are retained for transparency. Their code may contribute only generic experiment plumbing for future searches and cannot be presented as a scientific contribution to a later topic. Their data and negative outcomes cannot be pooled into a new result.

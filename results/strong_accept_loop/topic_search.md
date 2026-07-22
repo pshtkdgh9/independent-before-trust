@@ -2,11 +2,21 @@
 
 Date: 2026-07-22. Candidate selection excludes benchmark-only work and requires a reusable NLP insight, public/open evidence path, A30 24 GB feasibility, EACL/ACL fit, and separation from the already-submitted journal manuscript.
 
+## Evidence-state triage provisional candidate
+
+The next provisional candidate is **Evidence-State Triage Policy**: a method study that decides whether the system should `clarify`, `retrieve`, or `abstain` under controlled evidence states. The downstream answer remains out of scope for the primary claim.
+
+The core novelty is paired causal evidence-state intervention, not benchmark creation. Each base item must support matched variants where the evidence state changes while query wording, answer target, source envelope, distractor count, and topic remain controlled. The decisive behavior is a predicted directional action flip: insufficiency should trigger evidence acquisition or clarification, conflict should trigger abstention, and user-intent ambiguity should trigger clarification rather than an answer attempt.
+
+Closest-work boundary as of the 2026-07-23 search: TACL 2022 insufficient-evidence fact checking; EMNLP 2023 selective ambiguous QA; ACL 2025 *Do not Abstain! Identify and Solve the Uncertainty*; Findings IJCNLP-AACL 2025 *When in Doubt, Ask First*; Findings EMNLP 2025 KBM; Abstain-R1; and CARE-family conflict-aware RAG. These works make generic abstention, ambiguity handling, adaptive retrieval, knowledge-boundary routing, post-refusal clarification, and conflict-aware RAG too crowded as standalone claims. The absence of the exact combination is only a search-limited inference: paired causal evidence-state interventions over insufficiency and conflict with a three-action `clarify`/`retrieve`/`abstain` policy and answer generation held downstream.
+
+Provisional score under the existing 1--5 dimensions: F=5, N=3, E=4, A=5, O=5, total=22. The novelty score is intentionally conservative because the closest-work boundary is dense. Advance requires the exact kill gate in `experiment_plan.md`; otherwise retire without favorable-model search or post-hoc label repair.
+
 ## Search reopened after ESP negative gate
 
 ESP is retired as the headline candidate, not erased from the audit trail. The natural-text counterfactual review in `esp_counterfactual/review_summary_v1.json` records Phi as passing the advance gate and Qwen as failing it; the combined gate is `advance=false`. The same file records `evidence_class=model_agent_development_only` and `human_evidence=false`, so the result cannot be promoted by calling it human evaluation or by scaling only the favorable family.
 
-No replacement topic is selected here. The next search must use the same constraints as the earlier pivots: licensed/public evidence path, method contribution rather than benchmark construction, explicit closest-work boundary, and a falsifiable two-family gate before any headline claim.
+The replacement search uses the same constraints as the earlier pivots: licensed/public evidence path, method contribution rather than benchmark construction, explicit closest-work boundary, and a falsifiable two-family gate before any headline claim. Evidence-state triage is provisional only; no result or manuscript claim is selected.
 
 ## Third-pivot public-data method search
 

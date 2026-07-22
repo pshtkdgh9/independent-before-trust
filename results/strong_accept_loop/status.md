@@ -2,10 +2,10 @@
 
 Date: 2026-07-23
 
-- Phase: LAD, DCEA, CLEP, and ESP retired; topic search reopened
+- Phase: LAD, DCEA, CLEP, and ESP retired; evidence-state triage provisional topic under audit
 - Primary target: EACL 2027 long paper via ARR 2026 August cycle
 - Backup: a later ARR cycle and compatible ACL-family venue if evidence is not ready
-- Selected direction: none; do not select the next topic until a new evidence-first search passes its gates
+- Selected direction: provisional only - Evidence-State Triage Policy with `clarify`/`retrieve`/`abstain` actions; answer generation remains downstream
 - Terminal gate: not satisfied
 
 ## Completed
@@ -46,6 +46,7 @@ Date: 2026-07-23
 - Two condition-blind model-agent audits covered all 228 outputs. Strict two-reviewer strength/scope consensus favored frame over generic in both families, but exact agreement was only `0.640` for strength, `0.443` for scope, and `0.268` for overall acceptability. These audits are development evidence, not human judgments.
 - A failure analysis froze the v1 semantic rubric: omitted targets are `scope=no`, wrong-scope hedges do not preserve strength, and acceptability is conjunctive over semantic fidelity and readability. Two new blinded model-agent audits improved raw agreement to `0.895` strength, `0.689` scope, `0.811` unsupported additions, and `0.899` acceptability. One attempted lane was discarded before writing after accidental exposure to old labels; a completed lane consulted only another file's field names, not labels, and this protocol deviation is retained. None of these audits is human evidence.
 - ESP's natural-text counterfactual negative gate is complete in `esp_counterfactual/review_summary_v1.json`: Phi passes (`advance=true`), Qwen fails (`advance=false`), and the overall gate is `advance=false`. The evidence class is `model_agent_development_only` and `human_evidence=false`, so ESP is retired as the headline candidate rather than selectively scaled.
+- Evidence-state triage topic docs were created under `docs/superpowers/`: the design spec fixes paired causal evidence-state interventions as the novelty target, and the implementation plan breaks the work into schema, licensed-source pilot construction, paired intervention validation, prompt/router baselines, CloudLab runner, integrity validation, gate analysis, and documentation.
 
 ## Blocking evidence
 
@@ -62,7 +63,9 @@ Date: 2026-07-23
 - The ESP cue extractor supplies candidates only. Same-family agent frame labels and model-agent output audits cannot satisfy an independent-human annotation gate; the completed counterfactual review is also model-agent development evidence only.
 - No manuscript/PDF, supplement, cold-review pass, or meta-review pass.
 - Topic-stage overlap clearance does not replace the mandatory final manuscript/supplement lexical, semantic, and evidence-lineage audit.
+- Evidence-state triage has no licensed pilot source, no checksums, no model runs, no integrity reports, and no supported claim yet.
+- The closest-work boundary is dense. Absence of an exact prior combination is only a search-limited inference until full-text review of insufficient-evidence, selective ambiguous-QA, ask-first, adaptive-retrieval, abstention, and conflict-aware RAG papers is complete.
 
 ## Highest-ROI next step
 
-Reopen topic search from the existing audit constraints. Preserve LAD, DCEA, CLEP, and ESP as retired topics with their negative evidence; do not select a replacement until a new candidate has a licensed evidence path, a direct novelty boundary, and a predeclared two-family gate.
+Implement the evidence-state triage pilot only after license/provenance records are fixed. The first executable step is the schema and validator TDD task in `docs/superpowers/plans/2026-07-23-evidence-state-triage-plan.md`; do not run generation or write manuscript prose before the licensed-source and paired-intervention gates exist.

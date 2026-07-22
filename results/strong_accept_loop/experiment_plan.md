@@ -1,4 +1,72 @@
-# Experiment Plan: Lineage-Aware Deliberation
+# Experiment Plan: Evidence-State Triage Policy
+
+## Current research questions
+
+- RQ1: Can a model or router distinguish missing evidence, user-intent ambiguity, and conflicting evidence before attempting a downstream answer?
+- RQ2: Does a state-aware triage method choose `clarify`, `retrieve`, or `abstain` more reliably than direct prompting, selective QA gates, adaptive retrieval routers, and conflict-aware RAG prompts?
+- RQ3: Do paired evidence-state interventions cause predicted directional action flips while query wording, answer target, topic, source envelope, and distractor count remain controlled?
+- RQ4: Can the policy reduce selective risk for both insufficiency and conflict without increasing false-answer rate?
+
+## Current paired intervention
+
+Each item contains a query, an answer target used only for validation, and a controlled evidence pack. The primary output is one action label: `clarify`, `retrieve`, or `abstain`. The primary task does not generate the final answer.
+
+Paired variants manipulate evidence state:
+
+- `sufficient -> insufficient`: remove or mask only the minimal required evidence slot.
+- `sufficient -> conflict`: introduce a contradictory answer-bearing statement while preserving the surface envelope.
+- `insufficient -> conflict`: preserve query and topic while changing the blocking state from missing evidence to contradictory evidence.
+
+The validator must reject pairs that change the query, alter the answer target, leak the condition through source names, change unrelated distractors, or lack a minimal-edit rationale.
+
+## Current protocols and baselines
+
+1. Direct answer-or-abstain prompt.
+2. Selective QA confidence or self-consistency gate.
+3. Ambiguity-aware clarification prompt.
+4. Adaptive retrieval or knowledge-boundary router.
+5. Conflict-aware RAG or evidence-reconciliation prompt.
+6. Oracle state label diagnostic, reported only as an upper-bound diagnostic.
+7. EST: explicit evidence-state policy that maps query/evidence state to `clarify`, `retrieve`, or `abstain`.
+
+## Current tasks and data policy
+
+Use only public, license-compatible source material after recording source URL, license/terms, revision if available, bytes, checksum, preprocessing command, and storage path. Do not state any source URL, checksum, license, item count, or model result until it is verified and recorded.
+
+The pilot construction is implementation-gated by `docs/superpowers/plans/2026-07-23-evidence-state-triage-plan.md`: schema, licensed-source pilot construction, paired intervention validator, prompt/router baselines, CloudLab runner, integrity validator, analysis/gate, and docs.
+
+## Current outcomes
+
+- action macro-F1 over `clarify`, `retrieve`, and `abstain`;
+- selective risk for insufficiency;
+- selective risk for conflict;
+- predicted directional action-flip rate across paired interventions;
+- false-answer rate, where any downstream answer attempt in a non-answer state is counted against the method;
+- parse/format failure by state, model family, and baseline;
+- cost, wall time, and token counts.
+
+## Current models and hardware
+
+The pilot must use two independently developed open model families. Exact model IDs, revisions, licenses, and checksums are not selected yet and must not be invented. CloudLab use follows the existing repository pattern only after the runner, config capture, raw-output retention, and integrity validator pass tests.
+
+## Current kill gate
+
+Advance only if all conditions pass:
+
+1. The state-aware method beats the strongest baseline on macro-F1.
+2. The state-aware method beats the strongest baseline on selective risk separately for insufficiency.
+3. The state-aware method beats the strongest baseline on selective risk separately for conflict.
+4. More than 50% of paired interventions produce the predicted directional action flip.
+5. The result holds across two independently developed open model families.
+6. The state-aware method has no worse false-answer rate than the strongest baseline.
+
+If any condition fails, retire the topic. Do not repair labels, alter the gate, change model families, or narrow the item subset after outcome inspection.
+
+## Claim limits
+
+The study cannot claim a new benchmark, universal abstention safety, general RAG reliability, human-like uncertainty reasoning, or downstream answer correctness. It can claim only behavior observed under the licensed paired evidence-state protocol after integrity validation.
+
+## Retired Lineage-Aware Deliberation Plan
 
 ## Research questions
 

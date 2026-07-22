@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import hmac
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -74,21 +76,93 @@ def _read_jsonl(path: Path, label: str, errors: list[str]) -> list[dict[str, Any
 
 def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows),
-        encoding="utf-8",
-    )
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(
+            "".join(
+                json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
+                for row in rows
+            )
+        )
 
 
-def _review_id(run: str, pair_id: str, variant: str, seed: int = 1701) -> str:
-    payload = f"{seed}:{run}:{pair_id}:{variant}".encode("utf-8")
-    return "esp-cf-review-" + hashlib.sha256(payload).hexdigest()[:16]
+def _review_id(secret: bytes, run: str, pair_id: str, variant: str) -> str:
+    payload = f"{run}:{pair_id}:{variant}".encode("utf-8")
+    digest = hmac.new(secret, payload, hashlib.sha256).hexdigest()
+    return "esp-cf-review-" + digest[:16]
 
 
 def _source_from_prompt(prompt: object) -> str:
     if not isinstance(prompt, str) or "SOURCE:\n" not in prompt:
         return ""
     return prompt.rsplit("SOURCE:\n", 1)[1]
+
+
+def _valid_string(value: object) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _append_string_errors(
+    row: dict[str, Any], row_number: int, fields: tuple[str, ...], errors: list[str]
+) -> bool:
+    valid = True
+    for field in fields:
+        if not _valid_string(row.get(field)):
+            errors.append(f"pair manifest row {row_number} invalid {field}")
+            valid = False
+    return valid
+
+
+def _validate_manifest_row(
+    row: dict[str, Any], row_number: int, errors: list[str]
+) -> dict[str, Any] | None:
+    required_strings = (
+        "pair_id",
+        "source_item_id",
+        "original_strength",
+        "counterfactual_strength",
+        "attribution",
+        "original_source",
+        "counterfactual_source",
+        "proposition_skeleton",
+    )
+    missing = [field for field in required_strings if field not in row]
+    if missing:
+        errors.append(
+            f"pair manifest row {row_number} missing fields: {', '.join(missing)}"
+        )
+        return None
+
+    valid = _append_string_errors(row, row_number, required_strings, errors)
+    if "counterfactual_proposition_skeleton" in row and not _valid_string(
+        row.get("counterfactual_proposition_skeleton")
+    ):
+        errors.append(
+            f"pair manifest row {row_number} invalid counterfactual_proposition_skeleton"
+        )
+        valid = False
+
+    strength_domain = {"possible", "suggestive", "likely", "unknown"}
+    for field in ("original_strength", "counterfactual_strength"):
+        value = row.get(field)
+        if isinstance(value, str) and value.strip() not in strength_domain:
+            errors.append(f"pair manifest row {row_number} invalid {field}")
+            valid = False
+
+    edit_spans = row.get("edit_spans")
+    if (
+        not isinstance(edit_spans, list)
+        or len(edit_spans) != 1
+        or not _valid_string(edit_spans[0])
+    ):
+        errors.append(f"pair manifest row {row_number} invalid edit_spans")
+        valid = False
+
+    for field in ("polarity_changed", "material_argument_changed"):
+        if field in row and not isinstance(row[field], bool):
+            errors.append(f"pair manifest row {row_number} invalid {field}")
+            valid = False
+
+    return row if valid else None
 
 
 def _load_pairs(pairs_path: Path, errors: list[str]) -> dict[str, dict[str, Any]]:
@@ -99,28 +173,15 @@ def _load_pairs(pairs_path: Path, errors: list[str]) -> dict[str, dict[str, Any]
         )
 
     pairs: dict[str, dict[str, Any]] = {}
-    required = (
-        "pair_id",
-        "source_item_id",
-        "original_strength",
-        "counterfactual_strength",
-        "attribution",
-        "original_source",
-        "counterfactual_source",
-        "proposition_skeleton",
-    )
     for row_number, row in enumerate(rows, 1):
-        missing = [field for field in required if field not in row]
-        if missing:
-            errors.append(
-                f"pair manifest row {row_number} missing fields: {', '.join(missing)}"
-            )
+        validated = _validate_manifest_row(row, row_number, errors)
+        if validated is None:
             continue
-        pair_id = str(row["pair_id"])
+        pair_id = validated["pair_id"]
         if pair_id in pairs:
             errors.append(f"duplicate pair_id in manifest: {pair_id}")
             continue
-        pairs[pair_id] = row
+        pairs[pair_id] = validated
     return pairs
 
 
@@ -152,6 +213,7 @@ def _run_dirs(artifact_root: Path, errors: list[str]) -> list[Path]:
 def _validate_run(
     run_dir: Path,
     pairs: dict[str, dict[str, Any]],
+    secret: bytes,
     errors: list[str],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     run = run_dir.name
@@ -211,7 +273,7 @@ def _validate_run(
             errors.append(f"{row_label} empty raw_output for {pair_id} {variant}")
             raw_output = ""
 
-        review_id = _review_id(run, pair_id, variant)
+        review_id = _review_id(secret, run, pair_id, variant)
         packet.append(
             {
                 "review_id": review_id,
@@ -250,16 +312,19 @@ def build_blind_review_packet(
     *,
     artifact_root: Path = DEFAULT_ARTIFACT_ROOT,
     pairs_path: Path = DEFAULT_PAIRS_PATH,
+    secret: bytes,
     packet_path: Path | None = None,
     key_path: Path | None = None,
 ) -> dict[str, list[dict[str, Any]]]:
     errors: list[str] = []
+    if not isinstance(secret, bytes) or not secret:
+        errors.append("secret must be nonempty bytes")
     pairs = _load_pairs(Path(pairs_path), errors)
     packet: list[dict[str, Any]] = []
     key: list[dict[str, Any]] = []
 
     for run_dir in _run_dirs(Path(artifact_root), errors):
-        run_packet, run_key = _validate_run(run_dir, pairs, errors)
+        run_packet, run_key = _validate_run(run_dir, pairs, secret, errors)
         packet.extend(run_packet)
         key.extend(run_key)
 
@@ -284,18 +349,38 @@ def build_blind_review_packet(
     return {"packet": packet, "key": key}
 
 
+def _load_secret(*, salt_env: str | None, salt_file: Path | None) -> bytes:
+    if salt_env is not None:
+        value = os.environ.get(salt_env)
+        if value is None:
+            raise ValueError(f"environment variable not set: {salt_env}")
+        secret = value.encode("utf-8")
+    elif salt_file is not None:
+        secret = salt_file.read_bytes().strip()
+    else:
+        raise ValueError("one of --salt-env or --salt-file is required")
+    if not secret:
+        raise ValueError("secret must be nonempty")
+    return secret
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--artifact-root", type=Path, default=DEFAULT_ARTIFACT_ROOT)
     parser.add_argument("--pairs", type=Path, default=DEFAULT_PAIRS_PATH)
     parser.add_argument("--packet", type=Path, default=DEFAULT_PACKET_PATH)
     parser.add_argument("--key", type=Path, default=DEFAULT_KEY_PATH)
+    secret_group = parser.add_mutually_exclusive_group(required=True)
+    secret_group.add_argument("--salt-env")
+    secret_group.add_argument("--salt-file", type=Path)
     args = parser.parse_args()
 
     try:
+        secret = _load_secret(salt_env=args.salt_env, salt_file=args.salt_file)
         result = build_blind_review_packet(
             artifact_root=args.artifact_root,
             pairs_path=args.pairs,
+            secret=secret,
             packet_path=args.packet,
             key_path=args.key,
         )

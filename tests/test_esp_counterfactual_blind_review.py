@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import hashlib
 import json
 import shutil
 import subprocess
@@ -19,6 +20,8 @@ _ARTIFACT_ROOT = (
     / "cloudlab_artifacts"
     / "esp-counterfactual-b1d8635"
 )
+_TEST_SECRET = b"unit-test-review-secret"
+_OTHER_SECRET = b"different-unit-test-review-secret"
 
 _BUILDER_SPEC = importlib.util.spec_from_file_location(
     "build_esp_counterfactual_blind_review", _BUILDER_PATH
@@ -34,10 +37,13 @@ def _read_jsonl(path: Path) -> list[dict[str, object]]:
 
 
 def _write_jsonl(path: Path, rows: list[dict[str, object]]) -> None:
-    path.write_text(
-        "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows),
-        encoding="utf-8",
-    )
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(
+            "".join(
+                json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
+                for row in rows
+            )
+        )
 
 
 class ESPCounterfactualBlindReviewTests(unittest.TestCase):
@@ -52,12 +58,14 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
             first = builder.build_blind_review_packet(
                 artifact_root=_ARTIFACT_ROOT,
                 pairs_path=_PAIRS_PATH,
+                secret=_TEST_SECRET,
                 packet_path=first_packet,
                 key_path=first_key,
             )
             second = builder.build_blind_review_packet(
                 artifact_root=_ARTIFACT_ROOT,
                 pairs_path=_PAIRS_PATH,
+                secret=_TEST_SECRET,
                 packet_path=second_packet,
                 key_path=second_key,
             )
@@ -65,6 +73,10 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
             self.assertEqual(first, second)
             self.assertEqual(first_packet.read_bytes(), second_packet.read_bytes())
             self.assertEqual(first_key.read_bytes(), second_key.read_bytes())
+            self.assertNotIn(b"\r\n", first_packet.read_bytes())
+            self.assertNotIn(b"\r\n", first_key.read_bytes())
+            self.assertTrue(first_packet.read_bytes().endswith(b"\n"))
+            self.assertTrue(first_key.read_bytes().endswith(b"\n"))
             self.assertEqual([row["review_id"] for row in first["packet"]], sorted(row["review_id"] for row in first["packet"]))
             self.assertEqual([row["review_id"] for row in first["key"]], sorted(row["review_id"] for row in first["key"]))
 
@@ -72,6 +84,7 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
         result = builder.build_blind_review_packet(
             artifact_root=_ARTIFACT_ROOT,
             pairs_path=_PAIRS_PATH,
+            secret=_TEST_SECRET,
         )
         packet = result["packet"]
         key = result["key"]
@@ -121,6 +134,38 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
                     continue
                 self.assertNotIn(forbidden, serialized)
 
+    def test_ids_require_secret_and_change_by_salt_without_breaking_alignment(self):
+        public_ids = {
+            "esp-cf-review-"
+            + hashlib.sha256(f"1701:{row['run']}:{row['pair_id']}:{row['variant']}".encode("utf-8")).hexdigest()[:16]
+            for row in builder.build_blind_review_packet(
+                artifact_root=_ARTIFACT_ROOT,
+                pairs_path=_PAIRS_PATH,
+                secret=_TEST_SECRET,
+            )["key"]
+        }
+        first = builder.build_blind_review_packet(
+            artifact_root=_ARTIFACT_ROOT,
+            pairs_path=_PAIRS_PATH,
+            secret=_TEST_SECRET,
+        )
+        second = builder.build_blind_review_packet(
+            artifact_root=_ARTIFACT_ROOT,
+            pairs_path=_PAIRS_PATH,
+            secret=_OTHER_SECRET,
+        )
+
+        first_ids = {row["review_id"] for row in first["packet"]}
+        second_ids = {row["review_id"] for row in second["packet"]}
+        self.assertTrue(first_ids.isdisjoint(public_ids))
+        self.assertTrue(first_ids.isdisjoint(second_ids))
+        self.assertEqual(first_ids, {row["review_id"] for row in first["key"]})
+        self.assertEqual(second_ids, {row["review_id"] for row in second["key"]})
+        self.assertEqual(
+            sorted((row["run"], row["pair_id"], row["variant"]) for row in first["key"]),
+            sorted((row["run"], row["pair_id"], row["variant"]) for row in second["key"]),
+        )
+
     def test_rejects_incomplete_run_set(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             artifact_root = Path(temp_dir) / "artifacts"
@@ -131,6 +176,7 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
                 builder.build_blind_review_packet(
                     artifact_root=artifact_root,
                     pairs_path=_PAIRS_PATH,
+                    secret=_TEST_SECRET,
                 )
 
     def test_rejects_missing_generation_row(self):
@@ -145,6 +191,7 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
                 builder.build_blind_review_packet(
                     artifact_root=artifact_root,
                     pairs_path=_PAIRS_PATH,
+                    secret=_TEST_SECRET,
                 )
 
     def test_rejects_tampered_strength_and_source_item_id(self):
@@ -161,13 +208,39 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
                 builder.build_blind_review_packet(
                     artifact_root=artifact_root,
                     pairs_path=_PAIRS_PATH,
+                    secret=_TEST_SECRET,
                 )
+
+    def test_rejects_malformed_manifest_values_before_construction(self):
+        cases = (
+            ("source_item_id", None, "invalid source_item_id"),
+            ("pair_id", " ", "invalid pair_id"),
+            ("original_strength", "certain", "invalid original_strength"),
+            ("edit_spans", [], "invalid edit_spans"),
+            ("polarity_changed", "false", "invalid polarity_changed"),
+        )
+        for field, value, pattern in cases:
+            with self.subTest(field=field):
+                with tempfile.TemporaryDirectory() as temp_dir:
+                    pairs_path = Path(temp_dir) / "pairs.jsonl"
+                    rows = _read_jsonl(_PAIRS_PATH)
+                    rows[0][field] = value
+                    _write_jsonl(pairs_path, rows)
+
+                    with self.assertRaisesRegex(ValueError, pattern):
+                        builder.build_blind_review_packet(
+                            artifact_root=_ARTIFACT_ROOT,
+                            pairs_path=pairs_path,
+                            secret=_TEST_SECRET,
+                        )
 
     def test_cli_writes_actual_packet_and_key(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             temp_path = Path(temp_dir)
             packet_path = temp_path / "packet.jsonl"
             key_path = temp_path / "key.jsonl"
+            salt_path = temp_path / "salt.txt"
+            salt_path.write_text("cli-test-review-secret\n", encoding="utf-8")
 
             result = subprocess.run(
                 [
@@ -181,6 +254,8 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
                     str(packet_path),
                     "--key",
                     str(key_path),
+                    "--salt-file",
+                    str(salt_path),
                 ],
                 cwd=temp_path,
                 text=True,
@@ -188,8 +263,12 @@ class ESPCounterfactualBlindReviewTests(unittest.TestCase):
             )
 
             self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+            self.assertNotIn("secret", result.stdout.lower())
+            self.assertNotIn("salt", result.stdout.lower())
             self.assertEqual(len(_read_jsonl(packet_path)), 112)
             self.assertEqual(len(_read_jsonl(key_path)), 112)
+            self.assertNotIn(b"\r\n", packet_path.read_bytes())
+            self.assertNotIn(b"\r\n", key_path.read_bytes())
 
 
 if __name__ == "__main__":

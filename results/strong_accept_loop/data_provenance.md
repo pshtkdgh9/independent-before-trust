@@ -1,6 +1,24 @@
 # Data Provenance Register
 
-One pilot source has been downloaded and transformed. The pinned model snapshot has been downloaded on CloudLab and a compatibility-fixed inference run is in progress, but no result has been promoted to evidence. The local reference inventory remains checksummed in `reference_inventory.tsv`.
+The retired LAD pilot source and both pinned model snapshots are recorded below. The new DCEA falsification pilot uses newly authored synthetic controlled facts and reuses only the already recorded model snapshots; no result has yet been promoted to evidence. The local reference inventory remains checksummed in `reference_inventory.tsv`.
+
+## DCEA controlled pilot material
+
+| Item | Value |
+|---|---|
+| Name | DCEA hand-authored controlled facts v0 |
+| Source | `src/dcea/fixtures.py` at the execution Git commit |
+| External download | None |
+| License/terms | Original project material; release intended with repository license, which must be finalized before public release |
+| Records | 20 templates, each expanded deterministically into original/counterfactual by singleton/redundant cells |
+| Construction | Fictional entities and values authored for this experiment; no real-world factual claim is intended |
+| Filtering | None after authorship; tests require unique item IDs, distinct intervention values, and unique source IDs |
+| Privacy/consent | No persons, user data, or private data |
+| Redistribution | Intended; repository-level license is still a release gate |
+| Derived artifacts | Per-run `templates.jsonl`, `generations.jsonl`, `metrics.json`, and `config.json` |
+| Known risk | Synthetic phrasing may overestimate control and underrepresent natural-document variation; it is a falsification pilot, not main generalization evidence |
+
+The exact transformation is implemented in `src/dcea/core.py`; `scripts/run_dcea_pilot.py` serializes the expanded templates and raw model outputs. The study does not call these materials a benchmark. If the controlled mechanism survives, a separate natural-text replication will require its own source URL, immutable revision, license, checksum, preprocessing record, and contamination analysis.
 
 ## Pilot dataset
 

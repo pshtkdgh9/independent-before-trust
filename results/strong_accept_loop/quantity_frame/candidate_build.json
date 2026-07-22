@@ -1,0 +1,61 @@
+{
+  "build_time_utc": "2026-07-22T18:12:35Z",
+  "candidate_only": true,
+  "command": "python scripts/build_quantity_frame_candidates.py",
+  "corpora": {
+    "GEM/cochrane-simplification": {
+      "candidate_rows_found": 396,
+      "candidates_written": 300,
+      "duplicates_skipped": 0,
+      "exclusions": {
+        "no_quantity_evidence": 15,
+        "per_corpus_limit": 96
+      },
+      "raw_path": "data/raw/quantity_frame/cochrane-simplification/75a92ae445171fa1b7641a229bfe3c77c0d8723d/validation.json",
+      "raw_sha256": "18c883a77ff20f718b71c05251146d9648022f277cd4dc345b43820cd6ba2d5f",
+      "revision": "75a92ae445171fa1b7641a229bfe3c77c0d8723d",
+      "rows_read": 411,
+      "source_record_hash": "d86c3b51e1b41d1a26b6ca84eb5dd40b739a7342815b753701ff6184e32a5641"
+    },
+    "tomasg25/scientific_lay_summarisation": {
+      "candidate_rows_found": 32,
+      "candidates_written": 32,
+      "duplicates_skipped": 0,
+      "exclusions": {
+        "no_quantity_evidence": 205,
+        "year_without_quantity_context": 9
+      },
+      "raw_path": "data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/elife_val.json",
+      "raw_sha256": "24fe7b98f04d2e6e5a80dda26ba241d5742de0f02c9e13a33121cabd98e9aeed",
+      "revision": "9e109befb07bfb993843991d09b8aa6ee40b9267",
+      "rows_read": 241,
+      "source_record_hash": "2b5b2000470eb3d443792610493cf5fe285ad085d0fd7edfad5339d268a4869e"
+    }
+  },
+  "deterministic_second_run_sha256": "d9cdcfd35d0c3ed47a6f492b087212b42a421890875c53a8e94751db0ec6af0c",
+  "experimental_claim": false,
+  "git_commit": "c14f90aa58ed72f6ea0933628f569e68ae93ad37",
+  "human_evidence": false,
+  "manifest_path": "data_provenance/quantity_frame_manifest.jsonl",
+  "output_bytes": 1409242,
+  "output_path": "data/processed/quantity-frame-candidates-v0/candidates.jsonl",
+  "output_sha256": "d9cdcfd35d0c3ed47a6f492b087212b42a421890875c53a8e94751db0ec6af0c",
+  "source_revisions": {
+    "GEM/cochrane-simplification": {
+      "raw_path": "data/raw/quantity_frame/cochrane-simplification/75a92ae445171fa1b7641a229bfe3c77c0d8723d/validation.json",
+      "raw_sha256": "18c883a77ff20f718b71c05251146d9648022f277cd4dc345b43820cd6ba2d5f",
+      "revision": "75a92ae445171fa1b7641a229bfe3c77c0d8723d",
+      "source_record_hash": "d86c3b51e1b41d1a26b6ca84eb5dd40b739a7342815b753701ff6184e32a5641"
+    },
+    "tomasg25/scientific_lay_summarisation": {
+      "raw_path": "data/raw/quantity_frame/scientific_lay_summarisation/9e109befb07bfb993843991d09b8aa6ee40b9267/elife_val.json",
+      "raw_sha256": "24fe7b98f04d2e6e5a80dda26ba241d5742de0f02c9e13a33121cabd98e9aeed",
+      "revision": "9e109befb07bfb993843991d09b8aa6ee40b9267",
+      "source_record_hash": "2b5b2000470eb3d443792610493cf5fe285ad085d0fd7edfad5339d268a4869e"
+    }
+  },
+  "total_candidates_found": 428,
+  "total_candidates_written": 332,
+  "total_duplicates_skipped": 0,
+  "total_rows_read": 652
+}

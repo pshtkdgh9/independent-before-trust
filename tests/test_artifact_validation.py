@@ -12,6 +12,15 @@ class AlwaysA:
         return "<answer>A</answer>"
 
 
+class BaselineAThenOutsideCandidate:
+    def __init__(self):
+        self.calls = 0
+
+    def generate(self, prompt: str) -> str:
+        self.calls += 1
+        return "<answer>A</answer>" if self.calls == 1 else "<B>"
+
+
 class PilotArtifactValidationTests(unittest.TestCase):
     def _build_run(self, root: Path) -> None:
         item = {
@@ -90,6 +99,40 @@ class PilotArtifactValidationTests(unittest.TestCase):
             self.assertIn(
                 "COMMON condition metrics do not reproduce from generations",
                 report["errors"],
+            )
+
+    def test_reproduces_runner_normalization_for_outside_candidate_answer(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            run_dir = Path(temp_dir)
+            item = {
+                "item_id": "item-1",
+                "question": "Choose A or B.",
+                "gold_answer": "A",
+                "candidate_answers": ["A", "B"],
+            }
+            config = PilotConfig(
+                model_id="fake/model",
+                model_revision="deadbeef",
+                tokenizer_revision="deadbeef",
+                model_license="test-only",
+            )
+            run_adaptive_paired_pilot(
+                [item], BaselineAThenOutsideCandidate(), run_dir, config
+            )
+            Path(run_dir, "RUN_COMPLETE").touch()
+
+            report = validate_pilot_artifacts(run_dir)
+
+            self.assertEqual(report["status"], "fail")
+            self.assertIn("parse failures present: 2", report["errors"])
+            self.assertFalse(
+                any("final_answer mismatch" in error for error in report["errors"])
+            )
+            self.assertFalse(
+                any("parse_error mismatch" in error for error in report["errors"])
+            )
+            self.assertFalse(
+                any("final_correct mismatch" in error for error in report["errors"])
             )
 
 

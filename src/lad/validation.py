@@ -39,6 +39,16 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _parse_candidate_answer(
+    response: str, candidates: list[str] | None
+) -> tuple[str | None, str | None]:
+    """Reproduce the runner's candidate-domain normalization exactly."""
+    answer, error = parse_answer(response, candidates)
+    if error is None and candidates is not None and answer not in candidates:
+        return None, "answer_outside_candidates"
+    return answer, error
+
+
 def validate_pilot_artifacts(run_dir: Path) -> dict[str, Any]:
     """Return a machine-readable pass/fail report without altering artifacts."""
     errors: list[str] = []
@@ -86,7 +96,7 @@ def validate_pilot_artifacts(run_dir: Path) -> dict[str, Any]:
         pair = pair_by_key.get(key)
         if pair is None:
             continue
-        expected_answer, expected_error = parse_answer(
+        expected_answer, expected_error = _parse_candidate_answer(
             str(row.get("raw_response", "")), pair.get("candidate_answers")
         )
         if row.get("final_answer") != expected_answer:
@@ -130,7 +140,7 @@ def validate_pilot_artifacts(run_dir: Path) -> dict[str, Any]:
         if pair is None:
             errors.append(f"baseline item has no paired record: {item_id}")
             continue
-        expected_answer, expected_error = parse_answer(
+        expected_answer, expected_error = _parse_candidate_answer(
             str(row.get("raw_response", "")), pair.get("candidate_answers")
         )
         if row.get("private_answer") != expected_answer:

@@ -67,11 +67,11 @@ def _build_insufficiency_pair(source: Mapping[str, Any]) -> Tuple[EvidenceItem, 
             pair_id=pair_id,
             pair_kind="insufficiency",
             evidence_state="sufficient",
-            expected_action="abstain",
+            expected_action="proceed",
             evidence=evidence,
             intervention_kind="restore_required_premise",
             evidence_index=index,
-            expected_directional_flip="abstain_to_retrieve",
+            expected_directional_flip="proceed_to_retrieve",
             extra_intervention={"restored_sentence_hash": _sha256_text(removed)},
         ),
         _make_item(
@@ -83,7 +83,7 @@ def _build_insufficiency_pair(source: Mapping[str, Any]) -> Tuple[EvidenceItem, 
             evidence=insufficient_evidence,
             intervention_kind="remove_required_premise",
             evidence_index=index,
-            expected_directional_flip="abstain_to_retrieve",
+            expected_directional_flip="proceed_to_retrieve",
             extra_intervention={"removed_sentence_hash": _sha256_text(removed)},
         ),
     )
@@ -94,8 +94,9 @@ def _build_conflict_pair(source: Mapping[str, Any]) -> Tuple[EvidenceItem, ...]:
     index = source["required_premise_index"]
     evidence = tuple(source["evidence_sentences"])
     original = evidence[index]
-    replacement = source["conflict_replacement_sentence"]
-    conflict_evidence = evidence[:index] + (replacement,) + evidence[index + 1 :]
+    incompatible = source["incompatible_sentence"]
+    conflict_index = len(evidence)
+    conflict_evidence = evidence + (incompatible,)
 
     return (
         _make_item(
@@ -103,11 +104,11 @@ def _build_conflict_pair(source: Mapping[str, Any]) -> Tuple[EvidenceItem, ...]:
             pair_id=pair_id,
             pair_kind="conflict",
             evidence_state="sufficient",
-            expected_action="abstain",
+            expected_action="proceed",
             evidence=evidence,
             intervention_kind="remove_conflicting_sentence",
-            evidence_index=index,
-            expected_directional_flip="abstain_to_abstain_conflict_check",
+            evidence_index=conflict_index,
+            expected_directional_flip="proceed_to_abstain",
             extra_intervention={"target_sentence_hash": _sha256_text(original)},
         ),
         _make_item(
@@ -118,11 +119,11 @@ def _build_conflict_pair(source: Mapping[str, Any]) -> Tuple[EvidenceItem, ...]:
             expected_action="abstain",
             evidence=conflict_evidence,
             intervention_kind="add_conflicting_sentence",
-            evidence_index=index,
-            expected_directional_flip="abstain_to_abstain_conflict_check",
+            evidence_index=conflict_index,
+            expected_directional_flip="proceed_to_abstain",
             extra_intervention={
                 "original_sentence_hash": _sha256_text(original),
-                "replacement_sentence_hash": _sha256_text(replacement),
+                "incompatible_sentence_hash": _sha256_text(incompatible),
             },
         ),
     )
@@ -218,7 +219,7 @@ def _validate_source_pack_row(row: Mapping[str, Any], row_number: int) -> Mappin
         "source_url",
         "question",
         "answer",
-        "conflict_replacement_sentence",
+        "incompatible_sentence",
     )
     for field_name in required_text_fields:
         _require_text(row, field_name, row_number)
@@ -245,11 +246,11 @@ def _validate_source_pack_row(row: Mapping[str, Any], row_number: int) -> Mappin
             f"source pack row {row_number} has invalid required_premise_index"
         )
 
-    replacement = str(row["conflict_replacement_sentence"])
-    _reject_uncertainty_cues(replacement, row_number)
-    if replacement == evidence[required_index]:
+    incompatible = str(row["incompatible_sentence"])
+    _reject_uncertainty_cues(incompatible, row_number)
+    if incompatible in evidence:
         raise EvidenceStateBuildError(
-            f"source pack row {row_number} conflict replacement must differ"
+            f"source pack row {row_number} incompatible_sentence must add new evidence"
         )
 
     return {

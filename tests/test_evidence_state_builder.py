@@ -26,7 +26,7 @@ VALID_SOURCE_PACK_ROW = {
         "The prize committee announced the result after the final vote.",
     ],
     "required_premise_index": 1,
-    "conflict_replacement_sentence": "Grace Hopper won the 2024 Example Award.",
+    "incompatible_sentence": "Grace Hopper won the 2024 Example Award.",
 }
 
 
@@ -40,6 +40,7 @@ class EvidenceStateBuilderTests(unittest.TestCase):
         self.assertEqual(sufficient.question, insufficient.question)
         self.assertEqual(sufficient.answer, insufficient.answer)
         self.assertEqual(sufficient.source_ids, insufficient.source_ids)
+        self.assertEqual(sufficient.expected_action, "proceed")
         self.assertEqual(insufficient.expected_action, "retrieve")
         self.assertEqual(insufficient.intervention["kind"], "remove_required_premise")
         self.assertEqual(insufficient.intervention["field"], "evidence")
@@ -60,7 +61,7 @@ class EvidenceStateBuilderTests(unittest.TestCase):
             ),
         )
 
-    def test_builds_conflict_pair_by_replacing_exactly_one_target_sentence(self):
+    def test_builds_conflict_pair_by_adding_exactly_one_incompatible_sentence(self):
         items = build_evidence_state_items([dict(VALID_SOURCE_PACK_ROW)])
 
         sufficient = _item(items, "conflict", "sufficient")
@@ -68,25 +69,25 @@ class EvidenceStateBuilderTests(unittest.TestCase):
 
         self.assertEqual(sufficient.question, conflict.question)
         self.assertEqual(sufficient.answer, conflict.answer)
+        self.assertEqual(sufficient.expected_action, "proceed")
         self.assertEqual(conflict.expected_action, "abstain")
-        self.assertEqual(len(sufficient.evidence), len(conflict.evidence))
-        self.assertEqual(sufficient.evidence[0], conflict.evidence[0])
-        self.assertEqual(sufficient.evidence[2], conflict.evidence[2])
+        self.assertEqual(len(conflict.evidence), len(sufficient.evidence) + 1)
+        self.assertEqual(conflict.evidence[:-1], sufficient.evidence)
         self.assertEqual(
             sufficient.evidence[1], "Ada Lovelace won the 2024 Example Award."
         )
         self.assertEqual(
-            conflict.evidence[1], "Grace Hopper won the 2024 Example Award."
+            conflict.evidence[-1], "Grace Hopper won the 2024 Example Award."
         )
         self.assertEqual(conflict.intervention["kind"], "add_conflicting_sentence")
         self.assertEqual(conflict.intervention["field"], "evidence")
-        self.assertEqual(conflict.intervention["evidence_index"], 1)
+        self.assertEqual(conflict.intervention["evidence_index"], 3)
         self.assertEqual(
             conflict.intervention["original_sentence_hash"],
             _sha("Ada Lovelace won the 2024 Example Award."),
         )
         self.assertEqual(
-            conflict.intervention["replacement_sentence_hash"],
+            conflict.intervention["incompatible_sentence_hash"],
             _sha("Grace Hopper won the 2024 Example Award."),
         )
 
@@ -96,7 +97,7 @@ class EvidenceStateBuilderTests(unittest.TestCase):
 
         self.assertEqual(len(sufficient_items), 2)
         self.assertEqual({item.answer for item in sufficient_items}, {"Ada Lovelace"})
-        self.assertEqual({item.expected_action for item in sufficient_items}, {"abstain"})
+        self.assertEqual({item.expected_action for item in sufficient_items}, {"proceed"})
         for item in sufficient_items:
             self.assertNotRegex(
                 " ".join(item.evidence).lower(),
@@ -119,10 +120,17 @@ class EvidenceStateBuilderTests(unittest.TestCase):
         self.assertEqual(
             flips,
             {
-                "fever-wiki-example-1:conflict": "abstain_to_abstain_conflict_check",
-                "fever-wiki-example-1:insufficiency": "abstain_to_retrieve",
+                "fever-wiki-example-1:conflict": "proceed_to_abstain",
+                "fever-wiki-example-1:insufficiency": "proceed_to_retrieve",
             },
         )
+
+    def test_refuses_source_pack_without_explicit_incompatible_sentence(self):
+        row = dict(VALID_SOURCE_PACK_ROW)
+        del row["incompatible_sentence"]
+
+        with self.assertRaisesRegex(EvidenceStateBuildError, "incompatible_sentence"):
+            build_evidence_state_items([row])
 
     def test_refuses_source_pack_rows_without_sufficient_or_auditable_source_material(self):
         for override, message in (

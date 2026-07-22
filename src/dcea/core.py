@@ -161,6 +161,38 @@ def run_pilot(
     return metrics
 
 
+def validate_run(output_dir: Path) -> dict[str, object]:
+    rows = [
+        json.loads(line)
+        for line in (output_dir / "generations.jsonl").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    errors: list[str] = []
+    reproduced: list[GenerationScore] = []
+    for row in rows:
+        cell_data = dict(row["cell"])
+        cell_data["sources"] = tuple(cell_data["sources"])
+        cell_data["source_ids"] = tuple(cell_data["source_ids"])
+        cell_data["supporting_source_ids"] = tuple(cell_data["supporting_source_ids"])
+        cell = InterventionCell(**cell_data)
+        score = score_generation(cell, row["raw_output"])
+        reproduced.append(score)
+        if asdict(score) != row["score"] and "score_mismatch" not in errors:
+            errors.append("score_mismatch")
+        if (score.parsed_answer is None or score.parsed_citation is None) and "parse_failures" not in errors:
+            errors.append("parse_failures")
+    stored_metrics = json.loads((output_dir / "metrics.json").read_text(encoding="utf-8"))
+    reproduced_metrics = summarize_cells(reproduced)
+    if stored_metrics != reproduced_metrics:
+        errors.append("metrics_mismatch")
+    return {
+        "status": "pass" if not errors else "fail",
+        "errors": errors,
+        "generation_count": len(rows),
+        "reproduced_metrics": reproduced_metrics,
+    }
+
+
 def summarize_cells(scores: Iterable[GenerationScore]) -> dict[str, float]:
     groups: dict[bool, list[GenerationScore]] = {False: [], True: []}
     by_pair: dict[tuple[str, bool], dict[str, GenerationScore]] = {}

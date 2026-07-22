@@ -10,6 +10,7 @@ from src.dcea.core import (
     run_pilot,
     score_generation,
     summarize_cells,
+    validate_run,
 )
 from src.dcea.fixtures import pilot_templates
 
@@ -135,6 +136,27 @@ class DCEATest(unittest.TestCase):
             self.assertTrue(all("raw_output" in row for row in generations))
             self.assertEqual(metrics["singleton_directional_rate"], 1.0)
             self.assertEqual(metrics["redundant_directional_rate"], 1.0)
+
+            report = validate_run(output_dir)
+            self.assertEqual(report["status"], "pass")
+
+    def test_validator_rejects_tampered_metrics(self) -> None:
+        class EvidenceFollowingBackend:
+            def generate(self, prompt: str) -> str:
+                answer = "2017" if "2017" in prompt else "2012"
+                return f"ANSWER: {answer}\nCITATION: K7"
+
+        with TemporaryDirectory() as temp_dir:
+            output_dir = Path(temp_dir)
+            run_pilot([self.template], EvidenceFollowingBackend(), output_dir, contrastive=False)
+            metrics_path = output_dir / "metrics.json"
+            metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+            metrics["singleton_pair_flip_rate"] = 0.0
+            metrics_path.write_text(json.dumps(metrics), encoding="utf-8")
+
+            report = validate_run(output_dir)
+            self.assertEqual(report["status"], "fail")
+            self.assertIn("metrics_mismatch", report["errors"])
 
     def test_pilot_fixture_has_distinct_balanced_values(self) -> None:
         templates = pilot_templates()
